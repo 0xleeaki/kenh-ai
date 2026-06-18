@@ -19,6 +19,7 @@ colors:
 
 layout:
   tabs-placement: header
+  searchbar: header
 
 experimental:
   mdx-components:

@@ -58,7 +58,7 @@ navigation:
         icon: compass
         skip-slug: true
         contents:
-          - page: Quickstart
+          - page: Bắt đầu nhanh
             path: quickstart.mdx
             slug: quickstart
             icon: rocket

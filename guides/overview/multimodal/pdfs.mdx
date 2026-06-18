@@ -17,13 +17,13 @@ icon: file-pdf
 sidebarTitle: PDFs
 ---
 
-import { Template } from "/snippets/exports/Template.jsx";
+import { Template } from "../../../snippets/exports/Template.jsx";
 import {
   API_KEY_REF,
   DEFAULT_PDF_ENGINE,
   MISTRAL_OCR_USER_COST_PER_1K_PAGE_DOLLARS as MISTRAL_OCR_COST,
   PDFParserEngine,
-} from '/snippets/exports/constants.mdx';
+} from '../../../snippets/exports/constants.mdx';
 
 OpenRouter supports PDF processing through the `/api/v1/chat/completions` API. PDFs can be sent as **direct URLs** or **base64-encoded data URLs** in the messages array, via the file content type. This feature works on **any** model on OpenRouter.
 

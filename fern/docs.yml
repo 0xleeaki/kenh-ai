@@ -19,12 +19,25 @@ colors:
 
 layout:
   tabs-placement: header
-  searchbar: header
 
 experimental:
   mdx-components:
     - ./components
     - ./snippets
+
+navbar-links:
+  - type: minimal
+    text: Models
+    href: "https://kenh-ai.com/models"
+  - type: minimal
+    text: Chat
+    href: "https://kenh-ai.com/chat"
+  - type: minimal
+    text: Rankings
+    href: "https://kenh-ai.com/rankings"
+  - type: filled
+    text: Docs
+    href: /docs/api-reference/overview
 
 tabs:
   docs:

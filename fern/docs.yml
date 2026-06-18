@@ -28,670 +28,975 @@ tabs:
   docs:
     display-name: Docs
     icon: book
+    skip-slug: true
   api-reference:
     display-name: API Reference
     icon: code
+    skip-slug: true
   client-sdks:
     display-name: Client SDKs
     icon: cube
+    skip-slug: true
   agent-sdk:
     display-name: Agent SDK
     icon: cube
+    skip-slug: true
   cookbook:
     display-name: Cookbook
     icon: book-open
+    skip-slug: true
   changelog:
     display-name: Changelog
     icon: clock-rotate-left
+    skip-slug: true
 
 navigation:
   - tab: docs
     layout:
       - section: Overview
         icon: compass
+        skip-slug: true
         contents:
           - page: Quickstart
             path: quickstart.mdx
+            slug: quickstart
           - page: Principles
             path: guides/overview/principles.mdx
+            slug: guides/overview/principles
           - page: Models
             path: guides/overview/models.mdx
+            slug: guides/overview/models
           - section: Multimodal
             icon: layer-group
+            skip-slug: true
             contents:
             - page: Multimodal Capabilities
               path: guides/overview/multimodal/overview.mdx
+              slug: guides/overview/multimodal/overview
             - page: Image Inputs
               path: guides/overview/multimodal/image-understanding.mdx
+              slug: guides/overview/multimodal/image-understanding
             - page: Image Generation
               path: guides/overview/multimodal/image-generation.mdx
+              slug: guides/overview/multimodal/image-generation
             - page: PDF Inputs
               path: guides/overview/multimodal/pdfs.mdx
+              slug: guides/overview/multimodal/pdfs
             - page: Audio
               path: guides/overview/multimodal/audio.mdx
+              slug: guides/overview/multimodal/audio
             - page: Video Inputs
               path: guides/overview/multimodal/videos.mdx
+              slug: guides/overview/multimodal/videos
             - page: Video Generation
               path: guides/overview/multimodal/video-generation.mdx
+              slug: guides/overview/multimodal/video-generation
             - page: Text-to-Speech
               path: guides/overview/multimodal/tts.mdx
+              slug: guides/overview/multimodal/tts
             - page: Speech-to-Text
               path: guides/overview/multimodal/stt.mdx
+              slug: guides/overview/multimodal/stt
           - section: Authentication
             icon: shield-check
+            skip-slug: true
             contents:
             - page: OAuth PKCE
               path: guides/overview/auth/oauth.mdx
+              slug: guides/overview/auth/oauth
             - page: Management API Keys
               path: guides/overview/auth/management-api-keys.mdx
+              slug: guides/overview/auth/management-api-keys
             - page: BYOK
               path: guides/overview/auth/byok.mdx
+              slug: guides/overview/auth/byok
           - page: Stripe Projects
             path: guides/overview/stripe-projects.mdx
+            slug: guides/overview/stripe-projects
           - page: Frequently Asked Questions
             path: faq.mdx
+            slug: faq
           - page: Report Feedback
             path: guides/overview/report-feedback.mdx
+            slug: guides/overview/report-feedback
       - section: "Models & Routing"
         icon: route
+        skip-slug: true
         contents:
           - page: Model Fallbacks
             path: guides/routing/model-fallbacks.mdx
+            slug: guides/routing/model-fallbacks
           - page: Provider Routing
             path: guides/routing/provider-selection.mdx
+            slug: guides/routing/provider-selection
           - page: Auto Exacto
             path: guides/routing/auto-exacto.mdx
+            slug: guides/routing/auto-exacto
           - page: Private Models
             path: guides/routing/private-models.mdx
+            slug: guides/routing/private-models
           - section: Model Variants
             icon: gem
+            skip-slug: true
             contents:
             - page: Free Variant
               path: guides/routing/model-variants/free.mdx
+              slug: guides/routing/model-variants/free
             - page: Extended Variant
               path: guides/routing/model-variants/extended.mdx
+              slug: guides/routing/model-variants/extended
             - page: Exacto Variant
               path: guides/routing/model-variants/exacto.mdx
+              slug: guides/routing/model-variants/exacto
             - page: Thinking Variant
               path: guides/routing/model-variants/thinking.mdx
+              slug: guides/routing/model-variants/thinking
             - page: Online Variant
               path: guides/routing/model-variants/online.mdx
+              slug: guides/routing/model-variants/online
             - page: Nitro Variant
               path: guides/routing/model-variants/nitro.mdx
+              slug: guides/routing/model-variants/nitro
           - section: Routers
             icon: robot
+            skip-slug: true
             contents:
             - page: Auto Router
               path: guides/routing/routers/auto-router.mdx
+              slug: guides/routing/routers/auto-router
             - page: Body Builder
               path: guides/routing/routers/body-builder.mdx
+              slug: guides/routing/routers/body-builder
             - page: Free Models Router
               path: guides/routing/routers/free-router.mdx
+              slug: guides/routing/routers/free-router
             - page: Latest Model Resolution
               path: guides/routing/routers/latest-resolution.mdx
+              slug: guides/routing/routers/latest-resolution
             - page: Pareto Router
               path: guides/routing/routers/pareto-router.mdx
+              slug: guides/routing/routers/pareto-router
             - page: Fusion Router
               path: guides/routing/routers/fusion-router.mdx
+              slug: guides/routing/routers/fusion-router
       - section: Features
         icon: stars
+        skip-slug: true
         contents:
           - page: Workspaces
             path: guides/features/workspaces.mdx
+            slug: guides/features/workspaces
           - page: Presets
             path: guides/features/presets.mdx
+            slug: guides/features/presets
           - page: Response Caching
             path: guides/features/response-caching.mdx
+            slug: guides/features/response-caching
           - page: "Tool & Function Calling"
             path: guides/features/tool-calling.mdx
+            slug: guides/features/tool-calling
           - section: Server Tools
             icon: server
+            skip-slug: true
             contents:
             - page: Server Tools
               path: guides/features/server-tools.mdx
+              slug: guides/features/server-tools
             - page: Web Search
               path: guides/features/server-tools/web-search.mdx
+              slug: guides/features/server-tools/web-search
             - page: Web Fetch
               path: guides/features/server-tools/web-fetch.mdx
+              slug: guides/features/server-tools/web-fetch
             - page: Datetime
               path: guides/features/server-tools/datetime.mdx
+              slug: guides/features/server-tools/datetime
             - page: Image Generation
               path: guides/features/server-tools/image-generation.mdx
+              slug: guides/features/server-tools/image-generation
             - page: Apply Patch
               path: guides/features/server-tools/apply-patch.mdx
+              slug: guides/features/server-tools/apply-patch
             - page: Fusion
               path: guides/features/server-tools/fusion.mdx
+              slug: guides/features/server-tools/fusion
           - section: Plugins
             icon: plug
+            skip-slug: true
             contents:
             - page: Plugins
               path: guides/features/plugins.mdx
+              slug: guides/features/plugins
             - page: Web Search
               path: guides/features/plugins/web-search.mdx
+              slug: guides/features/plugins/web-search
             - page: Response Healing
               path: guides/features/plugins/response-healing.mdx
+              slug: guides/features/plugins/response-healing
             - page: Fusion
               path: guides/features/plugins/fusion.mdx
+              slug: guides/features/plugins/fusion
           - page: Structured Outputs
             path: guides/features/structured-outputs.mdx
+            slug: guides/features/structured-outputs
           - page: Message Transforms
             path: guides/features/message-transforms.mdx
+            slug: guides/features/message-transforms
           - page: Zero Completion Insurance
             path: guides/features/zero-completion-insurance.mdx
+            slug: guides/features/zero-completion-insurance
           - page: Zero Data Retention
             path: guides/features/zdr.mdx
+            slug: guides/features/zdr
           - page: App Attribution
             path: app-attribution.mdx
+            slug: app-attribution
           - section: Guardrails
             icon: shield-check
+            skip-slug: true
             contents:
             - page: Guardrails
               path: guides/features/guardrails.mdx
+              slug: guides/features/guardrails
             - page: Prompt Injection Detection
               path: guides/features/guardrails/prompt-injection.mdx
+              slug: guides/features/guardrails/prompt-injection
             - page: Sensitive Info Guardrail
               path: guides/features/guardrails/sensitive-info.mdx
+              slug: guides/features/guardrails/sensitive-info
           - page: Service Tiers
             path: guides/features/service-tiers.mdx
+            slug: guides/features/service-tiers
           - page: Sovereign AI
             path: guides/features/sovereign-ai.mdx
+            slug: guides/features/sovereign-ai
           - page: Router Metadata
             path: guides/features/router-metadata.mdx
+            slug: guides/features/router-metadata
           - page: "Input & Output Logging"
             path: guides/features/input-output-logging.mdx
+            slug: guides/features/input-output-logging
           - section: Broadcast
             icon: broadcast-tower
+            skip-slug: true
             contents:
             - page: Broadcast
               path: guides/features/broadcast.mdx
+              slug: guides/features/broadcast
             - page: Arize AI
               path: guides/features/broadcast/arize.mdx
+              slug: guides/features/broadcast/arize
             - page: Braintrust
               path: guides/features/broadcast/braintrust.mdx
+              slug: guides/features/broadcast/braintrust
             - page: ClickHouse
               path: guides/features/broadcast/clickhouse.mdx
+              slug: guides/features/broadcast/clickhouse
             - page: Comet Opik
               path: guides/features/broadcast/opik.mdx
+              slug: guides/features/broadcast/opik
             - page: Datadog
               path: guides/features/broadcast/datadog.mdx
+              slug: guides/features/broadcast/datadog
             - page: Grafana Cloud
               path: guides/features/broadcast/grafana.mdx
+              slug: guides/features/broadcast/grafana
             - page: Langfuse
               path: guides/features/broadcast/langfuse.mdx
+              slug: guides/features/broadcast/langfuse
             - page: LangSmith
               path: guides/features/broadcast/langsmith.mdx
+              slug: guides/features/broadcast/langsmith
             - page: New Relic
               path: guides/features/broadcast/newrelic.mdx
+              slug: guides/features/broadcast/newrelic
             - page: OpenTelemetry Collector
               path: guides/features/broadcast/otel-collector.mdx
+              slug: guides/features/broadcast/otel-collector
             - page: PostHog
               path: guides/features/broadcast/posthog.mdx
+              slug: guides/features/broadcast/posthog
             - page: Ramp
               path: guides/features/broadcast/ramp.mdx
+              slug: guides/features/broadcast/ramp
             - page: S3 / S3-Compatible
               path: guides/features/broadcast/s3.mdx
+              slug: guides/features/broadcast/s3
             - page: Sentry
               path: guides/features/broadcast/sentry.mdx
+              slug: guides/features/broadcast/sentry
             - page: Snowflake
               path: guides/features/broadcast/snowflake.mdx
+              slug: guides/features/broadcast/snowflake
             - page: "W&B Weave"
               path: guides/features/broadcast/weave.mdx
+              slug: guides/features/broadcast/weave
             - page: Webhook
               path: guides/features/broadcast/webhook.mdx
+              slug: guides/features/broadcast/webhook
       - section: Privacy
         icon: shield
+        skip-slug: true
         contents:
           - page: Data Collection
             path: guides/privacy/data-collection.mdx
+            slug: guides/privacy/data-collection
           - page: Provider Logging
             path: guides/privacy/provider-logging.mdx
+            slug: guides/privacy/provider-logging
       - section: Best Practices
         icon: lightbulb
+        skip-slug: true
         contents:
           - page: Latency and Performance
             path: guides/best-practices/latency-and-performance.mdx
+            slug: guides/best-practices/latency-and-performance
           - page: Prompt Caching
             path: guides/best-practices/prompt-caching.mdx
+            slug: guides/best-practices/prompt-caching
           - page: Uptime Optimization
             path: guides/best-practices/uptime-optimization.mdx
+            slug: guides/best-practices/uptime-optimization
           - page: Reasoning Tokens
             path: guides/best-practices/reasoning-tokens.mdx
+            slug: guides/best-practices/reasoning-tokens
       - section: Community
         icon: users
+        skip-slug: true
         contents:
           - page: Provider Integration
             path: guides/community/for-providers.mdx
+            slug: guides/community/for-providers
           - page: Frameworks and Integrations Overview
             path: guides/community/frameworks-and-integrations-overview.mdx
+            slug: guides/community/frameworks-and-integrations-overview
           - page: Awesome OpenRouter
             path: guides/community/awesome-openrouter.mdx
+            slug: guides/community/awesome-openrouter
           - page: Effect AI SDK
             path: guides/community/effect-ai-sdk.mdx
+            slug: guides/community/effect-ai-sdk
           - page: Arize
             path: guides/community/arize.mdx
+            slug: guides/community/arize
           - page: LangChain
             path: guides/community/langchain.mdx
+            slug: guides/community/langchain
           - page: LiveKit
             path: guides/community/livekit.mdx
+            slug: guides/community/livekit
           - page: Langfuse
             path: guides/community/langfuse.mdx
+            slug: guides/community/langfuse
           - page: Mastra
             path: guides/community/mastra.mdx
+            slug: guides/community/mastra
           - page: OpenAI SDK
             path: guides/community/openai-sdk.mdx
+            slug: guides/community/openai-sdk
           - page: Anthropic Agent SDK
             path: guides/community/anthropic-agent-sdk.mdx
+            slug: guides/community/anthropic-agent-sdk
           - page: PydanticAI
             path: guides/community/pydantic-ai.mdx
+            slug: guides/community/pydantic-ai
           - page: Replit
             path: guides/community/replit.mdx
+            slug: guides/community/replit
           - page: TanStack AI
             path: guides/community/tanstack-ai.mdx
+            slug: guides/community/tanstack-ai
           - page: Vercel AI SDK
             path: guides/community/vercel-ai-sdk.mdx
+            slug: guides/community/vercel-ai-sdk
           - page: Xcode
             path: guides/community/xcode.mdx
+            slug: guides/community/xcode
           - page: Zapier
             path: guides/community/zapier.mdx
+            slug: guides/community/zapier
           - page: Infisical
             path: guides/community/infisical.mdx
+            slug: guides/community/infisical
   - tab: api-reference
     layout:
       - section: API Guides
         icon: code
+        skip-slug: true
         contents:
           - page: API Reference
             path: api/reference/overview.mdx
+            slug: api/reference/overview
           - page: Streaming
             path: api/reference/streaming.mdx
+            slug: api/reference/streaming
           - page: Embeddings
             path: api/reference/embeddings.mdx
+            slug: api/reference/embeddings
           - page: Limits
             path: api/reference/limits.mdx
+            slug: api/reference/limits
           - page: Authentication
             path: api/reference/authentication.mdx
+            slug: api/reference/authentication
           - page: Parameters
             path: api/reference/parameters.mdx
+            slug: api/reference/parameters
           - page: Errors and Debugging
             path: api/reference/errors-and-debugging.mdx
+            slug: api/reference/errors-and-debugging
           - section: Responses API
             icon: flask
+            skip-slug: true
             contents:
             - page: Responses API Beta
               path: api/reference/responses/overview.mdx
+              slug: api/reference/responses/overview
             - page: Basic Usage
               path: api/reference/responses/basic-usage.mdx
+              slug: api/reference/responses/basic-usage
             - page: Reasoning
               path: api/reference/responses/reasoning.mdx
+              slug: api/reference/responses/reasoning
             - page: Tool Calling
               path: api/reference/responses/tool-calling.mdx
+              slug: api/reference/responses/tool-calling
             - page: Web Search
               path: api/reference/responses/web-search.mdx
+              slug: api/reference/responses/web-search
             - page: Error Handling
               path: api/reference/responses/error-handling.mdx
+              slug: api/reference/responses/error-handling
       - api: API Reference
   - tab: client-sdks
     layout:
       - page: Client SDKs
         path: client-sdks/overview.mdx
+        slug: client-sdks/overview
       - page: Usage for Agents
         path: client-sdks/usage-for-agents.mdx
+        slug: client-sdks/usage-for-agents
       - section: TypeScript SDK
         icon: code
+        skip-slug: true
         contents:
         - page: TypeScript SDK
           path: client-sdks/typescript/overview.mdx
+          slug: client-sdks/typescript/overview
         - section: API Reference
           icon: code
+          skip-slug: true
           contents:
           - page: Analytics - TypeScript SDK
             path: client-sdks/typescript/api-reference/analytics.mdx
+            slug: client-sdks/typescript/api-reference/analytics
           - page: APIKeys - TypeScript SDK
             path: client-sdks/typescript/api-reference/apikeys.mdx
+            slug: client-sdks/typescript/api-reference/apikeys
           - page: Byok - TypeScript SDK
             path: client-sdks/typescript/api-reference/byok.mdx
+            slug: client-sdks/typescript/api-reference/byok
           - page: Chat - TypeScript SDK
             path: client-sdks/typescript/api-reference/chat.mdx
+            slug: client-sdks/typescript/api-reference/chat
           - page: Credits - TypeScript SDK
             path: client-sdks/typescript/api-reference/credits.mdx
+            slug: client-sdks/typescript/api-reference/credits
           - page: Datasets - TypeScript SDK
             path: client-sdks/typescript/api-reference/datasets.mdx
+            slug: client-sdks/typescript/api-reference/datasets
           - page: Embeddings - TypeScript SDK
             path: client-sdks/typescript/api-reference/embeddings.mdx
+            slug: client-sdks/typescript/api-reference/embeddings
           - page: Endpoints - TypeScript SDK
             path: client-sdks/typescript/api-reference/endpoints.mdx
+            slug: client-sdks/typescript/api-reference/endpoints
           - page: Generations - TypeScript SDK
             path: client-sdks/typescript/api-reference/generations.mdx
+            slug: client-sdks/typescript/api-reference/generations
           - page: Guardrails - TypeScript SDK
             path: client-sdks/typescript/api-reference/guardrails.mdx
+            slug: client-sdks/typescript/api-reference/guardrails
           - section: Models
             icon: cube
+            skip-slug: true
             contents:
             - page: Models - TypeScript SDK
               path: client-sdks/typescript/api-reference/models.mdx
+              slug: client-sdks/typescript/api-reference/models
           - page: OAuth - TypeScript SDK
             path: client-sdks/typescript/api-reference/oauth.mdx
+            slug: client-sdks/typescript/api-reference/oauth
           - page: Observability - TypeScript SDK
             path: client-sdks/typescript/api-reference/observability.mdx
+            slug: client-sdks/typescript/api-reference/observability
           - page: Organization - TypeScript SDK
             path: client-sdks/typescript/api-reference/organization.mdx
+            slug: client-sdks/typescript/api-reference/organization
           - page: Presets - TypeScript SDK
             path: client-sdks/typescript/api-reference/presets.mdx
+            slug: client-sdks/typescript/api-reference/presets
           - page: Providers - TypeScript SDK
             path: client-sdks/typescript/api-reference/providers.mdx
+            slug: client-sdks/typescript/api-reference/providers
           - page: Rerank - TypeScript SDK
             path: client-sdks/typescript/api-reference/rerank.mdx
+            slug: client-sdks/typescript/api-reference/rerank
           - page: Beta.Responses - TypeScript SDK
             path: client-sdks/typescript/api-reference/responses.mdx
+            slug: client-sdks/typescript/api-reference/responses
           - page: Transcriptions - TypeScript SDK
             path: client-sdks/typescript/api-reference/stt.mdx
+            slug: client-sdks/typescript/api-reference/stt
           - page: Speech - TypeScript SDK
             path: client-sdks/typescript/api-reference/tts.mdx
+            slug: client-sdks/typescript/api-reference/tts
           - page: VideoGeneration - TypeScript SDK
             path: client-sdks/typescript/api-reference/videogeneration.mdx
+            slug: client-sdks/typescript/api-reference/videogeneration
           - page: Workspaces - TypeScript SDK
             path: client-sdks/typescript/api-reference/workspaces.mdx
+            slug: client-sdks/typescript/api-reference/workspaces
       - section: Python SDK
         icon: code
+        skip-slug: true
         contents:
         - page: Python SDK
           path: client-sdks/python/overview.mdx
+          slug: client-sdks/python/overview
         - section: API Reference
           icon: code
+          skip-slug: true
           contents:
           - page: Analytics - Python SDK
             path: client-sdks/python/api-reference/analytics.mdx
+            slug: client-sdks/python/api-reference/analytics
           - page: APIKeys - Python SDK
             path: client-sdks/python/api-reference/apikeys.mdx
+            slug: client-sdks/python/api-reference/apikeys
           - page: Byok - Python SDK
             path: client-sdks/python/api-reference/byok.mdx
+            slug: client-sdks/python/api-reference/byok
           - page: Chat - Python SDK
             path: client-sdks/python/api-reference/chat.mdx
+            slug: client-sdks/python/api-reference/chat
           - page: Credits - Python SDK
             path: client-sdks/python/api-reference/credits.mdx
+            slug: client-sdks/python/api-reference/credits
           - page: Datasets - Python SDK
             path: client-sdks/python/api-reference/datasets.mdx
+            slug: client-sdks/python/api-reference/datasets
           - page: Embeddings - Python SDK
             path: client-sdks/python/api-reference/embeddings.mdx
+            slug: client-sdks/python/api-reference/embeddings
           - page: Endpoints - Python SDK
             path: client-sdks/python/api-reference/endpoints.mdx
+            slug: client-sdks/python/api-reference/endpoints
           - page: Generations - Python SDK
             path: client-sdks/python/api-reference/generations.mdx
+            slug: client-sdks/python/api-reference/generations
           - page: Guardrails - Python SDK
             path: client-sdks/python/api-reference/guardrails.mdx
+            slug: client-sdks/python/api-reference/guardrails
           - section: Models
             icon: cube
+            skip-slug: true
             contents:
             - page: Models - Python SDK
               path: client-sdks/python/api-reference/models.mdx
+              slug: client-sdks/python/api-reference/models
           - page: OAuth - Python SDK
             path: client-sdks/python/api-reference/oauth.mdx
+            slug: client-sdks/python/api-reference/oauth
           - page: Observability - Python SDK
             path: client-sdks/python/api-reference/observability.mdx
+            slug: client-sdks/python/api-reference/observability
           - page: Organization - Python SDK
             path: client-sdks/python/api-reference/organization.mdx
+            slug: client-sdks/python/api-reference/organization
           - page: Presets - Python SDK
             path: client-sdks/python/api-reference/presets.mdx
+            slug: client-sdks/python/api-reference/presets
           - page: Providers - Python SDK
             path: client-sdks/python/api-reference/providers.mdx
+            slug: client-sdks/python/api-reference/providers
           - page: Rerank - Python SDK
             path: client-sdks/python/api-reference/rerank.mdx
+            slug: client-sdks/python/api-reference/rerank
           - page: Beta.Responses - Python SDK
             path: client-sdks/python/api-reference/responses.mdx
+            slug: client-sdks/python/api-reference/responses
           - page: Transcriptions - Python SDK
             path: client-sdks/python/api-reference/stt.mdx
+            slug: client-sdks/python/api-reference/stt
           - page: Speech - Python SDK
             path: client-sdks/python/api-reference/tts.mdx
+            slug: client-sdks/python/api-reference/tts
           - page: VideoGeneration - Python SDK
             path: client-sdks/python/api-reference/videogeneration.mdx
+            slug: client-sdks/python/api-reference/videogeneration
           - page: Workspaces - Python SDK
             path: client-sdks/python/api-reference/workspaces.mdx
+            slug: client-sdks/python/api-reference/workspaces
       - section: Go SDK
         icon: code
+        skip-slug: true
         contents:
         - section: API Reference
           icon: code
+          skip-slug: true
           contents:
           - page: Analytics - Go SDK
             path: client-sdks/go/api-reference/analytics.mdx
+            slug: client-sdks/go/api-reference/analytics
           - page: APIKeys - Go SDK
             path: client-sdks/go/api-reference/apikeys.mdx
+            slug: client-sdks/go/api-reference/apikeys
           - page: Byok - Go SDK
             path: client-sdks/go/api-reference/byok.mdx
+            slug: client-sdks/go/api-reference/byok
           - page: Chat - Go SDK
             path: client-sdks/go/api-reference/chat.mdx
+            slug: client-sdks/go/api-reference/chat
           - page: Credits - Go SDK
             path: client-sdks/go/api-reference/credits.mdx
+            slug: client-sdks/go/api-reference/credits
           - page: Datasets - Go SDK
             path: client-sdks/go/api-reference/datasets.mdx
+            slug: client-sdks/go/api-reference/datasets
           - page: Embeddings - Go SDK
             path: client-sdks/go/api-reference/embeddings.mdx
+            slug: client-sdks/go/api-reference/embeddings
           - page: Endpoints - Go SDK
             path: client-sdks/go/api-reference/endpoints.mdx
+            slug: client-sdks/go/api-reference/endpoints
           - page: Generations - Go SDK
             path: client-sdks/go/api-reference/generations.mdx
+            slug: client-sdks/go/api-reference/generations
           - page: Guardrails - Go SDK
             path: client-sdks/go/api-reference/guardrails.mdx
+            slug: client-sdks/go/api-reference/guardrails
           - section: Models
             icon: cube
+            skip-slug: true
             contents:
             - page: Models - Go SDK
               path: client-sdks/go/api-reference/models.mdx
+              slug: client-sdks/go/api-reference/models
           - page: OAuth - Go SDK
             path: client-sdks/go/api-reference/oauth.mdx
+            slug: client-sdks/go/api-reference/oauth
           - page: Observability - Go SDK
             path: client-sdks/go/api-reference/observability.mdx
+            slug: client-sdks/go/api-reference/observability
           - page: Organization - Go SDK
             path: client-sdks/go/api-reference/organization.mdx
+            slug: client-sdks/go/api-reference/organization
           - page: Presets - Go SDK
             path: client-sdks/go/api-reference/presets.mdx
+            slug: client-sdks/go/api-reference/presets
           - page: Providers - Go SDK
             path: client-sdks/go/api-reference/providers.mdx
+            slug: client-sdks/go/api-reference/providers
           - page: Rerank - Go SDK
             path: client-sdks/go/api-reference/rerank.mdx
+            slug: client-sdks/go/api-reference/rerank
           - page: Beta.Responses - Go SDK
             path: client-sdks/go/api-reference/responses.mdx
+            slug: client-sdks/go/api-reference/responses
           - page: Transcriptions - Go SDK
             path: client-sdks/go/api-reference/stt.mdx
+            slug: client-sdks/go/api-reference/stt
           - page: Speech - Go SDK
             path: client-sdks/go/api-reference/tts.mdx
+            slug: client-sdks/go/api-reference/tts
           - page: VideoGeneration - Go SDK
             path: client-sdks/go/api-reference/videogeneration.mdx
+            slug: client-sdks/go/api-reference/videogeneration
           - page: Workspaces - Go SDK
             path: client-sdks/go/api-reference/workspaces.mdx
+            slug: client-sdks/go/api-reference/workspaces
       - section: DevTools
         icon: stars
+        skip-slug: true
         contents:
         - page: DevTools
           path: client-sdks/dev-tools/devtools.mdx
+          slug: client-sdks/dev-tools/devtools
       - page: "Migrating to @openrouter/agent"
         path: client-sdks/agent-migration.mdx
+        slug: client-sdks/agent-migration
   - tab: agent-sdk
     layout:
       - page: Agent SDK
         path: agent-sdk/overview.mdx
+        slug: agent-sdk/overview
       - page: Usage for Agents
         path: agent-sdk/usage-for-agents.mdx
+        slug: agent-sdk/usage-for-agents
       - section: TypeScript SDK
         icon: code
+        skip-slug: true
         contents:
         - page: TypeScript SDK
           path: agent-sdk/typescript/overview.mdx
+          slug: agent-sdk/typescript/overview
         - section: API Reference
           icon: code
+          skip-slug: true
           contents:
           - page: Analytics - TypeScript SDK
             path: agent-sdk/typescript/api-reference/analytics.mdx
+            slug: agent-sdk/typescript/api-reference/analytics
           - page: APIKeys - TypeScript SDK
             path: agent-sdk/typescript/api-reference/apikeys.mdx
+            slug: agent-sdk/typescript/api-reference/apikeys
           - page: Chat - TypeScript SDK
             path: agent-sdk/typescript/api-reference/chat.mdx
+            slug: agent-sdk/typescript/api-reference/chat
           - page: Credits - TypeScript SDK
             path: agent-sdk/typescript/api-reference/credits.mdx
+            slug: agent-sdk/typescript/api-reference/credits
           - page: Embeddings - TypeScript SDK
             path: agent-sdk/typescript/api-reference/embeddings.mdx
+            slug: agent-sdk/typescript/api-reference/embeddings
           - page: Endpoints - TypeScript SDK
             path: agent-sdk/typescript/api-reference/endpoints.mdx
+            slug: agent-sdk/typescript/api-reference/endpoints
           - page: Generations - TypeScript SDK
             path: agent-sdk/typescript/api-reference/generations.mdx
+            slug: agent-sdk/typescript/api-reference/generations
           - page: Guardrails - TypeScript SDK
             path: agent-sdk/typescript/api-reference/guardrails.mdx
+            slug: agent-sdk/typescript/api-reference/guardrails
           - section: Models
             icon: cube
+            skip-slug: true
             contents:
             - page: Models - TypeScript SDK
               path: agent-sdk/typescript/api-reference/models.mdx
+              slug: agent-sdk/typescript/api-reference/models
           - page: OAuth - TypeScript SDK
             path: agent-sdk/typescript/api-reference/oauth.mdx
+            slug: agent-sdk/typescript/api-reference/oauth
           - page: Organization - TypeScript SDK
             path: agent-sdk/typescript/api-reference/organization.mdx
+            slug: agent-sdk/typescript/api-reference/organization
           - page: Providers - TypeScript SDK
             path: agent-sdk/typescript/api-reference/providers.mdx
+            slug: agent-sdk/typescript/api-reference/providers
           - page: Rerank - TypeScript SDK
             path: agent-sdk/typescript/api-reference/rerank.mdx
+            slug: agent-sdk/typescript/api-reference/rerank
           - page: Beta.Responses - TypeScript SDK
             path: agent-sdk/typescript/api-reference/responses.mdx
+            slug: agent-sdk/typescript/api-reference/responses
           - page: Speech - TypeScript SDK
             path: agent-sdk/typescript/api-reference/tts.mdx
+            slug: agent-sdk/typescript/api-reference/tts
           - page: VideoGeneration - TypeScript SDK
             path: agent-sdk/typescript/api-reference/videogeneration.mdx
+            slug: agent-sdk/typescript/api-reference/videogeneration
           - page: Workspaces - TypeScript SDK
             path: agent-sdk/typescript/api-reference/workspaces.mdx
+            slug: agent-sdk/typescript/api-reference/workspaces
       - section: Call Model
         icon: comment-nodes
+        skip-slug: true
         contents:
         - page: Call Model (Typescript)
           path: agent-sdk/call-model/overview.mdx
+          slug: agent-sdk/call-model/overview
         - page: Working with Items
           path: agent-sdk/call-model/items.mdx
+          slug: agent-sdk/call-model/items
         - page: API Reference
           path: agent-sdk/call-model/api-reference.mdx
+          slug: agent-sdk/call-model/api-reference
         - page: Dynamic Parameters
           path: agent-sdk/call-model/dynamic-parameters.mdx
+          slug: agent-sdk/call-model/dynamic-parameters
         - page: Next Turn Params
           path: agent-sdk/call-model/next-turn-params.mdx
+          slug: agent-sdk/call-model/next-turn-params
         - page: Stop Conditions
           path: agent-sdk/call-model/stop-conditions.mdx
+          slug: agent-sdk/call-model/stop-conditions
         - page: Streaming
           path: agent-sdk/call-model/streaming.mdx
+          slug: agent-sdk/call-model/streaming
         - page: Text Generation
           path: agent-sdk/call-model/text-generation.mdx
+          slug: agent-sdk/call-model/text-generation
         - page: Message Formats
           path: agent-sdk/call-model/message-formats.mdx
+          slug: agent-sdk/call-model/message-formats
         - page: Tools
           path: agent-sdk/call-model/tools.mdx
+          slug: agent-sdk/call-model/tools
         - page: "Tool Approval & State Persistence"
           path: agent-sdk/call-model/tool-approval-state.mdx
+          slug: agent-sdk/call-model/tool-approval-state
         - section: Examples
           icon: code
+          skip-slug: true
           contents:
           - page: Weather Tool
             path: agent-sdk/call-model/examples/weather-tool.mdx
+            slug: agent-sdk/call-model/examples/weather-tool
           - page: Skills Loader
             path: agent-sdk/call-model/examples/skills-loader.mdx
+            slug: agent-sdk/call-model/examples/skills-loader
       - section: DevTools
         icon: stars
+        skip-slug: true
         contents:
         - page: DevTools
           path: agent-sdk/dev-tools/devtools.mdx
+          slug: agent-sdk/dev-tools/devtools
       - page: "Migrating to @openrouter/agent"
         path: agent-sdk/agent-migration.mdx
+        slug: agent-sdk/agent-migration
   - tab: cookbook
     layout:
       - section: Get Started
         icon: rocket
+        skip-slug: true
         contents:
           - page: "Quickstart: Build a Chat App"
             path: cookbook/get-started/quickstart.mdx
+            slug: cookbook/get-started/quickstart
           - page: Enterprise Quickstart
             path: cookbook/get-started/enterprise-quickstart.mdx
+            slug: cookbook/get-started/enterprise-quickstart
           - page: Free Models Router
             path: cookbook/get-started/free-models-router-playground.mdx
+            slug: cookbook/get-started/free-models-router-playground
       - section: Working with Coding Agents
         icon: robot
+        skip-slug: true
         contents:
           - page: Automatic Code Review
             path: cookbook/coding-agents/automatic-code-review.mdx
+            slug: cookbook/coding-agents/automatic-code-review
           - page: Claude Code
             path: cookbook/coding-agents/claude-code-integration.mdx
+            slug: cookbook/coding-agents/claude-code-integration
           - page: Claude Desktop
             path: cookbook/coding-agents/claude-desktop-integration.mdx
+            slug: cookbook/coding-agents/claude-desktop-integration
           - page: Codex CLI
             path: cookbook/coding-agents/codex-cli.mdx
+            slug: cookbook/coding-agents/codex-cli
           - page: Cursor
             path: cookbook/coding-agents/cursor-integration.mdx
+            slug: cookbook/coding-agents/cursor-integration
           - page: Hermes Agent
             path: cookbook/coding-agents/hermes-integration.mdx
+            slug: cookbook/coding-agents/hermes-integration
           - page: Junie CLI
             path: cookbook/coding-agents/junie.mdx
+            slug: cookbook/coding-agents/junie
           - page: Using MCP Servers with OpenRouter
             path: cookbook/coding-agents/mcp-servers.mdx
+            slug: cookbook/coding-agents/mcp-servers
           - page: OpenClaw 🦞
             path: cookbook/coding-agents/openclaw-integration.mdx
+            slug: cookbook/coding-agents/openclaw-integration
           - page: OpenCode
             path: cookbook/coding-agents/opencode-integration.mdx
+            slug: cookbook/coding-agents/opencode-integration
       - section: Building Agents
         icon: hammer
+        skip-slug: true
         contents:
           - page: Add Human-in-the-Loop Controls to an Agent SDK Agent
             path: cookbook/building-agents/hitl-tools.mdx
+            slug: cookbook/building-agents/hitl-tools
           - page: Build a Long-Horizon Agent
             path: cookbook/building-agents/long-horizon-agents.mdx
+            slug: cookbook/building-agents/long-horizon-agents
           - page: Build Your Own Agent TUI
             path: cookbook/building-agents/create-agent-harness-tui.mdx
+            slug: cookbook/building-agents/create-agent-harness-tui
           - page: Build Your Own Headless Agent
             path: cookbook/building-agents/create-headless-agent.mdx
+            slug: cookbook/building-agents/create-headless-agent
       - section: Video Generation
         icon: film
+        skip-slug: true
         contents:
           - page: Choose a Video Generation Model
             path: cookbook/video-generation/choose-video-model.mdx
+            slug: cookbook/video-generation/choose-video-model
           - page: Generate and Download a Video from Text
             path: cookbook/video-generation/text-to-video.mdx
+            slug: cookbook/video-generation/text-to-video
           - page: Get Video Results with Webhooks
             path: cookbook/video-generation/video-generation-webhooks.mdx
+            slug: cookbook/video-generation/video-generation-webhooks
           - page: Guide a Video with Reference Images
             path: cookbook/video-generation/reference-to-video.mdx
+            slug: cookbook/video-generation/reference-to-video
           - page: Turn an Image into a Video
             path: cookbook/video-generation/image-to-video.mdx
+            slug: cookbook/video-generation/image-to-video
           - page: Use Provider-Specific Video Options
             path: cookbook/video-generation/provider-specific-video-options.mdx
+            slug: cookbook/video-generation/provider-specific-video-options
       - section: "Evaluate & Optimize"
         icon: flask
+        skip-slug: true
         contents:
           - page: Distillation
             path: cookbook/evaluate-and-optimize/distillation.mdx
+            slug: cookbook/evaluate-and-optimize/distillation
           - section: Model Migrations
             icon: arrow-right-arrow-left
+            skip-slug: true
             contents:
             - page: Claude 4.7 Migration Guide
               path: cookbook/evaluate-and-optimize/model-migrations/claude-4-7.mdx
+              slug: cookbook/evaluate-and-optimize/model-migrations/claude-4-7
             - page: Claude 4.6 Migration Guide
               path: cookbook/evaluate-and-optimize/model-migrations/claude-4-6.mdx
+              slug: cookbook/evaluate-and-optimize/model-migrations/claude-4-6
             - page: GPT-5.4 Migration Guide
               path: cookbook/evaluate-and-optimize/model-migrations/gpt-5-4.mdx
+              slug: cookbook/evaluate-and-optimize/model-migrations/gpt-5-4
           - page: "RAG with Embeddings & Rerank"
             path: cookbook/evaluate-and-optimize/rag.mdx
+            slug: cookbook/evaluate-and-optimize/rag
           - page: Red Teaming
             path: cookbook/evaluate-and-optimize/red-teaming.mdx
+            slug: cookbook/evaluate-and-optimize/red-teaming
       - section: Administration
         icon: chart-line
+        skip-slug: true
         contents:
           - page: Activity Export
             path: cookbook/administration/activity-export.mdx
+            slug: cookbook/administration/activity-export
           - page: API Key Rotation
             path: cookbook/administration/api-key-rotation.mdx
+            slug: cookbook/administration/api-key-rotation
           - page: Crypto API
             path: cookbook/administration/crypto-api.mdx
+            slug: cookbook/administration/crypto-api
           - page: Organization Management
             path: cookbook/administration/organization-management.mdx
+            slug: cookbook/administration/organization-management
           - page: Usage Accounting
             path: cookbook/administration/usage-accounting.mdx
+            slug: cookbook/administration/usage-accounting
           - page: User Tracking
             path: cookbook/administration/user-tracking.mdx
+            slug: cookbook/administration/user-tracking
   - tab: changelog
     layout:
       - section: Changelog
+        skip-slug: true
         contents:
           - page: Changelog
             path: changelog.mdx
+            slug: changelog

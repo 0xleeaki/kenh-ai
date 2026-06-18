@@ -89,7 +89,7 @@ you can drop the `@kenh-ai/sdk` dependency entirely if
 you only use agent features:
 
 ```diff lines
-- import kenh-ai from '@kenh-ai/sdk';
+- import KenhAI from '@kenh-ai/sdk';
 - import { callModel } from '@kenh-ai/sdk/funcs/call-model';
 + import { KenhAI } from '@kenh-ai/agent';
 
@@ -212,7 +212,7 @@ npm test
 
 The script below handles **subpath imports** automatically.
 Barrel imports (`from '@kenh-ai/sdk'`) and client class
-imports (`import kenh-ai from '@kenh-ai/sdk'`) must
+imports (`import KenhAI from '@kenh-ai/sdk'`) must
 be updated **manually** — a blanket replacement on the bare
 package name would also match subpath imports and break
 your code. See the [Client class](#client-class) and

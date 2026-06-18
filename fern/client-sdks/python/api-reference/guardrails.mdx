@@ -55,7 +55,7 @@ List all guardrails for the authenticated user. [Management key](/guides/overvie
 
 {/* UsageSnippet language="python" operationID="listGuardrails" method="get" path="/guardrails" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -106,7 +106,7 @@ Create a new guardrail for the authenticated user. [Management key](/guides/over
 
 {/* UsageSnippet language="python" operationID="createGuardrail" method="post" path="/guardrails" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -174,7 +174,7 @@ Delete an existing guardrail. [Management key](/guides/overview/auth/management-
 
 {/* UsageSnippet language="python" operationID="deleteGuardrail" method="delete" path="/guardrails/{id}" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -222,7 +222,7 @@ Get a single guardrail by ID. [Management key](/guides/overview/auth/management-
 
 {/* UsageSnippet language="python" operationID="getGuardrail" method="get" path="/guardrails/{id}" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -270,7 +270,7 @@ Update an existing guardrail. [Management key](/guides/overview/auth/management-
 
 {/* UsageSnippet language="python" operationID="updateGuardrail" method="patch" path="/guardrails/{id}" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -334,7 +334,7 @@ List all API key assignments for a specific guardrail. [Management key](/guides/
 
 {/* UsageSnippet language="python" operationID="listGuardrailKeyAssignments" method="get" path="/guardrails/{id}/assignments/keys" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -386,7 +386,7 @@ Assign multiple API keys to a specific guardrail. [Management key](/guides/overv
 
 {/* UsageSnippet language="python" operationID="bulkAssignKeysToGuardrail" method="post" path="/guardrails/{id}/assignments/keys" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -438,7 +438,7 @@ Unassign multiple API keys from a specific guardrail. [Management key](/guides/o
 
 {/* UsageSnippet language="python" operationID="bulkUnassignKeysFromGuardrail" method="post" path="/guardrails/{id}/assignments/keys/remove" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -490,7 +490,7 @@ List all organization member assignments for a specific guardrail. [Management k
 
 {/* UsageSnippet language="python" operationID="listGuardrailMemberAssignments" method="get" path="/guardrails/{id}/assignments/members" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -542,7 +542,7 @@ Assign multiple organization members to a specific guardrail. [Management key](/
 
 {/* UsageSnippet language="python" operationID="bulkAssignMembersToGuardrail" method="post" path="/guardrails/{id}/assignments/members" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -595,7 +595,7 @@ Unassign multiple organization members from a specific guardrail. [Management ke
 
 {/* UsageSnippet language="python" operationID="bulkUnassignMembersFromGuardrail" method="post" path="/guardrails/{id}/assignments/members/remove" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -648,7 +648,7 @@ List all API key guardrail assignments for the authenticated user. [Management k
 
 {/* UsageSnippet language="python" operationID="listKeyAssignments" method="get" path="/guardrails/assignments/keys" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -698,7 +698,7 @@ List all organization member guardrail assignments for the authenticated user. [
 
 {/* UsageSnippet language="python" operationID="listMemberAssignments" method="get" path="/guardrails/assignments/members" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(

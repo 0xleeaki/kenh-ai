@@ -24,7 +24,7 @@ The Client SDKs give you a thin, type-safe layer over the kenh-ai REST API. It h
 | Language | Package | Install |
 |----------|---------|---------|
 | TypeScript | [`@kenh-ai/sdk`](https://www.npmjs.com/package/@kenh-ai/sdk) | `npm install @kenh-ai/sdk` |
-| Python | [`openrouter`](https://pypi.org/project/openrouter/) | `pip install openrouter` |
+| Python | [`openrouter`](https://pypi.org/project/openrouter/) | `pip install kenh-ai` |
 | Go | [`go-sdk`](https://pkg.go.dev/github.com/OpenRouterTeam/go-sdk) | `go get github.com/OpenRouterTeam/go-sdk` |
 
 All three SDKs are auto-generated from the kenh-ai OpenAPI spec, so new models, parameters, and endpoints appear immediately after each API release.
@@ -67,7 +67,7 @@ console.log(response.choices[0].message.content);
 ```
 
 ```python title="Python" lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(api_key=os.getenv("KENH_AI_API_KEY")) as client:

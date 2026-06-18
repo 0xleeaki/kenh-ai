@@ -49,7 +49,7 @@ List all workspaces for the authenticated user. [Management key](/guides/overvie
 
 {/* UsageSnippet language="python" operationID="listWorkspaces" method="get" path="/workspaces" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -99,7 +99,7 @@ Create a new workspace for the authenticated user. [Management key](/guides/over
 
 {/* UsageSnippet language="python" operationID="createWorkspace" method="post" path="/workspaces" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -158,7 +158,7 @@ Delete an existing workspace. The default workspace cannot be deleted. Workspace
 
 {/* UsageSnippet language="python" operationID="deleteWorkspace" method="delete" path="/workspaces/{id}" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -208,7 +208,7 @@ Get a single workspace by ID or slug. [Management key](/guides/overview/auth/man
 
 {/* UsageSnippet language="python" operationID="getWorkspace" method="get" path="/workspaces/{id}" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -256,7 +256,7 @@ Update an existing workspace by ID or slug. [Management key](/guides/overview/au
 
 {/* UsageSnippet language="python" operationID="updateWorkspace" method="patch" path="/workspaces/{id}" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -317,7 +317,7 @@ Add multiple organization members to a workspace. Members are assigned the same 
 
 {/* UsageSnippet language="python" operationID="bulkAddWorkspaceMembers" method="post" path="/workspaces/{id}/members/add" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -371,7 +371,7 @@ Remove multiple members from a workspace. Members with active API keys in the wo
 
 {/* UsageSnippet language="python" operationID="bulkRemoveWorkspaceMembers" method="post" path="/workspaces/{id}/members/remove" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(

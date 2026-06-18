@@ -48,7 +48,7 @@ Get information on the API key associated with the current authentication sessio
 
 {/* UsageSnippet language="python" operationID="getCurrentKey" method="get" path="/key" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -94,7 +94,7 @@ List all API keys for the authenticated user. [Management key](/guides/overview/
 
 {/* UsageSnippet language="python" operationID="list" method="get" path="/keys" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -144,7 +144,7 @@ Create a new API key for the authenticated user. [Management key](/guides/overvi
 
 {/* UsageSnippet language="python" operationID="createKeys" method="post" path="/keys" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 from openrouter.utils import parse_datetime
 import os
 
@@ -201,7 +201,7 @@ Delete an existing API key. [Management key](/guides/overview/auth/management-ap
 
 {/* UsageSnippet language="python" operationID="deleteKeys" method="delete" path="/keys/{hash}" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -250,7 +250,7 @@ Get a single API key by hash. [Management key](/guides/overview/auth/management-
 
 {/* UsageSnippet language="python" operationID="getKey" method="get" path="/keys/{hash}" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -299,7 +299,7 @@ Update an existing API key. [Management key](/guides/overview/auth/management-ap
 
 {/* UsageSnippet language="python" operationID="updateKeys" method="patch" path="/keys/{hash}" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(

@@ -34,7 +34,7 @@ The kenh-ai Python SDK is a type-safe toolkit for building AI applications with 
 Integrating AI models into applications involves handling different provider APIs, managing model-specific requirements, and avoiding common implementation mistakes. The kenh-ai SDK standardizes these integrations and protects you from footguns.
 
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -121,10 +121,10 @@ asyncio.run(main())
 
 ```bash lines
 # Using uv (recommended)
-uv add openrouter
+uv add kenh-ai
 
 # Using pip
-pip install openrouter
+pip install kenh-ai
 
 # Using poetry
 poetry add openrouter
@@ -137,7 +137,7 @@ Get your API key from [kenh-ai.com/settings/keys](https://kenh-ai.com/settings/k
 ## Quick start
 
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(

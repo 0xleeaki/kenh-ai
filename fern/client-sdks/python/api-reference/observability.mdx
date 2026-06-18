@@ -47,7 +47,7 @@ List the observability destinations configured for the authenticated entity's de
 
 {/* UsageSnippet language="python" operationID="listObservabilityDestinations" method="get" path="/observability/destinations" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -98,7 +98,7 @@ Create a new observability destination. A maximum of 5 destinations per type is 
 
 {/* UsageSnippet language="python" operationID="createObservabilityDestination" method="post" path="/observability/destinations" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -160,7 +160,7 @@ Delete an existing observability destination. This performs a soft delete. [Mana
 
 {/* UsageSnippet language="python" operationID="deleteObservabilityDestination" method="delete" path="/observability/destinations/{id}" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -208,7 +208,7 @@ Fetch a single observability destination by its UUID. [Management key](/guides/o
 
 {/* UsageSnippet language="python" operationID="getObservabilityDestination" method="get" path="/observability/destinations/{id}" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(
@@ -256,7 +256,7 @@ Update an existing observability destination. Only the fields provided in the re
 
 {/* UsageSnippet language="python" operationID="updateObservabilityDestination" method="patch" path="/observability/destinations/{id}" */}
 ```python lines
-from kenh_ai import kenh-ai
+from kenh_ai import KenhAI
 import os
 
 with KenhAI(

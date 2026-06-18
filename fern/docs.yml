@@ -1,6 +1,6 @@
 # Auto-generated from Mintlify docs.json. Verify with: fern check
 instances:
-  - url: kenh-ai.docs.buildwithfern.com
+  - url: fx-labs.docs.buildwithfern.com
     # custom-domain: docs.your-domain.com   # bỏ comment khi có domain riêng
 
 title: "OpenRouter | Documentation"

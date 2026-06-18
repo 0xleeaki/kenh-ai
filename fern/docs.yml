@@ -24,8 +24,6 @@ experimental:
   mdx-components:
     - ./components
     - ./snippets
-    - ./snippets/exports
-    - ./snippets/changelog
 
 tabs:
   docs:

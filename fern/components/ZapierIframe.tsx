@@ -1,3 +1,4 @@
+import React, { useRef, useState, useEffect } from "react";
 export const ZapierIframe = ({
   clientId = "H1twN77QrkkgEf07IFRhQvAnMgtQg8FSowP9qLZP",
   signUpEmail,

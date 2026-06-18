@@ -6,16 +6,19 @@ instances:
 title: "OpenRouter | Documentation"
 
 logo:
-  light: ../assets/logo.svg
-  dark: ../assets/logo-white.svg
+  light: assets/logo.svg
+  dark: assets/logo-white.svg
   height: 28
 
-favicon: ../assets/favicon.ico
+favicon: assets/favicon.ico
 
 colors:
   accent-primary:
     light: "#6467f2"
     dark: "#6467f2"
+
+layout:
+  tabs-placement: header
 
 tabs:
   docs:
@@ -44,401 +47,401 @@ navigation:
         icon: compass
         contents:
           - page: Quickstart
-            path: ../quickstart.mdx
+            path: quickstart.mdx
           - page: Principles
-            path: ../guides/overview/principles.mdx
+            path: guides/overview/principles.mdx
           - page: Models
-            path: ../guides/overview/models.mdx
+            path: guides/overview/models.mdx
           - section: Multimodal
             icon: layer-group
             contents:
             - page: Multimodal Capabilities
-              path: ../guides/overview/multimodal/overview.mdx
+              path: guides/overview/multimodal/overview.mdx
             - page: Image Inputs
-              path: ../guides/overview/multimodal/image-understanding.mdx
+              path: guides/overview/multimodal/image-understanding.mdx
             - page: Image Generation
-              path: ../guides/overview/multimodal/image-generation.mdx
+              path: guides/overview/multimodal/image-generation.mdx
             - page: PDF Inputs
-              path: ../guides/overview/multimodal/pdfs.mdx
+              path: guides/overview/multimodal/pdfs.mdx
             - page: Audio
-              path: ../guides/overview/multimodal/audio.mdx
+              path: guides/overview/multimodal/audio.mdx
             - page: Video Inputs
-              path: ../guides/overview/multimodal/videos.mdx
+              path: guides/overview/multimodal/videos.mdx
             - page: Video Generation
-              path: ../guides/overview/multimodal/video-generation.mdx
+              path: guides/overview/multimodal/video-generation.mdx
             - page: Text-to-Speech
-              path: ../guides/overview/multimodal/tts.mdx
+              path: guides/overview/multimodal/tts.mdx
             - page: Speech-to-Text
-              path: ../guides/overview/multimodal/stt.mdx
+              path: guides/overview/multimodal/stt.mdx
           - section: Authentication
             icon: shield-check
             contents:
             - page: OAuth PKCE
-              path: ../guides/overview/auth/oauth.mdx
+              path: guides/overview/auth/oauth.mdx
             - page: Management API Keys
-              path: ../guides/overview/auth/management-api-keys.mdx
+              path: guides/overview/auth/management-api-keys.mdx
             - page: BYOK
-              path: ../guides/overview/auth/byok.mdx
+              path: guides/overview/auth/byok.mdx
           - page: Stripe Projects
-            path: ../guides/overview/stripe-projects.mdx
+            path: guides/overview/stripe-projects.mdx
           - page: Frequently Asked Questions
-            path: ../faq.mdx
+            path: faq.mdx
           - page: Report Feedback
-            path: ../guides/overview/report-feedback.mdx
+            path: guides/overview/report-feedback.mdx
       - section: "Models & Routing"
         icon: route
         contents:
           - page: Model Fallbacks
-            path: ../guides/routing/model-fallbacks.mdx
+            path: guides/routing/model-fallbacks.mdx
           - page: Provider Routing
-            path: ../guides/routing/provider-selection.mdx
+            path: guides/routing/provider-selection.mdx
           - page: Auto Exacto
-            path: ../guides/routing/auto-exacto.mdx
+            path: guides/routing/auto-exacto.mdx
           - page: Private Models
-            path: ../guides/routing/private-models.mdx
+            path: guides/routing/private-models.mdx
           - section: Model Variants
             icon: gem
             contents:
             - page: Free Variant
-              path: ../guides/routing/model-variants/free.mdx
+              path: guides/routing/model-variants/free.mdx
             - page: Extended Variant
-              path: ../guides/routing/model-variants/extended.mdx
+              path: guides/routing/model-variants/extended.mdx
             - page: Exacto Variant
-              path: ../guides/routing/model-variants/exacto.mdx
+              path: guides/routing/model-variants/exacto.mdx
             - page: Thinking Variant
-              path: ../guides/routing/model-variants/thinking.mdx
+              path: guides/routing/model-variants/thinking.mdx
             - page: Online Variant
-              path: ../guides/routing/model-variants/online.mdx
+              path: guides/routing/model-variants/online.mdx
             - page: Nitro Variant
-              path: ../guides/routing/model-variants/nitro.mdx
+              path: guides/routing/model-variants/nitro.mdx
           - section: Routers
             icon: robot
             contents:
             - page: Auto Router
-              path: ../guides/routing/routers/auto-router.mdx
+              path: guides/routing/routers/auto-router.mdx
             - page: Body Builder
-              path: ../guides/routing/routers/body-builder.mdx
+              path: guides/routing/routers/body-builder.mdx
             - page: Free Models Router
-              path: ../guides/routing/routers/free-router.mdx
+              path: guides/routing/routers/free-router.mdx
             - page: Latest Model Resolution
-              path: ../guides/routing/routers/latest-resolution.mdx
+              path: guides/routing/routers/latest-resolution.mdx
             - page: Pareto Router
-              path: ../guides/routing/routers/pareto-router.mdx
+              path: guides/routing/routers/pareto-router.mdx
             - page: Fusion Router
-              path: ../guides/routing/routers/fusion-router.mdx
+              path: guides/routing/routers/fusion-router.mdx
       - section: Features
         icon: stars
         contents:
           - page: Workspaces
-            path: ../guides/features/workspaces.mdx
+            path: guides/features/workspaces.mdx
           - page: Presets
-            path: ../guides/features/presets.mdx
+            path: guides/features/presets.mdx
           - page: Response Caching
-            path: ../guides/features/response-caching.mdx
+            path: guides/features/response-caching.mdx
           - page: "Tool & Function Calling"
-            path: ../guides/features/tool-calling.mdx
+            path: guides/features/tool-calling.mdx
           - section: Server Tools
             icon: server
             contents:
             - page: Server Tools
-              path: ../guides/features/server-tools.mdx
+              path: guides/features/server-tools.mdx
             - page: Web Search
-              path: ../guides/features/server-tools/web-search.mdx
+              path: guides/features/server-tools/web-search.mdx
             - page: Web Fetch
-              path: ../guides/features/server-tools/web-fetch.mdx
+              path: guides/features/server-tools/web-fetch.mdx
             - page: Datetime
-              path: ../guides/features/server-tools/datetime.mdx
+              path: guides/features/server-tools/datetime.mdx
             - page: Image Generation
-              path: ../guides/features/server-tools/image-generation.mdx
+              path: guides/features/server-tools/image-generation.mdx
             - page: Apply Patch
-              path: ../guides/features/server-tools/apply-patch.mdx
+              path: guides/features/server-tools/apply-patch.mdx
             - page: Fusion
-              path: ../guides/features/server-tools/fusion.mdx
+              path: guides/features/server-tools/fusion.mdx
           - section: Plugins
             icon: plug
             contents:
             - page: Plugins
-              path: ../guides/features/plugins.mdx
+              path: guides/features/plugins.mdx
             - page: Web Search
-              path: ../guides/features/plugins/web-search.mdx
+              path: guides/features/plugins/web-search.mdx
             - page: Response Healing
-              path: ../guides/features/plugins/response-healing.mdx
+              path: guides/features/plugins/response-healing.mdx
             - page: Fusion
-              path: ../guides/features/plugins/fusion.mdx
+              path: guides/features/plugins/fusion.mdx
           - page: Structured Outputs
-            path: ../guides/features/structured-outputs.mdx
+            path: guides/features/structured-outputs.mdx
           - page: Message Transforms
-            path: ../guides/features/message-transforms.mdx
+            path: guides/features/message-transforms.mdx
           - page: Zero Completion Insurance
-            path: ../guides/features/zero-completion-insurance.mdx
+            path: guides/features/zero-completion-insurance.mdx
           - page: Zero Data Retention
-            path: ../guides/features/zdr.mdx
+            path: guides/features/zdr.mdx
           - page: App Attribution
-            path: ../app-attribution.mdx
+            path: app-attribution.mdx
           - section: Guardrails
             icon: shield-check
             contents:
             - page: Guardrails
-              path: ../guides/features/guardrails.mdx
+              path: guides/features/guardrails.mdx
             - page: Prompt Injection Detection
-              path: ../guides/features/guardrails/prompt-injection.mdx
+              path: guides/features/guardrails/prompt-injection.mdx
             - page: Sensitive Info Guardrail
-              path: ../guides/features/guardrails/sensitive-info.mdx
+              path: guides/features/guardrails/sensitive-info.mdx
           - page: Service Tiers
-            path: ../guides/features/service-tiers.mdx
+            path: guides/features/service-tiers.mdx
           - page: Sovereign AI
-            path: ../guides/features/sovereign-ai.mdx
+            path: guides/features/sovereign-ai.mdx
           - page: Router Metadata
-            path: ../guides/features/router-metadata.mdx
+            path: guides/features/router-metadata.mdx
           - page: "Input & Output Logging"
-            path: ../guides/features/input-output-logging.mdx
+            path: guides/features/input-output-logging.mdx
           - section: Broadcast
             icon: broadcast-tower
             contents:
             - page: Broadcast
-              path: ../guides/features/broadcast.mdx
+              path: guides/features/broadcast.mdx
             - page: Arize AI
-              path: ../guides/features/broadcast/arize.mdx
+              path: guides/features/broadcast/arize.mdx
             - page: Braintrust
-              path: ../guides/features/broadcast/braintrust.mdx
+              path: guides/features/broadcast/braintrust.mdx
             - page: ClickHouse
-              path: ../guides/features/broadcast/clickhouse.mdx
+              path: guides/features/broadcast/clickhouse.mdx
             - page: Comet Opik
-              path: ../guides/features/broadcast/opik.mdx
+              path: guides/features/broadcast/opik.mdx
             - page: Datadog
-              path: ../guides/features/broadcast/datadog.mdx
+              path: guides/features/broadcast/datadog.mdx
             - page: Grafana Cloud
-              path: ../guides/features/broadcast/grafana.mdx
+              path: guides/features/broadcast/grafana.mdx
             - page: Langfuse
-              path: ../guides/features/broadcast/langfuse.mdx
+              path: guides/features/broadcast/langfuse.mdx
             - page: LangSmith
-              path: ../guides/features/broadcast/langsmith.mdx
+              path: guides/features/broadcast/langsmith.mdx
             - page: New Relic
-              path: ../guides/features/broadcast/newrelic.mdx
+              path: guides/features/broadcast/newrelic.mdx
             - page: OpenTelemetry Collector
-              path: ../guides/features/broadcast/otel-collector.mdx
+              path: guides/features/broadcast/otel-collector.mdx
             - page: PostHog
-              path: ../guides/features/broadcast/posthog.mdx
+              path: guides/features/broadcast/posthog.mdx
             - page: Ramp
-              path: ../guides/features/broadcast/ramp.mdx
+              path: guides/features/broadcast/ramp.mdx
             - page: S3 / S3-Compatible
-              path: ../guides/features/broadcast/s3.mdx
+              path: guides/features/broadcast/s3.mdx
             - page: Sentry
-              path: ../guides/features/broadcast/sentry.mdx
+              path: guides/features/broadcast/sentry.mdx
             - page: Snowflake
-              path: ../guides/features/broadcast/snowflake.mdx
+              path: guides/features/broadcast/snowflake.mdx
             - page: "W&B Weave"
-              path: ../guides/features/broadcast/weave.mdx
+              path: guides/features/broadcast/weave.mdx
             - page: Webhook
-              path: ../guides/features/broadcast/webhook.mdx
+              path: guides/features/broadcast/webhook.mdx
       - section: Privacy
         icon: shield
         contents:
           - page: Data Collection
-            path: ../guides/privacy/data-collection.mdx
+            path: guides/privacy/data-collection.mdx
           - page: Provider Logging
-            path: ../guides/privacy/provider-logging.mdx
+            path: guides/privacy/provider-logging.mdx
       - section: Best Practices
         icon: lightbulb
         contents:
           - page: Latency and Performance
-            path: ../guides/best-practices/latency-and-performance.mdx
+            path: guides/best-practices/latency-and-performance.mdx
           - page: Prompt Caching
-            path: ../guides/best-practices/prompt-caching.mdx
+            path: guides/best-practices/prompt-caching.mdx
           - page: Uptime Optimization
-            path: ../guides/best-practices/uptime-optimization.mdx
+            path: guides/best-practices/uptime-optimization.mdx
           - page: Reasoning Tokens
-            path: ../guides/best-practices/reasoning-tokens.mdx
+            path: guides/best-practices/reasoning-tokens.mdx
       - section: Community
         icon: users
         contents:
           - page: Provider Integration
-            path: ../guides/community/for-providers.mdx
+            path: guides/community/for-providers.mdx
           - page: Frameworks and Integrations Overview
-            path: ../guides/community/frameworks-and-integrations-overview.mdx
+            path: guides/community/frameworks-and-integrations-overview.mdx
           - page: Awesome OpenRouter
-            path: ../guides/community/awesome-openrouter.mdx
+            path: guides/community/awesome-openrouter.mdx
           - page: Effect AI SDK
-            path: ../guides/community/effect-ai-sdk.mdx
+            path: guides/community/effect-ai-sdk.mdx
           - page: Arize
-            path: ../guides/community/arize.mdx
+            path: guides/community/arize.mdx
           - page: LangChain
-            path: ../guides/community/langchain.mdx
+            path: guides/community/langchain.mdx
           - page: LiveKit
-            path: ../guides/community/livekit.mdx
+            path: guides/community/livekit.mdx
           - page: Langfuse
-            path: ../guides/community/langfuse.mdx
+            path: guides/community/langfuse.mdx
           - page: Mastra
-            path: ../guides/community/mastra.mdx
+            path: guides/community/mastra.mdx
           - page: OpenAI SDK
-            path: ../guides/community/openai-sdk.mdx
+            path: guides/community/openai-sdk.mdx
           - page: Anthropic Agent SDK
-            path: ../guides/community/anthropic-agent-sdk.mdx
+            path: guides/community/anthropic-agent-sdk.mdx
           - page: PydanticAI
-            path: ../guides/community/pydantic-ai.mdx
+            path: guides/community/pydantic-ai.mdx
           - page: Replit
-            path: ../guides/community/replit.mdx
+            path: guides/community/replit.mdx
           - page: TanStack AI
-            path: ../guides/community/tanstack-ai.mdx
+            path: guides/community/tanstack-ai.mdx
           - page: Vercel AI SDK
-            path: ../guides/community/vercel-ai-sdk.mdx
+            path: guides/community/vercel-ai-sdk.mdx
           - page: Xcode
-            path: ../guides/community/xcode.mdx
+            path: guides/community/xcode.mdx
           - page: Zapier
-            path: ../guides/community/zapier.mdx
+            path: guides/community/zapier.mdx
           - page: Infisical
-            path: ../guides/community/infisical.mdx
+            path: guides/community/infisical.mdx
   - tab: api-reference
     layout:
       - section: API Guides
         icon: code
         contents:
           - page: API Reference
-            path: ../api/reference/overview.mdx
+            path: api/reference/overview.mdx
           - page: Streaming
-            path: ../api/reference/streaming.mdx
+            path: api/reference/streaming.mdx
           - page: Embeddings
-            path: ../api/reference/embeddings.mdx
+            path: api/reference/embeddings.mdx
           - page: Limits
-            path: ../api/reference/limits.mdx
+            path: api/reference/limits.mdx
           - page: Authentication
-            path: ../api/reference/authentication.mdx
+            path: api/reference/authentication.mdx
           - page: Parameters
-            path: ../api/reference/parameters.mdx
+            path: api/reference/parameters.mdx
           - page: Errors and Debugging
-            path: ../api/reference/errors-and-debugging.mdx
+            path: api/reference/errors-and-debugging.mdx
           - section: Responses API
             icon: flask
             contents:
             - page: Responses API Beta
-              path: ../api/reference/responses/overview.mdx
+              path: api/reference/responses/overview.mdx
             - page: Basic Usage
-              path: ../api/reference/responses/basic-usage.mdx
+              path: api/reference/responses/basic-usage.mdx
             - page: Reasoning
-              path: ../api/reference/responses/reasoning.mdx
+              path: api/reference/responses/reasoning.mdx
             - page: Tool Calling
-              path: ../api/reference/responses/tool-calling.mdx
+              path: api/reference/responses/tool-calling.mdx
             - page: Web Search
-              path: ../api/reference/responses/web-search.mdx
+              path: api/reference/responses/web-search.mdx
             - page: Error Handling
-              path: ../api/reference/responses/error-handling.mdx
+              path: api/reference/responses/error-handling.mdx
       - api: API Reference
   - tab: client-sdks
     layout:
       - page: Client SDKs
-        path: ../client-sdks/overview.mdx
+        path: client-sdks/overview.mdx
       - page: Usage for Agents
-        path: ../client-sdks/usage-for-agents.mdx
+        path: client-sdks/usage-for-agents.mdx
       - section: TypeScript SDK
         icon: code
         contents:
         - page: TypeScript SDK
-          path: ../client-sdks/typescript/overview.mdx
+          path: client-sdks/typescript/overview.mdx
         - section: API Reference
           icon: code
           contents:
           - page: Analytics - TypeScript SDK
-            path: ../client-sdks/typescript/api-reference/analytics.mdx
+            path: client-sdks/typescript/api-reference/analytics.mdx
           - page: APIKeys - TypeScript SDK
-            path: ../client-sdks/typescript/api-reference/apikeys.mdx
+            path: client-sdks/typescript/api-reference/apikeys.mdx
           - page: Byok - TypeScript SDK
-            path: ../client-sdks/typescript/api-reference/byok.mdx
+            path: client-sdks/typescript/api-reference/byok.mdx
           - page: Chat - TypeScript SDK
-            path: ../client-sdks/typescript/api-reference/chat.mdx
+            path: client-sdks/typescript/api-reference/chat.mdx
           - page: Credits - TypeScript SDK
-            path: ../client-sdks/typescript/api-reference/credits.mdx
+            path: client-sdks/typescript/api-reference/credits.mdx
           - page: Datasets - TypeScript SDK
-            path: ../client-sdks/typescript/api-reference/datasets.mdx
+            path: client-sdks/typescript/api-reference/datasets.mdx
           - page: Embeddings - TypeScript SDK
-            path: ../client-sdks/typescript/api-reference/embeddings.mdx
+            path: client-sdks/typescript/api-reference/embeddings.mdx
           - page: Endpoints - TypeScript SDK
-            path: ../client-sdks/typescript/api-reference/endpoints.mdx
+            path: client-sdks/typescript/api-reference/endpoints.mdx
           - page: Generations - TypeScript SDK
-            path: ../client-sdks/typescript/api-reference/generations.mdx
+            path: client-sdks/typescript/api-reference/generations.mdx
           - page: Guardrails - TypeScript SDK
-            path: ../client-sdks/typescript/api-reference/guardrails.mdx
+            path: client-sdks/typescript/api-reference/guardrails.mdx
           - section: Models
             icon: cube
             contents:
             - page: Models - TypeScript SDK
-              path: ../client-sdks/typescript/api-reference/models.mdx
+              path: client-sdks/typescript/api-reference/models.mdx
           - page: OAuth - TypeScript SDK
-            path: ../client-sdks/typescript/api-reference/oauth.mdx
+            path: client-sdks/typescript/api-reference/oauth.mdx
           - page: Observability - TypeScript SDK
-            path: ../client-sdks/typescript/api-reference/observability.mdx
+            path: client-sdks/typescript/api-reference/observability.mdx
           - page: Organization - TypeScript SDK
-            path: ../client-sdks/typescript/api-reference/organization.mdx
+            path: client-sdks/typescript/api-reference/organization.mdx
           - page: Presets - TypeScript SDK
-            path: ../client-sdks/typescript/api-reference/presets.mdx
+            path: client-sdks/typescript/api-reference/presets.mdx
           - page: Providers - TypeScript SDK
-            path: ../client-sdks/typescript/api-reference/providers.mdx
+            path: client-sdks/typescript/api-reference/providers.mdx
           - page: Rerank - TypeScript SDK
-            path: ../client-sdks/typescript/api-reference/rerank.mdx
+            path: client-sdks/typescript/api-reference/rerank.mdx
           - page: Beta.Responses - TypeScript SDK
-            path: ../client-sdks/typescript/api-reference/responses.mdx
+            path: client-sdks/typescript/api-reference/responses.mdx
           - page: Transcriptions - TypeScript SDK
-            path: ../client-sdks/typescript/api-reference/stt.mdx
+            path: client-sdks/typescript/api-reference/stt.mdx
           - page: Speech - TypeScript SDK
-            path: ../client-sdks/typescript/api-reference/tts.mdx
+            path: client-sdks/typescript/api-reference/tts.mdx
           - page: VideoGeneration - TypeScript SDK
-            path: ../client-sdks/typescript/api-reference/videogeneration.mdx
+            path: client-sdks/typescript/api-reference/videogeneration.mdx
           - page: Workspaces - TypeScript SDK
-            path: ../client-sdks/typescript/api-reference/workspaces.mdx
+            path: client-sdks/typescript/api-reference/workspaces.mdx
       - section: Python SDK
         icon: code
         contents:
         - page: Python SDK
-          path: ../client-sdks/python/overview.mdx
+          path: client-sdks/python/overview.mdx
         - section: API Reference
           icon: code
           contents:
           - page: Analytics - Python SDK
-            path: ../client-sdks/python/api-reference/analytics.mdx
+            path: client-sdks/python/api-reference/analytics.mdx
           - page: APIKeys - Python SDK
-            path: ../client-sdks/python/api-reference/apikeys.mdx
+            path: client-sdks/python/api-reference/apikeys.mdx
           - page: Byok - Python SDK
-            path: ../client-sdks/python/api-reference/byok.mdx
+            path: client-sdks/python/api-reference/byok.mdx
           - page: Chat - Python SDK
-            path: ../client-sdks/python/api-reference/chat.mdx
+            path: client-sdks/python/api-reference/chat.mdx
           - page: Credits - Python SDK
-            path: ../client-sdks/python/api-reference/credits.mdx
+            path: client-sdks/python/api-reference/credits.mdx
           - page: Datasets - Python SDK
-            path: ../client-sdks/python/api-reference/datasets.mdx
+            path: client-sdks/python/api-reference/datasets.mdx
           - page: Embeddings - Python SDK
-            path: ../client-sdks/python/api-reference/embeddings.mdx
+            path: client-sdks/python/api-reference/embeddings.mdx
           - page: Endpoints - Python SDK
-            path: ../client-sdks/python/api-reference/endpoints.mdx
+            path: client-sdks/python/api-reference/endpoints.mdx
           - page: Generations - Python SDK
-            path: ../client-sdks/python/api-reference/generations.mdx
+            path: client-sdks/python/api-reference/generations.mdx
           - page: Guardrails - Python SDK
-            path: ../client-sdks/python/api-reference/guardrails.mdx
+            path: client-sdks/python/api-reference/guardrails.mdx
           - section: Models
             icon: cube
             contents:
             - page: Models - Python SDK
-              path: ../client-sdks/python/api-reference/models.mdx
+              path: client-sdks/python/api-reference/models.mdx
           - page: OAuth - Python SDK
-            path: ../client-sdks/python/api-reference/oauth.mdx
+            path: client-sdks/python/api-reference/oauth.mdx
           - page: Observability - Python SDK
-            path: ../client-sdks/python/api-reference/observability.mdx
+            path: client-sdks/python/api-reference/observability.mdx
           - page: Organization - Python SDK
-            path: ../client-sdks/python/api-reference/organization.mdx
+            path: client-sdks/python/api-reference/organization.mdx
           - page: Presets - Python SDK
-            path: ../client-sdks/python/api-reference/presets.mdx
+            path: client-sdks/python/api-reference/presets.mdx
           - page: Providers - Python SDK
-            path: ../client-sdks/python/api-reference/providers.mdx
+            path: client-sdks/python/api-reference/providers.mdx
           - page: Rerank - Python SDK
-            path: ../client-sdks/python/api-reference/rerank.mdx
+            path: client-sdks/python/api-reference/rerank.mdx
           - page: Beta.Responses - Python SDK
-            path: ../client-sdks/python/api-reference/responses.mdx
+            path: client-sdks/python/api-reference/responses.mdx
           - page: Transcriptions - Python SDK
-            path: ../client-sdks/python/api-reference/stt.mdx
+            path: client-sdks/python/api-reference/stt.mdx
           - page: Speech - Python SDK
-            path: ../client-sdks/python/api-reference/tts.mdx
+            path: client-sdks/python/api-reference/tts.mdx
           - page: VideoGeneration - Python SDK
-            path: ../client-sdks/python/api-reference/videogeneration.mdx
+            path: client-sdks/python/api-reference/videogeneration.mdx
           - page: Workspaces - Python SDK
-            path: ../client-sdks/python/api-reference/workspaces.mdx
+            path: client-sdks/python/api-reference/workspaces.mdx
       - section: Go SDK
         icon: code
         contents:
@@ -446,245 +449,245 @@ navigation:
           icon: code
           contents:
           - page: Analytics - Go SDK
-            path: ../client-sdks/go/api-reference/analytics.mdx
+            path: client-sdks/go/api-reference/analytics.mdx
           - page: APIKeys - Go SDK
-            path: ../client-sdks/go/api-reference/apikeys.mdx
+            path: client-sdks/go/api-reference/apikeys.mdx
           - page: Byok - Go SDK
-            path: ../client-sdks/go/api-reference/byok.mdx
+            path: client-sdks/go/api-reference/byok.mdx
           - page: Chat - Go SDK
-            path: ../client-sdks/go/api-reference/chat.mdx
+            path: client-sdks/go/api-reference/chat.mdx
           - page: Credits - Go SDK
-            path: ../client-sdks/go/api-reference/credits.mdx
+            path: client-sdks/go/api-reference/credits.mdx
           - page: Datasets - Go SDK
-            path: ../client-sdks/go/api-reference/datasets.mdx
+            path: client-sdks/go/api-reference/datasets.mdx
           - page: Embeddings - Go SDK
-            path: ../client-sdks/go/api-reference/embeddings.mdx
+            path: client-sdks/go/api-reference/embeddings.mdx
           - page: Endpoints - Go SDK
-            path: ../client-sdks/go/api-reference/endpoints.mdx
+            path: client-sdks/go/api-reference/endpoints.mdx
           - page: Generations - Go SDK
-            path: ../client-sdks/go/api-reference/generations.mdx
+            path: client-sdks/go/api-reference/generations.mdx
           - page: Guardrails - Go SDK
-            path: ../client-sdks/go/api-reference/guardrails.mdx
+            path: client-sdks/go/api-reference/guardrails.mdx
           - section: Models
             icon: cube
             contents:
             - page: Models - Go SDK
-              path: ../client-sdks/go/api-reference/models.mdx
+              path: client-sdks/go/api-reference/models.mdx
           - page: OAuth - Go SDK
-            path: ../client-sdks/go/api-reference/oauth.mdx
+            path: client-sdks/go/api-reference/oauth.mdx
           - page: Observability - Go SDK
-            path: ../client-sdks/go/api-reference/observability.mdx
+            path: client-sdks/go/api-reference/observability.mdx
           - page: Organization - Go SDK
-            path: ../client-sdks/go/api-reference/organization.mdx
+            path: client-sdks/go/api-reference/organization.mdx
           - page: Presets - Go SDK
-            path: ../client-sdks/go/api-reference/presets.mdx
+            path: client-sdks/go/api-reference/presets.mdx
           - page: Providers - Go SDK
-            path: ../client-sdks/go/api-reference/providers.mdx
+            path: client-sdks/go/api-reference/providers.mdx
           - page: Rerank - Go SDK
-            path: ../client-sdks/go/api-reference/rerank.mdx
+            path: client-sdks/go/api-reference/rerank.mdx
           - page: Beta.Responses - Go SDK
-            path: ../client-sdks/go/api-reference/responses.mdx
+            path: client-sdks/go/api-reference/responses.mdx
           - page: Transcriptions - Go SDK
-            path: ../client-sdks/go/api-reference/stt.mdx
+            path: client-sdks/go/api-reference/stt.mdx
           - page: Speech - Go SDK
-            path: ../client-sdks/go/api-reference/tts.mdx
+            path: client-sdks/go/api-reference/tts.mdx
           - page: VideoGeneration - Go SDK
-            path: ../client-sdks/go/api-reference/videogeneration.mdx
+            path: client-sdks/go/api-reference/videogeneration.mdx
           - page: Workspaces - Go SDK
-            path: ../client-sdks/go/api-reference/workspaces.mdx
+            path: client-sdks/go/api-reference/workspaces.mdx
       - section: DevTools
         icon: stars
         contents:
         - page: DevTools
-          path: ../client-sdks/dev-tools/devtools.mdx
+          path: client-sdks/dev-tools/devtools.mdx
       - page: "Migrating to @openrouter/agent"
-        path: ../client-sdks/agent-migration.mdx
+        path: client-sdks/agent-migration.mdx
   - tab: agent-sdk
     layout:
       - page: Agent SDK
-        path: ../agent-sdk/overview.mdx
+        path: agent-sdk/overview.mdx
       - page: Usage for Agents
-        path: ../agent-sdk/usage-for-agents.mdx
+        path: agent-sdk/usage-for-agents.mdx
       - section: TypeScript SDK
         icon: code
         contents:
         - page: TypeScript SDK
-          path: ../agent-sdk/typescript/overview.mdx
+          path: agent-sdk/typescript/overview.mdx
         - section: API Reference
           icon: code
           contents:
           - page: Analytics - TypeScript SDK
-            path: ../agent-sdk/typescript/api-reference/analytics.mdx
+            path: agent-sdk/typescript/api-reference/analytics.mdx
           - page: APIKeys - TypeScript SDK
-            path: ../agent-sdk/typescript/api-reference/apikeys.mdx
+            path: agent-sdk/typescript/api-reference/apikeys.mdx
           - page: Chat - TypeScript SDK
-            path: ../agent-sdk/typescript/api-reference/chat.mdx
+            path: agent-sdk/typescript/api-reference/chat.mdx
           - page: Credits - TypeScript SDK
-            path: ../agent-sdk/typescript/api-reference/credits.mdx
+            path: agent-sdk/typescript/api-reference/credits.mdx
           - page: Embeddings - TypeScript SDK
-            path: ../agent-sdk/typescript/api-reference/embeddings.mdx
+            path: agent-sdk/typescript/api-reference/embeddings.mdx
           - page: Endpoints - TypeScript SDK
-            path: ../agent-sdk/typescript/api-reference/endpoints.mdx
+            path: agent-sdk/typescript/api-reference/endpoints.mdx
           - page: Generations - TypeScript SDK
-            path: ../agent-sdk/typescript/api-reference/generations.mdx
+            path: agent-sdk/typescript/api-reference/generations.mdx
           - page: Guardrails - TypeScript SDK
-            path: ../agent-sdk/typescript/api-reference/guardrails.mdx
+            path: agent-sdk/typescript/api-reference/guardrails.mdx
           - section: Models
             icon: cube
             contents:
             - page: Models - TypeScript SDK
-              path: ../agent-sdk/typescript/api-reference/models.mdx
+              path: agent-sdk/typescript/api-reference/models.mdx
           - page: OAuth - TypeScript SDK
-            path: ../agent-sdk/typescript/api-reference/oauth.mdx
+            path: agent-sdk/typescript/api-reference/oauth.mdx
           - page: Organization - TypeScript SDK
-            path: ../agent-sdk/typescript/api-reference/organization.mdx
+            path: agent-sdk/typescript/api-reference/organization.mdx
           - page: Providers - TypeScript SDK
-            path: ../agent-sdk/typescript/api-reference/providers.mdx
+            path: agent-sdk/typescript/api-reference/providers.mdx
           - page: Rerank - TypeScript SDK
-            path: ../agent-sdk/typescript/api-reference/rerank.mdx
+            path: agent-sdk/typescript/api-reference/rerank.mdx
           - page: Beta.Responses - TypeScript SDK
-            path: ../agent-sdk/typescript/api-reference/responses.mdx
+            path: agent-sdk/typescript/api-reference/responses.mdx
           - page: Speech - TypeScript SDK
-            path: ../agent-sdk/typescript/api-reference/tts.mdx
+            path: agent-sdk/typescript/api-reference/tts.mdx
           - page: VideoGeneration - TypeScript SDK
-            path: ../agent-sdk/typescript/api-reference/videogeneration.mdx
+            path: agent-sdk/typescript/api-reference/videogeneration.mdx
           - page: Workspaces - TypeScript SDK
-            path: ../agent-sdk/typescript/api-reference/workspaces.mdx
+            path: agent-sdk/typescript/api-reference/workspaces.mdx
       - section: Call Model
         icon: comment-nodes
         contents:
         - page: Call Model (Typescript)
-          path: ../agent-sdk/call-model/overview.mdx
+          path: agent-sdk/call-model/overview.mdx
         - page: Working with Items
-          path: ../agent-sdk/call-model/items.mdx
+          path: agent-sdk/call-model/items.mdx
         - page: API Reference
-          path: ../agent-sdk/call-model/api-reference.mdx
+          path: agent-sdk/call-model/api-reference.mdx
         - page: Dynamic Parameters
-          path: ../agent-sdk/call-model/dynamic-parameters.mdx
+          path: agent-sdk/call-model/dynamic-parameters.mdx
         - page: Next Turn Params
-          path: ../agent-sdk/call-model/next-turn-params.mdx
+          path: agent-sdk/call-model/next-turn-params.mdx
         - page: Stop Conditions
-          path: ../agent-sdk/call-model/stop-conditions.mdx
+          path: agent-sdk/call-model/stop-conditions.mdx
         - page: Streaming
-          path: ../agent-sdk/call-model/streaming.mdx
+          path: agent-sdk/call-model/streaming.mdx
         - page: Text Generation
-          path: ../agent-sdk/call-model/text-generation.mdx
+          path: agent-sdk/call-model/text-generation.mdx
         - page: Message Formats
-          path: ../agent-sdk/call-model/message-formats.mdx
+          path: agent-sdk/call-model/message-formats.mdx
         - page: Tools
-          path: ../agent-sdk/call-model/tools.mdx
+          path: agent-sdk/call-model/tools.mdx
         - page: "Tool Approval & State Persistence"
-          path: ../agent-sdk/call-model/tool-approval-state.mdx
+          path: agent-sdk/call-model/tool-approval-state.mdx
         - section: Examples
           icon: code
           contents:
           - page: Weather Tool
-            path: ../agent-sdk/call-model/examples/weather-tool.mdx
+            path: agent-sdk/call-model/examples/weather-tool.mdx
           - page: Skills Loader
-            path: ../agent-sdk/call-model/examples/skills-loader.mdx
+            path: agent-sdk/call-model/examples/skills-loader.mdx
       - section: DevTools
         icon: stars
         contents:
         - page: DevTools
-          path: ../agent-sdk/dev-tools/devtools.mdx
+          path: agent-sdk/dev-tools/devtools.mdx
       - page: "Migrating to @openrouter/agent"
-        path: ../agent-sdk/agent-migration.mdx
+        path: agent-sdk/agent-migration.mdx
   - tab: cookbook
     layout:
       - section: Get Started
         icon: rocket
         contents:
           - page: "Quickstart: Build a Chat App"
-            path: ../cookbook/get-started/quickstart.mdx
+            path: cookbook/get-started/quickstart.mdx
           - page: Enterprise Quickstart
-            path: ../cookbook/get-started/enterprise-quickstart.mdx
+            path: cookbook/get-started/enterprise-quickstart.mdx
           - page: Free Models Router
-            path: ../cookbook/get-started/free-models-router-playground.mdx
+            path: cookbook/get-started/free-models-router-playground.mdx
       - section: Working with Coding Agents
         icon: robot
         contents:
           - page: Automatic Code Review
-            path: ../cookbook/coding-agents/automatic-code-review.mdx
+            path: cookbook/coding-agents/automatic-code-review.mdx
           - page: Claude Code
-            path: ../cookbook/coding-agents/claude-code-integration.mdx
+            path: cookbook/coding-agents/claude-code-integration.mdx
           - page: Claude Desktop
-            path: ../cookbook/coding-agents/claude-desktop-integration.mdx
+            path: cookbook/coding-agents/claude-desktop-integration.mdx
           - page: Codex CLI
-            path: ../cookbook/coding-agents/codex-cli.mdx
+            path: cookbook/coding-agents/codex-cli.mdx
           - page: Cursor
-            path: ../cookbook/coding-agents/cursor-integration.mdx
+            path: cookbook/coding-agents/cursor-integration.mdx
           - page: Hermes Agent
-            path: ../cookbook/coding-agents/hermes-integration.mdx
+            path: cookbook/coding-agents/hermes-integration.mdx
           - page: Junie CLI
-            path: ../cookbook/coding-agents/junie.mdx
+            path: cookbook/coding-agents/junie.mdx
           - page: Using MCP Servers with OpenRouter
-            path: ../cookbook/coding-agents/mcp-servers.mdx
+            path: cookbook/coding-agents/mcp-servers.mdx
           - page: OpenClaw 🦞
-            path: ../cookbook/coding-agents/openclaw-integration.mdx
+            path: cookbook/coding-agents/openclaw-integration.mdx
           - page: OpenCode
-            path: ../cookbook/coding-agents/opencode-integration.mdx
+            path: cookbook/coding-agents/opencode-integration.mdx
       - section: Building Agents
         icon: hammer
         contents:
           - page: Add Human-in-the-Loop Controls to an Agent SDK Agent
-            path: ../cookbook/building-agents/hitl-tools.mdx
+            path: cookbook/building-agents/hitl-tools.mdx
           - page: Build a Long-Horizon Agent
-            path: ../cookbook/building-agents/long-horizon-agents.mdx
+            path: cookbook/building-agents/long-horizon-agents.mdx
           - page: Build Your Own Agent TUI
-            path: ../cookbook/building-agents/create-agent-harness-tui.mdx
+            path: cookbook/building-agents/create-agent-harness-tui.mdx
           - page: Build Your Own Headless Agent
-            path: ../cookbook/building-agents/create-headless-agent.mdx
+            path: cookbook/building-agents/create-headless-agent.mdx
       - section: Video Generation
         icon: film
         contents:
           - page: Choose a Video Generation Model
-            path: ../cookbook/video-generation/choose-video-model.mdx
+            path: cookbook/video-generation/choose-video-model.mdx
           - page: Generate and Download a Video from Text
-            path: ../cookbook/video-generation/text-to-video.mdx
+            path: cookbook/video-generation/text-to-video.mdx
           - page: Get Video Results with Webhooks
-            path: ../cookbook/video-generation/video-generation-webhooks.mdx
+            path: cookbook/video-generation/video-generation-webhooks.mdx
           - page: Guide a Video with Reference Images
-            path: ../cookbook/video-generation/reference-to-video.mdx
+            path: cookbook/video-generation/reference-to-video.mdx
           - page: Turn an Image into a Video
-            path: ../cookbook/video-generation/image-to-video.mdx
+            path: cookbook/video-generation/image-to-video.mdx
           - page: Use Provider-Specific Video Options
-            path: ../cookbook/video-generation/provider-specific-video-options.mdx
+            path: cookbook/video-generation/provider-specific-video-options.mdx
       - section: "Evaluate & Optimize"
         icon: flask
         contents:
           - page: Distillation
-            path: ../cookbook/evaluate-and-optimize/distillation.mdx
+            path: cookbook/evaluate-and-optimize/distillation.mdx
           - section: Model Migrations
             icon: arrow-right-arrow-left
             contents:
             - page: Claude 4.7 Migration Guide
-              path: ../cookbook/evaluate-and-optimize/model-migrations/claude-4-7.mdx
+              path: cookbook/evaluate-and-optimize/model-migrations/claude-4-7.mdx
             - page: Claude 4.6 Migration Guide
-              path: ../cookbook/evaluate-and-optimize/model-migrations/claude-4-6.mdx
+              path: cookbook/evaluate-and-optimize/model-migrations/claude-4-6.mdx
             - page: GPT-5.4 Migration Guide
-              path: ../cookbook/evaluate-and-optimize/model-migrations/gpt-5-4.mdx
+              path: cookbook/evaluate-and-optimize/model-migrations/gpt-5-4.mdx
           - page: "RAG with Embeddings & Rerank"
-            path: ../cookbook/evaluate-and-optimize/rag.mdx
+            path: cookbook/evaluate-and-optimize/rag.mdx
           - page: Red Teaming
-            path: ../cookbook/evaluate-and-optimize/red-teaming.mdx
+            path: cookbook/evaluate-and-optimize/red-teaming.mdx
       - section: Administration
         icon: chart-line
         contents:
           - page: Activity Export
-            path: ../cookbook/administration/activity-export.mdx
+            path: cookbook/administration/activity-export.mdx
           - page: API Key Rotation
-            path: ../cookbook/administration/api-key-rotation.mdx
+            path: cookbook/administration/api-key-rotation.mdx
           - page: Crypto API
-            path: ../cookbook/administration/crypto-api.mdx
+            path: cookbook/administration/crypto-api.mdx
           - page: Organization Management
-            path: ../cookbook/administration/organization-management.mdx
+            path: cookbook/administration/organization-management.mdx
           - page: Usage Accounting
-            path: ../cookbook/administration/usage-accounting.mdx
+            path: cookbook/administration/usage-accounting.mdx
           - page: User Tracking
-            path: ../cookbook/administration/user-tracking.mdx
+            path: cookbook/administration/user-tracking.mdx
   - tab: changelog
     layout:
       - section: Changelog
         contents:
           - page: Changelog
-            path: ../changelog.mdx
+            path: changelog.mdx

@@ -20,6 +20,9 @@ colors:
 layout:
   tabs-placement: header
 
+mdx-components:
+  - ./components
+
 tabs:
   docs:
     display-name: Docs

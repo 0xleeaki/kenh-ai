@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "name": "OpenRouter | Documentation",
+  "name": "kenh-ai | Documentation",
   "theme": "mint",
   "colors": {
     "primary": "#6467f2",
@@ -16,15 +16,15 @@
     "links": [
       {
         "label": "Models",
-        "href": "https://openrouter.ai/models"
+        "href": "https://kenh-ai.com/models"
       },
       {
         "label": "Chat",
-        "href": "https://openrouter.ai/chat"
+        "href": "https://kenh-ai.com/chat"
       },
       {
         "label": "Rankings",
-        "href": "https://openrouter.ai/rankings"
+        "href": "https://kenh-ai.com/rankings"
       },
       {
         "label": "Docs",

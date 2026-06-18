@@ -2,15 +2,15 @@
 title: Tool Calling
 description: Function calling and tool integration with the Responses API Beta
 seoTitle: 'Responses API Beta Tool Calling | Function Calling Integration'
-canonicalUrl: https://openrouter.ai/docs/api/reference/responses/tool-calling
-og:site_name: OpenRouter Documentation
+canonicalUrl: https://kenh-ai.com/docs/api/reference/responses/tool-calling
+og:site_name: kenh-ai Documentation
 og:title: 'Responses API Beta Tool Calling - Function Calling Integration'
-og:description: "Integrate function calling with support for parallel execution and complex tool interactions using OpenRouter's Responses API Beta."
-og:image: https://openrouter.ai/dynamic-og?title=Responses%20API%20Tool%20Calling&description=Function%20calling%20integration
+og:description: "Integrate function calling with support for parallel execution and complex tool interactions using kenh-ai's Responses API Beta."
+og:image: https://kenh-ai.com/dynamic-og?title=Responses%20API%20Tool%20Calling&description=Function%20calling%20integration
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: toolbox
@@ -52,10 +52,10 @@ const weatherTool = {
   },
 };
 
-const response = await fetch('https://openrouter.ai/api/v1/responses', {
+const response = await fetch('https://kenh-ai.com/api/v1/responses', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+    'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -107,9 +107,9 @@ weather_tool = {
 }
 
 response = requests.post(
-    'https://openrouter.ai/api/v1/responses',
+    'https://kenh-ai.com/api/v1/responses',
     headers={
-        'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+        'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
         'Content-Type': 'application/json',
     },
     json={
@@ -137,8 +137,8 @@ print(result)
 ```
 
 ```bash title="cURL" expandable lines
-curl -X POST https://openrouter.ai/api/v1/responses \
-  -H "Authorization: Bearer YOUR_OPENROUTER_API_KEY" \
+curl -X POST https://kenh-ai.com/api/v1/responses \
+  -H "Authorization: Bearer YOUR_KENH_AI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "openai/o4-mini",
@@ -198,10 +198,10 @@ Control when and how tools are called:
 <CodeGroup>
 
 ```typescript title="TypeScript" expandable lines
-const response = await fetch('https://openrouter.ai/api/v1/responses', {
+const response = await fetch('https://kenh-ai.com/api/v1/responses', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+    'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -229,9 +229,9 @@ const response = await fetch('https://openrouter.ai/api/v1/responses', {
 import requests
 
 response = requests.post(
-    'https://openrouter.ai/api/v1/responses',
+    'https://kenh-ai.com/api/v1/responses',
     headers={
-        'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+        'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
         'Content-Type': 'application/json',
     },
     json={
@@ -262,10 +262,10 @@ response = requests.post(
 <CodeGroup>
 
 ```typescript title="TypeScript" expandable lines
-const response = await fetch('https://openrouter.ai/api/v1/responses', {
+const response = await fetch('https://kenh-ai.com/api/v1/responses', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+    'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -293,9 +293,9 @@ const response = await fetch('https://openrouter.ai/api/v1/responses', {
 import requests
 
 response = requests.post(
-    'https://openrouter.ai/api/v1/responses',
+    'https://kenh-ai.com/api/v1/responses',
     headers={
-        'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+        'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
         'Content-Type': 'application/json',
     },
     json={
@@ -345,10 +345,10 @@ const calculatorTool = {
   },
 };
 
-const response = await fetch('https://openrouter.ai/api/v1/responses', {
+const response = await fetch('https://kenh-ai.com/api/v1/responses', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+    'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -391,9 +391,9 @@ calculator_tool = {
 }
 
 response = requests.post(
-    'https://openrouter.ai/api/v1/responses',
+    'https://kenh-ai.com/api/v1/responses',
     headers={
-        'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+        'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
         'Content-Type': 'application/json',
     },
     json={
@@ -426,10 +426,10 @@ The API supports parallel execution of multiple tools:
 <CodeGroup>
 
 ```typescript title="TypeScript" expandable lines
-const response = await fetch('https://openrouter.ai/api/v1/responses', {
+const response = await fetch('https://kenh-ai.com/api/v1/responses', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+    'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -460,9 +460,9 @@ console.log(result);
 import requests
 
 response = requests.post(
-    'https://openrouter.ai/api/v1/responses',
+    'https://kenh-ai.com/api/v1/responses',
     headers={
-        'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+        'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
         'Content-Type': 'application/json',
     },
     json={
@@ -526,10 +526,10 @@ Include tool responses in follow-up requests:
 <CodeGroup>
 
 ```typescript title="TypeScript" expandable lines
-const response = await fetch('https://openrouter.ai/api/v1/responses', {
+const response = await fetch('https://kenh-ai.com/api/v1/responses', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+    'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -591,9 +591,9 @@ const response = await fetch('https://openrouter.ai/api/v1/responses', {
 import requests
 
 response = requests.post(
-    'https://openrouter.ai/api/v1/responses',
+    'https://kenh-ai.com/api/v1/responses',
     headers={
-        'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+        'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
         'Content-Type': 'application/json',
     },
     json={
@@ -666,10 +666,10 @@ Monitor tool calls in real-time with streaming:
 <CodeGroup>
 
 ```typescript title="TypeScript" expandable lines
-const response = await fetch('https://openrouter.ai/api/v1/responses', {
+const response = await fetch('https://kenh-ai.com/api/v1/responses', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+    'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -730,9 +730,9 @@ import requests
 import json
 
 response = requests.post(
-    'https://openrouter.ai/api/v1/responses',
+    'https://kenh-ai.com/api/v1/responses',
     headers={
-        'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+        'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
         'Content-Type': 'application/json',
     },
     json={

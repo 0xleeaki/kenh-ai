@@ -2,23 +2,23 @@
 title: Pareto Router
 description: Pick a coding model by minimum coding score without choosing a specific model
 seoTitle: 'Pareto Router | Coding-Score-Based Model Selection'
-canonicalUrl: https://openrouter.ai/docs/guides/routing/routers/pareto-router
-og:site_name: OpenRouter Documentation
+canonicalUrl: https://kenh-ai.com/docs/guides/routing/routers/pareto-router
+og:site_name: kenh-ai Documentation
 og:title: 'Pareto Router - Coding-Score-Based Model Selection'
-og:description: "Route coding requests by a single minimum coding score using OpenRouter's Pareto Router."
-og:image: https://openrouter.ai/dynamic-og?title=Pareto%20Router&description=Coding-score-based%20model%20selection
+og:description: "Route coding requests by a single minimum coding score using kenh-ai's Pareto Router."
+og:image: https://kenh-ai.com/dynamic-og?title=Pareto%20Router&description=Coding-score-based%20model%20selection
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 icon: chart-line
 ---
 
-The [Pareto Router](https://openrouter.ai/openrouter/pareto-code) (`openrouter/pareto-code`) is a way to have OpenRouter always pick a strong coding model for your needs without committing to a specific one. You express a single `min_coding_score` preference between `0` and `1`, and the router routes your request to a coding model that meets that bar.
+The [Pareto Router](https://kenh-ai.com/openrouter/pareto-code) (`openrouter/pareto-code`) is a way to have kenh-ai always pick a strong coding model for your needs without committing to a specific one. You express a single `min_coding_score` preference between `0` and `1`, and the router routes your request to a coding model that meets that bar.
 
 ## Overview
 
-The Pareto Router is tuned for coding use cases. It maintains a curated shortlist of strong coding models currently available on OpenRouter, ranked by their [Artificial Analysis](https://artificialanalysis.ai/) coding percentile (an integer between `0` and `100` that captures how a model ranks within AA's benchmarked coding field). Your `min_coding_score` picks the tier of models you want to route to. Within the chosen tier the router selects the cheapest model that is currently available (or the fastest, when you request the `:nitro` variant).
+The Pareto Router is tuned for coding use cases. It maintains a curated shortlist of strong coding models currently available on kenh-ai, ranked by their [Artificial Analysis](https://artificialanalysis.ai/) coding percentile (an integer between `0` and `100` that captures how a model ranks within AA's benchmarked coding field). Your `min_coding_score` picks the tier of models you want to route to. Within the chosen tier the router selects the cheapest model that is currently available (or the fastest, when you request the `:nitro` variant).
 
 The name comes from [Pareto efficiency](https://en.wikipedia.org/wiki/Pareto_efficiency): the goal is to give you a strong coder without overspending. The exact shortlist evolves over time as new models land and benchmarks shift.
 
@@ -29,13 +29,13 @@ Set your model to `openrouter/pareto-code` and optionally pass the `pareto-route
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" expandable lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const kenhAi = new KenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
-const completion = await openRouter.chat.send({
+const completion = await kenhAi.chat.send({
   model: 'openrouter/pareto-code',
   plugins: [
     {
@@ -56,8 +56,8 @@ console.log('Model used:', completion.model);
 ```
 
 ```bash title="cURL" lines
-curl https://openrouter.ai/api/v1/chat/completions \
-  -H "Authorization: Bearer $OPENROUTER_API_KEY" \
+curl https://kenh-ai.com/api/v1/chat/completions \
+  -H "Authorization: Bearer $KENH_AI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "openrouter/pareto-code",
@@ -79,7 +79,7 @@ curl https://openrouter.ai/api/v1/chat/completions \
 
 Instead of passing the `pareto-router` plugin on every API request, you can configure a default `min_coding_score` in the dashboard:
 
-1. Navigate to [Settings > Plugins](https://openrouter.ai/settings/plugins)
+1. Navigate to [Settings > Plugins](https://kenh-ai.com/settings/plugins)
 2. Find the **Pareto Router** row and click the configure (gear) icon
 3. Select a quality tier — **High**, **Medium**, or **Low** — or choose **Custom score** to enter a specific value between `0` and `1`
 4. Click **Save**
@@ -105,7 +105,7 @@ You can still override the default on a per-request basis by passing the `pareto
 If you omit `min_coding_score`, the router defaults to the strongest available coders. Within a tier, the router picks the cheapest available model, or the fastest by p50 throughput when you request the `:nitro` variant.
 
 <Info>
-The router resolves a primary coding model plus up to two same-tier fallbacks. The primary is what serves your request. The fallbacks only fire on transient provider errors or rate limits, they do not load-balance traffic. If the entire tier has no models currently published on OpenRouter, the router steps into a neighboring tier instead. The response `model` field always reports the concrete model that handled the request.
+The router resolves a primary coding model plus up to two same-tier fallbacks. The primary is what serves your request. The fallbacks only fire on transient provider errors or rate limits, they do not load-balance traffic. If the entire tier has no models currently published on kenh-ai, the router steps into a neighboring tier instead. The response `model` field always reports the concrete model that handled the request.
 </Info>
 
 <Note>
@@ -139,7 +139,7 @@ The response includes the `model` field showing which coding model was actually 
 ## How It Works
 
 1. **Tier resolution**: Your `min_coding_score` value is mapped to one of three tiers (`high`, `medium`, `low`) using the thresholds in the table above.
-2. **Candidate filtering**: The router takes the tier's curated shortlist and filters it to models that are currently published on OpenRouter.
+2. **Candidate filtering**: The router takes the tier's curated shortlist and filters it to models that are currently published on kenh-ai.
 3. **Selection**: The filtered shortlist is sorted by price ascending, or by p50 throughput descending when you request the `:nitro` variant. The top entry becomes the primary model and the next two are kept as same-tier fallbacks.
 4. **Runtime fallback**: If the primary's endpoints are unavailable due to transient provider errors or rate limits, the request cascades through the same-tier fallbacks. Only when the entire tier is missing from the catalog does the router step into a neighboring tier.
 5. **Request forwarding**: Your request is forwarded to the selected model.

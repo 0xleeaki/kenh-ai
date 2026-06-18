@@ -1,16 +1,16 @@
 ---
 title: Xcode
-description: Using OpenRouter with Apple Intelligence in Xcode
-seoTitle: 'Xcode Integration | OpenRouter Apple Intelligence Support'
-canonicalUrl: https://openrouter.ai/docs/guides/community/xcode
-og:site_name: OpenRouter Documentation
-og:title: 'Xcode Integration - OpenRouter Apple Intelligence Support'
-og:description: 'Integrate OpenRouter with Apple Intelligence in Xcode 26. Complete setup guide for accessing hundreds of AI models directly in your Xcode development environment.'
-og:image: https://openrouter.ai/dynamic-og?title=Xcode&description=Apple%20Intelligence%20Integration
+description: Using kenh-ai with Apple Intelligence in Xcode
+seoTitle: 'Xcode Integration | kenh-ai Apple Intelligence Support'
+canonicalUrl: https://kenh-ai.com/docs/guides/community/xcode
+og:site_name: kenh-ai Documentation
+og:title: 'Xcode Integration - kenh-ai Apple Intelligence Support'
+og:description: 'Integrate kenh-ai with Apple Intelligence in Xcode 26. Complete setup guide for accessing hundreds of AI models directly in your Xcode development environment.'
+og:image: https://kenh-ai.com/dynamic-og?title=Xcode&description=Apple%20Intelligence%20Integration
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: puzzle-piece
@@ -21,7 +21,7 @@ import { API_KEY_REF } from '../../snippets/exports/constants.mdx';
 {/* <llms-ignore> */}
 ## Using Xcode with Apple Intelligence
 
-[Apple Intelligence](https://developer.apple.com/apple-intelligence/) in Xcode 26 provides built-in AI assistance for coding. By integrating OpenRouter, you can access hundreds of AI models directly in your Xcode development environment, going far beyond the default ChatGPT integration.
+[Apple Intelligence](https://developer.apple.com/apple-intelligence/) in Xcode 26 provides built-in AI assistance for coding. By integrating kenh-ai, you can access hundreds of AI models directly in your Xcode development environment, going far beyond the default ChatGPT integration.
 
 This integration allows you to use models from Anthropic, Google, Meta, and many other providers without leaving your development environment.
 
@@ -52,25 +52,25 @@ Open **Xcode > Settings > Intelligence** and click **Add a Chat Provider** at th
 ![Xcode Intelligence Settings](/assets/guides/community/xcode/xcode-setup-1b.png)
 </Frame>
 
-#### Step 3: Configure OpenRouter Provider
+#### Step 3: Configure kenh-ai Provider
 
 In the dialog that appears, enter the following details:
 
-- **URL**: `https://openrouter.ai/api`
+- **URL**: `https://kenh-ai.com/api`
   - **Important**: Do not add `/v1` at the end of the endpoint like you typically would for direct API calls
 - **API Key Header**: `Authorization`
-- **API Key**: `Bearer YOUR_API_KEY_HERE` (replace `YOUR_API_KEY_HERE` with your OpenRouter API key that starts with `sk-or-v1-`)
-- **Description**: `OpenRouter` (or any name you prefer)
+- **API Key**: `Bearer YOUR_API_KEY_HERE` (replace `YOUR_API_KEY_HERE` with your kenh-ai API key that starts with `sk-or-v1-`)
+- **Description**: `kenh-ai` (or any name you prefer)
 
 Click **Add** to save the configuration.
 
 <Frame>
-![OpenRouter Configuration](/assets/guides/community/xcode/xcode-setup-2.png)
+![kenh-ai Configuration](/assets/guides/community/xcode/xcode-setup-2.png)
 </Frame>
 
 #### Step 4: Browse Available Models
 
-Once configured, click on **OpenRouter** to see all available models. Since OpenRouter offers hundreds of models, you should bookmark your favorite models for quick access. Bookmarked models will appear at the top of the list, making them easily accessible from within the pane whenever you need them.
+Once configured, click on **kenh-ai** to see all available models. Since kenh-ai offers hundreds of models, you should bookmark your favorite models for quick access. Bookmarked models will appear at the top of the list, making them easily accessible from within the pane whenever you need them.
 
 <Frame>
 ![Available Models](/assets/guides/community/xcode/xcode-setup-3.png)
@@ -97,7 +97,7 @@ Head back to the chat interface (icon at the top) and start chatting with your s
 
 ### Using Apple Intelligence Features
 
-Once configured, you can use Apple Intelligence features in Xcode with OpenRouter models:
+Once configured, you can use Apple Intelligence features in Xcode with kenh-ai models:
 
 - **Code Completion**: Get intelligent code suggestions
 - **Code Explanation**: Ask questions about your code
@@ -113,6 +113,6 @@ Once configured, you can use Apple Intelligence features in Xcode with OpenRoute
 ### Learn More
 
 - **Apple Intelligence Documentation**: [Writing Code with Intelligence in Xcode](https://developer.apple.com/documentation/Xcode/writing-code-with-intelligence-in-xcode)
-- **OpenRouter Quick Start**: [Getting Started with OpenRouter](https://openrouter.ai/docs/quickstart)
-- **Available Models**: [Browse OpenRouter Models](https://openrouter.ai/models)
+- **kenh-ai Quick Start**: [Getting Started with kenh-ai](https://kenh-ai.com/docs/quickstart)
+- **Available Models**: [Browse kenh-ai Models](https://kenh-ai.com/models)
 {/* </llms-ignore> */}

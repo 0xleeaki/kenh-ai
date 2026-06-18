@@ -1,15 +1,15 @@
 ---
 title: APIKeys - TypeScript SDK
 description: APIKeys method reference
-seoTitle: APIKeys | OpenRouter TypeScript SDK
-canonicalUrl: 'https://openrouter.ai/docs/client-sdks/typescript/api-reference/apikeys'
-'og:site_name': OpenRouter Documentation
-'og:title': APIKeys | OpenRouter TypeScript SDK
+seoTitle: APIKeys | kenh-ai TypeScript SDK
+canonicalUrl: 'https://kenh-ai.com/docs/client-sdks/typescript/api-reference/apikeys'
+'og:site_name': kenh-ai Documentation
+'og:title': APIKeys | kenh-ai TypeScript SDK
 'og:description': >-
-  APIKeys method documentation for the OpenRouter TypeScript SDK. Learn how to
+  APIKeys method documentation for the kenh-ai TypeScript SDK. Learn how to
   use this API endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=APIKeys%20-%20TypeScript%20SDK&description=APIKeys%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=APIKeys%20-%20TypeScript%20SDK&description=APIKeys%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -48,17 +48,17 @@ Get information on the API key associated with the current authentication sessio
 
 {/* UsageSnippet language="typescript" operationID="getCurrentKey" method="get" path="/key" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.apiKeys.getCurrentKeyMetadata();
+  const result = await kenhAi.apiKeys.getCurrentKeyMetadata();
 
   console.log(result);
 }
@@ -71,20 +71,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { apiKeysGetCurrentKeyMetadata } from "@openrouter/sdk/funcs/apiKeysGetCurrentKeyMetadata.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { apiKeysGetCurrentKeyMetadata } from "@kenh-ai/sdk/funcs/apiKeysGetCurrentKeyMetadata.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await apiKeysGetCurrentKeyMetadata(openRouter);
+  const res = await apiKeysGetCurrentKeyMetadata(kenhAi);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -125,17 +125,17 @@ List all API keys for the authenticated user. [Management key](/guides/overview/
 
 {/* UsageSnippet language="typescript" operationID="list" method="get" path="/keys" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.apiKeys.list();
+  const result = await kenhAi.apiKeys.list();
 
   console.log(result);
 }
@@ -148,20 +148,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { apiKeysList } from "@openrouter/sdk/funcs/apiKeysList.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { apiKeysList } from "@kenh-ai/sdk/funcs/apiKeysList.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await apiKeysList(openRouter);
+  const res = await apiKeysList(kenhAi);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -203,17 +203,17 @@ Create a new API key for the authenticated user. [Management key](/guides/overvi
 
 {/* UsageSnippet language="typescript" operationID="createKeys" method="post" path="/keys" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.apiKeys.create({
+  const result = await kenhAi.apiKeys.create({
     requestBody: {
       expiresAt: new Date("2027-12-31T23:59:59Z"),
       includeByokInLimit: true,
@@ -234,20 +234,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { apiKeysCreate } from "@openrouter/sdk/funcs/apiKeysCreate.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { apiKeysCreate } from "@kenh-ai/sdk/funcs/apiKeysCreate.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await apiKeysCreate(openRouter, {
+  const res = await apiKeysCreate(kenhAi, {
     requestBody: {
       expiresAt: new Date("2027-12-31T23:59:59Z"),
       includeByokInLimit: true,
@@ -299,17 +299,17 @@ Delete an existing API key. [Management key](/guides/overview/auth/management-ap
 
 {/* UsageSnippet language="typescript" operationID="deleteKeys" method="delete" path="/keys/{hash}" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.apiKeys.delete({
+  const result = await kenhAi.apiKeys.delete({
     hash: "f01d52606dc8f0a8303a7b5cc3fa07109c2e346cec7c0a16b40de462992ce943",
   });
 
@@ -324,20 +324,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { apiKeysDelete } from "@openrouter/sdk/funcs/apiKeysDelete.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { apiKeysDelete } from "@kenh-ai/sdk/funcs/apiKeysDelete.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await apiKeysDelete(openRouter, {
+  const res = await apiKeysDelete(kenhAi, {
     hash: "f01d52606dc8f0a8303a7b5cc3fa07109c2e346cec7c0a16b40de462992ce943",
   });
   if (res.ok) {
@@ -382,17 +382,17 @@ Get a single API key by hash. [Management key](/guides/overview/auth/management-
 
 {/* UsageSnippet language="typescript" operationID="getKey" method="get" path="/keys/{hash}" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.apiKeys.get({
+  const result = await kenhAi.apiKeys.get({
     hash: "f01d52606dc8f0a8303a7b5cc3fa07109c2e346cec7c0a16b40de462992ce943",
   });
 
@@ -407,20 +407,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { apiKeysGet } from "@openrouter/sdk/funcs/apiKeysGet.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { apiKeysGet } from "@kenh-ai/sdk/funcs/apiKeysGet.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await apiKeysGet(openRouter, {
+  const res = await apiKeysGet(kenhAi, {
     hash: "f01d52606dc8f0a8303a7b5cc3fa07109c2e346cec7c0a16b40de462992ce943",
   });
   if (res.ok) {
@@ -465,17 +465,17 @@ Update an existing API key. [Management key](/guides/overview/auth/management-ap
 
 {/* UsageSnippet language="typescript" operationID="updateKeys" method="patch" path="/keys/{hash}" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.apiKeys.update({
+  const result = await kenhAi.apiKeys.update({
     hash: "f01d52606dc8f0a8303a7b5cc3fa07109c2e346cec7c0a16b40de462992ce943",
     requestBody: {
       disabled: false,
@@ -497,20 +497,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { apiKeysUpdate } from "@openrouter/sdk/funcs/apiKeysUpdate.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { apiKeysUpdate } from "@kenh-ai/sdk/funcs/apiKeysUpdate.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await apiKeysUpdate(openRouter, {
+  const res = await apiKeysUpdate(kenhAi, {
     hash: "f01d52606dc8f0a8303a7b5cc3fa07109c2e346cec7c0a16b40de462992ce943",
     requestBody: {
       disabled: false,

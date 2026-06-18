@@ -1,33 +1,33 @@
 ---
 title: Client SDKs
-description: Lightweight, type-safe clients for the OpenRouter API
-seoTitle: 'Client SDKs | OpenRouter Documentation'
-canonicalUrl: https://openrouter.ai/docs/client-sdks/overview
-og:site_name: OpenRouter Documentation
-og:title: 'Client SDKs | OpenRouter'
-og:description: 'Lightweight, type-safe SDK clients for calling AI models through OpenRouter. Available for TypeScript, Python, and Go.'
-og:image: https://openrouter.ai/dynamic-og?pathname=client-sdks&title=Client%20SDKs&description=Lightweight%2C%20type-safe%20clients%20for%20the%20OpenRouter%20API
+description: Lightweight, type-safe clients for the kenh-ai API
+seoTitle: 'Client SDKs | kenh-ai Documentation'
+canonicalUrl: https://kenh-ai.com/docs/client-sdks/overview
+og:site_name: kenh-ai Documentation
+og:title: 'Client SDKs | kenh-ai'
+og:description: 'Lightweight, type-safe SDK clients for calling AI models through kenh-ai. Available for TypeScript, Python, and Go.'
+og:image: https://kenh-ai.com/dynamic-og?pathname=client-sdks&title=Client%20SDKs&description=Lightweight%2C%20type-safe%20clients%20for%20the%20kenh-ai%20API
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 sidebarTitle: Overview
 icon: book
 ---
 
-The Client SDKs give you a thin, type-safe layer over the OpenRouter REST API. It handles authentication, request validation, and response typing so you can call any of 300+ models with a single function call — no boilerplate, no provider-specific quirks.
+The Client SDKs give you a thin, type-safe layer over the kenh-ai REST API. It handles authentication, request validation, and response typing so you can call any of 300+ models with a single function call — no boilerplate, no provider-specific quirks.
 
 ## Install instructions
 
 | Language | Package | Install |
 |----------|---------|---------|
-| TypeScript | [`@openrouter/sdk`](https://www.npmjs.com/package/@openrouter/sdk) | `npm install @openrouter/sdk` |
+| TypeScript | [`@kenh-ai/sdk`](https://www.npmjs.com/package/@kenh-ai/sdk) | `npm install @kenh-ai/sdk` |
 | Python | [`openrouter`](https://pypi.org/project/openrouter/) | `pip install openrouter` |
 | Go | [`go-sdk`](https://pkg.go.dev/github.com/OpenRouterTeam/go-sdk) | `go get github.com/OpenRouterTeam/go-sdk` |
 
-All three SDKs are auto-generated from the OpenRouter OpenAPI spec, so new models, parameters, and endpoints appear immediately after each API release.
+All three SDKs are auto-generated from the kenh-ai OpenAPI spec, so new models, parameters, and endpoints appear immediately after each API release.
 
 ## When to use the Client SDKs
 
@@ -39,7 +39,7 @@ Choose the Client SDKs when you need **direct, efficient access to model inferen
 - **API key and credit management** — programmatic control over your account
 - **Custom orchestration** — you handle conversation loops, tool dispatch, and state yourself
 
-The Client SDKs are intentionally lean. It mirrors the OpenRouter API surface 1:1 with full type safety, so there is no abstraction to fight when you need fine-grained control.
+The Client SDKs are intentionally lean. It mirrors the kenh-ai API surface 1:1 with full type safety, so there is no abstraction to fight when you need fine-grained control.
 
 <Tip>
 If you want higher-level primitives for building agents — multi-turn loops, tool definitions, stop conditions, and conversation state management — see the [Agent SDK](/agent-sdk/overview) instead.
@@ -50,10 +50,10 @@ If you want higher-level primitives for building agents — multi-turn loops, to
 <CodeGroup>
 
 ```typescript title="TypeScript" lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const client = new OpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY,
+const client = new KenhAI({
+  apiKey: process.env.KENH_AI_API_KEY,
 });
 
 const response = await client.chat.send({
@@ -67,10 +67,10 @@ console.log(response.choices[0].message.content);
 ```
 
 ```python title="Python" lines
-from openrouter import OpenRouter
+from kenh_ai import kenh-ai
 import os
 
-with OpenRouter(api_key=os.getenv("OPENROUTER_API_KEY")) as client:
+with KenhAI(api_key=os.getenv("KENH_AI_API_KEY")) as client:
     response = client.chat.send(
         model="openai/gpt-5.2",
         messages=[

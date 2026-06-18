@@ -1,16 +1,16 @@
 ---
 title: Choose a Video Generation Model
-description: Select an OpenRouter video model by matching clip requirements and scoring priorities
-seoTitle: 'Choose a Video Generation Model | OpenRouter Cookbook'
-canonicalUrl: https://openrouter.ai/docs/cookbook/video-generation/choose-video-model
-og:site_name: OpenRouter Documentation
-og:title: 'Choose a Video Generation Model - OpenRouter Cookbook'
-og:description: 'Fetch OpenRouter video model metadata, filter by capability, and score models by speed, cost, and quality priorities before submitting a video job.'
-og:image: https://openrouter.ai/dynamic-og?title=Choose%20a%20Video%20Generation%20Model&description=Filter%20OpenRouter%20video%20models%20by%20capability
+description: Select an kenh-ai video model by matching clip requirements and scoring priorities
+seoTitle: 'Choose a Video Generation Model | kenh-ai Cookbook'
+canonicalUrl: https://kenh-ai.com/docs/cookbook/video-generation/choose-video-model
+og:site_name: kenh-ai Documentation
+og:title: 'Choose a Video Generation Model - kenh-ai Cookbook'
+og:description: 'Fetch kenh-ai video model metadata, filter by capability, and score models by speed, cost, and quality priorities before submitting a video job.'
+og:image: https://kenh-ai.com/dynamic-og?title=Choose%20a%20Video%20Generation%20Model&description=Filter%20kenh-ai%20video%20models%20by%20capability
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: filter
@@ -32,27 +32,27 @@ video job.
   <OpenRouterVideoSkill/>
 
   <CopyPromptButton
-    prompt={`You are helping me choose the best OpenRouter video generation model for my app.
+    prompt={`You are helping me choose the best kenh-ai video generation model for my app.
 
-If Agent Skills are available, first check whether the OpenRouter video skill is installed. If it is not installed, tell me I can install it with:
+If Agent Skills are available, first check whether the kenh-ai video skill is installed. If it is not installed, tell me I can install it with:
 gh skill install OpenRouterTeam/skills openrouter-video
 
-Use this OpenRouter cookbook guide as your primary workflow:
-https://openrouter.ai/docs/cookbook/video-generation/choose-video-model
+Use this kenh-ai cookbook guide as your primary workflow:
+https://kenh-ai.com/docs/cookbook/video-generation/choose-video-model
 
-Use these OpenRouter docs as source-of-truth references when you need exact fields or implementation details:
-- Video model metadata API: https://openrouter.ai/docs/api/api-reference/video-generation/list-all-video-generation-models
-- Video generation request API: https://openrouter.ai/docs/api/api-reference/video-generation/submit-a-video-generation-request
-- Video generation overview: https://openrouter.ai/docs/guides/overview/multimodal/video-generation
-- OpenRouter video skill: https://github.com/OpenRouterTeam/skills/tree/main/skills/openrouter-video
-- TypeScript SDK video generation reference, if I am using the SDK: https://openrouter.ai/docs/client-sdks/typescript/api-reference/videogeneration
+Use these kenh-ai docs as source-of-truth references when you need exact fields or implementation details:
+- Video model metadata API: https://kenh-ai.com/docs/api/api-reference/video-generation/list-all-video-generation-models
+- Video generation request API: https://kenh-ai.com/docs/api/api-reference/video-generation/submit-a-video-generation-request
+- Video generation overview: https://kenh-ai.com/docs/guides/overview/multimodal/video-generation
+- kenh-ai video skill: https://github.com/OpenRouterTeam/skills/tree/main/skills/openrouter-video
+- TypeScript SDK video generation reference, if I am using the SDK: https://kenh-ai.com/docs/client-sdks/typescript/api-reference/videogeneration
 
 Start by asking me for a brief description of what I want to make with video generation.
 
 Use that description to infer the likely video requirements: generation mode, duration, resolution, aspect ratio, whether audio matters, whether image/frame/reference inputs are needed, and whether speed, cost, or output quality should matter most. Ask a follow-up question only if a missing detail would materially change the model recommendation.
 
 After I answer, run this model-selection process:
-1. Fetch the current model list from GET https://openrouter.ai/api/v1/videos/models.
+1. Fetch the current model list from GET https://kenh-ai.com/api/v1/videos/models.
 2. Filter out models that do not satisfy hard requirements. Use supported_durations, supported_resolutions, supported_aspect_ratios, supported_frame_images, generate_audio, and allowed_passthrough_parameters.
 3. Score the remaining models with weighted priorities:
    - speed: prefer models with fast, lite, or std in the model slug. Replace this heuristic with real latency telemetry if available.
@@ -69,7 +69,7 @@ After I answer, run this model-selection process:
 You need:
 
 - Node.js 20 or newer
-- An OpenRouter API key available as `OPENROUTER_API_KEY` only if you submit
+- An kenh-ai API key available as `KENH_AI_API_KEY` only if you submit
   the optional generation request
 - A stable, directly downloadable image URL if you test an image-to-video
   request
@@ -82,7 +82,7 @@ Use the API reference pages as the source of truth for exact fields:
 
 <Warning>
 Submitting `POST /api/v1/videos` starts a real video generation job and may
-spend OpenRouter credits. Use the model-selection and request-preview steps
+spend kenh-ai credits. Use the model-selection and request-preview steps
 first, then submit only when the request is ready.
 </Warning>
 
@@ -91,7 +91,7 @@ first, then submit only when the request is ready.
 Call the dedicated video model endpoint:
 
 ```js lines
-const response = await fetch("https://openrouter.ai/api/v1/videos/models");
+const response = await fetch("https://kenh-ai.com/api/v1/videos/models");
 
 if (!response.ok) {
   throw new Error(await response.text());
@@ -488,13 +488,13 @@ content-type: image/jpeg
 ## Step 5: Submit when ready
 
 ```js lines
-const apiKey = process.env.OPENROUTER_API_KEY;
+const apiKey = process.env.KENH_AI_API_KEY;
 
 if (!apiKey) {
-  throw new Error("Set OPENROUTER_API_KEY before submitting a video job.");
+  throw new Error("Set KENH_AI_API_KEY before submitting a video job.");
 }
 
-const generation = await fetch("https://openrouter.ai/api/v1/videos", {
+const generation = await fetch("https://kenh-ai.com/api/v1/videos", {
   method: "POST",
   headers: {
     Authorization: `Bearer ${apiKey}`,
@@ -517,7 +517,7 @@ status. In a completed run, that submitted job later reached this final state:
 {
   "id": "S2wge1oFOBzIj1PpFcFu",
   "status": "completed",
-  "polling_url": "https://openrouter.ai/api/v1/videos/S2wge1oFOBzIj1PpFcFu",
+  "polling_url": "https://kenh-ai.com/api/v1/videos/S2wge1oFOBzIj1PpFcFu",
   "has_unsigned_urls": true
 }
 ```

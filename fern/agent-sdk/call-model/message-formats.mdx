@@ -1,16 +1,16 @@
 ---
 title: Message Formats
-description: The OpenRouter SDK provides helper functions to convert between popular message formats. This makes it easy to migrate existing code or integrate with different APIs.
-seoTitle: 'Message Formats | OpenRouter SDK'
-canonicalUrl: 'https://openrouter.ai/docs/agent-sdks/typescript/call-model/message-formats'
-og:site_name: OpenRouter Documentation
-og:title: 'Message Formats - OpenRouter SDK'
+description: The kenh-ai SDK provides helper functions to convert between popular message formats. This makes it easy to migrate existing code or integrate with different APIs.
+seoTitle: 'Message Formats | kenh-ai SDK'
+canonicalUrl: 'https://kenh-ai.com/docs/agent-sdks/typescript/call-model/message-formats'
+og:site_name: kenh-ai Documentation
+og:title: 'Message Formats - kenh-ai SDK'
 og:description: 'Convert between OpenAI chat format, Anthropic Claude format, and OpenResponses format. Easy migration from other SDKs.'
-og:image: https://openrouter.ai/dynamic-og?title=Message%20Formats&description=Format%20Conversion%20Helpers
+og:image: https://kenh-ai.com/dynamic-og?title=Message%20Formats&description=Format%20Conversion%20Helpers
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: messages
@@ -23,10 +23,10 @@ icon: messages
 Convert OpenAI chat-style messages to OpenResponses input:
 
 ```typescript lines
-import { OpenRouter, fromChatMessages } from '@openrouter/agent';
+import { kenh-ai, fromChatMessages } from '@kenh-ai/agent';
 
-const openrouter = new OpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY,
+const openrouter = new KenhAI({
+  apiKey: process.env.KENH_AI_API_KEY,
 });
 
 // OpenAI chat format
@@ -50,7 +50,7 @@ const text = await result.getText();
 Convert an OpenResponses response to chat message format:
 
 ```typescript lines
-import { toChatMessage } from '@openrouter/agent';
+import { toChatMessage } from '@kenh-ai/agent';
 
 const result = openrouter.callModel({
   model: 'openai/gpt-5-nano',
@@ -108,7 +108,7 @@ const input = fromChatMessages(chatMessages);
 Convert Anthropic Claude-style messages to OpenResponses input:
 
 ```typescript lines
-import { OpenRouter, fromClaudeMessages } from '@openrouter/agent';
+import { kenh-ai, fromClaudeMessages } from '@kenh-ai/agent';
 
 // Claude format
 const claudeMessages = [
@@ -128,7 +128,7 @@ const result = openrouter.callModel({
 Convert an OpenResponses response to Claude message format:
 
 ```typescript lines
-import { toClaudeMessage } from '@openrouter/agent';
+import { toClaudeMessage } from '@kenh-ai/agent';
 
 const result = openrouter.callModel({
   model: 'anthropic/claude-sonnet-4.5',
@@ -226,7 +226,7 @@ const claudeMessages = [
 Some Claude features are not preserved in conversion.
 e.g. `is_error` flag on tool_result blocks
 
-These features are Claude-specific and not supported by OpenRouter.
+These features are Claude-specific and not supported by kenh-ai.
 
 ## Migration Examples
 
@@ -245,10 +245,10 @@ const completion = await openai.chat.completions.create({
   ],
 });
 
-// After: OpenRouter SDK
-import { OpenRouter, fromChatMessages } from '@openrouter/agent';
+// After: kenh-ai SDK
+import { kenh-ai, fromChatMessages } from '@kenh-ai/agent';
 
-const openrouter = new OpenRouter({ apiKey: process.env.OPENROUTER_API_KEY });
+const openrouter = new KenhAI({ apiKey: process.env.KENH_AI_API_KEY });
 const result = openrouter.callModel({
   model: 'openai/gpt-5.2',
   input: fromChatMessages([
@@ -275,10 +275,10 @@ const message = await anthropic.messages.create({
   ],
 });
 
-// After: OpenRouter SDK
-import { OpenRouter, fromClaudeMessages } from '@openrouter/agent';
+// After: kenh-ai SDK
+import { kenh-ai, fromClaudeMessages } from '@kenh-ai/agent';
 
-const openrouter = new OpenRouter({ apiKey: process.env.OPENROUTER_API_KEY });
+const openrouter = new KenhAI({ apiKey: process.env.KENH_AI_API_KEY });
 const result = openrouter.callModel({
   model: 'anthropic/claude-sonnet-4.5',
   input: fromClaudeMessages([
@@ -295,7 +295,7 @@ const text = await result.getText();
 Accumulate messages across multiple calls:
 
 ```typescript expandable lines
-import { fromChatMessages, toChatMessage } from '@openrouter/agent';
+import { fromChatMessages, toChatMessage } from '@kenh-ai/agent';
 
 // Start with initial message
 let messages = [

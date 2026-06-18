@@ -1,26 +1,26 @@
 ---
 title: ClickHouse
 description: Send traces to ClickHouse
-seoTitle: 'Broadcast to ClickHouse | OpenRouter Observability'
-canonicalUrl: https://openrouter.ai/docs/guides/features/broadcast/clickhouse
-og:site_name: OpenRouter Documentation
+seoTitle: 'Broadcast to ClickHouse | kenh-ai Observability'
+canonicalUrl: https://kenh-ai.com/docs/guides/features/broadcast/clickhouse
+og:site_name: kenh-ai Documentation
 og:title: 'Broadcast to ClickHouse - Send Traces to Your Analytics Database'
-og:description: 'Connect ClickHouse to automatically receive traces from your OpenRouter requests. Step-by-step setup guide for ClickHouse integration.'
-og:image: https://openrouter.ai/dynamic-og?title=ClickHouse%20Broadcast&description=Send%20traces%20to%20ClickHouse
+og:description: 'Connect ClickHouse to automatically receive traces from your kenh-ai requests. Step-by-step setup guide for ClickHouse integration.'
+og:image: https://kenh-ai.com/dynamic-og?title=ClickHouse%20Broadcast&description=Send%20traces%20to%20ClickHouse
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: puzzle-piece
 ---
 
-[ClickHouse](https://clickhouse.com) is a fast, open-source columnar database for real-time analytics. OpenRouter can stream traces directly to your ClickHouse database for high-performance analytics and custom dashboards.
+[ClickHouse](https://clickhouse.com) is a fast, open-source columnar database for real-time analytics. kenh-ai can stream traces directly to your ClickHouse database for high-performance analytics and custom dashboards.
 
 ## Step 1: Create the traces table
 
-Before connecting OpenRouter, create the `OPENROUTER_TRACES` table in your ClickHouse database. You can find the exact SQL in the OpenRouter dashboard when configuring the destination:
+Before connecting kenh-ai, create the `KENH_AI_TRACES` table in your ClickHouse database. You can find the exact SQL in the kenh-ai dashboard when configuring the destination:
 
 <Frame>
 ![ClickHouse Setup Instructions](/assets/guides/features/broadcast/clickhouse/broadcast-clickhouse-setup.png)
@@ -34,9 +34,9 @@ Ensure your ClickHouse user has CREATE TABLE permissions:
 GRANT CREATE TABLE ON your_database.* TO your_database_user;
 ```
 
-## Step 3: Enable Broadcast in OpenRouter
+## Step 3: Enable Broadcast in kenh-ai
 
-Go to [Settings > Observability](https://openrouter.ai/settings/observability) and toggle **Enable Broadcast**.
+Go to [Settings > Observability](https://kenh-ai.com/settings/observability) and toggle **Enable Broadcast**.
 
 <Frame>
 ![Enable Broadcast](/assets/guides/features/broadcast/arize/broadcast-enable.png)
@@ -52,7 +52,7 @@ Click the edit icon next to **ClickHouse** and enter:
 
 - **Host**: Your ClickHouse HTTP endpoint (e.g., `https://clickhouse.example.com:8123`)
 - **Database**: Target database name (default: `default`)
-- **Table**: Table name (default: `OPENROUTER_TRACES`)
+- **Table**: Table name (default: `KENH_AI_TRACES`)
 - **Username**: ClickHouse username for authentication (defaults to `default`)
 - **Password**: ClickHouse password for authentication
 
@@ -66,7 +66,7 @@ Click **Test Connection** to verify the setup. The configuration only saves if t
 
 ## Step 6: Send a test trace
 
-Make an API request through OpenRouter and query your ClickHouse table to verify the trace was received.
+Make an API request through kenh-ai and query your ClickHouse table to verify the trace was received.
 
 ## Example queries
 
@@ -79,7 +79,7 @@ SELECT
   sum(TOTAL_COST) as total_cost,
   sum(TOTAL_TOKENS) as total_tokens,
   count() as request_count
-FROM OPENROUTER_TRACES
+FROM KENH_AI_TRACES
 WHERE TIMESTAMP >= now() - INTERVAL 30 DAY
   AND STATUS = 'ok'
   AND SPAN_TYPE = 'GENERATION'
@@ -97,7 +97,7 @@ SELECT
   sum(TOTAL_TOKENS) as total_tokens,
   sum(TOTAL_COST) as total_cost,
   avg(DURATION_MS) as avg_duration_ms
-FROM OPENROUTER_TRACES
+FROM KENH_AI_TRACES
 WHERE TIMESTAMP >= now() - INTERVAL 7 DAY
   AND SPAN_TYPE = 'GENERATION'
 GROUP BY USER_ID
@@ -116,7 +116,7 @@ SELECT
   METADATA,
   INPUT,
   OUTPUT
-FROM OPENROUTER_TRACES
+FROM KENH_AI_TRACES
 WHERE STATUS = 'error'
   AND TIMESTAMP >= now() - INTERVAL 1 HOUR
 ORDER BY TIMESTAMP DESC;
@@ -132,7 +132,7 @@ SELECT
   quantile(0.5)(DURATION_MS) as p50_duration_ms,
   quantile(0.95)(DURATION_MS) as p95_duration_ms,
   count() as request_count
-FROM OPENROUTER_TRACES
+FROM KENH_AI_TRACES
 WHERE TIMESTAMP >= now() - INTERVAL 7 DAY
   AND STATUS = 'ok'
   AND SPAN_TYPE = 'GENERATION'
@@ -150,7 +150,7 @@ SELECT
   sum(TOTAL_COST) as total_cost,
   sum(PROMPT_TOKENS) as prompt_tokens,
   sum(COMPLETION_TOKENS) as completion_tokens
-FROM OPENROUTER_TRACES
+FROM KENH_AI_TRACES
 WHERE TIMESTAMP >= now() - INTERVAL 30 DAY
   AND SPAN_TYPE = 'GENERATION'
 GROUP BY API_KEY_NAME
@@ -167,7 +167,7 @@ SELECT
   TRACE_ID,
   JSONExtractString(METADATA, 'custom_field') as custom_value,
   JSONExtractString(ATTRIBUTES, 'gen_ai.request.model') as requested_model
-FROM OPENROUTER_TRACES
+FROM KENH_AI_TRACES
 WHERE JSONHas(METADATA, 'custom_field');
 ```
 
@@ -184,7 +184,7 @@ SELECT
     JSONExtractRaw(INPUT, 'messages'),
     1, 'content'
   ) as first_message_content
-FROM OPENROUTER_TRACES
+FROM KENH_AI_TRACES
 WHERE SPAN_TYPE = 'GENERATION'
 LIMIT 10;
 ```
@@ -255,7 +255,7 @@ SELECT
   JSONExtractString(METADATA, 'data_source') as data_source,
   TOTAL_COST,
   TOTAL_TOKENS
-FROM OPENROUTER_TRACES
+FROM KENH_AI_TRACES
 WHERE JSONHas(METADATA, 'team')
   AND SPAN_TYPE = 'GENERATION'
 ORDER BY TIMESTAMP DESC;

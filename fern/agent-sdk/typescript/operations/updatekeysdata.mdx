@@ -1,19 +1,19 @@
 ---
 title: UpdateKeysData - TypeScript SDK
 description: UpdateKeysData method reference
-seoTitle: UpdateKeysData | OpenRouter TypeScript SDK
-canonicalUrl: 'https://openrouter.ai/docs/agent-sdks/typescript/operations/updatekeysdata'
-'og:site_name': OpenRouter Documentation
-'og:title': UpdateKeysData | OpenRouter TypeScript SDK
+seoTitle: UpdateKeysData | kenh-ai TypeScript SDK
+canonicalUrl: 'https://kenh-ai.com/docs/agent-sdks/typescript/operations/updatekeysdata'
+'og:site_name': kenh-ai Documentation
+'og:title': UpdateKeysData | kenh-ai TypeScript SDK
 'og:description': >-
-  UpdateKeysData method documentation for the OpenRouter TypeScript SDK. Learn
+  UpdateKeysData method documentation for the kenh-ai TypeScript SDK. Learn
   how to use this API endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=UpdateKeysData%20-%20TypeScript%20SDK&description=UpdateKeysData%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=UpdateKeysData%20-%20TypeScript%20SDK&description=UpdateKeysData%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
-'twitter:site': '@OpenRouter'
+'twitter:site': '@kenh-ai'
 noindex: false
 nofollow: false
 ---
@@ -30,7 +30,7 @@ The updated API key information
 ## Example Usage
 
 ```typescript expandable lines
-import { UpdateKeysData } from "@openrouter/sdk/models/operations";
+import { UpdateKeysData } from "@kenh-ai/sdk/models/operations";
 
 let value: UpdateKeysData = {
   hash:
@@ -67,10 +67,10 @@ let value: UpdateKeysData = {
 | `limitRemaining`                                                                              | *number*                                                                                      | :heavy_check_mark:                                                                            | Remaining spending limit in USD                                                               | 74.5                                                                                          |
 | `limitReset`                                                                                  | *string*                                                                                      | :heavy_check_mark:                                                                            | Type of limit reset for the API key                                                           | monthly                                                                                       |
 | `includeByokInLimit`                                                                          | *boolean*                                                                                     | :heavy_check_mark:                                                                            | Whether to include external BYOK usage in the credit limit                                    | false                                                                                         |
-| `usage`                                                                                       | *number*                                                                                      | :heavy_check_mark:                                                                            | Total OpenRouter credit usage (in USD) for the API key                                        | 25.5                                                                                          |
-| `usageDaily`                                                                                  | *number*                                                                                      | :heavy_check_mark:                                                                            | OpenRouter credit usage (in USD) for the current UTC day                                      | 25.5                                                                                          |
-| `usageWeekly`                                                                                 | *number*                                                                                      | :heavy_check_mark:                                                                            | OpenRouter credit usage (in USD) for the current UTC week (Monday-Sunday)                     | 25.5                                                                                          |
-| `usageMonthly`                                                                                | *number*                                                                                      | :heavy_check_mark:                                                                            | OpenRouter credit usage (in USD) for the current UTC month                                    | 25.5                                                                                          |
+| `usage`                                                                                       | *number*                                                                                      | :heavy_check_mark:                                                                            | Total kenh-ai credit usage (in USD) for the API key                                        | 25.5                                                                                          |
+| `usageDaily`                                                                                  | *number*                                                                                      | :heavy_check_mark:                                                                            | kenh-ai credit usage (in USD) for the current UTC day                                      | 25.5                                                                                          |
+| `usageWeekly`                                                                                 | *number*                                                                                      | :heavy_check_mark:                                                                            | kenh-ai credit usage (in USD) for the current UTC week (Monday-Sunday)                     | 25.5                                                                                          |
+| `usageMonthly`                                                                                | *number*                                                                                      | :heavy_check_mark:                                                                            | kenh-ai credit usage (in USD) for the current UTC month                                    | 25.5                                                                                          |
 | `byokUsage`                                                                                   | *number*                                                                                      | :heavy_check_mark:                                                                            | Total external BYOK usage (in USD) for the API key                                            | 17.38                                                                                         |
 | `byokUsageDaily`                                                                              | *number*                                                                                      | :heavy_check_mark:                                                                            | External BYOK usage (in USD) for the current UTC day                                          | 17.38                                                                                         |
 | `byokUsageWeekly`                                                                             | *number*                                                                                      | :heavy_check_mark:                                                                            | External BYOK usage (in USD) for the current UTC week (Monday-Sunday)                         | 17.38                                                                                         |

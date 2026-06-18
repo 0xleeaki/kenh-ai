@@ -1,29 +1,29 @@
 ---
 title: Broadcast
 description: Send traces to external observability platforms
-seoTitle: 'Broadcast | OpenRouter Observability'
-canonicalUrl: https://openrouter.ai/docs/guides/features/broadcast
-og:site_name: OpenRouter Documentation
+seoTitle: 'Broadcast | kenh-ai Observability'
+canonicalUrl: https://kenh-ai.com/docs/guides/features/broadcast
+og:site_name: kenh-ai Documentation
 og:title: 'Broadcast - Send Traces to Observability Platforms'
-og:description: 'Connect your LLM observability platforms to automatically receive traces from your OpenRouter requests. Supports Langfuse, Datadog, Braintrust, and more.'
-og:image: https://openrouter.ai/dynamic-og?title=Broadcast&description=Send%20traces%20to%20observability%20platforms
+og:description: 'Connect your LLM observability platforms to automatically receive traces from your kenh-ai requests. Supports Langfuse, Datadog, Braintrust, and more.'
+og:image: https://kenh-ai.com/dynamic-og?title=Broadcast&description=Send%20traces%20to%20observability%20platforms
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: compass
 sidebarTitle: Overview
 ---
 
-Broadcast allows you to automatically send traces from your OpenRouter requests to external observability and analytics platforms. This feature enables you to monitor, debug, and analyze your LLM usage across your preferred tools without any additional instrumentation in your application code.
+Broadcast allows you to automatically send traces from your kenh-ai requests to external observability and analytics platforms. This feature enables you to monitor, debug, and analyze your LLM usage across your preferred tools without any additional instrumentation in your application code.
 
 ## Enabling Broadcast
 
 To enable broadcast for your account or organization:
 
-1. Navigate to [Settings > Observability](https://openrouter.ai/settings/observability) in your OpenRouter dashboard
+1. Navigate to [Settings > Observability](https://kenh-ai.com/settings/observability) in your kenh-ai dashboard
 2. Toggle the "Enable Broadcast" switch to turn on the feature
 3. Add one or more destinations where you want to send your traces
 
@@ -31,7 +31,7 @@ To enable broadcast for your account or organization:
 If you're using an organization account, you must be an organization admin to edit broadcast settings.
 </Tip>
 
-Once enabled, OpenRouter will automatically send trace data for all your API requests to your configured destinations.
+Once enabled, kenh-ai will automatically send trace data for all your API requests to your configured destinations.
 
 ## Supported Destinations
 
@@ -60,7 +60,7 @@ The following destinations are currently available:
 
 Each destination has its own configuration requirements, such as API keys, endpoints, or project identifiers. When adding a destination, you'll be prompted to provide the necessary credentials which are encrypted and stored securely.
 
-For the most up-to-date list of available destinations, visit the [Broadcast settings page](https://openrouter.ai/settings/observability) in your dashboard.
+For the most up-to-date list of available destinations, visit the [Broadcast settings page](https://kenh-ai.com/settings/observability) in your dashboard.
 
 ### Coming Soon
 
@@ -166,7 +166,7 @@ These metadata keys are commonly used across observability platforms:
 | `trace_name` | Custom name for the root trace in your observability platform. Defaults to the model name if not set. |
 | `span_name` | Create a parent span that groups LLM operations. Creates hierarchical structure where the span contains the generation. |
 | `generation_name` | Custom name for the specific LLM generation/call. Defaults to the model name if not set. |
-| `parent_span_id` | Link your OpenRouter trace to an existing span from your own tracing system (e.g., OpenTelemetry). |
+| `parent_span_id` | Link your kenh-ai trace to an existing span from your own tracing system (e.g., OpenTelemetry). |
 
 When using these fields, your traces will appear with a hierarchical structure in platforms like Langfuse:
 
@@ -178,7 +178,7 @@ Document Processing (trace_id: workflow_12345)
 
 #### Linking to External Traces
 
-If you have your own tracing instrumentation (e.g., OpenTelemetry), you can use `parent_span_id` to nest OpenRouter calls under your existing spans:
+If you have your own tracing instrumentation (e.g., OpenTelemetry), you can use `parent_span_id` to nest kenh-ai calls under your existing spans:
 
 ```json lines
 {
@@ -196,14 +196,14 @@ This will create a trace structure like:
 ```lines
 Your Application Trace
 └── Your Application Span (parent_span_id)
-    └── openai/gpt-4o (generation from OpenRouter)
+    └── openai/gpt-4o (generation from kenh-ai)
 ```
 
 This enables you to:
 - Track end-to-end workflows spanning multiple LLM calls
 - Organize traces by business logic rather than individual API calls
 - Build rich observability dashboards with meaningful trace names
-- Integrate OpenRouter traces with your existing application traces
+- Integrate kenh-ai traces with your existing application traces
 - Pass any custom data you need to your observability platforms
 
 #### Destination-Specific Metadata

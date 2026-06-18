@@ -2,15 +2,15 @@
 title: BYOKKey - Go SDK
 sidebarTitle: BYOKKey
 description: BYOKKey type definition
-seoTitle: BYOKKey Type | OpenRouter Go SDK
-canonicalUrl: 'https://openrouter.ai/docs/client-sdks/go/api-reference/models/byokkey'
-'og:site_name': OpenRouter Documentation
-'og:title': BYOKKey Type | OpenRouter Go SDK
+seoTitle: BYOKKey Type | kenh-ai Go SDK
+canonicalUrl: 'https://kenh-ai.com/docs/client-sdks/go/api-reference/models/byokkey'
+'og:site_name': kenh-ai Documentation
+'og:title': BYOKKey Type | kenh-ai Go SDK
 'og:description': >-
-  BYOKKey type reference for the OpenRouter Go SDK. Complete type definition and
+  BYOKKey type reference for the kenh-ai Go SDK. Complete type definition and
   usage examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=BYOKKey%20-%20Go%20SDK&description=BYOKKey%20type%20definition
+  https://kenh-ai.com/dynamic-og?title=BYOKKey%20-%20Go%20SDK&description=BYOKKey%20type%20definition
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -30,7 +30,7 @@ Report issues on [GitHub](https://github.com/OpenRouterTeam/go-sdk/issues).
 
 | Field                                                                                                                            | Type                                                                                                                             | Required                                                                                                                         | Description                                                                                                                      | Example                                                                                                                          |
 | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `AllowedAPIKeyHashes`                                                                                                            | []`string`                                                                                                                       | :heavy_check_mark:                                                                                                               | Optional allowlist of OpenRouter API key hashes (`api_keys.hash`) that may use this credential. `null` means no restriction.     | [<br/>"f01d52606dc8f0a8303a7b5cc3fa07109c2e346cec7c0a16b40de462992ce943"<br/>]                                                   |
+| `AllowedAPIKeyHashes`                                                                                                            | []`string`                                                                                                                       | :heavy_check_mark:                                                                                                               | Optional allowlist of kenh-ai API key hashes (`api_keys.hash`) that may use this credential. `null` means no restriction.     | [<br/>"f01d52606dc8f0a8303a7b5cc3fa07109c2e346cec7c0a16b40de462992ce943"<br/>]                                                   |
 | `AllowedModels`                                                                                                                  | []`string`                                                                                                                       | :heavy_check_mark:                                                                                                               | Optional allowlist of model slugs this credential may be used for. `null` means no restriction.                                  | `<nil>`                                                                                                                            |
 | `AllowedUserIds`                                                                                                                 | []`string`                                                                                                                       | :heavy_check_mark:                                                                                                               | Optional allowlist of user IDs that may use this credential. `null` means no restriction.                                        | `<nil>`                                                                                                                            |
 | `CreatedAt`                                                                                                                      | `string`                                                                                                                         | :heavy_check_mark:                                                                                                               | ISO timestamp of when the credential was created.                                                                                | 2025-08-24T10:30:00Z                                                                                                             |

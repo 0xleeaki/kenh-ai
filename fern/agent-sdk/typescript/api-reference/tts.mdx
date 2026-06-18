@@ -2,15 +2,15 @@
 title: Speech - TypeScript SDK
 sidebarTitle: Speech
 description: Speech method reference
-seoTitle: Speech | OpenRouter TypeScript SDK
-canonicalUrl: 'https://openrouter.ai/docs/agent-sdks/typescript/api-reference/tts'
-'og:site_name': OpenRouter Documentation
-'og:title': Speech | OpenRouter TypeScript SDK
+seoTitle: Speech | kenh-ai TypeScript SDK
+canonicalUrl: 'https://kenh-ai.com/docs/agent-sdks/typescript/api-reference/tts'
+'og:site_name': kenh-ai Documentation
+'og:title': Speech | kenh-ai TypeScript SDK
 'og:description': >-
-  Speech method documentation for the OpenRouter TypeScript SDK. Learn how to
+  Speech method documentation for the kenh-ai TypeScript SDK. Learn how to
   use this API endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=Speech%20-%20TypeScript%20SDK&description=Speech%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=Speech%20-%20TypeScript%20SDK&description=Speech%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -43,17 +43,17 @@ Synthesizes audio from the input text. Returns a raw audio bytestream in the req
 
 {/* UsageSnippet language="typescript" operationID="createAudioSpeech" method="post" path="/audio/speech" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.tts.createSpeech({
+  const result = await kenhAi.tts.createSpeech({
     speechRequest: {
       input: "Hello world",
       model: "elevenlabs/eleven-turbo-v2",
@@ -73,20 +73,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { ttsCreateSpeech } from "@openrouter/sdk/funcs/ttsCreateSpeech.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { ttsCreateSpeech } from "@kenh-ai/sdk/funcs/ttsCreateSpeech.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await ttsCreateSpeech(openRouter, {
+  const res = await ttsCreateSpeech(kenhAi, {
     speechRequest: {
       input: "Hello world",
       model: "elevenlabs/eleven-turbo-v2",

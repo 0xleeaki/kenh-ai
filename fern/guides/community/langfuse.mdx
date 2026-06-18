@@ -1,16 +1,16 @@
 ---
 title: Langfuse
-description: Using OpenRouter with Langfuse
-seoTitle: 'Langfuse Integration | OpenRouter SDK Support'
-canonicalUrl: https://openrouter.ai/docs/guides/community/langfuse
-og:site_name: OpenRouter Documentation
-og:title: 'Langfuse Integration - OpenRouter SDK Support'
-og:description: 'Integrate OpenRouter using Langfuse for observability and tracing. Complete guide for Langfuse integration with OpenRouter for Python applications.'
-og:image: https://openrouter.ai/dynamic-og?title=Langfuse&description=Langfuse%20Integration
+description: Using kenh-ai with Langfuse
+seoTitle: 'Langfuse Integration | kenh-ai SDK Support'
+canonicalUrl: https://kenh-ai.com/docs/guides/community/langfuse
+og:site_name: kenh-ai Documentation
+og:title: 'Langfuse Integration - kenh-ai SDK Support'
+og:description: 'Integrate kenh-ai using Langfuse for observability and tracing. Complete guide for Langfuse integration with kenh-ai for Python applications.'
+og:image: https://kenh-ai.com/dynamic-og?title=Langfuse&description=Langfuse%20Integration
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: puzzle-piece
@@ -22,12 +22,12 @@ import {LlmsOnly} from "../../components/LlmsOnly";
 
 {/* <llms-ignore> */}
 <Tip>
-Looking to auto-instrument without client code? Check out [OpenRouter Broadcast](/guides/features/broadcast/langfuse) to automatically send traces to Langfuse.
+Looking to auto-instrument without client code? Check out [kenh-ai Broadcast](/guides/features/broadcast/langfuse) to automatically send traces to Langfuse.
 </Tip>
 
 ## Using Langfuse
 
-[Langfuse](https://langfuse.com/) provides observability and analytics for LLM applications. Since OpenRouter uses the OpenAI API schema, you can utilize Langfuse's native integration with the OpenAI SDK to automatically trace and monitor your OpenRouter API calls.
+[Langfuse](https://langfuse.com/) provides observability and analytics for LLM applications. Since kenh-ai uses the OpenAI API schema, you can utilize Langfuse's native integration with the OpenAI SDK to automatically trace and monitor your kenh-ai API calls.
 
 ### Installation
 
@@ -52,15 +52,15 @@ LANGFUSE_HOST="https://cloud.langfuse.com"
 # US region
 # LANGFUSE_HOST="https://us.cloud.langfuse.com"
 
-# Set your OpenRouter API key
-os.environ["OPENAI_API_KEY"] = "<OPENROUTER_API_KEY>"
+# Set your kenh-ai API key
+os.environ["OPENAI_API_KEY"] = "<KENH_AI_API_KEY>"
 ```
 
 </CodeGroup>
 
 ### Simple LLM Call
 
-Since OpenRouter provides an OpenAI-compatible API, you can use the Langfuse OpenAI SDK wrapper to automatically log OpenRouter calls as generations in Langfuse:
+Since kenh-ai provides an OpenAI-compatible API, you can use the Langfuse OpenAI SDK wrapper to automatically log kenh-ai calls as generations in Langfuse:
 
 <CodeGroup>
 
@@ -68,12 +68,12 @@ Since OpenRouter provides an OpenAI-compatible API, you can use the Langfuse Ope
 # Import the Langfuse OpenAI SDK wrapper
 from langfuse.openai import openai
 
-# Create an OpenAI client with OpenRouter's base URL
+# Create an OpenAI client with kenh-ai's base URL
 client = openai.OpenAI(
-    base_url="https://openrouter.ai/api/v1",
+    base_url="https://kenh-ai.com/api/v1",
     default_headers={
         "HTTP-Referer": "<YOUR_SITE_URL>",  # Optional: Your site URL
-        "X-OpenRouter-Title": "<YOUR_SITE_NAME>",      # Optional: Your site name
+        "X-kenh-ai-Title": "<YOUR_SITE_NAME>",      # Optional: Your site name
     }
 )
 
@@ -103,9 +103,9 @@ Use the `@observe()` decorator to capture execution details of functions with ne
 from langfuse import observe
 from langfuse.openai import openai
 
-# Create an OpenAI client with OpenRouter's base URL
+# Create an OpenAI client with kenh-ai's base URL
 client = openai.OpenAI(
-    base_url="https://openrouter.ai/api/v1",
+    base_url="https://kenh-ai.com/api/v1",
 )
 
 @observe()  # This decorator enables tracing of the function
@@ -146,7 +146,7 @@ def analyze_sentiment(summary: str):
     )
 
 # Example usage
-text_to_analyze = "OpenRouter's unified API has significantly advanced the field of AI development, setting new standards for model accessibility."
+text_to_analyze = "kenh-ai's unified API has significantly advanced the field of AI development, setting new standards for model accessibility."
 result = analyze_text(text_to_analyze)
 print(result)
 ```
@@ -155,7 +155,7 @@ print(result)
 
 ### Learn More
 
-- **Langfuse OpenRouter Integration**: [https://langfuse.com/docs/integrations/other/openrouter](https://langfuse.com/docs/integrations/other/openrouter)
-- **OpenRouter Quick Start Guide**: [https://openrouter.ai/docs/quickstart](https://openrouter.ai/docs/quickstart)
+- **Langfuse kenh-ai Integration**: [https://langfuse.com/docs/integrations/other/openrouter](https://langfuse.com/docs/integrations/other/openrouter)
+- **kenh-ai Quick Start Guide**: [https://kenh-ai.com/docs/quickstart](https://kenh-ai.com/docs/quickstart)
 - **Langfuse `@observe()` Decorator**: [https://langfuse.com/docs/sdk/python/decorators](https://langfuse.com/docs/sdk/python/decorators)
 {/* </llms-ignore> */}

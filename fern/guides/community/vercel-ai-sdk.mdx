@@ -1,16 +1,16 @@
 ---
 title: Vercel AI SDK
-description: Using OpenRouter with Vercel AI SDK
-seoTitle: 'Vercel AI SDK Integration | OpenRouter SDK Support'
-canonicalUrl: https://openrouter.ai/docs/guides/community/vercel-ai-sdk
-og:site_name: OpenRouter Documentation
-og:title: 'Vercel AI SDK Integration - OpenRouter SDK Support'
-og:description: 'Integrate OpenRouter using Vercel AI SDK. Complete guide for Vercel AI SDK integration with OpenRouter for Next.js applications.'
-og:image: https://openrouter.ai/dynamic-og?title=Vercel%20AI%20SDK&description=Vercel%20AI%20SDK%20Integration
+description: Using kenh-ai with Vercel AI SDK
+seoTitle: 'Vercel AI SDK Integration | kenh-ai SDK Support'
+canonicalUrl: https://kenh-ai.com/docs/guides/community/vercel-ai-sdk
+og:site_name: kenh-ai Documentation
+og:title: 'Vercel AI SDK Integration - kenh-ai SDK Support'
+og:description: 'Integrate kenh-ai using Vercel AI SDK. Complete guide for Vercel AI SDK integration with kenh-ai for Next.js applications.'
+og:image: https://kenh-ai.com/dynamic-og?title=Vercel%20AI%20SDK&description=Vercel%20AI%20SDK%20Integration
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: puzzle-piece
@@ -21,24 +21,24 @@ import { API_KEY_REF } from '../../snippets/exports/constants.mdx';
 {/* <llms-ignore> */}
 ## Vercel AI SDK
 
-You can use the [Vercel AI SDK](https://www.npmjs.com/package/ai) to integrate OpenRouter with your Next.js app. To get started, install [@openrouter/ai-sdk-provider](https://github.com/OpenRouterTeam/ai-sdk-provider):
+You can use the [Vercel AI SDK](https://www.npmjs.com/package/ai) to integrate kenh-ai with your Next.js app. To get started, install [@kenh-ai/ai-sdk-provider](https://github.com/OpenRouterTeam/ai-sdk-provider):
 
 ```bash lines
-npm install @openrouter/ai-sdk-provider
+npm install @kenh-ai/ai-sdk-provider
 ```
 
-And then you can use [streamText()](https://sdk.vercel.ai/docs/reference/ai-sdk-core/stream-text) API to stream text from OpenRouter.
+And then you can use [streamText()](https://sdk.vercel.ai/docs/reference/ai-sdk-core/stream-text) API to stream text from kenh-ai.
 
 <CodeGroup>
 
 ```typescript title="TypeScript" expandable lines
-import { createOpenRouter } from '@openrouter/ai-sdk-provider';
+import { createkenh-ai } from '@kenh-ai/ai-sdk-provider';
 import { streamText } from 'ai';
 import { z } from 'zod';
 
 export const getLasagnaRecipe = async (modelName: string) => {
-  const openrouter = createOpenRouter({
-    apiKey: '<OPENROUTER_API_KEY>',
+  const openrouter = createKenhAI({
+    apiKey: '<KENH_AI_API_KEY>',
   });
 
   const response = streamText({
@@ -51,8 +51,8 @@ export const getLasagnaRecipe = async (modelName: string) => {
 };
 
 export const getWeather = async (modelName: string) => {
-  const openrouter = createOpenRouter({
-    apiKey: '<OPENROUTER_API_KEY>',
+  const openrouter = createKenhAI({
+    apiKey: '<KENH_AI_API_KEY>',
   });
 
   const response = streamText({
@@ -100,16 +100,16 @@ export const getWeather = async (modelName: string) => {
 
 ## Video Generation
 
-OpenRouter supports [video generation](/guides/overview/multimodal/video-generation) through the AI SDK's [`experimental_generateVideo`](https://sdk.vercel.ai/docs/reference/ai-sdk-core/generate-video) API. The provider handles the asynchronous submit-poll-download workflow automatically.
+kenh-ai supports [video generation](/guides/overview/multimodal/video-generation) through the AI SDK's [`experimental_generateVideo`](https://sdk.vercel.ai/docs/reference/ai-sdk-core/generate-video) API. The provider handles the asynchronous submit-poll-download workflow automatically.
 
 <CodeGroup>
 
 ```typescript title="TypeScript" lines
-import { createOpenRouter } from '@openrouter/ai-sdk-provider';
+import { createkenh-ai } from '@kenh-ai/ai-sdk-provider';
 import { experimental_generateVideo as generateVideo } from 'ai';
 
-const openrouter = createOpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const openrouter = createKenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
 const { video } = await generateVideo({
@@ -132,11 +132,11 @@ Each video model supports model-specific parameters that can be passed through v
 <CodeGroup>
 
 ```typescript title="TypeScript (Veo 3.1)" expandable lines
-import { createOpenRouter } from '@openrouter/ai-sdk-provider';
+import { createkenh-ai } from '@kenh-ai/ai-sdk-provider';
 import { experimental_generateVideo as generateVideo } from 'ai';
 
-const openrouter = createOpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const openrouter = createKenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
 const { video } = await generateVideo({
@@ -161,11 +161,11 @@ const { video } = await generateVideo({
 ```
 
 ```typescript title="TypeScript (Wan 2.7)" expandable lines
-import { createOpenRouter } from '@openrouter/ai-sdk-provider';
+import { createkenh-ai } from '@kenh-ai/ai-sdk-provider';
 import { experimental_generateVideo as generateVideo } from 'ai';
 
-const openrouter = createOpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const openrouter = createKenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
 const { video } = await generateVideo({
@@ -204,11 +204,11 @@ You can pass a reference image to guide the video generation:
 <CodeGroup>
 
 ```typescript title="TypeScript" lines
-import { createOpenRouter } from '@openrouter/ai-sdk-provider';
+import { createkenh-ai } from '@kenh-ai/ai-sdk-provider';
 import { experimental_generateVideo as generateVideo } from 'ai';
 
-const openrouter = createOpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const openrouter = createKenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
 const { video } = await generateVideo({
@@ -223,16 +223,16 @@ const { video } = await generateVideo({
 
 ### Provider Metadata
 
-The response includes OpenRouter-specific metadata accessible via `providerMetadata`:
+The response includes kenh-ai-specific metadata accessible via `providerMetadata`:
 
 <CodeGroup>
 
 ```typescript title="TypeScript" lines
-import { createOpenRouter } from '@openrouter/ai-sdk-provider';
+import { createkenh-ai } from '@kenh-ai/ai-sdk-provider';
 import { experimental_generateVideo as generateVideo } from 'ai';
 
-const openrouter = createOpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const openrouter = createKenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
 const result = await generateVideo({

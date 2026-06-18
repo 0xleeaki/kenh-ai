@@ -1,16 +1,16 @@
 ---
 title: Errors and Debugging
 description: API Errors and Debugging
-seoTitle: 'API Error Handling and Debugging | OpenRouter Documentation'
-canonicalUrl: https://openrouter.ai/docs/api/reference/errors
-og:site_name: OpenRouter Documentation
+seoTitle: 'API Error Handling and Debugging | kenh-ai Documentation'
+canonicalUrl: https://kenh-ai.com/docs/api/reference/errors
+og:site_name: kenh-ai Documentation
 og:title: 'API Error Handling and Debugging - Complete Guide'
-og:description: 'Learn how to handle errors and debug requests in OpenRouter API interactions. Comprehensive guide to error codes, messages, debugging options, and best practices.'
-og:image: 'https://openrouter.ai/dynamic-og?title=API%20Error%20Handling%20and%20Debugging&description=Learn%20how%20to%20handle%20errors%20and%20debug%20requests%20in%20OpenRouter%20API%20interactions.'
+og:description: 'Learn how to handle errors and debug requests in kenh-ai API interactions. Comprehensive guide to error codes, messages, debugging options, and best practices.'
+og:image: 'https://kenh-ai.com/dynamic-og?title=API%20Error%20Handling%20and%20Debugging&description=Learn%20how%20to%20handle%20errors%20and%20debug%20requests%20in%20kenh-ai%20API%20interactions.'
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: triangle-exclamation
@@ -18,7 +18,7 @@ icon: triangle-exclamation
 
 import { HTTPStatus } from '../../snippets/exports/constants.mdx';
 
-For errors, OpenRouter returns a JSON response with the following shape:
+For errors, kenh-ai returns a JSON response with the following shape:
 
 ```typescript lines
 type ErrorResponse = {
@@ -40,7 +40,7 @@ Otherwise, the returned HTTP response status will be <code>{HTTPStatus.S200_OK}<
 Example code for printing errors in JavaScript:
 
 ```typescript lines
-const request = await fetch('https://openrouter.ai/...');
+const request = await fetch('https://kenh-ai.com/...');
 console.log(request.status); // Will be an error code unless the model started processing your request
 const response = await request.json();
 console.error(response.error?.status); // Will be an error code
@@ -60,17 +60,17 @@ console.error(response.error?.message);
 
 ## Retry-After Header
 
-On <code>{HTTPStatus.S429_Too_Many_Requests}</code> and <code>{HTTPStatus.S503_Service_Unavailable}</code> responses, OpenRouter may include a standard HTTP `Retry-After` response header indicating how many seconds to wait before retrying.
+On <code>{HTTPStatus.S429_Too_Many_Requests}</code> and <code>{HTTPStatus.S503_Service_Unavailable}</code> responses, kenh-ai may include a standard HTTP `Retry-After` response header indicating how many seconds to wait before retrying.
 
 ```http lines
 HTTP/1.1 429 Too Many Requests
 Retry-After: 60
 ```
 
-The OpenAI SDK, Anthropic SDK, Vercel AI SDK, and OpenRouter SDK already respect this header for backoff. If you're using `fetch` directly, honor it before retrying:
+The OpenAI SDK, Anthropic SDK, Vercel AI SDK, and kenh-ai SDK already respect this header for backoff. If you're using `fetch` directly, honor it before retrying:
 
 ```typescript lines
-const res = await fetch('https://openrouter.ai/api/v1/chat/completions', { ... });
+const res = await fetch('https://kenh-ai.com/api/v1/chat/completions', { ... });
 if (res.status === 429 || res.status === 503) {
   const retryAfter = Number(res.headers.get('Retry-After'));
   if (Number.isFinite(retryAfter) && retryAfter > 0) {
@@ -109,7 +109,7 @@ On inference endpoints (`/chat/completions`, `/responses`, `/messages`), a reque
 }
 ```
 
-When you opt in to [router metadata](/guides/features/router-metadata) via the `X-OpenRouter-Experimental-Metadata: enabled` header, the 403 response also includes the full `openrouter_metadata` object with routing context and a `pipeline` array detailing the guardrail stages that ran:
+When you opt in to [router metadata](/guides/features/router-metadata) via the `X-kenh-ai-Experimental-Metadata: enabled` header, the 403 response also includes the full `openrouter_metadata` object with routing context and a `pipeline` array detailing the guardrail stages that ran:
 
 ```json expandable lines
 {
@@ -279,7 +279,7 @@ This allows for graceful handling of limit-based errors without treating them as
 
 ## API-Specific Error Handling
 
-Different OpenRouter API endpoints handle errors in distinct ways:
+Different kenh-ai API endpoints handle errors in distinct ways:
 
 ### OpenAI Chat Completions API (`/api/v1/chat/completions`)
 
@@ -338,7 +338,7 @@ interface ResponsesAPIErrorEvent {
 
 ## Debugging
 
-OpenRouter provides a `debug` option that allows you to inspect the exact request body that was sent to the upstream provider. This is useful for understanding how OpenRouter transforms your request parameters to work with different providers.
+kenh-ai provides a `debug` option that allows you to inspect the exact request body that was sent to the upstream provider. This is useful for understanding how kenh-ai transforms your request parameters to work with different providers.
 
 ### Debug Option Shape
 
@@ -357,10 +357,10 @@ To enable debug output, include the `debug` parameter in your request:
 <CodeGroup>
 
 ```typescript title="TypeScript" expandable lines
-fetch('https://openrouter.ai/api/v1/chat/completions', {
+fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
-    Authorization: 'Bearer <OPENROUTER_API_KEY>',
+    Authorization: 'Bearer <KENH_AI_API_KEY>',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -399,9 +399,9 @@ import requests
 import json
 
 response = requests.post(
-  url="https://openrouter.ai/api/v1/chat/completions",
+  url="https://kenh-ai.com/api/v1/chat/completions",
   headers={
-    "Authorization": "Bearer <OPENROUTER_API_KEY>",
+    "Authorization": "Bearer <KENH_AI_API_KEY>",
     "Content-Type": "application/json",
   },
   data=json.dumps({
@@ -429,7 +429,7 @@ for line in response.iter_lines():
 
 ### Debug Response Format
 
-When `debug.echo_upstream_body` is set to `true`, OpenRouter will send a debug chunk as the **first chunk** in the streaming response. This chunk will have an empty `choices` array and include a `debug` field containing the transformed request body:
+When `debug.echo_upstream_body` is set to `true`, kenh-ai will send a debug chunk as the **first chunk** in the streaming response. This chunk will have an empty `choices` array and include a `debug` field containing the transformed request body:
 
 ```json expandable lines
 {
@@ -474,14 +474,14 @@ When `debug.echo_upstream_body` is set to `true`, OpenRouter will send a debug c
 
 The debug output is particularly useful for:
 
-1. **Understanding Parameter Transformations**: See how OpenRouter maps your parameters to provider-specific formats (e.g., how `max_tokens` is set, how `temperature` is handled).
+1. **Understanding Parameter Transformations**: See how kenh-ai maps your parameters to provider-specific formats (e.g., how `max_tokens` is set, how `temperature` is handled).
 
-2. **Verifying Message Formatting**: Check how OpenRouter combines and formats your messages for different providers (e.g., how system messages are concatenated, how user messages are merged).
+2. **Verifying Message Formatting**: Check how kenh-ai combines and formats your messages for different providers (e.g., how system messages are concatenated, how user messages are merged).
 
-3. **Checking Applied Defaults**: See what default values OpenRouter applies when parameters are not specified in your request.
+3. **Checking Applied Defaults**: See what default values kenh-ai applies when parameters are not specified in your request.
 
 4. **Debugging Provider Fallbacks**: When using provider fallbacks, a debug chunk will be sent for **each attempted provider**, allowing you to see which providers were tried and what parameters were sent to each.
 
 ### Privacy and Redaction
 
-OpenRouter will make a best effort to automatically redact potentially sensitive or noisy data from debug output. Remember that the debug option is not intended for production.
+kenh-ai will make a best effort to automatically redact potentially sensitive or noisy data from debug output. Remember that the debug option is not intended for production.

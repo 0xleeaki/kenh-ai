@@ -1,29 +1,29 @@
 ---
 title: Usage for Agents
-description: Add OpenRouter Client SDKs skills to your AI coding assistant
-seoTitle: 'Usage for Agents | OpenRouter Client SDKs'
-canonicalUrl: https://openrouter.ai/docs/client-sdks/usage-for-agents
-og:site_name: OpenRouter Documentation
-og:title: 'Usage for Agents | OpenRouter Client SDKs'
+description: Add kenh-ai Client SDKs skills to your AI coding assistant
+seoTitle: 'Usage for Agents | kenh-ai Client SDKs'
+canonicalUrl: https://kenh-ai.com/docs/client-sdks/usage-for-agents
+og:site_name: kenh-ai Documentation
+og:title: 'Usage for Agents | kenh-ai Client SDKs'
 og:description: >-
-  Add OpenRouter Client SDKs skills to AI coding assistants like Claude Code, Cursor,
-  GitHub Copilot, and more. Enable your AI to code with the OpenRouter Client SDKs.
+  Add kenh-ai Client SDKs skills to AI coding assistants like Claude Code, Cursor,
+  GitHub Copilot, and more. Enable your AI to code with the kenh-ai Client SDKs.
 og:image: >-
-  https://openrouter.ai/dynamic-og?pathname=client-sdks/usage-for-agents&title=Usage%20for%20Agents&description=Add%20OpenRouter%20Client%20SDKs%20skills%20to%20your%20AI%20coding%20assistant
+  https://kenh-ai.com/dynamic-og?pathname=client-sdks/usage-for-agents&title=Usage%20for%20Agents&description=Add%20kenh-ai%20Client%20SDKs%20skills%20to%20your%20AI%20coding%20assistant
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: robot
 ---
 
-Give your AI coding assistant the knowledge to work with the OpenRouter Client SDKs
+Give your AI coding assistant the knowledge to work with the kenh-ai Client SDKs
 by installing our official `openrouter-typescript-sdk` skill from the
 [OpenRouterTeam/skills](https://github.com/OpenRouterTeam/skills) repository.
 
-The skill covers both the Client SDKs (`@openrouter/sdk`) and the Agent SDK (`@openrouter/agent`).
+The skill covers both the Client SDKs (`@kenh-ai/sdk`) and the Agent SDK (`@kenh-ai/agent`).
 When working with the Client SDKs, your AI assistant will focus on the **platform features**:
 model listing, chat completions, credits, OAuth, and API key management.
 
@@ -67,7 +67,7 @@ The skill works with any AI coding assistant that supports the [Agent Skills](ht
 
 Once installed, your AI coding assistant will have knowledge of:
 
-- **SDK Installation & Setup** - How to install and configure `@openrouter/sdk`
+- **SDK Installation & Setup** - How to install and configure `@kenh-ai/sdk`
   in TypeScript projects
 - **Chat Completions** - Working with the chat API for conversations
 - **Embeddings** - Generating embeddings for semantic search and RAG
@@ -81,14 +81,14 @@ Once installed, your AI coding assistant will have knowledge of:
 
 After installing the skill, your AI assistant can help you with tasks like:
 
-**"Help me set up OpenRouter in my project"**
+**"Help me set up kenh-ai in my project"**
 
 The assistant will know to use:
 
 ```typescript lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const client = new OpenRouter();
+const client = new KenhAI();
 
 const completion = await client.chat.send({
   model: 'anthropic/claude-sonnet-4',
@@ -98,14 +98,14 @@ const completion = await client.chat.send({
 });
 ```
 
-**"Add streaming to my OpenRouter call"**
+**"Add streaming to my kenh-ai call"**
 
 The assistant understands the streaming API:
 
 ```typescript lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const client = new OpenRouter();
+const client = new KenhAI();
 
 const stream = await client.chat.send({
   model: 'anthropic/claude-sonnet-4',

@@ -1,16 +1,16 @@
 ---
 title: Server Tools
-description: Tools operated by OpenRouter that models can call during request
-seoTitle: 'Server Tools | Model-Callable Tools Operated by OpenRouter'
-canonicalUrl: https://openrouter.ai/docs/guides/features/server-tools
-og:site_name: OpenRouter Documentation
-og:title: 'Server Tools - Model-Callable Tools by OpenRouter'
-og:description: 'Add powerful server-side tools like web search, web fetch, datetime, and image generation to any model on OpenRouter. Models decide when to call them — OpenRouter executes them automatically.'
-og:image: https://openrouter.ai/dynamic-og?title=Server%20Tools&description=Model-Callable%20Tools%20by%20OpenRouter
+description: Tools operated by kenh-ai that models can call during request
+seoTitle: 'Server Tools | Model-Callable Tools Operated by kenh-ai'
+canonicalUrl: https://kenh-ai.com/docs/guides/features/server-tools
+og:site_name: kenh-ai Documentation
+og:title: 'Server Tools - Model-Callable Tools by kenh-ai'
+og:description: 'Add powerful server-side tools like web search, web fetch, datetime, and image generation to any model on kenh-ai. Models decide when to call them — kenh-ai executes them automatically.'
+og:image: https://kenh-ai.com/dynamic-og?title=Server%20Tools&description=Model-Callable%20Tools%20by%20kenh-ai
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: compass
@@ -29,19 +29,19 @@ import { Template } from "../../components/Template";
 Server tools are currently in beta. The API and behavior may change.
 </Note>
 
-Server tools are specialized tools operated by OpenRouter that any model can call during a request. When a model decides to use a server tool, OpenRouter executes it server-side and returns the result to the model — no client-side implementation needed.
+Server tools are specialized tools operated by kenh-ai that any model can call during a request. When a model decides to use a server tool, kenh-ai executes it server-side and returns the result to the model — no client-side implementation needed.
 
 ## Server Tools vs Plugins vs User-Defined Tools
 
 | | Server Tools | Plugins | User-Defined Tools |
 |---|---|---|---|
 | **Who decides to use it** | The model | Always runs | The model |
-| **Who executes it** | OpenRouter | OpenRouter | Your application |
+| **Who executes it** | kenh-ai | kenh-ai | Your application |
 | **Call frequency** | 0 to N times per request | Once per request | 0 to N times per request |
 | **Specified via** | `tools` array | `plugins` array | `tools` array |
 | **Type prefix** | `openrouter:*` | N/A | `function` |
 
-**Server tools** are tools the model can invoke zero or more times during a request. OpenRouter handles execution transparently.
+**Server tools** are tools the model can invoke zero or more times during a request. kenh-ai handles execution transparently.
 
 **Plugins** inject or mutate a request or response to add functionality (e.g. response healing, PDF parsing). They always run once when enabled.
 
@@ -63,7 +63,7 @@ Server tools are specialized tools operated by OpenRouter that any model can cal
 
 1. You include one or more server tools in the `tools` array of your API request.
 2. The model decides whether and when to call each server tool based on the user's prompt.
-3. OpenRouter intercepts the tool call, executes it server-side, and returns the result to the model.
+3. kenh-ai intercepts the tool call, executes it server-side, and returns the result to the model.
 4. The model uses the result to formulate its response. It may call the tool again if needed.
 
 Server tools work alongside your own user-defined tools — you can include both in the same request.
@@ -79,7 +79,7 @@ Add server tools to the `tools` array using the `openrouter:` type prefix:
 <CodeGroup>
 
 ```typescript title="TypeScript" expandable lines
-const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+const response = await fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
     Authorization: 'Bearer {{API_KEY_REF}}',
@@ -108,7 +108,7 @@ console.log(data.choices[0].message.content);
 import requests
 
 response = requests.post(
-  "https://openrouter.ai/api/v1/chat/completions",
+  "https://kenh-ai.com/api/v1/chat/completions",
   headers={
     "Authorization": f"Bearer {{API_KEY_REF}}",
     "Content-Type": "application/json",
@@ -133,7 +133,7 @@ print(data["choices"][0]["message"]["content"])
 ```
 
 ```bash title="cURL" lines
-curl https://openrouter.ai/api/v1/chat/completions \
+curl https://kenh-ai.com/api/v1/chat/completions \
   -H "Authorization: Bearer {{API_KEY_REF}}" \
   -H "Content-Type: application/json" \
   -d '{
@@ -183,7 +183,7 @@ Server tools and user-defined tools can be used in the same request:
 }
 ```
 
-The model can call any combination of server tools and user-defined tools. OpenRouter executes the server tools automatically, while your application handles the user-defined tool calls as usual.
+The model can call any combination of server tools and user-defined tools. kenh-ai executes the server tools automatically, while your application handles the user-defined tool calls as usual.
 
 ## Usage Tracking
 

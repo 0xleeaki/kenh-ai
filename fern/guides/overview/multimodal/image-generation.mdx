@@ -1,16 +1,16 @@
 ---
 title: Image Generation
-description: How to generate images with OpenRouter models
-seoTitle: 'OpenRouter Image Generation | Complete Documentation'
-canonicalUrl: https://openrouter.ai/docs/guides/overview/multimodal/image-generation
-og:site_name: OpenRouter Documentation
-og:title: 'OpenRouter Image Generation - Complete Documentation'
-og:description: 'Generate images using AI models through the OpenRouter API.'
-og:image: https://openrouter.ai/dynamic-og?title=OpenRouter%20Image%20Generation&description=Generate%20images%20using%20AI%20models%20through%20the%20OpenRouter%20API.
+description: How to generate images with kenh-ai models
+seoTitle: 'kenh-ai Image Generation | Complete Documentation'
+canonicalUrl: https://kenh-ai.com/docs/guides/overview/multimodal/image-generation
+og:site_name: kenh-ai Documentation
+og:title: 'kenh-ai Image Generation - Complete Documentation'
+og:description: 'Generate images using AI models through the kenh-ai API.'
+og:image: https://kenh-ai.com/dynamic-og?title=kenh-ai%20Image%20Generation&description=Generate%20images%20using%20AI%20models%20through%20the%20kenh-ai%20API.
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: wand-magic-sparkles
@@ -21,7 +21,7 @@ import {
   API_KEY_REF,
 } from '../../../snippets/exports/constants.mdx';
 
-OpenRouter supports image generation via the [Chat Completions](/api/api-reference/chat/create-a-chat-completion) and [Responses](/api/reference/responses/overview) endpoints. You can find the supported models, their capabilities, and pricing by filtering our [model list by image output](/guides/overview/models?output_modalities=image).
+kenh-ai supports image generation via the [Chat Completions](/api/api-reference/chat/create-a-chat-completion) and [Responses](/api/reference/responses/overview) endpoints. You can find the supported models, their capabilities, and pricing by filtering our [model list by image output](/guides/overview/models?output_modalities=image).
 
 ## Model Discovery
 
@@ -33,10 +33,10 @@ Use the `output_modalities` query parameter on the [Models API](/api-reference/m
 
 ```bash lines
 # List only image generation models
-curl "https://openrouter.ai/api/v1/models?output_modalities=image"
+curl "https://kenh-ai.com/api/v1/models?output_modalities=image"
 
 # List models that support both text and image output
-curl "https://openrouter.ai/api/v1/models?output_modalities=text,image"
+curl "https://kenh-ai.com/api/v1/models?output_modalities=text,image"
 ```
 
 See [Models - Query Parameters](/guides/overview/models#query-parameters) for the full list of supported modality values.
@@ -47,7 +47,7 @@ Visit the [Models page](/guides/overview/models) and filter by output modalities
 
 ### In the Chatroom
 
-When using the [Chatroom](https://openrouter.ai/chat), click the **Image** button to automatically filter and select models with image generation capabilities. If no image-capable model is active, you'll be prompted to add one.
+When using the [Chatroom](https://kenh-ai.com/chat), click the **Image** button to automatically filter and select models with image generation capabilities. If no image-capable model is active, you'll be prompted to add one.
 
 ## API Usage
 
@@ -65,13 +65,13 @@ To generate images, send a request to the `/api/v1/chat/completions` endpoint wi
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" expandable lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   apiKey: '{{API_KEY_REF}}',
 });
 
-const result = await openRouter.chat.send({
+const result = await kenhAi.chat.send({
   model: '{{MODEL}}',
   messages: [
     {
@@ -99,7 +99,7 @@ if (result.choices) {
 import requests
 import json
 
-url = "https://openrouter.ai/api/v1/chat/completions"
+url = "https://kenh-ai.com/api/v1/chat/completions"
 headers = {
     "Authorization": f"Bearer {API_KEY_REF}",
     "Content-Type": "application/json"
@@ -129,7 +129,7 @@ if result.get("choices"):
 ```
 
 ```typescript title="TypeScript (fetch)" expandable lines
-const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+const response = await fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
     Authorization: `Bearer ${API_KEY_REF}`,
@@ -225,7 +225,7 @@ You can combine both `aspect_ratio` and `image_size` in the same request:
 import requests
 import json
 
-url = "https://openrouter.ai/api/v1/chat/completions"
+url = "https://kenh-ai.com/api/v1/chat/completions"
 headers = {
     "Authorization": f"Bearer {API_KEY_REF}",
     "Content-Type": "application/json"
@@ -258,7 +258,7 @@ if result.get("choices"):
 ```
 
 ```typescript TypeScript expandable lines
-const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+const response = await fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
     Authorization: `Bearer ${API_KEY_REF}`,
@@ -582,7 +582,7 @@ Image generation also works with streaming responses:
 import requests
 import json
 
-url = "https://openrouter.ai/api/v1/chat/completions"
+url = "https://kenh-ai.com/api/v1/chat/completions"
 headers = {
     "Authorization": f"Bearer {API_KEY_REF}",
     "Content-Type": "application/json"
@@ -620,7 +620,7 @@ for line in response.iter_lines():
 ```
 
 ```typescript TypeScript expandable lines
-const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+const response = await fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
     Authorization: `Bearer ${API_KEY_REF}`,

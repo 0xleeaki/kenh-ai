@@ -1,16 +1,16 @@
 ---
 title: RAG with Embeddings & Rerank
-description: Build retrieval-augmented generation pipelines using OpenRouter's embeddings and rerank APIs
-seoTitle: 'RAG with Embeddings & Rerank | Retrieval-Augmented Generation on OpenRouter'
-canonicalUrl: https://openrouter.ai/docs/cookbook/evaluate-and-optimize/rag
-og:site_name: OpenRouter Documentation
+description: Build retrieval-augmented generation pipelines using kenh-ai's embeddings and rerank APIs
+seoTitle: 'RAG with Embeddings & Rerank | Retrieval-Augmented Generation on kenh-ai'
+canonicalUrl: https://kenh-ai.com/docs/cookbook/evaluate-and-optimize/rag
+og:site_name: kenh-ai Documentation
 og:title: 'RAG with Embeddings & Rerank - Build Retrieval-Augmented Generation Pipelines'
-og:description: 'Learn how to build RAG pipelines using OpenRouter embeddings for retrieval and rerank models for precision, then generate answers with LLMs — all through a single API.'
-og:image: https://openrouter.ai/dynamic-og?title=RAG%20with%20Embeddings%20%26%20Rerank&description=Build%20retrieval-augmented%20generation%20pipelines
+og:description: 'Learn how to build RAG pipelines using kenh-ai embeddings for retrieval and rerank models for precision, then generate answers with LLMs — all through a single API.'
+og:image: https://kenh-ai.com/dynamic-og?title=RAG%20with%20Embeddings%20%26%20Rerank&description=Build%20retrieval-augmented%20generation%20pipelines
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: magnifying-glass-chart
@@ -21,7 +21,7 @@ import { Template } from "../../components/Template";
 
 Retrieval-Augmented Generation (RAG) grounds LLM responses in your own data by retrieving relevant documents before generating an answer. This prevents hallucinations and keeps responses up to date without fine-tuning.
 
-OpenRouter provides all three building blocks for a RAG pipeline through a single API:
+kenh-ai provides all three building blocks for a RAG pipeline through a single API:
 
 1. **Embeddings** — convert documents and queries into vectors for semantic search
 2. **Rerank** — re-score retrieved candidates for higher precision
@@ -60,24 +60,24 @@ Split your documents into chunks and generate embeddings for each chunk. Store t
 import requests
 import json
 
-OPENROUTER_API_KEY = "{{API_KEY_REF}}"
+KENH_AI_API_KEY = "{{API_KEY_REF}}"
 
 # Your documents, split into chunks
 chunks = [
-    "OpenRouter is a unified API gateway for LLMs. It aggregates models from multiple providers.",
+    "kenh-ai is a unified API gateway for LLMs. It aggregates models from multiple providers.",
     "RAG stands for Retrieval-Augmented Generation. It grounds LLM answers in external data.",
     "Embeddings convert text into numerical vectors that capture semantic meaning.",
     "Reranking uses a cross-encoder to re-score documents for a given query, improving precision.",
     "Vector databases like Pinecone, Weaviate, and Qdrant store embeddings for fast similarity search.",
     "Prompt caching can reduce costs by reusing previous computations for repeated prefixes.",
-    "OpenRouter supports provider routing to control which providers serve your requests.",
+    "kenh-ai supports provider routing to control which providers serve your requests.",
 ]
 
 # Generate embeddings for all chunks in one batch request
 response = requests.post(
-    "https://openrouter.ai/api/v1/embeddings",
+    "https://kenh-ai.com/api/v1/embeddings",
     headers={
-        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+        "Authorization": f"Bearer {KENH_AI_API_KEY}",
         "Content-Type": "application/json",
     },
     json={
@@ -98,24 +98,24 @@ print(f"Indexed {len(document_embeddings)} chunks with {len(document_embeddings[
 ```
 
 ```typescript title="TypeScript (fetch)" expandable lines
-const OPENROUTER_API_KEY = '{{API_KEY_REF}}';
+const KENH_AI_API_KEY = '{{API_KEY_REF}}';
 
 // Your documents, split into chunks
 const chunks = [
-  'OpenRouter is a unified API gateway for LLMs. It aggregates models from multiple providers.',
+  'kenh-ai is a unified API gateway for LLMs. It aggregates models from multiple providers.',
   'RAG stands for Retrieval-Augmented Generation. It grounds LLM answers in external data.',
   'Embeddings convert text into numerical vectors that capture semantic meaning.',
   'Reranking uses a cross-encoder to re-score documents for a given query, improving precision.',
   'Vector databases like Pinecone, Weaviate, and Qdrant store embeddings for fast similarity search.',
   'Prompt caching can reduce costs by reusing previous computations for repeated prefixes.',
-  'OpenRouter supports provider routing to control which providers serve your requests.',
+  'kenh-ai supports provider routing to control which providers serve your requests.',
 ];
 
 // Generate embeddings for all chunks in one batch request
-const response = await fetch('https://openrouter.ai/api/v1/embeddings', {
+const response = await fetch('https://kenh-ai.com/api/v1/embeddings', {
   method: 'POST',
   headers: {
-    'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
+    'Authorization': `Bearer ${KENH_AI_API_KEY}`,
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -136,13 +136,13 @@ console.log(`Indexed ${documentEmbeddings.length} chunks with ${documentEmbeddin
 ```
 
 ```shell title="Shell" lines
-curl https://openrouter.ai/api/v1/embeddings \
+curl https://kenh-ai.com/api/v1/embeddings \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $OPENROUTER_API_KEY" \
+  -H "Authorization: Bearer $KENH_AI_API_KEY" \
   -d '{
     "model": "{{MODEL}}",
     "input": [
-      "OpenRouter is a unified API gateway for LLMs.",
+      "kenh-ai is a unified API gateway for LLMs.",
       "RAG stands for Retrieval-Augmented Generation.",
       "Embeddings convert text into numerical vectors."
     ]
@@ -175,9 +175,9 @@ def cosine_similarity(a, b):
 def retrieve(query, document_embeddings, top_n=5):
     # Embed the query
     response = requests.post(
-        "https://openrouter.ai/api/v1/embeddings",
+        "https://kenh-ai.com/api/v1/embeddings",
         headers={
-            "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+            "Authorization": f"Bearer {KENH_AI_API_KEY}",
             "Content-Type": "application/json",
         },
         json={
@@ -220,10 +220,10 @@ async function retrieve(
   topN = 5,
 ) {
   // Embed the query
-  const response = await fetch('https://openrouter.ai/api/v1/embeddings', {
+  const response = await fetch('https://kenh-ai.com/api/v1/embeddings', {
     method: 'POST',
     headers: {
-      'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
+      'Authorization': `Bearer ${KENH_AI_API_KEY}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
@@ -271,9 +271,9 @@ Embedding-based retrieval is fast but approximate. A rerank model uses a cross-e
 ```python title="Python" expandable lines
 def rerank(query, documents, top_n=3):
     response = requests.post(
-        "https://openrouter.ai/api/v1/rerank",
+        "https://kenh-ai.com/api/v1/rerank",
         headers={
-            "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+            "Authorization": f"Bearer {KENH_AI_API_KEY}",
             "Content-Type": "application/json",
         },
         json={
@@ -299,10 +299,10 @@ for r in reranked:
 
 ```typescript title="TypeScript (fetch)" expandable lines
 async function rerank(query: string, documents: string[], topN = 3) {
-  const response = await fetch('https://openrouter.ai/api/v1/rerank', {
+  const response = await fetch('https://kenh-ai.com/api/v1/rerank', {
     method: 'POST',
     headers: {
-      'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
+      'Authorization': `Bearer ${KENH_AI_API_KEY}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
@@ -329,9 +329,9 @@ for (const r of reranked) {
 ```
 
 ```shell title="Shell" lines
-curl https://openrouter.ai/api/v1/rerank \
+curl https://kenh-ai.com/api/v1/rerank \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $OPENROUTER_API_KEY" \
+  -H "Authorization: Bearer $KENH_AI_API_KEY" \
   -d '{
     "model": "{{RERANK_MODEL}}",
     "query": "What is RAG and how does it work?",
@@ -339,7 +339,7 @@ curl https://openrouter.ai/api/v1/rerank \
       "RAG stands for Retrieval-Augmented Generation. It grounds LLM answers in external data.",
       "Embeddings convert text into numerical vectors that capture semantic meaning.",
       "Reranking uses a cross-encoder to re-score documents for a given query, improving precision.",
-      "OpenRouter is a unified API gateway for LLMs. It aggregates models from multiple providers.",
+      "kenh-ai is a unified API gateway for LLMs. It aggregates models from multiple providers.",
       "Vector databases like Pinecone, Weaviate, and Qdrant store embeddings for fast similarity search."
     ],
     "top_n": 3
@@ -368,9 +368,9 @@ def generate_answer(query, context_docs):
     )
 
     response = requests.post(
-        "https://openrouter.ai/api/v1/chat/completions",
+        "https://kenh-ai.com/api/v1/chat/completions",
         headers={
-            "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+            "Authorization": f"Bearer {KENH_AI_API_KEY}",
             "Content-Type": "application/json",
         },
         json={
@@ -407,10 +407,10 @@ async function generateAnswer(
     .map((doc, i) => `[${i + 1}] ${doc.document.text}`)
     .join('\n\n');
 
-  const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+  const response = await fetch('https://kenh-ai.com/api/v1/chat/completions', {
     method: 'POST',
     headers: {
-      'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
+      'Authorization': `Bearer ${KENH_AI_API_KEY}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
@@ -459,15 +459,15 @@ Here is a full end-to-end RAG pipeline combining all four steps:
 import requests
 import numpy as np
 
-OPENROUTER_API_KEY = "{{API_KEY_REF}}"
+KENH_AI_API_KEY = "{{API_KEY_REF}}"
 EMBEDDING_MODEL = "{{EMBEDDING_MODEL}}"
 RERANK_MODEL = "{{RERANK_MODEL}}"
 CHAT_MODEL = "{{CHAT_MODEL}}"
-BASE_URL = "https://openrouter.ai/api/v1"
+BASE_URL = "https://kenh-ai.com/api/v1"
 
 def get_headers():
     return {
-        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+        "Authorization": f"Bearer {KENH_AI_API_KEY}",
         "Content-Type": "application/json",
     }
 
@@ -538,13 +538,13 @@ def generate(query, context_docs):
 
 # 1. Index: chunk your knowledge base and embed
 chunks = [
-    "OpenRouter is a unified API gateway for LLMs. It aggregates models from multiple providers into a single OpenAI-compatible interface.",
+    "kenh-ai is a unified API gateway for LLMs. It aggregates models from multiple providers into a single OpenAI-compatible interface.",
     "RAG stands for Retrieval-Augmented Generation. It retrieves relevant documents and uses them as context for LLM generation.",
     "Embeddings convert text into high-dimensional vectors where semantically similar texts are closer together.",
     "Reranking uses a cross-encoder to compare each document directly against the query, producing more accurate relevance scores than embedding similarity alone.",
     "Vector databases like Pinecone, Weaviate, and Qdrant are optimized for storing and querying embedding vectors at scale.",
     "Prompt caching reduces costs by reusing computations for repeated prompt prefixes across requests.",
-    "OpenRouter supports provider routing to control which upstream providers serve your requests based on cost, latency, or privacy preferences.",
+    "kenh-ai supports provider routing to control which upstream providers serve your requests based on cost, latency, or privacy preferences.",
 ]
 doc_embeddings = embed(chunks)
 
@@ -564,15 +564,15 @@ print(f"Q: {query}\nA: {answer}")
 ```
 
 ```typescript title="TypeScript (fetch)" expandable lines
-const OPENROUTER_API_KEY = '{{API_KEY_REF}}';
+const KENH_AI_API_KEY = '{{API_KEY_REF}}';
 const EMBEDDING_MODEL = '{{EMBEDDING_MODEL}}';
 const RERANK_MODEL = '{{RERANK_MODEL}}';
 const CHAT_MODEL = '{{CHAT_MODEL}}';
-const BASE_URL = 'https://openrouter.ai/api/v1';
+const BASE_URL = 'https://kenh-ai.com/api/v1';
 
 function getHeaders() {
   return {
-    'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
+    'Authorization': `Bearer ${KENH_AI_API_KEY}`,
     'Content-Type': 'application/json',
   };
 }
@@ -653,13 +653,13 @@ async function generate(query: string, contextDocs: string[]): Promise<string> {
 
 // 1. Index: chunk your knowledge base and embed
 const chunks = [
-  'OpenRouter is a unified API gateway for LLMs. It aggregates models from multiple providers into a single OpenAI-compatible interface.',
+  'kenh-ai is a unified API gateway for LLMs. It aggregates models from multiple providers into a single OpenAI-compatible interface.',
   'RAG stands for Retrieval-Augmented Generation. It retrieves relevant documents and uses them as context for LLM generation.',
   'Embeddings convert text into high-dimensional vectors where semantically similar texts are closer together.',
   'Reranking uses a cross-encoder to compare each document directly against the query, producing more accurate relevance scores than embedding similarity alone.',
   'Vector databases like Pinecone, Weaviate, and Qdrant are optimized for storing and querying embedding vectors at scale.',
   'Prompt caching reduces costs by reusing computations for repeated prompt prefixes across requests.',
-  'OpenRouter supports provider routing to control which upstream providers serve your requests based on cost, latency, or privacy preferences.',
+  'kenh-ai supports provider routing to control which upstream providers serve your requests based on cost, latency, or privacy preferences.',
 ];
 const docEmbeddings = await embed(chunks);
 
@@ -725,9 +725,9 @@ How you split documents significantly affects retrieval quality:
 
 Browse available models for each step:
 
-- **Embedding models**: [openrouter.ai/models?output_modalities=embeddings](https://openrouter.ai/models?fmt=cards&output_modalities=embeddings)
-- **Rerank models**: [openrouter.ai/models?output_modalities=rerank](https://openrouter.ai/models?fmt=cards&output_modalities=rerank)
-- **Chat models**: [openrouter.ai/models](https://openrouter.ai/models)
+- **Embedding models**: [kenh-ai.com/models?output_modalities=embeddings](https://kenh-ai.com/models?fmt=cards&output_modalities=embeddings)
+- **Rerank models**: [kenh-ai.com/models?output_modalities=rerank](https://kenh-ai.com/models?fmt=cards&output_modalities=rerank)
+- **Chat models**: [kenh-ai.com/models](https://kenh-ai.com/models)
 
 ## Related Resources
 

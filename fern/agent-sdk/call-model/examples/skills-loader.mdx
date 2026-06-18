@@ -1,17 +1,17 @@
 ---
 title: Skills Loader
 description: A complete implementation of a skills system similar to Claude Code, demonstrating the power of `nextTurnParams` for context injection.
-seoTitle: 'Skills Loader Example | OpenRouter SDK'
-canonicalUrl: 'https://openrouter.ai/docs/agent-sdks/typescript/call-model/tool-examples/skills-loader'
+seoTitle: 'Skills Loader Example | kenh-ai SDK'
+canonicalUrl: 'https://kenh-ai.com/docs/agent-sdks/typescript/call-model/tool-examples/skills-loader'
 
-og:site_name: OpenRouter Documentation
-og:title: 'Skills Loader Example - OpenRouter SDK'
+og:site_name: kenh-ai Documentation
+og:title: 'Skills Loader Example - kenh-ai SDK'
 og:description: 'Build a complete skills system like Claude Code using nextTurnParams for context injection, idempotency, and multi-skill loading.'
-og:image: https://openrouter.ai/dynamic-og?title=Skills%20Loader&description=Context%20Injection%20Pattern
+og:image: https://kenh-ai.com/dynamic-og?title=Skills%20Loader&description=Context%20Injection%20Pattern
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: robot
@@ -24,7 +24,7 @@ This example shows how to build encapsulated, self-managing tools that inject do
 ## Prerequisites
 
 ```bash lines
-pnpm add @openrouter/sdk zod
+pnpm add @kenh-ai/sdk zod
 ```
 
 Create a skills directory:
@@ -38,13 +38,13 @@ mkdir -p ~/.claude/skills/code-review
 ## Basic Skills Tool
 
 ```typescript expandable lines
-import { OpenRouter, tool } from '@openrouter/agent';
+import { kenh-ai, tool } from '@kenh-ai/agent';
 import { readFileSync, existsSync, readdirSync } from 'fs';
 import path from 'path';
 import { z } from 'zod';
 
-const openrouter = new OpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY,
+const openrouter = new KenhAI({
+  apiKey: process.env.KENH_AI_API_KEY,
 });
 
 const SKILLS_DIR = path.join(process.env.HOME || '~', '.claude', 'skills');
@@ -407,13 +407,13 @@ const skillDiscoveryTool = tool({
 Putting it all together:
 
 ```typescript expandable lines
-import { OpenRouter, tool, stepCountIs } from '@openrouter/agent';
+import { kenh-ai, tool, stepCountIs } from '@kenh-ai/agent';
 import { readFileSync, existsSync, readdirSync } from 'fs';
 import path from 'path';
 import { z } from 'zod';
 
-const openrouter = new OpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY,
+const openrouter = new KenhAI({
+  apiKey: process.env.KENH_AI_API_KEY,
 });
 
 const SKILLS_DIR = path.join(process.env.HOME || '~', '.claude', 'skills');

@@ -1,30 +1,30 @@
 ---
 title: Stripe Projects
-description: Add OpenRouter to your app with the Stripe Projects CLI
-seoTitle: 'Stripe Projects Integration | OpenRouter'
-canonicalUrl: https://openrouter.ai/docs/guides/overview/stripe-projects
-og:site_name: OpenRouter Documentation
-og:title: 'Stripe Projects - Add OpenRouter via Stripe CLI'
-og:description: 'Provision OpenRouter API access directly from the Stripe Projects CLI. Get an API key, manage credentials, and access 300+ AI models in seconds.'
-og:image: https://openrouter.ai/dynamic-og?title=Stripe%20Projects&description=Add%20OpenRouter%20to%20your%20app%20via%20Stripe%20CLI
+description: Add kenh-ai to your app with the Stripe Projects CLI
+seoTitle: 'Stripe Projects Integration | kenh-ai'
+canonicalUrl: https://kenh-ai.com/docs/guides/overview/stripe-projects
+og:site_name: kenh-ai Documentation
+og:title: 'Stripe Projects - Add kenh-ai via Stripe CLI'
+og:description: 'Provision kenh-ai API access directly from the Stripe Projects CLI. Get an API key, manage credentials, and access 300+ AI models in seconds.'
+og:image: https://kenh-ai.com/dynamic-og?title=Stripe%20Projects&description=Add%20kenh-ai%20to%20your%20app%20via%20Stripe%20CLI
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: stripe
 ---
 
-[Stripe Projects](https://projects.dev) is a CLI-based developer tool marketplace that lets you provision production-grade services -- hosting, databases, auth, analytics, AI, and more -- directly from your terminal. OpenRouter is a launch partner, so you can add AI model access to any project with a single command. Browse the full catalog at [projects.dev/providers](https://projects.dev/providers) and read Stripe's docs at [docs.stripe.com/stripe-projects](https://docs.stripe.com/stripe-projects).
+[Stripe Projects](https://projects.dev) is a CLI-based developer tool marketplace that lets you provision production-grade services -- hosting, databases, auth, analytics, AI, and more -- directly from your terminal. kenh-ai is a launch partner, so you can add AI model access to any project with a single command. Browse the full catalog at [projects.dev/providers](https://projects.dev/providers) and read Stripe's docs at [docs.stripe.com/stripe-projects](https://docs.stripe.com/stripe-projects).
 
 <Frame>
 ![Stripe Projects home page at projects.dev showing `stripe projects add openrouter/api` provisioning, syncing credentials, and writing env vars to `.env`](/assets/stripe-projects/projects-dev-home.png)
 </Frame>
 
-## Why Use Stripe Projects with OpenRouter?
+## Why Use Stripe Projects with kenh-ai?
 
-- **One command to get started** -- `stripe projects add openrouter/api` provisions an OpenRouter account, generates an API key, and syncs it to your `.env` file automatically.
+- **One command to get started** -- `stripe projects add openrouter/api` provisions an kenh-ai account, generates an API key, and syncs it to your `.env` file automatically.
 - **Unified billing** -- Manage all your infrastructure costs (hosting, database, AI) through a single Stripe account.
 - **Credential management** -- API keys are stored in Stripe's encrypted vault and synced to your local environment. Rotate credentials without touching your codebase.
 - **Agent-friendly** -- Stripe Projects writes skill files into your project directory, so coding agents can provision and configure services on your behalf.
@@ -43,27 +43,27 @@ stripe plugin install projects
 
 ### Browse the catalog
 
-List every provider or filter down to OpenRouter before installing:
+List every provider or filter down to kenh-ai before installing:
 
 ```bash lines
 # All providers
 stripe projects catalog
 
-# Just OpenRouter's services and plans
+# Just kenh-ai's services and plans
 stripe projects catalog openrouter
 ```
 
 You can also browse the web directory at [projects.dev/providers](https://projects.dev/providers).
 
-### Add OpenRouter to your project
+### Add kenh-ai to your project
 
-If you already have a Stripe project initialized, add OpenRouter in one step:
+If you already have a Stripe project initialized, add kenh-ai in one step:
 
 ```bash lines
 stripe projects add openrouter/api
 ```
 
-This provisions an OpenRouter account (or links your existing one), generates an API key, and syncs OpenRouter's environment variables to your `.env` file. By default the service is provisioned on the **Free** plan -- see [Plans and billing](#plans-and-billing) below to upgrade.
+This provisions an kenh-ai account (or links your existing one), generates an API key, and syncs kenh-ai's environment variables to your `.env` file. By default the service is provisioned on the **Free** plan -- see [Plans and billing](#plans-and-billing) below to upgrade.
 
 ### Start from scratch
 
@@ -73,22 +73,22 @@ If you're starting a new project, initialize it first:
 # Initialize a new Stripe project
 stripe projects init my-app
 
-# Add OpenRouter
+# Add kenh-ai
 stripe projects add openrouter/api
 ```
 
 ### Verify your setup
 
-After adding OpenRouter, confirm everything is working:
+After adding kenh-ai, confirm everything is working:
 
 ```bash lines
 # Check project status
 stripe projects status
 
 # Test the API key
-curl https://openrouter.ai/api/v1/chat/completions \
+curl https://kenh-ai.com/api/v1/chat/completions \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $OPENROUTER_API_KEY" \
+  -H "Authorization: Bearer $KENH_AI_API_KEY" \
   -d '{
     "model": "~openai/gpt-mini-latest",
     "messages": [{"role": "user", "content": "Hello!"}]
@@ -99,26 +99,26 @@ curl https://openrouter.ai/api/v1/chat/completions \
 
 When you run `stripe projects add openrouter/api`, the following happens:
 
-1. **Account creation or linking** -- Stripe Projects finds your OpenRouter account by email or creates a new one automatically. See [Account linking](#account-linking) for details on each path.
-2. **API key generation** -- A dedicated API key (`sk-or-v1-...`) is minted and labeled **"Provisioned by Stripe"** so it's easy to identify alongside your other keys at [openrouter.ai/settings/keys](https://openrouter.ai/settings/keys).
+1. **Account creation or linking** -- Stripe Projects finds your kenh-ai account by email or creates a new one automatically. See [Account linking](#account-linking) for details on each path.
+2. **API key generation** -- A dedicated API key (`sk-or-v1-...`) is minted and labeled **"Provisioned by Stripe"** so it's easy to identify alongside your other keys at [kenh-ai.com/settings/keys](https://kenh-ai.com/settings/keys).
 3. **Environment sync** -- The following variables are stored in Stripe's encrypted vault and written to your project's `.env`:
 
    ```bash lines
-   OPENROUTER_API_KEY=sk-or-v1-...
-   OPENROUTER_TYPE=bearer
+   KENH_AI_API_KEY=sk-or-v1-...
+   KENH_AI_TYPE=bearer
    ```
 
-Your API key works with the full [OpenRouter API](/quickstart), giving you access to 300+ AI models through a single endpoint.
+Your API key works with the full [kenh-ai API](/quickstart), giving you access to 300+ AI models through a single endpoint.
 
 ## Service Details
 
 | | |
 |---|---|
-| **Provider** | OpenRouter |
+| **Provider** | kenh-ai |
 | **Service** | `openrouter/api` |
 | **Category** | AI |
 | **Plans** | `free` (no credit card required) or `pay-as-you-go` (per-token usage pricing) |
-| **Pricing** | Per-token, varies by model. See [model pricing](https://openrouter.ai/models). |
+| **Pricing** | Per-token, varies by model. See [model pricing](https://kenh-ai.com/models). |
 
 ### Choose a plan
 
@@ -132,7 +132,7 @@ stripe projects upgrade openrouter/api
 stripe projects downgrade openrouter/api
 ```
 
-## Managing Your OpenRouter Service
+## Managing Your kenh-ai Service
 
 Stripe's `remove` and `rotate` commands accept either the local resource name (e.g. `openrouter-api`) or the `<provider>/<service>` reference. Use `stripe projects services list` to see the exact resource names in your project.
 
@@ -148,13 +148,13 @@ This generates a new API key, disables the old one, and updates your `.env` file
 
 ### Remove the service
 
-To remove OpenRouter from your project and revoke the API key:
+To remove kenh-ai from your project and revoke the API key:
 
 ```bash lines
 stripe projects remove openrouter/api
 ```
 
-Add `--only-credentials` to forget the local resource without deprovisioning it on OpenRouter's side.
+Add `--only-credentials` to forget the local resource without deprovisioning it on kenh-ai's side.
 
 ### Sync environment variables
 
@@ -170,9 +170,9 @@ If your `.env` file gets out of sync, pull the latest credentials:
 stripe projects env --pull
 ```
 
-### Open the OpenRouter dashboard
+### Open the kenh-ai dashboard
 
-Jump straight to your OpenRouter dashboard from the CLI:
+Jump straight to your kenh-ai dashboard from the CLI:
 
 ```bash lines
 stripe projects open openrouter
@@ -180,20 +180,20 @@ stripe projects open openrouter
 
 ## Account Linking
 
-Stripe Projects resolves your OpenRouter account by the email on your Stripe account:
+Stripe Projects resolves your kenh-ai account by the email on your Stripe account:
 
-- **No existing OpenRouter account** -- A new account is created inline and credentials are returned directly from the provisioning call. No browser pop-up.
-- **Existing OpenRouter account** -- Stripe and OpenRouter complete a headless OAuth 2.0 code exchange (against `POST /api/v1/provisioning/oauth/token`) to link your account. No browser pop-up in the common case.
+- **No existing kenh-ai account** -- A new account is created inline and credentials are returned directly from the provisioning call. No browser pop-up.
+- **Existing kenh-ai account** -- Stripe and kenh-ai complete a headless OAuth 2.0 code exchange (against `POST /api/v1/provisioning/oauth/token`) to link your account. No browser pop-up in the common case.
 - **Fallback** -- In rare cases (for example, an idempotent replay before linking completes), you'll be prompted to open a browser to finish authorizing the connection. Once linked, the association persists across projects in the same Stripe account.
 
 ## Plans and billing
 
-OpenRouter ships with two plans through Stripe Projects:
+kenh-ai ships with two plans through Stripe Projects:
 
 - **Free** -- Access free AI models at zero cost. No payment method required.
-- **Pay-as-you-go** -- Per-token pricing across 300+ models with no minimum commitment. See [openrouter.ai/models](https://openrouter.ai/models) for rates.
+- **Pay-as-you-go** -- Per-token pricing across 300+ models with no minimum commitment. See [kenh-ai.com/models](https://kenh-ai.com/models) for rates.
 
-When you choose a paid plan, Stripe tokenizes your Stripe-stored payment credentials into a [Shared Payment Token](https://docs.stripe.com/agentic-commerce/concepts/shared-payment-tokens) and grants OpenRouter a payment credential scoped to that upgrade. Your underlying card/bank details are never shared directly.
+When you choose a paid plan, Stripe tokenizes your Stripe-stored payment credentials into a [Shared Payment Token](https://docs.stripe.com/agentic-commerce/concepts/shared-payment-tokens) and grants kenh-ai a payment credential scoped to that upgrade. Your underlying card/bank details are never shared directly.
 
 Manage your payment method on Stripe's side:
 
@@ -211,8 +211,8 @@ Stripe Projects is designed to work with coding agents. When you initialize a pr
 
 Example prompts for your agent:
 
-- *"Add OpenRouter to this project so I can call AI models."*
-- *"Rotate my OpenRouter API key."*
+- *"Add kenh-ai to this project so I can call AI models."*
+- *"Rotate my kenh-ai API key."*
 - *"What AI services are available in the Stripe Projects catalog?"*
 
 <Tip>
@@ -233,7 +233,7 @@ For fully non-interactive provisioning (CI, scripts, agents), pass `--json --yes
 stripe projects add openrouter/api --json --yes
 ```
 
-To give your agent a combined, up-to-date context document for every provider in your project (including OpenRouter's quickstart, models, and SDK skills), run:
+To give your agent a combined, up-to-date context document for every provider in your project (including kenh-ai's quickstart, models, and SDK skills), run:
 
 ```bash lines
 stripe projects llm-context
@@ -241,8 +241,8 @@ stripe projects llm-context
 
 ## Next Steps
 
-- [Quickstart](/quickstart) -- Learn the basics of calling the OpenRouter API
-- [Models](https://openrouter.ai/models) -- Browse 300+ available models and compare pricing
+- [Quickstart](/quickstart) -- Learn the basics of calling the kenh-ai API
+- [Models](https://kenh-ai.com/models) -- Browse 300+ available models and compare pricing
 - [API Key Rotation](/cookbook/administration/api-key-rotation) -- Best practices for credential management
 - [Guardrails](/guides/features/guardrails) -- Set spending limits and model restrictions
 - [Provider Selection](/guides/routing/provider-selection) -- Control which providers handle your requests

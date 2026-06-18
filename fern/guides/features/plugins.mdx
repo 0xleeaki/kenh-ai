@@ -1,16 +1,16 @@
 ---
 title: Plugins
-description: Extend model capabilities with OpenRouter plugins
+description: Extend model capabilities with kenh-ai plugins
 seoTitle: 'Plugins | Extend AI Model Capabilities'
-canonicalUrl: https://openrouter.ai/docs/guides/features/plugins
-og:site_name: OpenRouter Documentation
+canonicalUrl: https://kenh-ai.com/docs/guides/features/plugins
+og:site_name: kenh-ai Documentation
 og:title: 'Plugins - Extend AI Model Capabilities'
-og:description: "Enable powerful plugins like web search, PDF processing, and response healing to extend any model's capabilities on OpenRouter."
-og:image: https://openrouter.ai/dynamic-og?title=Plugins&description=Extend%20AI%20Model%20Capabilities
+og:description: "Enable powerful plugins like web search, PDF processing, and response healing to extend any model's capabilities on kenh-ai."
+og:image: https://kenh-ai.com/dynamic-og?title=Plugins&description=Extend%20AI%20Model%20Capabilities
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: compass
@@ -20,11 +20,11 @@ sidebarTitle: Overview
 import { API_KEY_REF } from '../../snippets/exports/constants.mdx';
 import { Template } from "../../components/Template";
 
-OpenRouter plugins extend the capabilities of any model by injecting or mutating a request or response to add functionality like PDF processing, automatic JSON repair, and context compression. Unlike [server tools](/guides/features/server-tools) (which the model can call 0-N times), plugins always run once when enabled. Plugins can be enabled per-request via the API or configured as defaults for all your API requests through the [Plugins settings page](https://openrouter.ai/settings/plugins).
+kenh-ai plugins extend the capabilities of any model by injecting or mutating a request or response to add functionality like PDF processing, automatic JSON repair, and context compression. Unlike [server tools](/guides/features/server-tools) (which the model can call 0-N times), plugins always run once when enabled. Plugins can be enabled per-request via the API or configured as defaults for all your API requests through the [Plugins settings page](https://kenh-ai.com/settings/plugins).
 
 ## Available Plugins
 
-OpenRouter currently supports the following plugins:
+kenh-ai currently supports the following plugins:
 
 | Plugin | Description | Docs |
 |--------|-------------|------|
@@ -45,7 +45,7 @@ Plugins are enabled by adding a `plugins` array to your chat completions request
 <CodeGroup>
 
 ```typescript title="TypeScript" expandable lines
-const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+const response = await fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
     Authorization: 'Bearer {{API_KEY_REF}}',
@@ -73,7 +73,7 @@ console.log(data.choices[0].message.content);
 import requests
 
 response = requests.post(
-  "https://openrouter.ai/api/v1/chat/completions",
+  "https://kenh-ai.com/api/v1/chat/completions",
   headers={
     "Authorization": f"Bearer {{API_KEY_REF}}",
     "Content-Type": "application/json",
@@ -97,7 +97,7 @@ print(data["choices"][0]["message"]["content"])
 ```
 
 ```bash title="cURL" lines
-curl https://openrouter.ai/api/v1/chat/completions \
+curl https://kenh-ai.com/api/v1/chat/completions \
   -H "Authorization: Bearer {{API_KEY_REF}}" \
   -H "Content-Type: application/json" \
   -d '{
@@ -146,7 +146,7 @@ Organization admins and individual users can configure default plugin settings t
 
 To configure default plugin settings:
 
-1. Navigate to [Settings > Plugins](https://openrouter.ai/settings/plugins)
+1. Navigate to [Settings > Plugins](https://kenh-ai.com/settings/plugins)
 2. Toggle plugins on/off to enable them by default
 3. Click the configure button to customize plugin settings
 4. Optionally enable "Prevent overrides" to enforce settings across all requests

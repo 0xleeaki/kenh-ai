@@ -1,32 +1,32 @@
 ---
 title: Management API Keys
 description: Manage API keys programmatically
-seoTitle: 'Management API Keys | Programmatic Control of OpenRouter API Keys'
-canonicalUrl: https://openrouter.ai/docs/guides/overview/auth/management-api-keys
-og:site_name: OpenRouter Documentation
-og:title: 'Management API Keys - Programmatic Control of OpenRouter API Keys'
-og:description: 'Manage OpenRouter API keys programmatically through dedicated management endpoints. Create, read, update, and delete API keys for automated key distribution and control.'
-og:image: https://openrouter.ai/dynamic-og?pathname=features/management-api-keys&title=Management%20API%20Keys&description=Programmatically%20manage%20OpenRouter%20API%20keys
+seoTitle: 'Management API Keys | Programmatic Control of kenh-ai API Keys'
+canonicalUrl: https://kenh-ai.com/docs/guides/overview/auth/management-api-keys
+og:site_name: kenh-ai Documentation
+og:title: 'Management API Keys - Programmatic Control of kenh-ai API Keys'
+og:description: 'Manage kenh-ai API keys programmatically through dedicated management endpoints. Create, read, update, and delete API keys for automated key distribution and control.'
+og:image: https://kenh-ai.com/dynamic-og?pathname=features/management-api-keys&title=Management%20API%20Keys&description=Programmatically%20manage%20kenh-ai%20API%20keys
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: key
 ---
 
-OpenRouter provides endpoints to programmatically manage your API keys, enabling key creation and management for applications that need to distribute or rotate keys automatically.
+kenh-ai provides endpoints to programmatically manage your API keys, enabling key creation and management for applications that need to distribute or rotate keys automatically.
 
 ## Creating a Management API Key
 
 To use the key management API, you first need to create a Management API key:
 
-1. Go to the [Management API Keys page](https://openrouter.ai/settings/management-keys)
+1. Go to the [Management API Keys page](https://kenh-ai.com/settings/management-keys)
 2. Click "Create New Key"
 3. Complete the key creation process
 
-Management keys cannot be used to make API calls to OpenRouter's completion endpoints - they are exclusively for administrative operations.
+Management keys cannot be used to make API calls to kenh-ai's completion endpoints - they are exclusively for administrative operations.
 
 ## Use Cases
 
@@ -43,30 +43,30 @@ All key management endpoints are under `/api/v1/keys` and require a Management A
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" expandable lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   apiKey: 'your-management-key', // Use your Management API key
 });
 
 // List the most recent 100 API keys
-const keys = await openRouter.apiKeys.list();
+const keys = await kenhAi.apiKeys.list();
 
 // You can paginate using the offset parameter
-const keysPage2 = await openRouter.apiKeys.list({ offset: 100 });
+const keysPage2 = await kenhAi.apiKeys.list({ offset: 100 });
 
 // Create a new API key
-const newKey = await openRouter.apiKeys.create({
+const newKey = await kenhAi.apiKeys.create({
   name: 'Customer Instance Key',
   limit: 1000, // Optional credit limit
 });
 
 // Get a specific key
 const keyHash = '<YOUR_KEY_HASH>';
-const key = await openRouter.apiKeys.get(keyHash);
+const key = await kenhAi.apiKeys.get(keyHash);
 
 // Update a key
-const updatedKey = await openRouter.apiKeys.update(keyHash, {
+const updatedKey = await kenhAi.apiKeys.update(keyHash, {
   name: 'Updated Key Name',
   disabled: true, // Optional: Disable the key
   includeByokInLimit: false, // Optional: control BYOK usage in limit
@@ -74,14 +74,14 @@ const updatedKey = await openRouter.apiKeys.update(keyHash, {
 });
 
 // Delete a key
-await openRouter.apiKeys.delete(keyHash);
+await kenhAi.apiKeys.delete(keyHash);
 ```
 
 ```python title="Python" expandable lines
 import requests
 
 MANAGEMENT_API_KEY = "your-management-key"
-BASE_URL = "https://openrouter.ai/api/v1/keys"
+BASE_URL = "https://kenh-ai.com/api/v1/keys"
 
 # List the most recent 100 API keys
 response = requests.get(
@@ -151,7 +151,7 @@ response = requests.delete(
 
 ```typescript title="TypeScript (fetch)" expandable lines
 const MANAGEMENT_API_KEY = 'your-management-key';
-const BASE_URL = 'https://openrouter.ai/api/v1/keys';
+const BASE_URL = 'https://kenh-ai.com/api/v1/keys';
 
 // List the most recent 100 API keys
 const listKeys = await fetch(BASE_URL, {

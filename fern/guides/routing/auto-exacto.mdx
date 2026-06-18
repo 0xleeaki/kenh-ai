@@ -2,15 +2,15 @@
 title: Auto Exacto
 description: Automatic tool-calling provider optimization
 seoTitle: "Auto Exacto | Smarter provider routing for tool-calling requests"
-canonicalUrl: https://openrouter.ai/docs/guides/routing/auto-exacto
-og:site_name: OpenRouter Documentation
+canonicalUrl: https://kenh-ai.com/docs/guides/routing/auto-exacto
+og:site_name: kenh-ai Documentation
 og:title: "Auto Exacto - Automatic tool-calling provider optimization"
 og:description: "Learn how Auto Exacto automatically optimizes provider ordering for tool-calling requests using throughput, success rate, and benchmark signals."
-og:image: https://openrouter.ai/dynamic-og?title=Auto%20Exacto&description=Automatic%20tool-calling%20provider%20optimization
+og:image: https://kenh-ai.com/dynamic-og?title=Auto%20Exacto&description=Automatic%20tool-calling%20provider%20optimization
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: "@OpenRouter"
+twitter:site: "@kenh-ai"
 noindex: false
 nofollow: false
 icon: crosshairs
@@ -22,7 +22,7 @@ Auto Exacto is a routing step that automatically optimizes provider ordering for
 
 When your request includes tools, Auto Exacto reorders the available providers for your chosen model using a combination of real-world performance signals:
 
-- **Throughput** -- real-time tokens-per-second metrics (visible on the [Performance tab](https://openrouter.ai/models) of any model page).
+- **Throughput** -- real-time tokens-per-second metrics (visible on the [Performance tab](https://kenh-ai.com/models) of any model page).
 - **Tool-calling success rate** -- how reliably each provider completes tool calls (also visible on the Performance tab).
 - **Benchmark data** -- internal evaluation results we are actively collecting. This data will be shown publicly soon but is not yet available on the site.
 
@@ -30,7 +30,7 @@ Providers that underperform on these signals are deprioritized, while providers 
 
 ## How Tool-Calling Success Rate Is Measured
 
-The tool-calling success rate signal is derived from the **Tool Call Error Rate** metric, which is also visible on the Performance tab of any model page. For each request that includes tools, OpenRouter inspects every tool call the model returned and validates it against the schemas the caller supplied.
+The tool-calling success rate signal is derived from the **Tool Call Error Rate** metric, which is also visible on the Performance tab of any model page. For each request that includes tools, kenh-ai inspects every tool call the model returned and validates it against the schemas the caller supplied.
 
 ### Validator
 
@@ -44,7 +44,7 @@ Tools whose `parameters` schema is absent or fails to compile are treated as hav
 
 ### Regex engine
 
-`@cfworker/json-schema` delegates `pattern` and `patternProperties` to the runtime's built-in regex implementation. In OpenRouter's environment that is the native JavaScript `RegExp` (V8 / ECMA-262). There is no ECMA-262-conformance shim layered on top, so JavaScript regex semantics differ in some edge cases from the regex dialect specified by JSON Schema.
+`@cfworker/json-schema` delegates `pattern` and `patternProperties` to the runtime's built-in regex implementation. In kenh-ai's environment that is the native JavaScript `RegExp` (V8 / ECMA-262). There is no ECMA-262-conformance shim layered on top, so JavaScript regex semantics differ in some edge cases from the regex dialect specified by JSON Schema.
 
 ### Per-tool-call classification
 
@@ -75,12 +75,12 @@ We have observed notable improvements in [tau-bench](https://github.com/sierra-r
 
 ## Opting Out
 
-Without Auto Exacto, OpenRouter's default routing is primarily [price-weighted](/guides/routing/provider-selection#price-based-load-balancing-default-strategy) -- requests are load balanced across providers with a strong preference for lower cost. Auto Exacto changes this for tool-calling requests by reordering providers based on quality signals instead of price.
+Without Auto Exacto, kenh-ai's default routing is primarily [price-weighted](/guides/routing/provider-selection#price-based-load-balancing-default-strategy) -- requests are load balanced across providers with a strong preference for lower cost. Auto Exacto changes this for tool-calling requests by reordering providers based on quality signals instead of price.
 
 If you want to restore the previous price-weighted behavior for tool-calling requests, you can opt out by explicitly sorting by price using any of the following methods:
 
 - **`provider.sort` parameter** -- set `sort` to `"price"` in the `provider` object of your request body. See [Provider Sorting](/guides/routing/provider-selection#provider-sorting) for details.
 - **`:floor` virtual variant** -- append `:floor` to any model slug (e.g. `openai/gpt-4o:floor`) to sort by price. See [Floor Price Shortcut](/guides/routing/provider-selection#floor-price-shortcut).
-- **Default sort in account settings** -- set your default provider sort to price in your [account settings](https://openrouter.ai/settings/preferences) to apply price sorting across all requests.
+- **Default sort in account settings** -- set your default provider sort to price in your [account settings](https://kenh-ai.com/settings/preferences) to apply price sorting across all requests.
 
 Any of these will bypass Auto Exacto and return to the standard price-weighted provider ordering.

@@ -1,15 +1,15 @@
 ---
 title: Provider Integration
-seoTitle: 'Provider Integration | Add Your AI Models to OpenRouter'
-canonicalUrl: https://openrouter.ai/docs/guides/community/for-providers
-og:site_name: OpenRouter Documentation
-og:title: 'Provider Integration - Add Your Models to OpenRouter'
-og:description: "Learn how to integrate your AI models with OpenRouter. Complete guide for providers to make their models available through OpenRouter's unified API."
-og:image: https://openrouter.ai/dynamic-og?title=Provider%20Integration&description=Add%20Your%20Models%20to%20OpenRouter
+seoTitle: 'Provider Integration | Add Your AI Models to kenh-ai'
+canonicalUrl: https://kenh-ai.com/docs/guides/community/for-providers
+og:site_name: kenh-ai Documentation
+og:title: 'Provider Integration - Add Your Models to kenh-ai'
+og:description: "Learn how to integrate your AI models with kenh-ai. Complete guide for providers to make their models available through kenh-ai's unified API."
+og:image: https://kenh-ai.com/dynamic-og?title=Provider%20Integration&description=Add%20Your%20Models%20to%20kenh-ai
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: cloud
@@ -18,13 +18,13 @@ sidebarTitle: For Providers
 
 ## For Providers
 
-If you'd like to be a model provider and sell inference on OpenRouter, [fill out our form](https://openrouter.ai/how-to-list) to get started.
+If you'd like to be a model provider and sell inference on kenh-ai, [fill out our form](https://kenh-ai.com/how-to-list) to get started.
 
-To be eligible to provide inference on OpenRouter you must have the following:
+To be eligible to provide inference on kenh-ai you must have the following:
 
 ### 1. List Models Endpoint
 
-You must implement an endpoint that returns all models that should be served by OpenRouter. At this endpoint, please return a list of all available models on your platform. Below is an example of the response format:
+You must implement an endpoint that returns all models that should be served by kenh-ai. At this endpoint, please return a list of all available models on your platform. Below is an example of the response format:
 
 ```json expandable lines
 {
@@ -58,7 +58,7 @@ You must implement an endpoint that returns all models that should be served by 
       // Optional
       "description": "Anthropic's flagship model...",
       "deprecation_date": "2025-06-01T15:00:00Z", // ISO 8601 date or UTC hour
-      "is_ready": true, // false to keep the model staged-but-hidden on OpenRouter
+      "is_ready": true, // false to keep the model staged-but-hidden on kenh-ai
       "openrouter": {
         "slug": "anthropic/claude-sonnet-4"
       },
@@ -72,7 +72,7 @@ You must implement an endpoint that returns all models that should be served by 
 }
 ```
 
-The `id` field should be the exact model identifier that OpenRouter will use when calling your API.
+The `id` field should be the exact model identifier that kenh-ai will use when calling your API.
 
 The `pricing` fields are in string format to avoid floating point precision issues, and must be in USD.
 
@@ -110,12 +110,12 @@ When using tiered pricing, the first tier (index 0) is the base pricing that app
 
 Limitations:
 
-- Currently, OpenRouter supports up to 2 pricing tiers.
+- Currently, kenh-ai supports up to 2 pricing tiers.
 - The `image` and `request` fields are only supported in the base tier (index 0) and will be ignored if included in other tiers.
 
 #### Deprecation Date
 
-If a model is scheduled for deprecation, include the `deprecation_date` field in ISO 8601 format. OpenRouter accepts either a date-only value or a specific UTC hour:
+If a model is scheduled for deprecation, include the `deprecation_date` field in ISO 8601 format. kenh-ai accepts either a date-only value or a specific UTC hour:
 
 ```json lines
 {
@@ -127,11 +127,11 @@ If a model is scheduled for deprecation, include the `deprecation_date` field in
 - Use `YYYY-MM-DD` for date-only deprecations. Date-only values default to 13:00 UTC on that date.
 - Use `YYYY-MM-DDTHH:00:00Z` to request a specific UTC hour, for example `2025-06-01T15:00:00Z`.
 
-When OpenRouter's provider monitor detects a deprecation date or time, it will automatically update the endpoint to display deprecation warnings to users. Models past their deprecation time may be automatically hidden from the marketplace.
+When kenh-ai's provider monitor detects a deprecation date or time, it will automatically update the endpoint to display deprecation warnings to users. Models past their deprecation time may be automatically hidden from the marketplace.
 
 #### Controlling Launch with `is_ready`
 
-By default, when OpenRouter's provider monitor sees a new model in your `/v1/models` response, it auto-stages the endpoint, runs baseline tests, and unhides it (makes it live) once the tests pass and pricing is configured. If you need to upload a model ahead of an announcement — or temporarily take a model offline — set the optional boolean `is_ready` field:
+By default, when kenh-ai's provider monitor sees a new model in your `/v1/models` response, it auto-stages the endpoint, runs baseline tests, and unhides it (makes it live) once the tests pass and pricing is configured. If you need to upload a model ahead of an announcement — or temporarily take a model offline — set the optional boolean `is_ready` field:
 
 ```json lines
 {
@@ -164,11 +164,11 @@ Behavior:
 
 ### 2. Auto Top Up or Invoicing
 
-For OpenRouter to use the provider we must be able to pay for inference automatically. This can be done via auto top up or invoicing.
+For kenh-ai to use the provider we must be able to pay for inference automatically. This can be done via auto top up or invoicing.
 
 ### 3. Uptime Monitoring & Traffic Routing
 
-OpenRouter automatically monitors provider reliability and adjusts traffic routing based on uptime metrics. Your endpoint's uptime is calculated as: **successful requests ÷ total requests** (excluding user errors).
+kenh-ai automatically monitors provider reliability and adjusts traffic routing based on uptime metrics. Your endpoint's uptime is calculated as: **successful requests ÷ total requests** (excluding user errors).
 
 **Errors that affect your uptime:**
 
@@ -197,7 +197,7 @@ This system ensures traffic automatically flows to the most reliable providers w
 
 ### 4. Performance Metrics
 
-OpenRouter publicly tracks TTFT (time to first token) and throughput (tokens/second) for all providers on each model page.
+kenh-ai publicly tracks TTFT (time to first token) and throughput (tokens/second) for all providers on each model page.
 
 Throughput is calculated as: **output tokens ÷ generation time**, where generation time includes fetch latency (time from request to first server response), TTFT, and streaming time. This means any queueing on your end will show up in your throughput metrics.
 
@@ -221,7 +221,7 @@ Non-tool-calling traffic is **not affected** by Auto Exacto -- it continues to f
 
 Auto Exacto uses three classes of signals, all derived from real traffic and evaluations on your endpoints:
 
-- **Throughput** -- real-time tokens-per-second measured from actual requests routed through your endpoint (visible on the [Performance tab](https://openrouter.ai/models) of any model page).
+- **Throughput** -- real-time tokens-per-second measured from actual requests routed through your endpoint (visible on the [Performance tab](https://kenh-ai.com/models) of any model page).
 - **Tool-calling success rate** -- how reliably your endpoint completes tool calls without errors (also visible on the Performance tab).
 - **Benchmark data** -- results from internal evaluations we run against provider endpoints. We are actively collecting this data and will make it available in your provider dashboard soon so you can review and run the same benchmarks on your end.
 

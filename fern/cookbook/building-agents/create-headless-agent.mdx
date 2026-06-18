@@ -1,16 +1,16 @@
 ---
 title: Build Your Own Headless Agent
 description: Scaffold a headless AI agent for CLI tools, API servers, and automation pipelines
-seoTitle: 'Build Your Own Headless Agent | OpenRouter'
-canonicalUrl: https://openrouter.ai/docs/cookbook/building-agents/create-headless-agent
-og:site_name: OpenRouter Documentation
-og:title: 'Build Your Own Headless Agent - OpenRouter'
-og:description: 'Use the create-headless-agent skill to scaffold a headless AI agent in TypeScript + Bun with configurable tools, output modes, and streaming via @openrouter/agent.'
-og:image: https://openrouter.ai/dynamic-og?title=Build%20Your%20Own%20Headless%20Agent&description=Scaffold%20a%20headless%20AI%20agent%20for%20scripts%20and%20pipelines
+seoTitle: 'Build Your Own Headless Agent | kenh-ai'
+canonicalUrl: https://kenh-ai.com/docs/cookbook/building-agents/create-headless-agent
+og:site_name: kenh-ai Documentation
+og:title: 'Build Your Own Headless Agent - kenh-ai'
+og:description: 'Use the create-headless-agent skill to scaffold a headless AI agent in TypeScript + Bun with configurable tools, output modes, and streaming via @kenh-ai/agent.'
+og:image: https://kenh-ai.com/dynamic-og?title=Build%20Your%20Own%20Headless%20Agent&description=Scaffold%20a%20headless%20AI%20agent%20for%20scripts%20and%20pipelines
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: robot
@@ -22,7 +22,7 @@ Looking to build an interactive terminal agent with a customizable UI instead? S
 
 The [create-headless-agent](https://github.com/OpenRouterTeam/skills/tree/main/skills/create-headless-agent) skill scaffolds a headless agent in TypeScript + Bun — no terminal UI, just structured input and output. It's designed for CLI tools, API servers, queue workers, and automation pipelines where you need an agent that runs programmatically.
 
-Under the hood, the generated project uses [`@openrouter/agent`](https://www.npmjs.com/package/@openrouter/agent) for the inner loop (model calls, tool execution, stop conditions) — the same SDK that powers the [Agent TUI](/cookbook/building-agents/create-agent-harness-tui), with a non-interactive outer layer.
+Under the hood, the generated project uses [`@kenh-ai/agent`](https://www.npmjs.com/package/@kenh-ai/agent) for the inner loop (model calls, tool execution, stop conditions) — the same SDK that powers the [Agent TUI](/cookbook/building-agents/create-agent-harness-tui), with a non-interactive outer layer.
 
 ## When to build your own
 
@@ -39,7 +39,7 @@ If you need an interactive terminal experience, use the [Agent TUI skill](/cookb
 
 ## Install the skill
 
-The create-headless-agent skill is part of the [OpenRouter Skills](https://github.com/OpenRouterTeam/skills) collection. Install it with your AI coding agent of choice:
+The create-headless-agent skill is part of the [kenh-ai Skills](https://github.com/OpenRouterTeam/skills) collection. Install it with your AI coding agent of choice:
 
 <Tabs>
   <Tab title="GitHub CLI">
@@ -67,17 +67,17 @@ Once installed, ask your agent something like _"scaffold a headless agent"_ or _
 ## Prerequisites
 
 - [Bun](https://bun.sh)
-- An [OpenRouter API key](https://openrouter.ai/settings/keys)
+- An [kenh-ai API key](https://kenh-ai.com/settings/keys)
 
 ## How it works
 
 Like the TUI skill, the headless skill presents your coding agent with an interactive checklist. You pick tools and modules, and it generates a complete project — but instead of a REPL, the entry point accepts prompts via `--prompt`, positional arguments, or piped stdin and outputs plain text, NDJSON event streams, or just an exit code.
 
-### What `@openrouter/agent` handles
+### What `@kenh-ai/agent` handles
 
 | Concern | How the SDK handles it |
 |---------|------------------------|
-| **Model calls** | `client.callModel()` — one call, any model on OpenRouter |
+| **Model calls** | `client.callModel()` — one call, any model on kenh-ai |
 | **Tool execution** | Define tools with `tool()` and Zod schemas; the SDK validates input and calls your `execute` function |
 | **Multi-turn** | The SDK loops (call model -> execute tools -> call model) until a stop condition fires |
 | **Stop conditions** | `stepCountIs(n)`, `maxCost(amount)`, `hasToolCall(name)`, or custom functions |
@@ -113,9 +113,9 @@ echo "Summarize this file" | bun run src/cli.ts
 
 ```lines
 my-headless-agent/
-  package.json              @openrouter/agent, zod
+  package.json              @kenh-ai/agent, zod
   tsconfig.json             ES2022, NodeNext, strict
-  .env.example              OPENROUTER_API_KEY=
+  .env.example              KENH_AI_API_KEY=
   src/
     config.ts               Layered config (defaults -> file -> env)
     agent.ts                Core runner with retry + event callbacks
@@ -135,7 +135,7 @@ my-headless-agent/
 Run it with:
 
 ```bash lines
-export OPENROUTER_API_KEY="sk-or-..."
+export KENH_AI_API_KEY="sk-or-..."
 bun run src/cli.ts --prompt "What files are in this directory?"
 ```
 
@@ -145,7 +145,7 @@ The skill presents a checklist when invoked. Items marked **on** are pre-selecte
 
 ### Server tools
 
-Executed by OpenRouter server-side — zero client code needed.
+Executed by kenh-ai server-side — zero client code needed.
 
 | Tool | Default | Description |
 |------|---------|-------------|
@@ -227,8 +227,8 @@ The skill generates a CLI entry point by default, but you can also ask for:
 ## Resources
 
 - [Create Headless Agent skill README](https://github.com/OpenRouterTeam/skills/tree/main/skills/create-headless-agent)
-- [OpenRouter Skills repository](https://github.com/OpenRouterTeam/skills)
-- [`@openrouter/agent` on npm](https://www.npmjs.com/package/@openrouter/agent)
-- [OpenRouter TypeScript SDK](/client-sdks/typescript)
+- [kenh-ai Skills repository](https://github.com/OpenRouterTeam/skills)
+- [`@kenh-ai/agent` on npm](https://www.npmjs.com/package/@kenh-ai/agent)
+- [kenh-ai TypeScript SDK](/client-sdks/typescript)
 - [Server Tools documentation](/guides/features/server-tools)
-- [OpenRouter API keys](https://openrouter.ai/settings/keys)
+- [kenh-ai API keys](https://kenh-ai.com/settings/keys)

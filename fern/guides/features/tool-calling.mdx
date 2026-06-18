@@ -1,16 +1,16 @@
 ---
 title: Tool & Function Calling
 description: Use tools in your prompts
-seoTitle: 'Tool & Function Calling | Use Tools with OpenRouter'
-canonicalUrl: https://openrouter.ai/docs/guides/features/tool-calling
-og:site_name: OpenRouter Documentation
-og:title: 'Tool & Function Calling - Use Tools with OpenRouter'
-og:description: 'Use tools (or functions) in your prompts with OpenRouter. Learn how to use tools with OpenAI, Anthropic, and other models that support tool calling.'
-og:image: https://openrouter.ai/dynamic-og?title=Tool%20&%20Function%20Calling&description=Use%20tools%20with%20OpenRouter
+seoTitle: 'Tool & Function Calling | Use Tools with kenh-ai'
+canonicalUrl: https://kenh-ai.com/docs/guides/features/tool-calling
+og:site_name: kenh-ai Documentation
+og:title: 'Tool & Function Calling - Use Tools with kenh-ai'
+og:description: 'Use tools (or functions) in your prompts with kenh-ai. Learn how to use tools with OpenAI, Anthropic, and other models that support tool calling.'
+og:image: https://kenh-ai.com/dynamic-og?title=Tool%20&%20Function%20Calling&description=Use%20tools%20with%20kenh-ai
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: toolbox
@@ -22,15 +22,15 @@ import { Template } from "../../components/Template";
 
 Tool calls (also known as function calls) give an LLM access to external tools. The LLM does not call the tools directly. Instead, it suggests the tool to call. The user then calls the tool separately and provides the results back to the LLM. Finally, the LLM formats the response into an answer to the user's original question.
 
-OpenRouter standardizes the tool calling interface across models and providers, making it easy to integrate external tools with any supported model.
+kenh-ai standardizes the tool calling interface across models and providers, making it easy to integrate external tools with any supported model.
 
-**Supported Models**: You can find models that support tool calling by filtering on [openrouter.ai/models?supported_parameters=tools](https://openrouter.ai/models?supported_parameters=tools).
+**Supported Models**: You can find models that support tool calling by filtering on [kenh-ai.com/models?supported_parameters=tools](https://kenh-ai.com/models?supported_parameters=tools).
 
 If you prefer to learn from a full end-to-end example, keep reading.
 
 ## Request Body Examples
 
-Tool calling with OpenRouter involves three key steps. Here are the essential request body formats for each step:
+Tool calling with kenh-ai involves three key steps. Here are the essential request body formats for each step:
 
 ### Step 1: Inference Request with Tools
 
@@ -143,15 +143,15 @@ First, let's do some basic setup:
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" expandable lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const OPENROUTER_API_KEY = "{{API_KEY_REF}}";
+const KENH_AI_API_KEY = "{{API_KEY_REF}}";
 
 // You can use any model that supports tool calling
 const MODEL = "{{MODEL}}";
 
-const openRouter = new OpenRouter({
-  apiKey: OPENROUTER_API_KEY,
+const kenhAi = new KenhAI({
+  apiKey: KENH_AI_API_KEY,
 });
 
 const task = "What are the titles of some James Joyce books?";
@@ -172,14 +172,14 @@ const messages = [
 import json, requests
 from openai import OpenAI
 
-OPENROUTER_API_KEY = f"{{API_KEY_REF}}"
+KENH_AI_API_KEY = f"{{API_KEY_REF}}"
 
 # You can use any model that supports tool calling
 MODEL = "{{MODEL}}"
 
 openai_client = OpenAI(
-  base_url="https://openrouter.ai/api/v1",
-  api_key=OPENROUTER_API_KEY,
+  base_url="https://kenh-ai.com/api/v1",
+  api_key=KENH_AI_API_KEY,
 )
 
 task = "What are the titles of some James Joyce books?"
@@ -198,7 +198,7 @@ messages = [
 ```
 
 ```typescript title="TypeScript (fetch)" lines
-const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+const response = await fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
     Authorization: `Bearer {{API_KEY_REF}}`,
@@ -326,7 +326,7 @@ Note that the "tool" is just a normal function. We then write a JSON "spec" comp
 
 ### Tool use and tool results
 
-Let's make the first OpenRouter API call to the model:
+Let's make the first kenh-ai API call to the model:
 
 <Template data={{
   API_KEY_REF,
@@ -335,7 +335,7 @@ Let's make the first OpenRouter API call to the model:
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" lines
-const result = await openRouter.chat.send({
+const result = await kenhAi.chat.send({
   model: '{{MODEL}}',
   tools,
   messages,
@@ -356,7 +356,7 @@ response_1 = openai_client.chat.completions.create(**request_1).message
 ```
 
 ```typescript title="TypeScript (fetch)" lines
-const request_1 = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+const request_1 = await fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
     Authorization: `Bearer {{API_KEY_REF}}`,
@@ -434,7 +434,7 @@ The messages array now has:
 2. The LLM's response (containing a tool call request)
 3. The result of the tool call (a json object returned from the Project Gutenberg API)
 
-Now, we can make a second OpenRouter API call, and hopefully get our result!
+Now, we can make a second kenh-ai API call, and hopefully get our result!
 
 <Template data={{
   API_KEY_REF,
@@ -443,7 +443,7 @@ Now, we can make a second OpenRouter API call, and hopefully get our result!
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" lines
-const response_2 = await openRouter.chat.send({
+const response_2 = await kenhAi.chat.send({
   model: '{{MODEL}}',
   messages,
   tools,
@@ -466,7 +466,7 @@ print(response_2.choices[0].message.content)
 ```
 
 ```typescript title="TypeScript (fetch)" lines
-const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+const response = await fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
     Authorization: `Bearer {{API_KEY_REF}}`,
@@ -610,7 +610,7 @@ Here's an example of a simple agentic loop (using the same `tools` and initial `
 
 ```typescript title="TypeScript SDK" expandable lines
 async function callLLM(messages: Message[]): Promise<ChatResponse> {
-  const result = await openRouter.chat.send({
+  const result = await kenhAi.chat.send({
     model: '{{MODEL}}',
     tools,
     messages,
@@ -865,6 +865,6 @@ This allows the model to naturally chain operations: search → get details → 
 
 ### Reliability Tracking
 
-OpenRouter tracks how reliably each provider completes tool calls and surfaces this as the **Tool Call Error Rate** on the Performance tab of every model page. The same signal drives [Auto Exacto](/guides/routing/auto-exacto) provider ordering on tool-calling requests. For the exact validator, JSON Schema draft, regex semantics, and per-tool-call classification, see [How Tool-Calling Success Rate Is Measured](/guides/routing/auto-exacto#how-tool-calling-success-rate-is-measured).
+kenh-ai tracks how reliably each provider completes tool calls and surfaces this as the **Tool Call Error Rate** on the Performance tab of every model page. The same signal drives [Auto Exacto](/guides/routing/auto-exacto) provider ordering on tool-calling requests. For the exact validator, JSON Schema draft, regex semantics, and per-tool-call classification, see [How Tool-Calling Success Rate Is Measured](/guides/routing/auto-exacto#how-tool-calling-success-rate-is-measured).
 
-For more details on OpenRouter's message format and tool parameters, see the [API Reference](/api/reference/overview).
+For more details on kenh-ai's message format and tool parameters, see the [API Reference](/api/reference/overview).

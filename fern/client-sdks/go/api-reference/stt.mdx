@@ -2,15 +2,15 @@
 title: Transcriptions - Go SDK
 sidebarTitle: Transcriptions
 description: Transcriptions method reference
-seoTitle: Transcriptions | OpenRouter Go SDK
-canonicalUrl: 'https://openrouter.ai/docs/client-sdks/go/api-reference/stt'
-'og:site_name': OpenRouter Documentation
-'og:title': Transcriptions | OpenRouter Go SDK
+seoTitle: Transcriptions | kenh-ai Go SDK
+canonicalUrl: 'https://kenh-ai.com/docs/client-sdks/go/api-reference/stt'
+'og:site_name': kenh-ai Documentation
+'og:title': Transcriptions | kenh-ai Go SDK
 'og:description': >-
-  Transcriptions method documentation for the OpenRouter Go SDK. Learn how to
+  Transcriptions method documentation for the kenh-ai Go SDK. Learn how to
   use this API endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=Transcriptions%20-%20Go%20SDK&description=Transcriptions%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=Transcriptions%20-%20Go%20SDK&description=Transcriptions%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -57,7 +57,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.Stt.CreateTranscription(ctx, components.STTRequest{

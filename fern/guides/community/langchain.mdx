@@ -1,16 +1,16 @@
 ---
 title: LangChain
-description: Using OpenRouter with LangChain
-seoTitle: 'LangChain Integration | OpenRouter SDK Support'
-canonicalUrl: https://openrouter.ai/docs/guides/community/langchain
-og:site_name: OpenRouter Documentation
-og:title: 'LangChain Integration - OpenRouter SDK Support'
-og:description: 'Integrate OpenRouter using LangChain framework. Complete guide for LangChain integration with OpenRouter for Python and JavaScript.'
-og:image: https://openrouter.ai/dynamic-og?title=LangChain&description=LangChain%20Integration
+description: Using kenh-ai with LangChain
+seoTitle: 'LangChain Integration | kenh-ai SDK Support'
+canonicalUrl: https://kenh-ai.com/docs/guides/community/langchain
+og:site_name: kenh-ai Documentation
+og:title: 'LangChain Integration - kenh-ai SDK Support'
+og:description: 'Integrate kenh-ai using LangChain framework. Complete guide for LangChain integration with kenh-ai for Python and JavaScript.'
+og:image: https://kenh-ai.com/dynamic-og?title=LangChain&description=LangChain%20Integration
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: puzzle-piece
@@ -19,7 +19,7 @@ icon: puzzle-piece
 
 ## Using LangChain
 
-LangChain provides a standard interface for working with chat models. You can use OpenRouter with LangChain using the dedicated `ChatOpenRouter` integration packages. For more details on LangChain's model interface, see the [LangChain Models documentation](https://docs.langchain.com/oss/python/langchain/models).
+LangChain provides a standard interface for working with chat models. You can use kenh-ai with LangChain using the dedicated `Chatkenh-ai` integration packages. For more details on LangChain's model interface, see the [LangChain Models documentation](https://docs.langchain.com/oss/python/langchain/models).
 
 **Resources:**
 - [LangChain Python integration](https://docs.langchain.com/oss/python/integrations/chat/openrouter): [langchain-openrouter on PyPI](https://pypi.org/project/langchain-openrouter/)
@@ -28,9 +28,9 @@ LangChain provides a standard interface for working with chat models. You can us
 <CodeGroup>
 
 ```typescript title="TypeScript" lines
-import { ChatOpenRouter } from "@langchain/openrouter";
+import { Chatkenh-ai } from "@langchain/openrouter";
 
-const model = new ChatOpenRouter(
+const model = new ChatKenhAI(
   "anthropic/claude-sonnet-4.6",
   { temperature: 0.8 }
 );
@@ -43,9 +43,9 @@ const response = await model.invoke([
 ```
 
 ```python title="Python" lines
-from langchain_openrouter import ChatOpenRouter
+from langchain_openrouter import Chatkenh-ai
 
-model = ChatOpenRouter(
+model = ChatKenhAI(
     model="anthropic/claude-sonnet-4.6",
     temperature=0.8,
 )
@@ -59,5 +59,5 @@ print(response.content)
 
 For full documentation — including streaming, tool calling, structured output, reasoning, multimodal inputs, provider routing, and more — see the LangChain integration guides:
 
-- [Python: ChatOpenRouter](https://docs.langchain.com/oss/python/integrations/chat/openrouter)
-- [JavaScript: ChatOpenRouter](https://docs.langchain.com/oss/javascript/integrations/chat/openrouter)
+- [Python: Chatkenh-ai](https://docs.langchain.com/oss/python/integrations/chat/openrouter)
+- [JavaScript: Chatkenh-ai](https://docs.langchain.com/oss/javascript/integrations/chat/openrouter)

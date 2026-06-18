@@ -2,15 +2,15 @@
 title: Guardrails - Go SDK
 sidebarTitle: Guardrails
 description: Guardrails method reference
-seoTitle: Guardrails | OpenRouter Go SDK
-canonicalUrl: 'https://openrouter.ai/docs/client-sdks/go/api-reference/guardrails'
-'og:site_name': OpenRouter Documentation
-'og:title': Guardrails | OpenRouter Go SDK
+seoTitle: Guardrails | kenh-ai Go SDK
+canonicalUrl: 'https://kenh-ai.com/docs/client-sdks/go/api-reference/guardrails'
+'og:site_name': kenh-ai Documentation
+'og:title': Guardrails | kenh-ai Go SDK
 'og:description': >-
-  Guardrails method documentation for the OpenRouter Go SDK. Learn how to use
+  Guardrails method documentation for the kenh-ai Go SDK. Learn how to use
   this API endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=Guardrails%20-%20Go%20SDK&description=Guardrails%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=Guardrails%20-%20Go%20SDK&description=Guardrails%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -69,7 +69,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.Guardrails.List(ctx, optionalnullable.From[int64](nil), nil, nil)
@@ -139,7 +139,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.Guardrails.Create(ctx, components.CreateGuardrailRequest{
@@ -212,7 +212,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.Guardrails.Delete(ctx, "550e8400-e29b-41d4-a716-446655440000")
@@ -267,7 +267,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.Guardrails.Get(ctx, "550e8400-e29b-41d4-a716-446655440000")
@@ -324,7 +324,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.Guardrails.Update(ctx, "550e8400-e29b-41d4-a716-446655440000", components.UpdateGuardrailRequest{
@@ -387,7 +387,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.Guardrails.ListGuardrailKeyAssignments(ctx, "550e8400-e29b-41d4-a716-446655440000", optionalnullable.From[int64](nil), nil)
@@ -457,7 +457,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.Guardrails.BulkAssignKeys(ctx, "550e8400-e29b-41d4-a716-446655440000", components.BulkAssignKeysRequest{
@@ -519,7 +519,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.Guardrails.BulkUnassignKeys(ctx, "550e8400-e29b-41d4-a716-446655440000", components.BulkUnassignKeysRequest{
@@ -581,7 +581,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.Guardrails.ListGuardrailMemberAssignments(ctx, "550e8400-e29b-41d4-a716-446655440000", optionalnullable.From[int64](nil), nil)
@@ -651,7 +651,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.Guardrails.BulkAssignMembers(ctx, "550e8400-e29b-41d4-a716-446655440000", components.BulkAssignMembersRequest{
@@ -714,7 +714,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.Guardrails.BulkUnassignMembers(ctx, "550e8400-e29b-41d4-a716-446655440000", components.BulkUnassignMembersRequest{
@@ -777,7 +777,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.Guardrails.ListKeyAssignments(ctx, optionalnullable.From[int64](nil), nil)
@@ -845,7 +845,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.Guardrails.ListMemberAssignments(ctx, optionalnullable.From[int64](nil), nil)

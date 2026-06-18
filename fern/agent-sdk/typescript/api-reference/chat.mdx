@@ -2,15 +2,15 @@
 title: Chat - TypeScript SDK
 sidebarTitle: Chat
 description: Chat method reference
-seoTitle: Chat | OpenRouter TypeScript SDK
-canonicalUrl: 'https://openrouter.ai/docs/agent-sdks/typescript/api-reference/chat'
-'og:site_name': OpenRouter Documentation
-'og:title': Chat | OpenRouter TypeScript SDK
+seoTitle: Chat | kenh-ai TypeScript SDK
+canonicalUrl: 'https://kenh-ai.com/docs/agent-sdks/typescript/api-reference/chat'
+'og:site_name': kenh-ai Documentation
+'og:title': Chat | kenh-ai TypeScript SDK
 'og:description': >-
-  Chat method documentation for the OpenRouter TypeScript SDK. Learn how to use
+  Chat method documentation for the kenh-ai TypeScript SDK. Learn how to use
   this API endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=Chat%20-%20TypeScript%20SDK&description=Chat%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=Chat%20-%20TypeScript%20SDK&description=Chat%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -41,17 +41,17 @@ Sends a request for a model response for the given chat conversation. Supports b
 
 {/* UsageSnippet language="typescript" operationID="sendChatCompletionRequest" method="post" path="/chat/completions" example="guardrail-blocked" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.chat.send({
+  const result = await kenhAi.chat.send({
     chatRequest: {
       messages: [
         {
@@ -77,20 +77,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { chatSend } from "@openrouter/sdk/funcs/chatSend.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { chatSend } from "@kenh-ai/sdk/funcs/chatSend.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await chatSend(openRouter, {
+  const res = await chatSend(kenhAi, {
     chatRequest: {
       messages: [
         {
@@ -118,17 +118,17 @@ run();
 
 {/* UsageSnippet language="typescript" operationID="sendChatCompletionRequest" method="post" path="/chat/completions" example="insufficient-permissions" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.chat.send({
+  const result = await kenhAi.chat.send({
     chatRequest: {
       messages: [
         {
@@ -154,20 +154,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { chatSend } from "@openrouter/sdk/funcs/chatSend.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { chatSend } from "@kenh-ai/sdk/funcs/chatSend.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await chatSend(openRouter, {
+  const res = await chatSend(kenhAi, {
     chatRequest: {
       messages: [
         {

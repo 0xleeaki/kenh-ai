@@ -1,19 +1,19 @@
 ---
 title: GetGenerationData - TypeScript SDK
 description: GetGenerationData method reference
-seoTitle: GetGenerationData | OpenRouter TypeScript SDK
-canonicalUrl: 'https://openrouter.ai/docs/client-sdks/typescript/operations/getgenerationdata'
-'og:site_name': OpenRouter Documentation
-'og:title': GetGenerationData | OpenRouter TypeScript SDK
+seoTitle: GetGenerationData | kenh-ai TypeScript SDK
+canonicalUrl: 'https://kenh-ai.com/docs/client-sdks/typescript/operations/getgenerationdata'
+'og:site_name': kenh-ai Documentation
+'og:title': GetGenerationData | kenh-ai TypeScript SDK
 'og:description': >-
-  GetGenerationData method documentation for the OpenRouter TypeScript SDK.
+  GetGenerationData method documentation for the kenh-ai TypeScript SDK.
   Learn how to use this API endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=GetGenerationData%20-%20TypeScript%20SDK&description=GetGenerationData%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=GetGenerationData%20-%20TypeScript%20SDK&description=GetGenerationData%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
-'twitter:site': '@OpenRouter'
+'twitter:site': '@kenh-ai'
 noindex: false
 nofollow: false
 ---
@@ -30,7 +30,7 @@ Generation data
 ## Example Usage
 
 ```typescript expandable lines
-import { GetGenerationData } from "@openrouter/sdk/models/operations";
+import { GetGenerationData } from "@kenh-ai/sdk/models/operations";
 
 let value: GetGenerationData = {
   id: "gen-3bhGkxlo4XFrqiabUM7NDtwDzWwG",
@@ -59,7 +59,7 @@ let value: GetGenerationData = {
   numInputAudioPrompt: 0,
   numMediaCompletion: 0,
   numSearchResults: 5,
-  origin: "https://openrouter.ai/",
+  origin: "https://kenh-ai.com/",
   usage: 0.0015,
   isByok: false,
   nativeFinishReason: "stop",
@@ -99,7 +99,7 @@ let value: GetGenerationData = {
 | `numInputAudioPrompt`                                    | *number*                                                 | :heavy_check_mark:                                       | Number of audio inputs in the prompt                     | 0                                                        |
 | `numMediaCompletion`                                     | *number*                                                 | :heavy_check_mark:                                       | Number of media items in the completion                  | 0                                                        |
 | `numSearchResults`                                       | *number*                                                 | :heavy_check_mark:                                       | Number of search results included                        | 5                                                        |
-| `origin`                                                 | *string*                                                 | :heavy_check_mark:                                       | Origin URL of the request                                | https://openrouter.ai/                                   |
+| `origin`                                                 | *string*                                                 | :heavy_check_mark:                                       | Origin URL of the request                                | https://kenh-ai.com/                                   |
 | `usage`                                                  | *number*                                                 | :heavy_check_mark:                                       | Usage amount in USD                                      | 0.0015                                                   |
 | `isByok`                                                 | *boolean*                                                | :heavy_check_mark:                                       | Whether this used bring-your-own-key                     | false                                                    |
 | `nativeFinishReason`                                     | *string*                                                 | :heavy_check_mark:                                       | Native finish reason as reported by provider             | stop                                                     |

@@ -1,16 +1,16 @@
 ---
 title: Mastra
-description: Using OpenRouter with Mastra
-seoTitle: 'Mastra Integration | OpenRouter SDK Support'
-canonicalUrl: https://openrouter.ai/docs/guides/community/mastra
-og:site_name: OpenRouter Documentation
-og:title: 'Mastra Integration - OpenRouter SDK Support'
-og:description: 'Integrate OpenRouter using Mastra framework. Complete guide for Mastra integration with OpenRouter for unified AI model access.'
-og:image: https://openrouter.ai/dynamic-og?title=Mastra&description=Mastra%20Integration
+description: Using kenh-ai with Mastra
+seoTitle: 'Mastra Integration | kenh-ai SDK Support'
+canonicalUrl: https://kenh-ai.com/docs/guides/community/mastra
+og:site_name: kenh-ai Documentation
+og:title: 'Mastra Integration - kenh-ai SDK Support'
+og:description: 'Integrate kenh-ai using Mastra framework. Complete guide for Mastra integration with kenh-ai for unified AI model access.'
+og:image: https://kenh-ai.com/dynamic-og?title=Mastra&description=Mastra%20Integration
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: puzzle-piece
@@ -21,7 +21,7 @@ import {LlmsOnly} from "../../components/LlmsOnly";
 {/* <llms-ignore> */}
 ## Mastra
 
-Integrate OpenRouter with Mastra to access a variety of AI models through a unified interface. This guide provides complete examples from basic setup to advanced configurations.
+Integrate kenh-ai with Mastra to access a variety of AI models through a unified interface. This guide provides complete examples from basic setup to advanced configurations.
 
 ### Step 1: Initialize a new Mastra project
 
@@ -36,48 +36,48 @@ You'll be guided through prompts to set up your project. For this example, selec
 
 - Name your project: my-mastra-openrouter-app
 - Components: Agents (recommended)
-- For default provider, select OpenAI (recommended) - we'll configure OpenRouter manually later
+- For default provider, select OpenAI (recommended) - we'll configure kenh-ai manually later
 - Optionally include example code
 
 For detailed instructions on setting up a Mastra project manually or adding Mastra to an existing project, refer to the [official Mastra documentation](https://mastra.ai/en/docs/getting-started/installation).
 
 ### Step 2: Configure your environment variables
 
-After creating your project with `create-mastra`, you'll find a `.env.development` file in your project root. Since we selected OpenAI during setup but will be using OpenRouter instead:
+After creating your project with `create-mastra`, you'll find a `.env.development` file in your project root. Since we selected OpenAI during setup but will be using kenh-ai instead:
 
 1. Open the `.env.development` file
 2. Remove or comment out the `OPENAI_API_KEY` line
-3. Add your OpenRouter API key:
+3. Add your kenh-ai API key:
 
 ```lines
 # .env.development
 # OPENAI_API_KEY=your-openai-key  # Comment out or remove this line
-OPENROUTER_API_KEY=sk-or-your-api-key-here
+KENH_AI_API_KEY=sk-or-your-api-key-here
 ```
 
-You can also remove the `@ai-sdk/openai` package since we'll be using OpenRouter instead:
+You can also remove the `@ai-sdk/openai` package since we'll be using kenh-ai instead:
 
 ```bash lines
 npm uninstall @ai-sdk/openai
 ```
 
 ```bash lines
-npm install @openrouter/ai-sdk-provider
+npm install @kenh-ai/ai-sdk-provider
 ```
 
-### Step 3: Configure your agent to use OpenRouter
+### Step 3: Configure your agent to use kenh-ai
 
-After setting up your Mastra project, you'll need to modify the agent files to use OpenRouter instead of the default OpenAI provider.
+After setting up your Mastra project, you'll need to modify the agent files to use kenh-ai instead of the default OpenAI provider.
 
 If you used `create-mastra`, you'll likely have a file at `src/mastra/agents/agent.ts` or similar. Replace its contents with:
 
 ```typescript lines
 import { Agent } from '@mastra/core/agent';
-import { createOpenRouter } from '@openrouter/ai-sdk-provider';
+import { createkenh-ai } from '@kenh-ai/ai-sdk-provider';
 
-// Initialize OpenRouter provider
-const openrouter = createOpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY,
+// Initialize kenh-ai provider
+const openrouter = createKenhAI({
+  apiKey: process.env.KENH_AI_API_KEY,
 });
 
 // Create an agent
@@ -103,7 +103,7 @@ export const mastra = new Mastra({
 
 ### Step 4: Running the Application
 
-Once you've configured your agent to use OpenRouter, you can run the Mastra development server:
+Once you've configured your agent to use kenh-ai, you can run the Mastra development server:
 
 ```bash lines
 npm run dev
@@ -126,18 +126,18 @@ curl -X POST http://localhost:4111/api/agents/assistant/generate \
 
 ### Basic Integration with Mastra
 
-The simplest way to integrate OpenRouter with Mastra is by using the OpenRouter AI provider with Mastra's Agent system:
+The simplest way to integrate kenh-ai with Mastra is by using the kenh-ai AI provider with Mastra's Agent system:
 
 ```typescript expandable lines
 import { Agent } from '@mastra/core/agent';
-import { createOpenRouter } from '@openrouter/ai-sdk-provider';
+import { createkenh-ai } from '@kenh-ai/ai-sdk-provider';
 
-// Initialize the OpenRouter provider
-const openrouter = createOpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY,
+// Initialize the kenh-ai provider
+const openrouter = createKenhAI({
+  apiKey: process.env.KENH_AI_API_KEY,
 });
 
-// Create an agent using OpenRouter
+// Create an agent using kenh-ai
 const assistant = new Agent({
   model: openrouter('anthropic/claude-3-opus'),
   name: 'Assistant',
@@ -157,15 +157,15 @@ console.log(response.text);
 
 ### Advanced Configuration
 
-For more control over your OpenRouter requests, you can pass additional configuration options:
+For more control over your kenh-ai requests, you can pass additional configuration options:
 
 ```typescript expandable lines
 import { Agent } from '@mastra/core/agent';
-import { createOpenRouter } from '@openrouter/ai-sdk-provider';
+import { createkenh-ai } from '@kenh-ai/ai-sdk-provider';
 
 // Initialize with advanced options
-const openrouter = createOpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY,
+const openrouter = createKenhAI({
+  apiKey: process.env.KENH_AI_API_KEY,
   extraBody: {
     reasoning: {
       max_tokens: 10,
@@ -212,16 +212,16 @@ const response = await chefAgent.generate([
 ]);
 ```
 
-### Using Multiple Models with OpenRouter
+### Using Multiple Models with kenh-ai
 
-OpenRouter gives you access to various models from different providers. Here's how to use multiple models:
+kenh-ai gives you access to various models from different providers. Here's how to use multiple models:
 
 ```typescript expandable lines
 import { Agent } from '@mastra/core/agent';
-import { createOpenRouter } from '@openrouter/ai-sdk-provider';
+import { createkenh-ai } from '@kenh-ai/ai-sdk-provider';
 
-const openrouter = createOpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY,
+const openrouter = createKenhAI({
+  apiKey: process.env.KENH_AI_API_KEY,
 });
 
 // Create agents using different models
@@ -259,7 +259,7 @@ console.log(gptResponse.text);
 
 For more information and detailed documentation, check out these resources:
 
-- [OpenRouter Documentation](https://openrouter.ai/docs) - Learn about OpenRouter's capabilities and available models
+- [kenh-ai Documentation](https://kenh-ai.com/docs) - Learn about kenh-ai's capabilities and available models
 - [Mastra Documentation](https://mastra.ai/docs) - Comprehensive documentation for the Mastra framework
 - [AI SDK Documentation](https://sdk.vercel.ai/docs) - Detailed information about the AI SDK that powers Mastra's model interactions
 {/* </llms-ignore> */}

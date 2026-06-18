@@ -2,15 +2,15 @@
 title: Byok - TypeScript SDK
 sidebarTitle: Byok
 description: Byok method reference
-seoTitle: Byok | OpenRouter TypeScript SDK
-canonicalUrl: 'https://openrouter.ai/docs/client-sdks/typescript/api-reference/byok'
-'og:site_name': OpenRouter Documentation
-'og:title': Byok | OpenRouter TypeScript SDK
+seoTitle: Byok | kenh-ai TypeScript SDK
+canonicalUrl: 'https://kenh-ai.com/docs/client-sdks/typescript/api-reference/byok'
+'og:site_name': kenh-ai Documentation
+'og:title': Byok | kenh-ai TypeScript SDK
 'og:description': >-
-  Byok method documentation for the OpenRouter TypeScript SDK. Learn how to use
+  Byok method documentation for the kenh-ai TypeScript SDK. Learn how to use
   this API endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=Byok%20-%20TypeScript%20SDK&description=Byok%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=Byok%20-%20TypeScript%20SDK&description=Byok%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -47,17 +47,17 @@ List the bring-your-own-key (BYOK) provider credentials for the authenticated en
 
 {/* UsageSnippet language="typescript" operationID="listBYOKKeys" method="get" path="/byok" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.byok.list();
+  const result = await kenhAi.byok.list();
 
   for await (const page of result) {
     console.log(page);
@@ -72,20 +72,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { byokList } from "@openrouter/sdk/funcs/byokList.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { byokList } from "@kenh-ai/sdk/funcs/byokList.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await byokList(openRouter);
+  const res = await byokList(kenhAi);
   if (res.ok) {
     const { value: result } = res;
     for await (const page of result) {
@@ -128,17 +128,17 @@ Create a new bring-your-own-key (BYOK) provider credential. The raw key is encry
 
 {/* UsageSnippet language="typescript" operationID="createBYOKKey" method="post" path="/byok" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.byok.create({
+  const result = await kenhAi.byok.create({
     createBYOKKeyRequest: {
       key: "sk-proj-abc123...",
       name: "Production OpenAI Key",
@@ -157,20 +157,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { byokCreate } from "@openrouter/sdk/funcs/byokCreate.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { byokCreate } from "@kenh-ai/sdk/funcs/byokCreate.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await byokCreate(openRouter, {
+  const res = await byokCreate(kenhAi, {
     createBYOKKeyRequest: {
       key: "sk-proj-abc123...",
       name: "Production OpenAI Key",
@@ -219,17 +219,17 @@ Delete (soft-delete) a bring-your-own-key (BYOK) provider credential by its `id`
 
 {/* UsageSnippet language="typescript" operationID="deleteBYOKKey" method="delete" path="/byok/{id}" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.byok.delete({
+  const result = await kenhAi.byok.delete({
     id: "11111111-2222-3333-4444-555555555555",
   });
 
@@ -244,20 +244,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { byokDelete } from "@openrouter/sdk/funcs/byokDelete.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { byokDelete } from "@kenh-ai/sdk/funcs/byokDelete.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await byokDelete(openRouter, {
+  const res = await byokDelete(kenhAi, {
     id: "11111111-2222-3333-4444-555555555555",
   });
   if (res.ok) {
@@ -301,17 +301,17 @@ Get a single bring-your-own-key (BYOK) provider credential by its `id`. [Managem
 
 {/* UsageSnippet language="typescript" operationID="getBYOKKey" method="get" path="/byok/{id}" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.byok.get({
+  const result = await kenhAi.byok.get({
     id: "11111111-2222-3333-4444-555555555555",
   });
 
@@ -326,20 +326,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { byokGet } from "@openrouter/sdk/funcs/byokGet.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { byokGet } from "@kenh-ai/sdk/funcs/byokGet.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await byokGet(openRouter, {
+  const res = await byokGet(kenhAi, {
     id: "11111111-2222-3333-4444-555555555555",
   });
   if (res.ok) {
@@ -383,17 +383,17 @@ Update an existing bring-your-own-key (BYOK) provider credential by its `id`. In
 
 {/* UsageSnippet language="typescript" operationID="updateBYOKKey" method="patch" path="/byok/{id}" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.byok.update({
+  const result = await kenhAi.byok.update({
     id: "11111111-2222-3333-4444-555555555555",
     updateBYOKKeyRequest: {
       disabled: false,
@@ -412,20 +412,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { byokUpdate } from "@openrouter/sdk/funcs/byokUpdate.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { byokUpdate } from "@kenh-ai/sdk/funcs/byokUpdate.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await byokUpdate(openRouter, {
+  const res = await byokUpdate(kenhAi, {
     id: "11111111-2222-3333-4444-555555555555",
     updateBYOKKeyRequest: {
       disabled: false,

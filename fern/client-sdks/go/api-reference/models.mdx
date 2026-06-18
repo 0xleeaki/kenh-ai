@@ -2,15 +2,15 @@
 title: Models - Go SDK
 sidebarTitle: Models
 description: Models method reference
-seoTitle: Models | OpenRouter Go SDK
-canonicalUrl: 'https://openrouter.ai/docs/client-sdks/go/api-reference/models'
-'og:site_name': OpenRouter Documentation
-'og:title': Models | OpenRouter Go SDK
+seoTitle: Models | kenh-ai Go SDK
+canonicalUrl: 'https://kenh-ai.com/docs/client-sdks/go/api-reference/models'
+'og:site_name': kenh-ai Documentation
+'og:title': Models | kenh-ai Go SDK
 'og:description': >-
-  Models method documentation for the OpenRouter Go SDK. Learn how to use this
+  Models method documentation for the kenh-ai Go SDK. Learn how to use this
   API endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=Models%20-%20Go%20SDK&description=Models%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=Models%20-%20Go%20SDK&description=Models%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -58,7 +58,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.Models.List(ctx, nil, nil, nil)
@@ -114,7 +114,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.Models.Count(ctx, nil)
@@ -149,7 +149,7 @@ func main() {
 
 ## ListForUser
 
-List models filtered by user provider preferences, [privacy settings](https://openrouter.ai/docs/guides/privacy/provider-logging), and [guardrails](https://openrouter.ai/docs/guides/features/guardrails). If requesting through `eu.openrouter.ai/api/v1/...` the results will be filtered to models that satisfy [EU in-region routing](https://openrouter.ai/docs/guides/privacy/provider-logging#enterprise-eu-in-region-routing).
+List models filtered by user provider preferences, [privacy settings](https://kenh-ai.com/docs/guides/privacy/provider-logging), and [guardrails](https://kenh-ai.com/docs/guides/features/guardrails). If requesting through `eu.kenh-ai.com/api/v1/...` the results will be filtered to models that satisfy [EU in-region routing](https://kenh-ai.com/docs/guides/privacy/provider-logging#enterprise-eu-in-region-routing).
 
 ### Example Usage
 
@@ -171,7 +171,7 @@ func main() {
     s := openrouter.New()
 
     res, err := s.Models.ListForUser(ctx, operations.ListModelsUserSecurity{
-        Bearer: os.Getenv("OPENROUTER_BEARER"),
+        Bearer: os.Getenv("KENH_AI_BEARER"),
     })
     if err != nil {
         log.Fatal(err)

@@ -2,16 +2,16 @@
 title: GenerationResponseData - TypeScript SDK
 sidebarTitle: GenerationResponseData
 description: GenerationResponseData type definition
-seoTitle: GenerationResponseData Type | OpenRouter TypeScript SDK
+seoTitle: GenerationResponseData Type | kenh-ai TypeScript SDK
 canonicalUrl: >-
-  https://openrouter.ai/docs/sdks/typescript/api-reference/models/generationresponsedata
-'og:site_name': OpenRouter Documentation
-'og:title': GenerationResponseData Type | OpenRouter TypeScript SDK
+  https://kenh-ai.com/docs/sdks/typescript/api-reference/models/generationresponsedata
+'og:site_name': kenh-ai Documentation
+'og:title': GenerationResponseData Type | kenh-ai TypeScript SDK
 'og:description': >-
-  GenerationResponseData type reference for the OpenRouter TypeScript SDK.
+  GenerationResponseData type reference for the kenh-ai TypeScript SDK.
   Complete type definition and usage examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=GenerationResponseData%20-%20TypeScript%20SDK&description=GenerationResponseData%20type%20definition
+  https://kenh-ai.com/dynamic-og?title=GenerationResponseData%20-%20TypeScript%20SDK&description=GenerationResponseData%20type%20definition
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -32,7 +32,7 @@ Generation data
 ## Example Usage
 
 ```typescript expandable lines
-import { GenerationResponseData } from "@openrouter/sdk/models";
+import { GenerationResponseData } from "@kenh-ai/sdk/models";
 
 let value: GenerationResponseData = {
   apiType: "tts",
@@ -60,7 +60,7 @@ let value: GenerationResponseData = {
   numMediaCompletion: 0,
   numMediaPrompt: 1,
   numSearchResults: 5,
-  origin: "https://openrouter.ai/",
+  origin: "https://kenh-ai.com/",
   presetId: "a9e8d400-592a-494f-908c-375efa66cafd",
   providerName: "Infermatic",
   providerResponses: [
@@ -111,7 +111,7 @@ let value: GenerationResponseData = {
 | `numMediaCompletion`                                                                                    | *number*                                                                                                | :heavy_check_mark:                                                                                      | Number of media items in the completion                                                                 | 0                                                                                                       |
 | `numMediaPrompt`                                                                                        | *number*                                                                                                | :heavy_check_mark:                                                                                      | Number of media items in the prompt                                                                     | 1                                                                                                       |
 | `numSearchResults`                                                                                      | *number*                                                                                                | :heavy_check_mark:                                                                                      | Number of search results included                                                                       | 5                                                                                                       |
-| `origin`                                                                                                | *string*                                                                                                | :heavy_check_mark:                                                                                      | Origin URL of the request                                                                               | https://openrouter.ai/                                                                                  |
+| `origin`                                                                                                | *string*                                                                                                | :heavy_check_mark:                                                                                      | Origin URL of the request                                                                               | https://kenh-ai.com/                                                                                  |
 | `presetId`                                                                                              | *string*                                                                                                | :heavy_check_mark:                                                                                      | ID of the preset used for this generation, null if no preset was used                                   | a9e8d400-592a-494f-908c-375efa66cafd                                                                    |
 | `providerName`                                                                                          | *string*                                                                                                | :heavy_check_mark:                                                                                      | Name of the provider that served the request                                                            | Infermatic                                                                                              |
 | `providerResponses`                                                                                     | [models.ProviderResponse](/client-sdks/typescript/api-reference/models/providerresponse)[]                                              | :heavy_check_mark:                                                                                      | List of provider responses for this generation, including fallback attempts                             |                                                                                                         |

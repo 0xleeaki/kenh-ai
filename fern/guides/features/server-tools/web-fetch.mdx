@@ -2,15 +2,15 @@
 title: Web Fetch
 description: Give any model the ability to fetch content from URLs
 seoTitle: 'Web Fetch Server Tool | URL Content Retrieval for Any Model'
-canonicalUrl: https://openrouter.ai/docs/guides/features/server-tools/web-fetch
-og:site_name: OpenRouter Documentation
+canonicalUrl: https://kenh-ai.com/docs/guides/features/server-tools/web-fetch
+og:site_name: kenh-ai Documentation
 og:title: 'Web Fetch Server Tool - URL Content Retrieval for Any Model'
-og:description: 'Add URL content fetching to any model on OpenRouter. The model decides when to fetch, OpenRouter retrieves the content, and results are returned as text.'
-og:image: https://openrouter.ai/dynamic-og?title=Web%20Fetch%20Server%20Tool&description=URL%20content%20retrieval%20for%20any%20model
+og:description: 'Add URL content fetching to any model on kenh-ai. The model decides when to fetch, kenh-ai retrieves the content, and results are returned as text.'
+og:image: https://kenh-ai.com/dynamic-og?title=Web%20Fetch%20Server%20Tool&description=URL%20content%20retrieval%20for%20any%20model
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: link
@@ -30,7 +30,7 @@ Server tools are currently in beta. The API and behavior may change.
 
 The `openrouter:web_fetch` server tool gives any model the ability to fetch
 content from a specific URL. When the model needs to read a web page or PDF
-document, it calls the tool with the URL. OpenRouter fetches and extracts the
+document, it calls the tool with the URL. kenh-ai fetches and extracts the
 content, returning text that the model can use in its response.
 
 ## How It Works
@@ -38,7 +38,7 @@ content, returning text that the model can use in its response.
 1. You include `{ "type": "openrouter:web_fetch" }` in your `tools` array.
 2. Based on the user's prompt, the model decides whether it needs to fetch a
    URL and generates the request.
-3. OpenRouter fetches the URL using the configured engine (defaults to `auto`,
+3. kenh-ai fetches the URL using the configured engine (defaults to `auto`,
    which uses native provider fetch when available or falls back to
    [Exa](https://exa.ai)).
 4. The page content (text, title, and URL) is returned to the model.
@@ -54,7 +54,7 @@ content, returning text that the model can use in its response.
 <CodeGroup>
 
 ```typescript title="TypeScript" expandable lines
-const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+const response = await fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
     Authorization: 'Bearer {{API_KEY_REF}}',
@@ -82,7 +82,7 @@ console.log(data.choices[0].message.content);
 import requests
 
 response = requests.post(
-  "https://openrouter.ai/api/v1/chat/completions",
+  "https://kenh-ai.com/api/v1/chat/completions",
   headers={
     "Authorization": f"Bearer {{API_KEY_REF}}",
     "Content-Type": "application/json",
@@ -106,7 +106,7 @@ print(data["choices"][0]["message"]["content"])
 ```
 
 ```bash title="cURL" lines
-curl https://openrouter.ai/api/v1/chat/completions \
+curl https://kenh-ai.com/api/v1/chat/completions \
   -H "Authorization: Bearer {{API_KEY_REF}}" \
   -H "Content-Type: application/json" \
   -d '{
@@ -168,7 +168,7 @@ The web fetch server tool supports multiple fetch engines:
 
 ### Engine Capabilities
 
-| Feature | Exa | Parallel | Firecrawl | OpenRouter | Native |
+| Feature | Exa | Parallel | Firecrawl | kenh-ai | Native |
 |---------|-----|----------|-----------|------------|--------|
 | **Domain filtering** | Yes | Yes | Yes | Yes | Varies |
 | **Token truncation** | Yes | Yes | Yes | Yes | No |
@@ -179,9 +179,9 @@ The web fetch server tool supports multiple fetch engines:
 
 Firecrawl uses your own API key. To set it up:
 
-1. Go to your [OpenRouter plugin settings](https://openrouter.ai/settings/plugins)
+1. Go to your [kenh-ai plugin settings](https://kenh-ai.com/settings/plugins)
    and configure your Firecrawl API key
-2. Your Firecrawl account is billed separately from OpenRouter
+2. Your Firecrawl account is billed separately from kenh-ai
 
 ### Hard Limits
 
@@ -190,7 +190,7 @@ To prevent runaway costs:
 - **Exa engine**: No hard limit (billed via API credits)
 - **Parallel engine**: No hard limit (billed via API credits)
 - **Firecrawl engine**: No hard limit (uses your Firecrawl credits)
-- **OpenRouter/native engines**: Hard limit of 50 fetches per request
+- **kenh-ai/native engines**: Hard limit of 50 fetches per request
 
 ## Domain Filtering
 
@@ -237,7 +237,7 @@ The web fetch server tool also works with the Responses API:
 <CodeGroup>
 
 ```typescript title="TypeScript" lines
-const response = await fetch('https://openrouter.ai/api/v1/responses', {
+const response = await fetch('https://kenh-ai.com/api/v1/responses', {
   method: 'POST',
   headers: {
     Authorization: 'Bearer {{API_KEY_REF}}',
@@ -260,7 +260,7 @@ console.log(data);
 import requests
 
 response = requests.post(
-  "https://openrouter.ai/api/v1/responses",
+  "https://kenh-ai.com/api/v1/responses",
   headers={
     "Authorization": f"Bearer {{API_KEY_REF}}",
     "Content-Type": "application/json",
@@ -311,8 +311,8 @@ If the fetch fails, the response includes an error:
 |--------|---------|
 | **Exa** | \$1 per 1,000 fetches |
 | **Parallel** | \$1 per 1,000 fetches |
-| **Firecrawl** | Uses your Firecrawl credits directly — no OpenRouter charge |
-| **OpenRouter** | Free |
+| **Firecrawl** | Uses your Firecrawl credits directly — no kenh-ai charge |
+| **kenh-ai** | Free |
 | **Native** | Passed through from the provider |
 
 All pricing is in addition to standard LLM token costs for processing the

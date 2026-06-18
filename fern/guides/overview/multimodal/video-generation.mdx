@@ -1,16 +1,16 @@
 ---
 title: Video Generation
-description: How to generate videos with OpenRouter models
-seoTitle: 'OpenRouter Video Generation | Complete Documentation'
-canonicalUrl: https://openrouter.ai/docs/guides/overview/multimodal/video-generation
-og:site_name: OpenRouter Documentation
-og:title: 'OpenRouter Video Generation - Complete Documentation'
-og:description: 'Generate videos using AI models through the OpenRouter API.'
-og:image: https://openrouter.ai/dynamic-og?title=OpenRouter%20Video%20Generation&description=Generate%20videos%20using%20AI%20models%20through%20the%20OpenRouter%20API.
+description: How to generate videos with kenh-ai models
+seoTitle: 'kenh-ai Video Generation | Complete Documentation'
+canonicalUrl: https://kenh-ai.com/docs/guides/overview/multimodal/video-generation
+og:site_name: kenh-ai Documentation
+og:title: 'kenh-ai Video Generation - Complete Documentation'
+og:description: 'Generate videos using AI models through the kenh-ai API.'
+og:image: https://kenh-ai.com/dynamic-og?title=kenh-ai%20Video%20Generation&description=Generate%20videos%20using%20AI%20models%20through%20the%20kenh-ai%20API.
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: film
@@ -22,7 +22,7 @@ import {
 } from '../../../snippets/exports/constants.mdx';
 import OpenRouterVideoSkill from "../../../snippets/openrouter-video-skill.mdx";
 
-OpenRouter supports video generation from text prompts (and optional reference images) via a dedicated asynchronous API. You can find the supported models, their capabilities, and pricing by filtering our [model list by video output](https://openrouter.ai/docs/guides/overview/models?output_modalities=video).
+kenh-ai supports video generation from text prompts (and optional reference images) via a dedicated asynchronous API. You can find the supported models, their capabilities, and pricing by filtering our [model list by video output](https://kenh-ai.com/docs/guides/overview/models?output_modalities=video).
 
 <Tip>
   Adding video generation to an app? The
@@ -43,7 +43,7 @@ You can find video generation models in several ways:
 Use the dedicated video models endpoint to list all available video generation models along with their supported parameters:
 
 ```bash lines
-curl "https://openrouter.ai/api/v1/videos/docs/guides/overview/models"
+curl "https://kenh-ai.com/api/v1/videos/docs/guides/overview/models"
 ```
 
 The response returns a `data` array where each model includes:
@@ -88,7 +88,7 @@ You can also use the `output_modalities` query parameter on the [Models API](/ap
 
 ```bash lines
 # List only video generation models
-curl "https://openrouter.ai/api/v1/docs/guides/overview/models?output_modalities=video"
+curl "https://kenh-ai.com/api/v1/docs/guides/overview/models?output_modalities=video"
 ```
 
 ### On the Models Page
@@ -119,7 +119,7 @@ import requests
 import json
 import time
 
-url = "https://openrouter.ai/api/v1/videos"
+url = "https://kenh-ai.com/api/v1/videos"
 headers = {
     "Authorization": f"Bearer {API_KEY_REF}",
     "Content-Type": "application/json"
@@ -167,7 +167,7 @@ const headers = {
 };
 
 // Step 1: Submit the generation request
-const response = await fetch('https://openrouter.ai/api/v1/videos', {
+const response = await fetch('https://kenh-ai.com/api/v1/videos', {
   method: 'POST',
   headers,
   body: JSON.stringify({
@@ -207,8 +207,8 @@ while (true) {
 
 ```bash title="cURL" expandable lines
 # Step 1: Submit the generation request
-curl -X POST "https://openrouter.ai/api/v1/videos" \
-  -H "Authorization: Bearer $OPENROUTER_API_KEY" \
+curl -X POST "https://kenh-ai.com/api/v1/videos" \
+  -H "Authorization: Bearer $KENH_AI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "{{MODEL}}",
@@ -218,13 +218,13 @@ curl -X POST "https://openrouter.ai/api/v1/videos" \
 # Response:
 # {
 #   "id": "<job_id>",
-#   "polling_url": "https://openrouter.ai/api/v1/videos/<job_id>",
+#   "polling_url": "https://kenh-ai.com/api/v1/videos/<job_id>",
 #   "status": "pending"
 # }
 
 # Step 2: Poll for status
-curl "https://openrouter.ai/api/v1/videos/<job_id>" \
-  -H "Authorization: Bearer $OPENROUTER_API_KEY"
+curl "https://kenh-ai.com/api/v1/videos/<job_id>" \
+  -H "Authorization: Bearer $KENH_AI_API_KEY"
 
 # Step 3: Once status is "completed", download from unsigned_urls[0]
 ```
@@ -357,7 +357,7 @@ When you submit a video generation request, you receive an immediate response wi
 ```json lines
 {
   "id": "abc123",
-  "polling_url": "https://openrouter.ai/api/v1/videos/abc123",
+  "polling_url": "https://kenh-ai.com/api/v1/videos/abc123",
   "status": "pending"
 }
 ```
@@ -370,10 +370,10 @@ When polling the job status, the response includes additional fields as the job 
 {
   "id": "abc123",
   "generation_id": "gen-1234567890-abcdef",
-  "polling_url": "https://openrouter.ai/api/v1/videos/abc123",
+  "polling_url": "https://kenh-ai.com/api/v1/videos/abc123",
   "status": "completed",
   "unsigned_urls": [
-    "https://openrouter.ai/api/v1/videos/abc123/content?index=0"
+    "https://kenh-ai.com/api/v1/videos/abc123/content?index=0"
   ],
   "usage": {
     "cost": 0.25,
@@ -396,8 +396,8 @@ When polling the job status, the response includes additional fields as the job 
 Once the job status is `completed`, the `unsigned_urls` array contains URLs to download the generated video content. You can also use the content endpoint directly:
 
 ```bash lines
-curl "https://openrouter.ai/api/v1/videos/{jobId}/content?index=0" \
-  -H "Authorization: Bearer $OPENROUTER_API_KEY" \
+curl "https://kenh-ai.com/api/v1/videos/{jobId}/content?index=0" \
+  -H "Authorization: Bearer $KENH_AI_API_KEY" \
   --output video.mp4
 ```
 
@@ -414,7 +414,7 @@ Instead of polling for job status, you can receive a webhook notification when a
 
 When a job reaches a terminal state, a POST request is sent to the callback
 URL with an event envelope. Each delivery also carries an
-`X-OpenRouter-Idempotency-Key` header of the form `<job_id>-<status>` for
+`X-kenh-ai-Idempotency-Key` header of the form `<job_id>-<status>` for
 safe retry deduplication.
 
 `video.generation.completed`:
@@ -429,7 +429,7 @@ safe retry deduplication.
     "generation_id": "gen-xyz789",
     "model": "google/veo-3.1",
     "unsigned_urls": [
-      "https://openrouter.ai/api/v1/videos/abc123/content?index=0"
+      "https://kenh-ai.com/api/v1/videos/abc123/content?index=0"
     ],
     "usage": {
       "cost": 0.5,
@@ -492,12 +492,12 @@ those values are assigned (e.g. an early validation failure).
 
 ### Signing Secret
 
-You can configure a signing secret in your [workspace settings](/guides/features/workspaces) to verify that webhook payloads are authentically from OpenRouter. When a signing secret is configured, each webhook delivery includes an `X-OpenRouter-Signature` header.
+You can configure a signing secret in your [workspace settings](/guides/features/workspaces) to verify that webhook payloads are authentically from kenh-ai. When a signing secret is configured, each webhook delivery includes an `X-kenh-ai-Signature` header.
 
 The signature includes a timestamp and an HMAC hash:
 
 ```lines
-X-OpenRouter-Signature: t=1234567890,v1=a1b2c3d4...
+X-kenh-ai-Signature: t=1234567890,v1=a1b2c3d4...
 ```
 
 ### Verifying Signatures
@@ -566,7 +566,7 @@ Use the **raw request body** (the exact bytes received) for verification. Parsin
 
 Video generation is **not eligible** for [Zero Data Retention (ZDR)](/guides/features/zdr). Because video generation is asynchronous, the generated video output must be retained by the provider for a short period of time so that it can be retrieved after generation is complete. This temporary retention is inherent to the async polling workflow and cannot be bypassed.
 
-If you have ZDR enforcement enabled (either via [account settings](https://openrouter.ai/settings/privacy) or the per-request `zdr` parameter), video generation requests will not be routed.
+If you have ZDR enforcement enabled (either via [account settings](https://kenh-ai.com/settings/privacy) or the per-request `zdr` parameter), video generation requests will not be routed.
 
 ## Troubleshooting
 

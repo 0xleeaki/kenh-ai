@@ -1,16 +1,16 @@
 ---
 title: Webhook
 description: Send traces to any HTTP endpoint
-seoTitle: 'Broadcast to Webhook | OpenRouter Observability'
-canonicalUrl: https://openrouter.ai/docs/guides/features/broadcast/webhook
-og:site_name: OpenRouter Documentation
+seoTitle: 'Broadcast to Webhook | kenh-ai Observability'
+canonicalUrl: https://kenh-ai.com/docs/guides/features/broadcast/webhook
+og:site_name: kenh-ai Documentation
 og:title: 'Broadcast to Webhook - Send Traces to Any HTTP Endpoint'
-og:description: 'Connect any HTTP endpoint to automatically receive traces from your OpenRouter requests. Step-by-step setup guide for Webhook integration.'
-og:image: https://openrouter.ai/dynamic-og?title=Webhook%20Broadcast&description=Send%20traces%20to%20any%20HTTP%20endpoint
+og:description: 'Connect any HTTP endpoint to automatically receive traces from your kenh-ai requests. Step-by-step setup guide for Webhook integration.'
+og:image: https://kenh-ai.com/dynamic-og?title=Webhook%20Broadcast&description=Send%20traces%20to%20any%20HTTP%20endpoint
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: puzzle-piece
@@ -28,9 +28,9 @@ Create an HTTP endpoint that can receive POST or PUT requests with JSON payloads
 
 The endpoint will receive traces in [OpenTelemetry Protocol (OTLP)](https://opentelemetry.io/docs/specs/otlp/) format, making it compatible with any OTLP-aware system.
 
-## Step 2: Enable Broadcast in OpenRouter
+## Step 2: Enable Broadcast in kenh-ai
 
-Go to [Settings > Observability](https://openrouter.ai/settings/observability) and toggle **Enable Broadcast**.
+Go to [Settings > Observability](https://kenh-ai.com/settings/observability) and toggle **Enable Broadcast**.
 
 <Frame>
 ![Enable Broadcast](/assets/guides/features/broadcast/arize/broadcast-enable.png)
@@ -54,7 +54,7 @@ Example headers for authenticated endpoints:
 
 ## Step 4: Test and save
 
-Click **Test Connection** to verify the setup. The configuration only saves if the test passes. During the test, OpenRouter sends an empty OTLP payload with an `X-Test-Connection: true` header to your endpoint.
+Click **Test Connection** to verify the setup. The configuration only saves if the test passes. During the test, kenh-ai sends an empty OTLP payload with an `X-Test-Connection: true` header to your endpoint.
 
 <Tip>
 Your endpoint should return a 2xx status code for the test to pass. A 400 status code is also accepted, as some endpoints reject empty payloads.
@@ -62,7 +62,7 @@ Your endpoint should return a 2xx status code for the test to pass. A 400 status
 
 ## Step 5: Send a test trace
 
-Make an API request through OpenRouter and verify that your webhook endpoint receives the trace data.
+Make an API request through kenh-ai and verify that your webhook endpoint receives the trace data.
 
 ## Payload format
 

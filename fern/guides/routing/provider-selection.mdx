@@ -2,15 +2,15 @@
 title: Provider Routing
 description: Route requests to the best provider
 seoTitle: 'Provider Routing | Intelligent Multi-Provider Request Routing'
-canonicalUrl: https://openrouter.ai/docs/guides/routing/provider-selection
-og:site_name: OpenRouter Documentation
+canonicalUrl: https://kenh-ai.com/docs/guides/routing/provider-selection
+og:site_name: kenh-ai Documentation
 og:title: 'Provider Routing - Smart Multi-Provider Request Management'
-og:description: "Route AI model requests across multiple providers intelligently. Learn how to optimize for cost, performance, and reliability with OpenRouter's provider routing."
-og:image: https://openrouter.ai/dynamic-og?pathname=features/provider-routing&title=Smart%20Routing&description=Optimize%20AI%20requests%20across%20providers%20for%20best%20performance
+og:description: "Route AI model requests across multiple providers intelligently. Learn how to optimize for cost, performance, and reliability with kenh-ai's provider routing."
+og:image: https://kenh-ai.com/dynamic-og?pathname=features/provider-routing&title=Smart%20Routing&description=Optimize%20AI%20requests%20across%20providers%20for%20best%20performance
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: network-wired
@@ -18,7 +18,7 @@ sidebarTitle: Provider Selection
 ---
 import QuantizationLevels from "../../snippets/quantization-levels.mdx";
 
-OpenRouter routes requests to the best available providers for your model. By default, [requests are load balanced](#price-based-load-balancing-default-strategy) across the top providers to maximize uptime.
+kenh-ai routes requests to the best available providers for your model. By default, [requests are load balanced](#price-based-load-balancing-default-strategy) across the top providers to maximize uptime.
 
 You can customize how your requests are routed using the `provider` object in the request body for [Chat Completions](/api/api-reference/chat/create-a-chat-completion).
 
@@ -43,23 +43,23 @@ The `provider` object can contain the following fields:
 <Note>
 **EU data residency (Enterprise)**
 
-  OpenRouter supports EU in-region routing for enterprise customers. When enabled, prompts and completions are processed entirely within the EU. Learn more in our [Privacy docs here](/guides/privacy/provider-logging#enterprise-eu-in-region-routing). To contact our enterprise team, [fill out this form](https://openrouter.ai/enterprise/form).
+  kenh-ai supports EU in-region routing for enterprise customers. When enabled, prompts and completions are processed entirely within the EU. Learn more in our [Privacy docs here](/guides/privacy/provider-logging#enterprise-eu-in-region-routing). To contact our enterprise team, [fill out this form](https://kenh-ai.com/enterprise/form).
 </Note>
 
 ## Price-Based Load Balancing (Default Strategy)
 
-For each model in your request, OpenRouter's default behavior is to load balance requests across providers, prioritizing price.
+For each model in your request, kenh-ai's default behavior is to load balance requests across providers, prioritizing price.
 
 If you are more sensitive to throughput than price, you can use the `sort` field to explicitly prioritize throughput.
 
 <Tip>
-  When you send a request with `tools` or `tool_choice`, OpenRouter will only
+  When you send a request with `tools` or `tool_choice`, kenh-ai will only
   route to providers that support tool use. Similarly, if you set a
-  `max_tokens`, then OpenRouter will only route to providers that support a
+  `max_tokens`, then kenh-ai will only route to providers that support a
   response of that length.
 </Tip>
 
-Here is OpenRouter's default load balancing strategy:
+Here is kenh-ai's default load balancing strategy:
 
 1. Prioritize providers that have not seen significant outages in the last 30 seconds.
 2. For the stable providers, look at the lowest-cost candidates and select one weighted by inverse square of the price (example below).
@@ -80,7 +80,7 @@ If you have `sort` or `order` set in your provider preferences, load balancing w
 
 ## Provider Sorting
 
-As described above, OpenRouter load balances based on price, while taking uptime into account.
+As described above, kenh-ai load balances based on price, while taking uptime into account.
 
 If you instead want to _explicitly_ prioritize a particular provider attribute, you can include the `sort` field in the `provider` preferences. Load balancing will be disabled, and the router will try providers in order.
 
@@ -93,13 +93,13 @@ The three sort options are:
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const kenhAi = new KenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
-const completion = await openRouter.chat.send({
+const completion = await kenhAi.chat.send({
   model: 'meta-llama/llama-3.3-70b-instruct',
   messages: [{ role: 'user', content: 'Hello' }],
   provider: {
@@ -110,12 +110,12 @@ const completion = await openRouter.chat.send({
 ```
 
 ```typescript title="TypeScript (fetch)" lines
-fetch('https://openrouter.ai/api/v1/chat/completions', {
+fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+    'Authorization': 'Bearer <KENH_AI_API_KEY>',
     'HTTP-Referer': '<YOUR_SITE_URL>',
-    'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+    'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -132,13 +132,13 @@ fetch('https://openrouter.ai/api/v1/chat/completions', {
 import requests
 
 headers = {
-  'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+  'Authorization': 'Bearer <KENH_AI_API_KEY>',
   'HTTP-Referer': '<YOUR_SITE_URL>',
-  'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+  'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
   'Content-Type': 'application/json',
 }
 
-response = requests.post('https://openrouter.ai/api/v1/chat/completions', headers=headers, json={
+response = requests.post('https://kenh-ai.com/api/v1/chat/completions', headers=headers, json={
   'model': 'meta-llama/llama-3.3-70b-instruct',
   'messages': [{ 'role': 'user', 'content': 'Hello' }],
   'provider': {
@@ -160,13 +160,13 @@ You can append `:nitro` to any model slug as a shortcut to sort by throughput. T
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const kenhAi = new KenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
-const completion = await openRouter.chat.send({
+const completion = await kenhAi.chat.send({
   model: 'meta-llama/llama-3.3-70b-instruct:nitro',
   messages: [{ role: 'user', content: 'Hello' }],
   stream: false,
@@ -174,12 +174,12 @@ const completion = await openRouter.chat.send({
 ```
 
 ```typescript title="TypeScript (fetch)" lines
-fetch('https://openrouter.ai/api/v1/chat/completions', {
+fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+    'Authorization': 'Bearer <KENH_AI_API_KEY>',
     'HTTP-Referer': '<YOUR_SITE_URL>',
-    'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+    'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -193,13 +193,13 @@ fetch('https://openrouter.ai/api/v1/chat/completions', {
 import requests
 
 headers = {
-  'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+  'Authorization': 'Bearer <KENH_AI_API_KEY>',
   'HTTP-Referer': '<YOUR_SITE_URL>',
-  'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+  'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
   'Content-Type': 'application/json',
 }
 
-response = requests.post('https://openrouter.ai/api/v1/chat/completions', headers=headers, json={
+response = requests.post('https://kenh-ai.com/api/v1/chat/completions', headers=headers, json={
   'model': 'meta-llama/llama-3.3-70b-instruct:nitro',
   'messages': [{ 'role': 'user', 'content': 'Hello' }],
 })
@@ -214,13 +214,13 @@ You can append `:floor` to any model slug as a shortcut to sort by price. This i
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const kenhAi = new KenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
-const completion = await openRouter.chat.send({
+const completion = await kenhAi.chat.send({
   model: 'meta-llama/llama-3.3-70b-instruct:floor',
   messages: [{ role: 'user', content: 'Hello' }],
   stream: false,
@@ -228,12 +228,12 @@ const completion = await openRouter.chat.send({
 ```
 
 ```typescript title="TypeScript (fetch)" lines
-fetch('https://openrouter.ai/api/v1/chat/completions', {
+fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+    'Authorization': 'Bearer <KENH_AI_API_KEY>',
     'HTTP-Referer': '<YOUR_SITE_URL>',
-    'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+    'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -247,13 +247,13 @@ fetch('https://openrouter.ai/api/v1/chat/completions', {
 import requests
 
 headers = {
-  'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+  'Authorization': 'Bearer <KENH_AI_API_KEY>',
   'HTTP-Referer': '<YOUR_SITE_URL>',
-  'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+  'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
   'Content-Type': 'application/json',
 }
 
-response = requests.post('https://openrouter.ai/api/v1/chat/completions', headers=headers, json={
+response = requests.post('https://kenh-ai.com/api/v1/chat/completions', headers=headers, json={
   'model': 'meta-llama/llama-3.3-70b-instruct:floor',
   'messages': [{ 'role': 'user', 'content': 'Hello' }],
 })
@@ -270,7 +270,7 @@ When using [model fallbacks](/guides/routing/routers/auto-router), the `sort` fi
 | `sort.by` | string | - | The sorting strategy: `"price"`, `"throughput"`, or `"latency"`. |
 | `sort.partition` | string | `"model"` | How to group endpoints for sorting: `"model"` (default) or `"none"`. |
 
-By default, when you specify multiple models (fallbacks), OpenRouter groups endpoints by model before sorting. This means the primary model's endpoints are always tried first, regardless of their performance characteristics. Setting `partition` to `"none"` removes this grouping, allowing endpoints to be sorted globally across all models.
+By default, when you specify multiple models (fallbacks), kenh-ai groups endpoints by model before sorting. This means the primary model's endpoints are always tried first, regardless of their performance characteristics. Setting `partition` to `"none"` removes this grouping, allowing endpoints to be sorted globally across all models.
 
 To explicitly use the default behavior, set `partition: "model"`. For more details on how model fallbacks work, see [Model Fallbacks](/guides/routing/model-fallbacks).
 
@@ -285,13 +285,13 @@ When you have multiple acceptable models and want to use whichever has the best 
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" expandable lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const kenhAi = new KenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
-const completion = await openRouter.chat.send({
+const completion = await kenhAi.chat.send({
   models: [
     'anthropic/claude-sonnet-4.5',
     'openai/gpt-5-mini',
@@ -309,10 +309,10 @@ const completion = await openRouter.chat.send({
 ```
 
 ```typescript title="TypeScript (fetch)" expandable lines
-fetch('https://openrouter.ai/api/v1/chat/completions', {
+fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+    'Authorization': 'Bearer <KENH_AI_API_KEY>',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -336,11 +336,11 @@ fetch('https://openrouter.ai/api/v1/chat/completions', {
 import requests
 
 headers = {
-  'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+  'Authorization': 'Bearer <KENH_AI_API_KEY>',
   'Content-Type': 'application/json',
 }
 
-response = requests.post('https://openrouter.ai/api/v1/chat/completions', headers=headers, json={
+response = requests.post('https://kenh-ai.com/api/v1/chat/completions', headers=headers, json={
   'models': [
     'anthropic/claude-sonnet-4.5',
     'openai/gpt-5-mini',
@@ -357,8 +357,8 @@ response = requests.post('https://openrouter.ai/api/v1/chat/completions', header
 ```
 
 ```bash title="cURL" lines
-curl https://openrouter.ai/api/v1/chat/completions \
-  -H "Authorization: Bearer <OPENROUTER_API_KEY>" \
+curl https://kenh-ai.com/api/v1/chat/completions \
+  -H "Authorization: Bearer <KENH_AI_API_KEY>" \
   -H "Content-Type: application/json" \
   -d '{
     "models": [
@@ -378,7 +378,7 @@ curl https://openrouter.ai/api/v1/chat/completions \
 
 </CodeGroup>
 
-In this example, OpenRouter will route to whichever endpoint across all three models currently has the highest throughput, rather than always trying Claude first.
+In this example, kenh-ai will route to whichever endpoint across all three models currently has the highest throughput, rather than always trying Claude first.
 
 ## Performance Thresholds
 
@@ -391,7 +391,7 @@ You can set minimum throughput or maximum latency thresholds to filter endpoints
 
 ### How Percentiles Work
 
-OpenRouter tracks latency and throughput metrics for each model and provider using percentile statistics calculated over a rolling 5-minute window. The available percentiles are:
+kenh-ai tracks latency and throughput metrics for each model and provider using percentile statistics calculated over a rolling 5-minute window. The available percentiles are:
 
 - **p50** (median): 50% of requests perform better than this value
 - **p75**: 75% of requests perform better than this value
@@ -418,13 +418,13 @@ Combine `partition: "none"` with performance thresholds to find the cheapest opt
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" expandable lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const kenhAi = new KenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
-const completion = await openRouter.chat.send({
+const completion = await kenhAi.chat.send({
   models: [
     'anthropic/claude-sonnet-4.5',
     'openai/gpt-5-mini',
@@ -445,10 +445,10 @@ const completion = await openRouter.chat.send({
 ```
 
 ```typescript title="TypeScript (fetch)" expandable lines
-fetch('https://openrouter.ai/api/v1/chat/completions', {
+fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+    'Authorization': 'Bearer <KENH_AI_API_KEY>',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -475,11 +475,11 @@ fetch('https://openrouter.ai/api/v1/chat/completions', {
 import requests
 
 headers = {
-  'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+  'Authorization': 'Bearer <KENH_AI_API_KEY>',
   'Content-Type': 'application/json',
 }
 
-response = requests.post('https://openrouter.ai/api/v1/chat/completions', headers=headers, json={
+response = requests.post('https://kenh-ai.com/api/v1/chat/completions', headers=headers, json={
   'models': [
     'anthropic/claude-sonnet-4.5',
     'openai/gpt-5-mini',
@@ -499,8 +499,8 @@ response = requests.post('https://openrouter.ai/api/v1/chat/completions', header
 ```
 
 ```bash title="cURL" lines
-curl https://openrouter.ai/api/v1/chat/completions \
-  -H "Authorization: Bearer <OPENROUTER_API_KEY>" \
+curl https://kenh-ai.com/api/v1/chat/completions \
+  -H "Authorization: Bearer <KENH_AI_API_KEY>" \
   -H "Content-Type: application/json" \
   -d '{
     "models": [
@@ -523,20 +523,20 @@ curl https://openrouter.ai/api/v1/chat/completions \
 
 </CodeGroup>
 
-In this example, OpenRouter will find the cheapest model and provider across all three models that has at least 50 tokens/second throughput at the p90 level (meaning 90% of requests achieve this throughput or better). Models and providers below this threshold are still available as fallbacks if all preferred options fail.
+In this example, kenh-ai will find the cheapest model and provider across all three models that has at least 50 tokens/second throughput at the p90 level (meaning 90% of requests achieve this throughput or better). Models and providers below this threshold are still available as fallbacks if all preferred options fail.
 
 You can also use `preferred_max_latency` to set a maximum acceptable latency:
 
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" expandable lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const kenhAi = new KenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
-const completion = await openRouter.chat.send({
+const completion = await kenhAi.chat.send({
   models: [
     'anthropic/claude-sonnet-4.5',
     'openai/gpt-5-mini',
@@ -556,10 +556,10 @@ const completion = await openRouter.chat.send({
 ```
 
 ```typescript title="TypeScript (fetch)" expandable lines
-fetch('https://openrouter.ai/api/v1/chat/completions', {
+fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+    'Authorization': 'Bearer <KENH_AI_API_KEY>',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -585,11 +585,11 @@ fetch('https://openrouter.ai/api/v1/chat/completions', {
 import requests
 
 headers = {
-  'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+  'Authorization': 'Bearer <KENH_AI_API_KEY>',
   'Content-Type': 'application/json',
 }
 
-response = requests.post('https://openrouter.ai/api/v1/chat/completions', headers=headers, json={
+response = requests.post('https://kenh-ai.com/api/v1/chat/completions', headers=headers, json={
   'models': [
     'anthropic/claude-sonnet-4.5',
     'openai/gpt-5-mini',
@@ -608,8 +608,8 @@ response = requests.post('https://openrouter.ai/api/v1/chat/completions', header
 ```
 
 ```bash title="cURL" lines
-curl https://openrouter.ai/api/v1/chat/completions \
-  -H "Authorization: Bearer <OPENROUTER_API_KEY>" \
+curl https://kenh-ai.com/api/v1/chat/completions \
+  -H "Authorization: Bearer <KENH_AI_API_KEY>" \
   -H "Content-Type: application/json" \
   -d '{
     "models": [
@@ -638,13 +638,13 @@ You can specify multiple percentile cutoffs to set both typical and worst-case p
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" expandable lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const kenhAi = new KenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
-const completion = await openRouter.chat.send({
+const completion = await kenhAi.chat.send({
   model: 'deepseek/deepseek-v3.2',
   messages: [{ role: 'user', content: 'Hello' }],
   provider: {
@@ -663,10 +663,10 @@ const completion = await openRouter.chat.send({
 ```
 
 ```typescript title="TypeScript (fetch)" expandable lines
-fetch('https://openrouter.ai/api/v1/chat/completions', {
+fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+    'Authorization': 'Bearer <KENH_AI_API_KEY>',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -691,11 +691,11 @@ fetch('https://openrouter.ai/api/v1/chat/completions', {
 import requests
 
 headers = {
-  'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+  'Authorization': 'Bearer <KENH_AI_API_KEY>',
   'Content-Type': 'application/json',
 }
 
-response = requests.post('https://openrouter.ai/api/v1/chat/completions', headers=headers, json={
+response = requests.post('https://kenh-ai.com/api/v1/chat/completions', headers=headers, json={
   'model': 'deepseek/deepseek-v3.2',
   'messages': [{ 'role': 'user', 'content': 'Hello' }],
   'provider': {
@@ -713,8 +713,8 @@ response = requests.post('https://openrouter.ai/api/v1/chat/completions', header
 ```
 
 ```bash title="cURL" lines
-curl https://openrouter.ai/api/v1/chat/completions \
-  -H "Authorization: Bearer <OPENROUTER_API_KEY>" \
+curl https://kenh-ai.com/api/v1/chat/completions \
+  -H "Authorization: Bearer <KENH_AI_API_KEY>" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "deepseek/deepseek-v3.2",
@@ -737,18 +737,18 @@ curl https://openrouter.ai/api/v1/chat/completions \
 
 ### Use Case 3: Maximize BYOK Usage Across Models
 
-If you use [Bring Your Own Key (BYOK)](/guides/overview/auth/byok) and want to maximize usage of your own API keys, `partition: "none"` can help. When your primary model doesn't have a BYOK provider available, OpenRouter can route to a fallback model that does support BYOK.
+If you use [Bring Your Own Key (BYOK)](/guides/overview/auth/byok) and want to maximize usage of your own API keys, `partition: "none"` can help. When your primary model doesn't have a BYOK provider available, kenh-ai can route to a fallback model that does support BYOK.
 
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" expandable lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const kenhAi = new KenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
-const completion = await openRouter.chat.send({
+const completion = await kenhAi.chat.send({
   models: [
     'anthropic/claude-sonnet-4.5',
     'openai/gpt-5-mini',
@@ -766,10 +766,10 @@ const completion = await openRouter.chat.send({
 ```
 
 ```typescript title="TypeScript (fetch)" expandable lines
-fetch('https://openrouter.ai/api/v1/chat/completions', {
+fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+    'Authorization': 'Bearer <KENH_AI_API_KEY>',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -793,11 +793,11 @@ fetch('https://openrouter.ai/api/v1/chat/completions', {
 import requests
 
 headers = {
-  'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+  'Authorization': 'Bearer <KENH_AI_API_KEY>',
   'Content-Type': 'application/json',
 }
 
-response = requests.post('https://openrouter.ai/api/v1/chat/completions', headers=headers, json={
+response = requests.post('https://kenh-ai.com/api/v1/chat/completions', headers=headers, json={
   'models': [
     'anthropic/claude-sonnet-4.5',
     'openai/gpt-5-mini',
@@ -814,8 +814,8 @@ response = requests.post('https://openrouter.ai/api/v1/chat/completions', header
 ```
 
 ```bash title="cURL" lines
-curl https://openrouter.ai/api/v1/chat/completions \
-  -H "Authorization: Bearer <OPENROUTER_API_KEY>" \
+curl https://kenh-ai.com/api/v1/chat/completions \
+  -H "Authorization: Bearer <KENH_AI_API_KEY>" \
   -H "Content-Type: application/json" \
   -d '{
     "models": [
@@ -835,7 +835,7 @@ curl https://openrouter.ai/api/v1/chat/completions \
 
 </CodeGroup>
 
-In this example, if you have a BYOK key configured for OpenAI but not for Anthropic, OpenRouter can route to the GPT-4o endpoint using your own key even though Claude is listed first. Without `partition: "none"`, the router would always try Claude's endpoints first before falling back to GPT-4o.
+In this example, if you have a BYOK key configured for OpenAI but not for Anthropic, kenh-ai can route to the GPT-4o endpoint using your own key even though Claude is listed first. Without `partition: "none"`, the router would always try Claude's endpoints first before falling back to GPT-4o.
 
 <Note>
   BYOK endpoints are automatically prioritized when you have API keys configured for a provider. The `partition: "none"` setting allows this prioritization to work across model boundaries.
@@ -843,7 +843,7 @@ In this example, if you have a BYOK key configured for OpenAI but not for Anthro
 
 ## Ordering Specific Providers
 
-You can set the providers that OpenRouter will prioritize for your request using the `order` field.
+You can set the providers that kenh-ai will prioritize for your request using the `order` field.
 
 | Field | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -856,22 +856,22 @@ The router will prioritize providers in this list, and in this order, for the mo
   including any variants like "/turbo". See [Targeting Specific Provider Endpoints](#targeting-specific-provider-endpoints) for details.
 </Tip>
 
-OpenRouter will try them one at a time and proceed to other providers if none are operational. If you don't want to allow any other providers, you should [disable fallbacks](#disabling-fallbacks) as well.
+kenh-ai will try them one at a time and proceed to other providers if none are operational. If you don't want to allow any other providers, you should [disable fallbacks](#disabling-fallbacks) as well.
 
 ### Example: Specifying providers with fallbacks
 
-This example skips over OpenAI (which doesn't host Mixtral), tries Together, and then falls back to the normal list of providers on OpenRouter:
+This example skips over OpenAI (which doesn't host Mixtral), tries Together, and then falls back to the normal list of providers on kenh-ai:
 
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const kenhAi = new KenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
-const completion = await openRouter.chat.send({
+const completion = await kenhAi.chat.send({
   model: 'mistralai/mixtral-8x7b-instruct',
   messages: [{ role: 'user', content: 'Hello' }],
   provider: {
@@ -882,12 +882,12 @@ const completion = await openRouter.chat.send({
 ```
 
 ```typescript title="TypeScript (fetch)" lines
-fetch('https://openrouter.ai/api/v1/chat/completions', {
+fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+    'Authorization': 'Bearer <KENH_AI_API_KEY>',
     'HTTP-Referer': '<YOUR_SITE_URL>',
-    'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+    'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -904,13 +904,13 @@ fetch('https://openrouter.ai/api/v1/chat/completions', {
 import requests
 
 headers = {
-  'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+  'Authorization': 'Bearer <KENH_AI_API_KEY>',
   'HTTP-Referer': '<YOUR_SITE_URL>',
-  'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+  'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
   'Content-Type': 'application/json',
 }
 
-response = requests.post('https://openrouter.ai/api/v1/chat/completions', headers=headers, json={
+response = requests.post('https://kenh-ai.com/api/v1/chat/completions', headers=headers, json={
   'model': 'mistralai/mixtral-8x7b-instruct',
   'messages': [{ 'role': 'user', 'content': 'Hello' }],
   'provider': {
@@ -928,13 +928,13 @@ Here's an example with `allow_fallbacks` set to `false` that skips over OpenAI (
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const kenhAi = new KenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
-const completion = await openRouter.chat.send({
+const completion = await kenhAi.chat.send({
   model: 'mistralai/mixtral-8x7b-instruct',
   messages: [{ role: 'user', content: 'Hello' }],
   provider: {
@@ -946,12 +946,12 @@ const completion = await openRouter.chat.send({
 ```
 
 ```typescript title="TypeScript (fetch)" lines
-fetch('https://openrouter.ai/api/v1/chat/completions', {
+fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+    'Authorization': 'Bearer <KENH_AI_API_KEY>',
     'HTTP-Referer': '<YOUR_SITE_URL>',
-    'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+    'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -969,13 +969,13 @@ fetch('https://openrouter.ai/api/v1/chat/completions', {
 import requests
 
 headers = {
-  'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+  'Authorization': 'Bearer <KENH_AI_API_KEY>',
   'HTTP-Referer': '<YOUR_SITE_URL>',
-  'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+  'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
   'Content-Type': 'application/json',
 }
 
-response = requests.post('https://openrouter.ai/api/v1/chat/completions', headers=headers, json={
+response = requests.post('https://kenh-ai.com/api/v1/chat/completions', headers=headers, json={
   'model': 'mistralai/mixtral-8x7b-instruct',
   'messages': [{ 'role': 'user', 'content': 'Hello' }],
   'provider': {
@@ -989,7 +989,7 @@ response = requests.post('https://openrouter.ai/api/v1/chat/completions', header
 
 ## Targeting Specific Provider Endpoints
 
-Each provider on OpenRouter may host multiple endpoints for the same model, such as a default endpoint and a specialized "turbo" endpoint, or region-specific endpoints like `google-vertex/us-east5`. To target a specific endpoint, you can use the copy button next to the provider name on the model detail page to obtain the exact provider slug.
+Each provider on kenh-ai may host multiple endpoints for the same model, such as a default endpoint and a specialized "turbo" endpoint, or region-specific endpoints like `google-vertex/us-east5`. To target a specific endpoint, you can use the copy button next to the provider name on the model detail page to obtain the exact provider slug.
 
 ### Base Slug Matching
 
@@ -1015,13 +1015,13 @@ By copying the exact provider slug and using it in your request's `order` array,
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const kenhAi = new KenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
-const completion = await openRouter.chat.send({
+const completion = await kenhAi.chat.send({
   model: 'deepseek/deepseek-r1',
   messages: [{ role: 'user', content: 'Hello' }],
   provider: {
@@ -1033,12 +1033,12 @@ const completion = await openRouter.chat.send({
 ```
 
 ```typescript title="TypeScript (fetch)" lines
-fetch('https://openrouter.ai/api/v1/chat/completions', {
+fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+    'Authorization': 'Bearer <KENH_AI_API_KEY>',
     'HTTP-Referer': '<YOUR_SITE_URL>',
-    'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+    'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -1056,13 +1056,13 @@ fetch('https://openrouter.ai/api/v1/chat/completions', {
 import requests
 
 headers = {
-  'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+  'Authorization': 'Bearer <KENH_AI_API_KEY>',
   'HTTP-Referer': '<YOUR_SITE_URL>',
-  'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+  'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
   'Content-Type': 'application/json',
 }
 
-response = requests.post('https://openrouter.ai/api/v1/chat/completions', headers=headers, json={
+response = requests.post('https://kenh-ai.com/api/v1/chat/completions', headers=headers, json={
   'model': 'deepseek/deepseek-r1',
   'messages': [{ 'role': 'user', 'content': 'Hello' }],
   'provider': {
@@ -1097,13 +1097,13 @@ For example, to only use providers that support JSON formatting:
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const kenhAi = new KenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
-const completion = await openRouter.chat.send({
+const completion = await kenhAi.chat.send({
   messages: [{ role: 'user', content: 'Hello' }],
   provider: {
     requireParameters: true,
@@ -1114,12 +1114,12 @@ const completion = await openRouter.chat.send({
 ```
 
 ```typescript title="TypeScript (fetch)" lines
-fetch('https://openrouter.ai/api/v1/chat/completions', {
+fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+    'Authorization': 'Bearer <KENH_AI_API_KEY>',
     'HTTP-Referer': '<YOUR_SITE_URL>',
-    'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+    'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -1136,13 +1136,13 @@ fetch('https://openrouter.ai/api/v1/chat/completions', {
 import requests
 
 headers = {
-  'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+  'Authorization': 'Bearer <KENH_AI_API_KEY>',
   'HTTP-Referer': '<YOUR_SITE_URL>',
-  'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+  'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
   'Content-Type': 'application/json',
 }
 
-response = requests.post('https://openrouter.ai/api/v1/chat/completions', headers=headers, json={
+response = requests.post('https://kenh-ai.com/api/v1/chat/completions', headers=headers, json={
   'messages': [{ 'role': 'user', 'content': 'Hello' }],
   'provider': {
     'require_parameters': True,
@@ -1170,7 +1170,7 @@ Some model providers may log prompts, so we display them with a **Data Policy** 
 **Account-Wide Data Policy Filtering**
 
   This is also available as an account-wide setting in [your privacy
-  settings](https://openrouter.ai/settings/privacy). You can disable third party
+  settings](https://kenh-ai.com/settings/privacy). You can disable third party
   model providers that store inputs for training.
 </Tip>
 
@@ -1181,13 +1181,13 @@ To exclude providers that don't comply with your data policies, set `data_collec
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const kenhAi = new KenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
-const completion = await openRouter.chat.send({
+const completion = await kenhAi.chat.send({
   messages: [{ role: 'user', content: 'Hello' }],
   provider: {
     dataCollection: 'deny', // or "allow"
@@ -1197,12 +1197,12 @@ const completion = await openRouter.chat.send({
 ```
 
 ```typescript title="TypeScript (fetch)" lines
-fetch('https://openrouter.ai/api/v1/chat/completions', {
+fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+    'Authorization': 'Bearer <KENH_AI_API_KEY>',
     'HTTP-Referer': '<YOUR_SITE_URL>',
-    'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+    'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -1218,13 +1218,13 @@ fetch('https://openrouter.ai/api/v1/chat/completions', {
 import requests
 
 headers = {
-  'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+  'Authorization': 'Bearer <KENH_AI_API_KEY>',
   'HTTP-Referer': '<YOUR_SITE_URL>',
-  'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+  'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
   'Content-Type': 'application/json',
 }
 
-response = requests.post('https://openrouter.ai/api/v1/chat/completions', headers=headers, json={
+response = requests.post('https://kenh-ai.com/api/v1/chat/completions', headers=headers, json={
   'messages': [{ 'role': 'user', 'content': 'Hello' }],
   'provider': {
     'data_collection': 'deny', # or "allow"
@@ -1247,7 +1247,7 @@ When `zdr` is set to `true`, the request will only be routed to endpoints that h
 <Tip>
 **Per-Model-Group and Account-Wide ZDR**
 
-  ZDR can also be enforced per model group (Anthropic, OpenAI, Google, and non-frontier) in your [privacy settings](https://openrouter.ai/settings/privacy) or via [guardrails](/guides/features/guardrails). The per-request `zdr` parameter
+  ZDR can also be enforced per model group (Anthropic, OpenAI, Google, and non-frontier) in your [privacy settings](https://kenh-ai.com/settings/privacy) or via [guardrails](/guides/features/guardrails). The per-request `zdr` parameter
   operates as an "OR" with your account-wide and guardrail ZDR settings — if any of them is enabled, ZDR enforcement is applied. The request-level parameter can only ensure ZDR is enabled, not override account-wide or guardrail enforcement. See [Zero Data Retention](/guides/features/zdr#per-model-group-zdr-enforcement) for details.
 </Tip>
 
@@ -1258,13 +1258,13 @@ To ensure a request only uses ZDR endpoints, set `zdr` to `true`:
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const kenhAi = new KenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
-const completion = await openRouter.chat.send({
+const completion = await kenhAi.chat.send({
   model: 'gpt-4',
   messages: [{ role: 'user', content: 'Hello' }],
   provider: {
@@ -1275,12 +1275,12 @@ const completion = await openRouter.chat.send({
 ```
 
 ```typescript title="TypeScript (fetch)" lines
-fetch('https://openrouter.ai/api/v1/chat/completions', {
+fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+    'Authorization': 'Bearer <KENH_AI_API_KEY>',
     'HTTP-Referer': '<YOUR_SITE_URL>',
-    'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+    'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -1297,13 +1297,13 @@ fetch('https://openrouter.ai/api/v1/chat/completions', {
 import requests
 
 headers = {
-  'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+  'Authorization': 'Bearer <KENH_AI_API_KEY>',
   'HTTP-Referer': '<YOUR_SITE_URL>',
-  'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+  'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
   'Content-Type': 'application/json',
 }
 
-response = requests.post('https://openrouter.ai/api/v1/chat/completions', headers=headers, json={
+response = requests.post('https://kenh-ai.com/api/v1/chat/completions', headers=headers, json={
   'model': 'gpt-4',
   'messages': [{ 'role': 'user', 'content': 'Hello' }],
   'provider': {
@@ -1335,13 +1335,13 @@ To ensure a request only uses models that allow text distillation, set `enforce_
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const kenhAi = new KenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
-const completion = await openRouter.chat.send({
+const completion = await kenhAi.chat.send({
   model: 'meta-llama/llama-3.3-70b-instruct',
   messages: [{ role: 'user', content: 'Hello' }],
   provider: {
@@ -1352,12 +1352,12 @@ const completion = await openRouter.chat.send({
 ```
 
 ```typescript title="TypeScript (fetch)" lines
-fetch('https://openrouter.ai/api/v1/chat/completions', {
+fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+    'Authorization': 'Bearer <KENH_AI_API_KEY>',
     'HTTP-Referer': '<YOUR_SITE_URL>',
-    'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+    'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -1374,13 +1374,13 @@ fetch('https://openrouter.ai/api/v1/chat/completions', {
 import requests
 
 headers = {
-  'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+  'Authorization': 'Bearer <KENH_AI_API_KEY>',
   'HTTP-Referer': '<YOUR_SITE_URL>',
-  'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+  'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
   'Content-Type': 'application/json',
 }
 
-response = requests.post('https://openrouter.ai/api/v1/chat/completions', headers=headers, json={
+response = requests.post('https://kenh-ai.com/api/v1/chat/completions', headers=headers, json={
   'model': 'meta-llama/llama-3.3-70b-instruct',
   'messages': [{ 'role': 'user', 'content': 'Hello' }],
   'provider': {
@@ -1395,18 +1395,18 @@ response = requests.post('https://openrouter.ai/api/v1/chat/completions', header
 
 To guarantee that your request is only served by the top (lowest-cost) provider, you can disable fallbacks.
 
-This is combined with the `order` field from [Ordering Specific Providers](#ordering-specific-providers) to restrict the providers that OpenRouter will prioritize to just your chosen list.
+This is combined with the `order` field from [Ordering Specific Providers](#ordering-specific-providers) to restrict the providers that kenh-ai will prioritize to just your chosen list.
 
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const kenhAi = new KenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
-const completion = await openRouter.chat.send({
+const completion = await kenhAi.chat.send({
   messages: [{ role: 'user', content: 'Hello' }],
   provider: {
     allowFallbacks: false,
@@ -1416,12 +1416,12 @@ const completion = await openRouter.chat.send({
 ```
 
 ```typescript title="TypeScript (fetch)" lines
-fetch('https://openrouter.ai/api/v1/chat/completions', {
+fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+    'Authorization': 'Bearer <KENH_AI_API_KEY>',
     'HTTP-Referer': '<YOUR_SITE_URL>',
-    'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+    'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -1437,13 +1437,13 @@ fetch('https://openrouter.ai/api/v1/chat/completions', {
 import requests
 
 headers = {
-  'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+  'Authorization': 'Bearer <KENH_AI_API_KEY>',
   'HTTP-Referer': '<YOUR_SITE_URL>',
-  'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+  'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
   'Content-Type': 'application/json',
 }
 
-response = requests.post('https://openrouter.ai/api/v1/chat/completions', headers=headers, json={
+response = requests.post('https://kenh-ai.com/api/v1/chat/completions', headers=headers, json={
   'messages': [{ 'role': 'user', 'content': 'Hello' }],
   'provider': {
     'allow_fallbacks': False,
@@ -1469,7 +1469,7 @@ You can allow only specific providers for a request by setting the `only` field 
 <Tip>
 **Account-Wide Allowed Providers**
 
-    You can allow providers for all account requests in your [privacy settings](https://openrouter.ai/settings/privacy). This configuration applies to all API requests and chatroom messages.
+    You can allow providers for all account requests in your [privacy settings](https://kenh-ai.com/settings/privacy). This configuration applies to all API requests and chatroom messages.
 
     Note that when you allow providers for a specific request, the list of allowed providers is merged with your account-wide allowed providers.
 
@@ -1483,13 +1483,13 @@ Here's an example that will only use Azure for a request calling GPT-4 Omni:
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const kenhAi = new KenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
-const completion = await openRouter.chat.send({
+const completion = await kenhAi.chat.send({
   model: 'openai/gpt-5-mini',
   messages: [{ role: 'user', content: 'Hello' }],
   provider: {
@@ -1500,12 +1500,12 @@ const completion = await openRouter.chat.send({
 ```
 
 ```typescript title="TypeScript (fetch)" lines
-fetch('https://openrouter.ai/api/v1/chat/completions', {
+fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+    'Authorization': 'Bearer <KENH_AI_API_KEY>',
     'HTTP-Referer': '<YOUR_SITE_URL>',
-    'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+    'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -1522,13 +1522,13 @@ fetch('https://openrouter.ai/api/v1/chat/completions', {
 import requests
 
 headers = {
-  'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+  'Authorization': 'Bearer <KENH_AI_API_KEY>',
   'HTTP-Referer': '<YOUR_SITE_URL>',
-  'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+  'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
   'Content-Type': 'application/json',
 }
 
-response = requests.post('https://openrouter.ai/api/v1/chat/completions', headers=headers, json={
+response = requests.post('https://kenh-ai.com/api/v1/chat/completions', headers=headers, json={
   'model': 'openai/gpt-5-mini',
   'messages': [{ 'role': 'user', 'content': 'Hello' }],
   'provider': {
@@ -1555,7 +1555,7 @@ You can ignore providers for a request by setting the `ignore` field in the `pro
 <Tip>
 **Account-Wide Ignored Providers**
 
-You can ignore providers for all account requests in your [privacy settings](https://openrouter.ai/settings/privacy). This configuration applies to all API requests and chatroom messages.
+You can ignore providers for all account requests in your [privacy settings](https://kenh-ai.com/settings/privacy). This configuration applies to all API requests and chatroom messages.
 
 Note that when you ignore providers for a specific request, the list of ignored providers is merged with your account-wide ignored providers.
 
@@ -1568,13 +1568,13 @@ Here's an example that will ignore DeepInfra for a request calling Llama 3.3 70b
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const kenhAi = new KenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
-const completion = await openRouter.chat.send({
+const completion = await kenhAi.chat.send({
   model: 'meta-llama/llama-3.3-70b-instruct',
   messages: [{ role: 'user', content: 'Hello' }],
   provider: {
@@ -1585,12 +1585,12 @@ const completion = await openRouter.chat.send({
 ```
 
 ```typescript title="TypeScript (fetch)" lines
-fetch('https://openrouter.ai/api/v1/chat/completions', {
+fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+    'Authorization': 'Bearer <KENH_AI_API_KEY>',
     'HTTP-Referer': '<YOUR_SITE_URL>',
-    'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+    'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -1607,13 +1607,13 @@ fetch('https://openrouter.ai/api/v1/chat/completions', {
 import requests
 
 headers = {
-  'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+  'Authorization': 'Bearer <KENH_AI_API_KEY>',
   'HTTP-Referer': '<YOUR_SITE_URL>',
-  'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+  'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
   'Content-Type': 'application/json',
 }
 
-response = requests.post('https://openrouter.ai/api/v1/chat/completions', headers=headers, json={
+response = requests.post('https://kenh-ai.com/api/v1/chat/completions', headers=headers, json={
   'model': 'meta-llama/llama-3.3-70b-instruct',
   'messages': [{ 'role': 'user', 'content': 'Hello' }],
   'provider': {
@@ -1652,13 +1652,13 @@ Here's an example that will only use providers that support FP8 quantization:
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const kenhAi = new KenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
-const completion = await openRouter.chat.send({
+const completion = await kenhAi.chat.send({
   model: 'meta-llama/llama-3.1-8b-instruct',
   messages: [{ role: 'user', content: 'Hello' }],
   provider: {
@@ -1669,12 +1669,12 @@ const completion = await openRouter.chat.send({
 ```
 
 ```typescript title="TypeScript (fetch)" lines
-fetch('https://openrouter.ai/api/v1/chat/completions', {
+fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+    'Authorization': 'Bearer <KENH_AI_API_KEY>',
     'HTTP-Referer': '<YOUR_SITE_URL>',
-    'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+    'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -1691,13 +1691,13 @@ fetch('https://openrouter.ai/api/v1/chat/completions', {
 import requests
 
 headers = {
-  'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+  'Authorization': 'Bearer <KENH_AI_API_KEY>',
   'HTTP-Referer': '<YOUR_SITE_URL>',
-  'X-OpenRouter-Title': '<YOUR_SITE_NAME>',
+  'X-kenh-ai-Title': '<YOUR_SITE_NAME>',
   'Content-Type': 'application/json',
 }
 
-response = requests.post('https://openrouter.ai/api/v1/chat/completions', headers=headers, json={
+response = requests.post('https://kenh-ai.com/api/v1/chat/completions', headers=headers, json={
   'model': 'meta-llama/llama-3.1-8b-instruct',
   'messages': [{ 'role': 'user', 'content': 'Hello' }],
   'provider': {
@@ -1721,11 +1721,11 @@ Practically, this field is often combined with a provider `sort` to express, for
 
 ## Provider-Specific Headers
 
-Some providers support beta features that can be enabled through special headers. OpenRouter allows you to pass through certain provider-specific beta headers when making requests.
+Some providers support beta features that can be enabled through special headers. kenh-ai allows you to pass through certain provider-specific beta headers when making requests.
 
 ### Anthropic Beta Features
 
-When using Anthropic models (Claude), you can request specific beta features by including the `x-anthropic-beta` header in your request. OpenRouter will pass through supported beta features to Anthropic.
+When using Anthropic models (Claude), you can request specific beta features by including the `x-anthropic-beta` header in your request. kenh-ai will pass through supported beta features to Anthropic.
 
 #### Supported Beta Features
 
@@ -1736,11 +1736,11 @@ When using Anthropic models (Claude), you can request specific beta features by 
 | Structured Outputs | `structured-outputs-2025-11-13` | Enables the strict tool use feature for supported Claude models, validating tool parameters against your schema to ensure correctly-typed arguments |
 
 <Note>
-  OpenRouter manages some Anthropic beta features automatically:
+  kenh-ai manages some Anthropic beta features automatically:
   - **Prompt caching and extended context** are enabled based on model capabilities
   - **Structured outputs for JSON schema response format** (`response_format.type: "json_schema"`) - the header is automatically applied
 
-  For **strict tool use** (`strict: true` on tools), you must explicitly pass the `structured-outputs-2025-11-13` header. Without this header, OpenRouter will strip the `strict` field and route normally.
+  For **strict tool use** (`strict: true` on tools), you must explicitly pass the `structured-outputs-2025-11-13` header. Without this header, kenh-ai will strip the `strict` field and route normally.
 </Note>
 
 #### Example: Enabling Fine-Grained Tool Streaming
@@ -1748,13 +1748,13 @@ When using Anthropic models (Claude), you can request specific beta features by 
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" expandable lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const kenhAi = new KenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
-const completion = await openRouter.chat.send(
+const completion = await kenhAi.chat.send(
   {
     model: 'anthropic/claude-sonnet-4.5',
     messages: [{ role: 'user', content: 'What is the weather in Tokyo?' }],
@@ -1785,10 +1785,10 @@ const completion = await openRouter.chat.send(
 ```
 
 ```typescript title="TypeScript (fetch)" expandable lines
-fetch('https://openrouter.ai/api/v1/chat/completions', {
+fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+    'Authorization': 'Bearer <KENH_AI_API_KEY>',
     'Content-Type': 'application/json',
     'x-anthropic-beta': 'fine-grained-tool-streaming-2025-05-14',
   },
@@ -1820,12 +1820,12 @@ fetch('https://openrouter.ai/api/v1/chat/completions', {
 import requests
 
 headers = {
-  'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+  'Authorization': 'Bearer <KENH_AI_API_KEY>',
   'Content-Type': 'application/json',
   'x-anthropic-beta': 'fine-grained-tool-streaming-2025-05-14',
 }
 
-response = requests.post('https://openrouter.ai/api/v1/chat/completions', headers=headers, json={
+response = requests.post('https://kenh-ai.com/api/v1/chat/completions', headers=headers, json={
   'model': 'anthropic/claude-sonnet-4.5',
   'messages': [{ 'role': 'user', 'content': 'What is the weather in Tokyo?' }],
   'tools': [
@@ -1855,13 +1855,13 @@ response = requests.post('https://openrouter.ai/api/v1/chat/completions', header
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const kenhAi = new KenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
-const completion = await openRouter.chat.send(
+const completion = await kenhAi.chat.send(
   {
     model: 'anthropic/claude-sonnet-4.5',
     messages: [{ role: 'user', content: 'Solve this step by step: What is 15% of 240?' }],
@@ -1876,10 +1876,10 @@ const completion = await openRouter.chat.send(
 ```
 
 ```typescript title="TypeScript (fetch)" lines
-fetch('https://openrouter.ai/api/v1/chat/completions', {
+fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+    'Authorization': 'Bearer <KENH_AI_API_KEY>',
     'Content-Type': 'application/json',
     'x-anthropic-beta': 'interleaved-thinking-2025-05-14',
   },
@@ -1895,12 +1895,12 @@ fetch('https://openrouter.ai/api/v1/chat/completions', {
 import requests
 
 headers = {
-  'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+  'Authorization': 'Bearer <KENH_AI_API_KEY>',
   'Content-Type': 'application/json',
   'x-anthropic-beta': 'interleaved-thinking-2025-05-14',
 }
 
-response = requests.post('https://openrouter.ai/api/v1/chat/completions', headers=headers, json={
+response = requests.post('https://kenh-ai.com/api/v1/chat/completions', headers=headers, json={
   'model': 'anthropic/claude-sonnet-4.5',
   'messages': [{ 'role': 'user', 'content': 'Solve this step by step: What is 15% of 240?' }],
   'stream': True,
@@ -1923,7 +1923,7 @@ x-anthropic-beta: fine-grained-tool-streaming-2025-05-14,interleaved-thinking-20
 
 ## Terms of Service
 
-You can view the terms of service for each provider below. You may not violate the terms of service or policies of third-party providers that power the models on OpenRouter.
+You can view the terms of service for each provider below. You may not violate the terms of service or policies of third-party providers that power the models on kenh-ai.
 
 {/* <TermsOfServiceDescriptions /> */}
 

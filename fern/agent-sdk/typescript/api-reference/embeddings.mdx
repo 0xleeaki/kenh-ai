@@ -2,15 +2,15 @@
 title: Embeddings - TypeScript SDK
 sidebarTitle: Embeddings
 description: Embeddings method reference
-seoTitle: Embeddings | OpenRouter TypeScript SDK
-canonicalUrl: 'https://openrouter.ai/docs/agent-sdks/typescript/api-reference/embeddings'
-'og:site_name': OpenRouter Documentation
-'og:title': Embeddings | OpenRouter TypeScript SDK
+seoTitle: Embeddings | kenh-ai TypeScript SDK
+canonicalUrl: 'https://kenh-ai.com/docs/agent-sdks/typescript/api-reference/embeddings'
+'og:site_name': kenh-ai Documentation
+'og:title': Embeddings | kenh-ai TypeScript SDK
 'og:description': >-
-  Embeddings method documentation for the OpenRouter TypeScript SDK. Learn how
+  Embeddings method documentation for the kenh-ai TypeScript SDK. Learn how
   to use this API endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=Embeddings%20-%20TypeScript%20SDK&description=Embeddings%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=Embeddings%20-%20TypeScript%20SDK&description=Embeddings%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -44,17 +44,17 @@ Submits an embedding request to the embeddings router
 
 {/* UsageSnippet language="typescript" operationID="createEmbeddings" method="post" path="/embeddings" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.embeddings.generate({
+  const result = await kenhAi.embeddings.generate({
     requestBody: {
       input: "The quick brown fox jumps over the lazy dog",
       model: "openai/text-embedding-3-small",
@@ -72,20 +72,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { embeddingsGenerate } from "@openrouter/sdk/funcs/embeddingsGenerate.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { embeddingsGenerate } from "@kenh-ai/sdk/funcs/embeddingsGenerate.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await embeddingsGenerate(openRouter, {
+  const res = await embeddingsGenerate(kenhAi, {
     requestBody: {
       input: "The quick brown fox jumps over the lazy dog",
       model: "openai/text-embedding-3-small",
@@ -139,17 +139,17 @@ Returns a list of all available embeddings models and their properties
 
 {/* UsageSnippet language="typescript" operationID="listEmbeddingsModels" method="get" path="/embeddings/models" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.embeddings.listModels();
+  const result = await kenhAi.embeddings.listModels();
 
   console.log(result);
 }
@@ -162,20 +162,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { embeddingsListModels } from "@openrouter/sdk/funcs/embeddingsListModels.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { embeddingsListModels } from "@kenh-ai/sdk/funcs/embeddingsListModels.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await embeddingsListModels(openRouter);
+  const res = await embeddingsListModels(kenhAi);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);

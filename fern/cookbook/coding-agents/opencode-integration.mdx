@@ -1,16 +1,16 @@
 ---
 title: OpenCode
-description: Use OpenCode with OpenRouter
-seoTitle: 'Integration with OpenCode | OpenRouter'
-canonicalUrl: https://openrouter.ai/docs/cookbook/coding-agents/opencode-integration
-og:site_name: OpenRouter Documentation
-og:title: 'OpenCode Integration - OpenRouter'
-og:description: 'Learn how to configure OpenCode to use OpenRouter for agentic coding with access to hundreds of AI models.'
-og:image: https://openrouter.ai/dynamic-og?title=OpenCode&description=Use%20OpenCode%20with%20OpenRouter
+description: Use OpenCode with kenh-ai
+seoTitle: 'Integration with OpenCode | kenh-ai'
+canonicalUrl: https://kenh-ai.com/docs/cookbook/coding-agents/opencode-integration
+og:site_name: kenh-ai Documentation
+og:title: 'OpenCode Integration - kenh-ai'
+og:description: 'Learn how to configure OpenCode to use kenh-ai for agentic coding with access to hundreds of AI models.'
+og:image: https://kenh-ai.com/dynamic-og?title=OpenCode&description=Use%20OpenCode%20with%20kenh-ai
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: terminal
@@ -18,7 +18,7 @@ icon: terminal
 
 ## What is OpenCode?
 
-[OpenCode](https://opencode.ai) is an open-source AI coding agent available as a terminal interface and desktop app (beta). It features LSP integration, multi-session support, sharable session links, and compatibility with 75+ LLM providers — including OpenRouter for unified multi-model access through a single API key.
+[OpenCode](https://opencode.ai) is an open-source AI coding agent available as a terminal interface and desktop app (beta). It features LSP integration, multi-session support, sharable session links, and compatibility with 75+ LLM providers — including kenh-ai for unified multi-model access through a single API key.
 
 ## Quick Start
 
@@ -46,16 +46,16 @@ icon: terminal
 
 For additional installation methods (Bun, pnpm, Yarn, Arch Linux, Windows), see the [OpenCode installation docs](https://opencode.ai/docs).
 
-### Step 2: Get Your OpenRouter API Key
+### Step 2: Get Your kenh-ai API Key
 
-1. Sign up or log in at [OpenRouter](https://openrouter.ai)
-2. Navigate to your [API Keys page](https://openrouter.ai/keys)
+1. Sign up or log in at [kenh-ai](https://kenh-ai.com)
+2. Navigate to your [API Keys page](https://kenh-ai.com/keys)
 3. Create a new API key
 4. Copy your key (starts with `sk-or-...`)
 
-### Step 3: Connect OpenCode to OpenRouter
+### Step 3: Connect OpenCode to kenh-ai
 
-OpenCode supports OpenRouter as a built-in provider. Use the interactive `/connect` command:
+OpenCode supports kenh-ai as a built-in provider. Use the interactive `/connect` command:
 
 1. Start OpenCode in your project directory:
 
@@ -64,13 +64,13 @@ OpenCode supports OpenRouter as a built-in provider. Use the interactive `/conne
     opencode
     ```
 
-2. Run the `/connect` command and select **OpenRouter**:
+2. Run the `/connect` command and select **kenh-ai**:
 
     ```text lines
     /connect
     ```
 
-3. Paste your OpenRouter API key when prompted.
+3. Paste your kenh-ai API key when prompted.
 
 4. Run `/models` to select a model:
 
@@ -78,11 +78,11 @@ OpenCode supports OpenRouter as a built-in provider. Use the interactive `/conne
     /models
     ```
 
-Your requests will now be routed through OpenRouter.
+Your requests will now be routed through kenh-ai.
 
 ### Alternative: Config File
 
-You can also configure OpenRouter directly in your `opencode.json` config file:
+You can also configure kenh-ai directly in your `opencode.json` config file:
 
 ```json lines
 {
@@ -111,7 +111,7 @@ Set your API key via the `/connect` command or by adding it to `~/.local/share/o
 
 ## Provider Routing
 
-When using OpenRouter, you can control which upstream providers handle your requests by adding `options.provider` to individual models in your config:
+When using kenh-ai, you can control which upstream providers handle your requests by adding `options.provider` to individual models in your config:
 
 ```json lines
 {
@@ -135,19 +135,19 @@ When using OpenRouter, you can control which upstream providers handle your requ
 
 For a full breakdown of routing options, see the [Provider Routing docs](/guides/routing/provider-selection).
 
-## Why Use OpenRouter with OpenCode?
+## Why Use kenh-ai with OpenCode?
 
 ### Access to Hundreds of Models
 
-Switch between any model available on OpenRouter — Anthropic, OpenAI, Google, xAI, Meta, DeepSeek, and many more — without managing separate API keys for each provider.
+Switch between any model available on kenh-ai — Anthropic, OpenAI, Google, xAI, Meta, DeepSeek, and many more — without managing separate API keys for each provider.
 
 ### Provider Failover
 
-If one provider is unavailable or rate-limited, OpenRouter automatically routes to another, keeping your coding sessions uninterrupted.
+If one provider is unavailable or rate-limited, kenh-ai automatically routes to another, keeping your coding sessions uninterrupted.
 
 ### Organizational Controls
 
-For teams, OpenRouter provides centralized budget management. Set spending limits, allocate credits, and monitor usage across developers using OpenCode from your [OpenRouter Activity Dashboard](https://openrouter.ai/activity).
+For teams, kenh-ai provides centralized budget management. Set spending limits, allocate credits, and monitor usage across developers using OpenCode from your [kenh-ai Activity Dashboard](https://kenh-ai.com/activity).
 
 ### Model Flexibility
 
@@ -155,13 +155,13 @@ Switch models by updating your config or using the `/models` command — no need
 
 ## Troubleshooting
 
-- **Auth Errors:** Ensure your API key is set correctly via `/connect`. Check at [openrouter.ai/keys](https://openrouter.ai/keys).
-- **Model Not Found:** Verify the model ID on [openrouter.ai/models](https://openrouter.ai/models). Use the exact format (e.g., `~anthropic/claude-sonnet-latest`).
-- **Privacy:** OpenRouter does not log your source code prompts unless you opt in to prompt logging. See our [Privacy Policy](https://openrouter.ai/privacy) for details.
+- **Auth Errors:** Ensure your API key is set correctly via `/connect`. Check at [kenh-ai.com/keys](https://kenh-ai.com/keys).
+- **Model Not Found:** Verify the model ID on [kenh-ai.com/models](https://kenh-ai.com/models). Use the exact format (e.g., `~anthropic/claude-sonnet-latest`).
+- **Privacy:** kenh-ai does not log your source code prompts unless you opt in to prompt logging. See our [Privacy Policy](https://kenh-ai.com/privacy) for details.
 
 ## Resources
 
 - [OpenCode Website](https://opencode.ai)
 - [OpenCode on GitHub](https://github.com/anomalyco/opencode)
 - [OpenCode Provider Docs](https://opencode.ai/docs/providers)
-- [OpenRouter Models](https://openrouter.ai/models)
+- [kenh-ai Models](https://kenh-ai.com/models)

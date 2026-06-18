@@ -1,30 +1,30 @@
 ---
 title: API Reference
-description: An overview of OpenRouter's API
-seoTitle: 'OpenRouter API Reference | Complete API Documentation'
-canonicalUrl: https://openrouter.ai/docs/api/reference/overview
-og:site_name: OpenRouter Documentation
-og:title: 'OpenRouter API Reference - Complete Documentation'
-og:description: "Comprehensive guide to OpenRouter's API. Learn about request/response schemas, authentication, parameters, and integration with multiple AI model providers."
-og:image: https://openrouter.ai/dynamic-og?title=OpenRouter%20API%20Reference&description=Comprehensive%20guide%20to%20OpenRouter's%20API.
+description: An overview of kenh-ai's API
+seoTitle: 'kenh-ai API Reference | Complete API Documentation'
+canonicalUrl: https://kenh-ai.com/docs/api/reference/overview
+og:site_name: kenh-ai Documentation
+og:title: 'kenh-ai API Reference - Complete Documentation'
+og:description: "Comprehensive guide to kenh-ai's API. Learn about request/response schemas, authentication, parameters, and integration with multiple AI model providers."
+og:image: https://kenh-ai.com/dynamic-og?title=kenh-ai%20API%20Reference&description=Comprehensive%20guide%20to%20kenh-ai's%20API.
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: book-open
 sidebarTitle: Overview
 ---
 
-OpenRouter's request and response schemas are very similar to the OpenAI Chat API, with a few small differences. At a high level, **OpenRouter normalizes the schema across models and providers** so you only need to learn one.
+kenh-ai's request and response schemas are very similar to the OpenAI Chat API, with a few small differences. At a high level, **kenh-ai normalizes the schema across models and providers** so you only need to learn one.
 
 ## OpenAPI Specification
 
-The complete OpenRouter API is documented using the OpenAPI specification. You can access the specification in either YAML or JSON format:
+The complete kenh-ai API is documented using the OpenAPI specification. You can access the specification in either YAML or JSON format:
 
-- **YAML**: [https://openrouter.ai/openapi.yaml](https://openrouter.ai/openapi.yaml)
-- **JSON**: [https://openrouter.ai/openapi.json](https://openrouter.ai/openapi.json)
+- **YAML**: [https://kenh-ai.com/openapi.yaml](https://kenh-ai.com/openapi.yaml)
+- **JSON**: [https://kenh-ai.com/openapi.json](https://kenh-ai.com/openapi.json)
 
 These specifications can be used with tools like [Swagger UI](https://swagger.io/tools/swagger-ui/), [Postman](https://www.postman.com/), or any OpenAPI-compatible code generator to explore the API or generate client libraries.
 
@@ -56,10 +56,10 @@ type Request = {
   stream?: boolean; // Enable streaming
 
   // Plugins to extend model capabilities (PDF parsing, response healing)
-  // See "Plugins" section: openrouter.ai/docs/guides/features/plugins
+  // See "Plugins" section: kenh-ai.com/docs/guides/features/plugins
   plugins?: Plugin[];
 
-  // See LLM Parameters (openrouter.ai/docs/api/reference/parameters)
+  // See LLM Parameters (kenh-ai.com/docs/api/reference/parameters)
   max_tokens?: number; // Range: [1, context_length)
   temperature?: number; // Range: [0, 2]
 
@@ -67,7 +67,7 @@ type Request = {
   // Will be passed down as-is for providers implementing OpenAI's interface.
   // For providers with custom interfaces, we transform and map the properties.
   // Otherwise, we transform the tools into a YAML template. The model responds with an assistant message.
-  // See models supporting tool calling: openrouter.ai/models?supported_parameters=tools
+  // See models supporting tool calling: kenh-ai.com/models?supported_parameters=tools
   tools?: Tool[];
   tool_choice?: ToolChoice;
 
@@ -87,11 +87,11 @@ type Request = {
   // https://platform.openai.com/docs/guides/latency-optimization#use-predicted-outputs
   prediction?: { type: 'content'; content: string };
 
-  // OpenRouter-only parameters
-  // See "Model Routing" section: openrouter.ai/docs/guides/features/model-routing
+  // kenh-ai-only parameters
+  // See "Model Routing" section: kenh-ai.com/docs/guides/features/model-routing
   models?: string[];
   route?: 'fallback';
-  // See "Provider Routing" section: openrouter.ai/docs/guides/routing/provider-selection
+  // See "Provider Routing" section: kenh-ai.com/docs/guides/routing/provider-selection
   provider?: ProviderPreferences;
   user?: string; // A stable identifier for your end-users. Used to help detect and prevent abuse.
 
@@ -180,16 +180,16 @@ type Plugin = {
 
 ### Structured Outputs
 
-The `response_format` parameter allows you to enforce structured JSON responses from the model. OpenRouter supports two modes:
+The `response_format` parameter allows you to enforce structured JSON responses from the model. kenh-ai supports two modes:
 
 - `{ type: 'json_object' }`: Basic JSON mode - the model will return valid JSON
 - `{ type: 'json_schema', json_schema: { ... } }`: Strict schema mode - the model will return JSON matching your exact schema
 
-For detailed usage and examples, see [Structured Outputs](/guides/features/structured-outputs). To find models that support structured outputs, check the [models page](https://openrouter.ai/models?supported_parameters=structured_outputs).
+For detailed usage and examples, see [Structured Outputs](/guides/features/structured-outputs). To find models that support structured outputs, check the [models page](https://kenh-ai.com/models?supported_parameters=structured_outputs).
 
 ### Plugins
 
-OpenRouter plugins extend model capabilities with features like web search, PDF processing, response healing, and context compression. Enable plugins by adding a `plugins` array to your request:
+kenh-ai plugins extend model capabilities with features like web search, PDF processing, response healing, and context compression. Enable plugins by adding a `plugins` array to your request:
 
 ```json lines
 {
@@ -204,21 +204,21 @@ Available plugins include `web` (real-time web search), `file-parser` (PDF proce
 
 ### Headers
 
-OpenRouter allows you to specify some optional headers to identify your app and make it discoverable to users on our site.
+kenh-ai allows you to specify some optional headers to identify your app and make it discoverable to users on our site.
 
-- `HTTP-Referer`: Identifies your app on openrouter.ai
-- `X-OpenRouter-Title`: Sets/modifies your app's title (`X-Title` also accepted)
-- `X-OpenRouter-Categories`: Assigns marketplace categories (see [App Attribution](/app-attribution))
+- `HTTP-Referer`: Identifies your app on kenh-ai.com
+- `X-kenh-ai-Title`: Sets/modifies your app's title (`X-Title` also accepted)
+- `X-kenh-ai-Categories`: Assigns marketplace categories (see [App Attribution](/app-attribution))
 
 <CodeGroup>
 
 ```typescript title="TypeScript" lines
-fetch('https://openrouter.ai/api/v1/chat/completions', {
+fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
-    Authorization: 'Bearer <OPENROUTER_API_KEY>',
-    'HTTP-Referer': '<YOUR_SITE_URL>', // Optional. Site URL for rankings on openrouter.ai.
-    'X-OpenRouter-Title': '<YOUR_SITE_NAME>', // Optional. Site title for rankings on openrouter.ai.
+    Authorization: 'Bearer <KENH_AI_API_KEY>',
+    'HTTP-Referer': '<YOUR_SITE_URL>', // Optional. Site URL for rankings on kenh-ai.com.
+    'X-kenh-ai-Title': '<YOUR_SITE_NAME>', // Optional. Site title for rankings on kenh-ai.com.
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -241,7 +241,7 @@ fetch('https://openrouter.ai/api/v1/chat/completions', {
   If the `model` parameter is omitted, the user or payer's default is used.
   Otherwise, remember to select a value for `model` from the [supported
   models](/guides/overview/models) or [API](/api/v1/models), and include the organization
-  prefix. OpenRouter will select the least expensive and best GPUs available to
+  prefix. kenh-ai will select the least expensive and best GPUs available to
   serve the request, and fall back to other providers or GPUs if it receives a
   5xx response code or if you are rate-limited.
 </Info>
@@ -266,17 +266,17 @@ fetch('https://openrouter.ai/api/v1/chat/completions', {
 
 ### Assistant Prefill
 
-OpenRouter supports asking models to complete a partial response. This can be useful for guiding models to respond in a certain way.
+kenh-ai supports asking models to complete a partial response. This can be useful for guiding models to respond in a certain way.
 
 To use this features, simply include a message with `role: "assistant"` at the end of your `messages` array.
 
 <CodeGroup>
 
 ```typescript title="TypeScript" lines
-fetch('https://openrouter.ai/api/v1/chat/completions', {
+fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
-    Authorization: 'Bearer <OPENROUTER_API_KEY>',
+    Authorization: 'Bearer <KENH_AI_API_KEY>',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -295,7 +295,7 @@ fetch('https://openrouter.ai/api/v1/chat/completions', {
 
 ### CompletionsResponse Format
 
-OpenRouter normalizes the schema across models and providers to comply with the [OpenAI Chat API](https://platform.openai.com/docs/api-reference/chat).
+kenh-ai normalizes the schema across models and providers to comply with the [OpenAI Chat API](https://platform.openai.com/docs/api-reference/chat).
 
 This means that `choices` is always an array, even if the model only returns one completion. Each choice will contain a `delta` property if a stream was requested and a `message` property otherwise. This makes it easier to use the same code for all models.
 
@@ -323,7 +323,7 @@ type Response = {
 ```
 
 ```typescript expandable lines
-// OpenRouter always returns detailed usage information.
+// kenh-ai always returns detailed usage information.
 // Token counts are calculated using the model's native tokenizer.
 
 type ResponseUsage = {
@@ -444,7 +444,7 @@ Here's an example:
 
 ### Finish Reason
 
-OpenRouter normalizes each model's `finish_reason` to one of the following values: `tool_calls`, `stop`, `length`, `content_filter`, `error`.
+kenh-ai normalizes each model's `finish_reason` to one of the following values: `tool_calls`, `stop`, `length`, `content_filter`, `error`.
 
 Some models and providers may have additional finish reasons. The raw finish_reason string returned by the model is available via the `native_finish_reason` property.
 
@@ -458,7 +458,7 @@ You can also use the returned `id` to query for the generation stats (including 
 
 ```typescript title="Query Generation Stats" lines
 const generation = await fetch(
-  'https://openrouter.ai/api/v1/generation?id=$GENERATION_ID',
+  'https://kenh-ai.com/api/v1/generation?id=$GENERATION_ID',
   { headers },
 );
 

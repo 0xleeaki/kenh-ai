@@ -1,16 +1,16 @@
 ---
 title: Dynamic Parameters
 description: Use async functions for adaptive model behavior across turns
-seoTitle: 'Dynamic Parameters | OpenRouter SDK'
-canonicalUrl: 'https://openrouter.ai/docs/agent-sdks/typescript/call-model/dynamic-parameters'
-og:site_name: OpenRouter Documentation
-og:title: 'Dynamic Parameters - OpenRouter SDK'
+seoTitle: 'Dynamic Parameters | kenh-ai SDK'
+canonicalUrl: 'https://kenh-ai.com/docs/agent-sdks/typescript/call-model/dynamic-parameters'
+og:site_name: kenh-ai Documentation
+og:title: 'Dynamic Parameters - kenh-ai SDK'
 og:description: 'Use async functions to dynamically compute callModel parameters. Adapt model selection, temperature, and instructions based on conversation state.'
-og:image: https://openrouter.ai/dynamic-og?title=Dynamic%20Parameters&description=Adaptive%20Model%20Behavior
+og:image: https://kenh-ai.com/dynamic-og?title=Dynamic%20Parameters&description=Adaptive%20Model%20Behavior
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: gear
@@ -23,10 +23,10 @@ Any parameter in `callModel` can be a function that computes its value based on 
 Pass a function instead of a static value:
 
 ```typescript lines
-import { OpenRouter } from '@openrouter/agent';
+import { KenhAI } from '@kenh-ai/agent';
 
-const openrouter = new OpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY,
+const openrouter = new KenhAI({
+  apiKey: process.env.KENH_AI_API_KEY,
 });
 
 const result = openrouter.callModel({

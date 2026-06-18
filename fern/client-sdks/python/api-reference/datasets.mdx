@@ -2,15 +2,15 @@
 title: Datasets - Python SDK
 sidebarTitle: Datasets
 description: Datasets method reference
-seoTitle: Datasets | OpenRouter Python SDK
-canonicalUrl: 'https://openrouter.ai/docs/client-sdks/python/api-reference/datasets'
-'og:site_name': OpenRouter Documentation
-'og:title': Datasets | OpenRouter Python SDK
+seoTitle: Datasets | kenh-ai Python SDK
+canonicalUrl: 'https://kenh-ai.com/docs/client-sdks/python/api-reference/datasets'
+'og:site_name': kenh-ai Documentation
+'og:title': Datasets | kenh-ai Python SDK
 'og:description': >-
-  Datasets method documentation for the OpenRouter Python SDK. Learn how to use
+  Datasets method documentation for the kenh-ai Python SDK. Learn how to use
   this API endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=Datasets%20-%20Python%20SDK&description=Datasets%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=Datasets%20-%20Python%20SDK&description=Datasets%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -37,20 +37,20 @@ Datasets endpoints
 
 ## get_rankings_daily
 
-Returns the top 50 public models per day by total token usage on OpenRouter, plus a
+Returns the top 50 public models per day by total token usage on kenh-ai, plus a
 single aggregated `other` row per day that sums every model outside that top 50.
 Token totals are `prompt_tokens + completion_tokens`, matching the public rankings
-chart on openrouter.ai/rankings.
+chart on kenh-ai.com/rankings.
 
 Each row is a distinct `(date, model_permaslug)` pair. The `other` row uses the
 reserved permaslug `other` and is always returned last within its date, so callers
 can compute `top-50 traffic / total daily traffic` without a second request.
 
-Authenticate with any valid OpenRouter API key (same key used for inference).
+Authenticate with any valid kenh-ai API key (same key used for inference).
 Rate-limited to 30 requests/minute per key and 500 requests/day per account.
 
-When republishing or quoting this dataset, OpenRouter must be cited as:
-"Source: OpenRouter (openrouter.ai/rankings), as of \{as_of\}."
+When republishing or quoting this dataset, kenh-ai must be cited as:
+"Source: KenhAI (kenh-ai.com/rankings), as of \{as_of\}."
 
 Token counts come from each upstream provider's own tokenizer (Anthropic counts
 are as reported by Anthropic, OpenAI counts are as reported by OpenAI, etc.), so
@@ -61,14 +61,14 @@ different provider.
 
 {/* UsageSnippet language="python" operationID="getRankingsDaily" method="get" path="/datasets/rankings-daily" */}
 ```python lines
-from openrouter import OpenRouter
+from kenh_ai import kenh-ai
 import os
 
-with OpenRouter(
+with KenhAI(
     http_referer="<value>",
     x_open_router_title="<value>",
     x_open_router_categories="<value>",
-    api_key=os.getenv("OPENROUTER_API_KEY", ""),
+    api_key=os.getenv("KENH_AI_API_KEY", ""),
 ) as open_router:
 
     res = open_router.datasets.get_rankings_daily()
@@ -83,7 +83,7 @@ with OpenRouter(
 | Parameter                                                                                                                                                                                                                                 | Type                                                                                                                                                                                                                                      | Required                                                                                                                                                                                                                                  | Description                                                                                                                                                                                                                               | Example                                                                                                                                                                                                                                   |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `http_referer`                                                                                                                                                                                                                            | *Optional[str]*                                                                                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                                                                                        | The app identifier should be your app's URL and is used as the primary identifier for rankings.<br/>This is used to track API usage per application.<br/>                                                                                 |                                                                                                                                                                                                                                           |
-| `x_open_router_title`                                                                                                                                                                                                                     | *Optional[str]*                                                                                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                                                                                        | The app display name allows you to customize how your app appears in OpenRouter's dashboard.<br/>                                                                                                                                         |                                                                                                                                                                                                                                           |
+| `x_open_router_title`                                                                                                                                                                                                                     | *Optional[str]*                                                                                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                                                                                        | The app display name allows you to customize how your app appears in kenh-ai's dashboard.<br/>                                                                                                                                         |                                                                                                                                                                                                                                           |
 | `x_open_router_categories`                                                                                                                                                                                                                | *Optional[str]*                                                                                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                                                                                        | Comma-separated list of app categories (e.g. "cli-agent,cloud-agent"). Used for marketplace rankings.<br/>                                                                                                                                |                                                                                                                                                                                                                                           |
 | `start_date`                                                                                                                                                                                                                              | *Optional[str]*                                                                                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                                                                                        | Start of the date window in YYYY-MM-DD (UTC), inclusive. Defaults to 30 days before `end_date`. The dataset begins at 2025-01-01; earlier values are clamped forward to that floor and the resolved value is echoed in `meta.start_date`. | 2026-04-12                                                                                                                                                                                                                                |
 | `end_date`                                                                                                                                                                                                                                | *Optional[str]*                                                                                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                                                                                        | End of the date window in YYYY-MM-DD (UTC), inclusive. Defaults to the most recent completed UTC day. Must be on or after 2025-01-01; earlier values are rejected with a 400.                                                             | 2026-05-11                                                                                                                                                                                                                                |

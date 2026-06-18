@@ -2,21 +2,21 @@
 title: Presets
 description: Manage your LLM configurations
 seoTitle: 'Presets | Configuration Management for AI Models'
-canonicalUrl: https://openrouter.ai/docs/guides/features/presets
-og:site_name: OpenRouter Documentation
+canonicalUrl: https://kenh-ai.com/docs/guides/features/presets
+og:site_name: kenh-ai Documentation
 og:title: 'Presets - Configuration Management for AI Models'
-og:description: "Learn how to use OpenRouter's presets to manage model configurations, system prompts, and parameters across your applications."
-og:image: https://openrouter.ai/dynamic-og?title=Presets&description=Configuration%20management%20for%20AI%20models
+og:description: "Learn how to use kenh-ai's presets to manage model configurations, system prompts, and parameters across your applications."
+og:image: https://kenh-ai.com/dynamic-og?title=Presets&description=Configuration%20management%20for%20AI%20models
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: sliders
 ---
 
-[Presets](/guides/features/presets) allow you to separate your LLM configuration from your code. Create and manage presets through the OpenRouter web application to control provider routing, model selection, system prompts, and other parameters, then reference them in OpenRouter API requests.
+[Presets](/guides/features/presets) allow you to separate your LLM configuration from your code. Create and manage presets through the kenh-ai web application to control provider routing, model selection, system prompts, and other parameters, then reference them in kenh-ai API requests.
 
 ## What are Presets?
 
@@ -123,7 +123,7 @@ useful when you want to capture a known-good request as a reusable
 configuration without re-typing it in the UI.
 
 Each inference skin has its own endpoint. Send the same JSON body
-you would send to the matching inference route — OpenRouter
+you would send to the matching inference route — kenh-ai
 persists only the fields that overlap with the preset config
 (e.g. `model`, `temperature`, `provider`, `top_p`, `system`).
 Transient fields like `messages`, `input`, `prompt`, and `stream`
@@ -145,8 +145,8 @@ version. If it does not exist, a new preset is created.
 Reuse the exact body you would `POST /api/v1/chat/completions`:
 
 ```bash lines
-curl https://openrouter.ai/api/v1/presets/email-copywriter/chat/completions \
-  -H "Authorization: Bearer $OPENROUTER_API_KEY" \
+curl https://kenh-ai.com/api/v1/presets/email-copywriter/chat/completions \
+  -H "Authorization: Bearer $KENH_AI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "openai/gpt-4o",
@@ -166,8 +166,8 @@ extracted system prompt are persisted.
 ### From an Anthropic Messages request
 
 ```bash lines
-curl https://openrouter.ai/api/v1/presets/code-reviewer/messages \
-  -H "Authorization: Bearer $OPENROUTER_API_KEY" \
+curl https://kenh-ai.com/api/v1/presets/code-reviewer/messages \
+  -H "Authorization: Bearer $KENH_AI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "anthropic/claude-4.6-sonnet",
@@ -184,8 +184,8 @@ The top-level `system` field becomes the preset's system prompt.
 ### From a Responses request
 
 ```bash lines
-curl https://openrouter.ai/api/v1/presets/inbound-classifier/responses \
-  -H "Authorization: Bearer $OPENROUTER_API_KEY" \
+curl https://kenh-ai.com/api/v1/presets/inbound-classifier/responses \
+  -H "Authorization: Bearer $KENH_AI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "openai/gpt-4o",

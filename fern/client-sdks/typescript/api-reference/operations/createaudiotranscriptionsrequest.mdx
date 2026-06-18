@@ -2,16 +2,16 @@
 title: CreateAudioTranscriptionsRequest - TypeScript SDK
 sidebarTitle: CreateAudioTranscriptionsRequest
 description: CreateAudioTranscriptionsRequest type definition
-seoTitle: CreateAudioTranscriptionsRequest Type | OpenRouter TypeScript SDK
+seoTitle: CreateAudioTranscriptionsRequest Type | kenh-ai TypeScript SDK
 canonicalUrl: >-
-  https://openrouter.ai/docs/sdks/typescript/api-reference/operations/createaudiotranscriptionsrequest
-'og:site_name': OpenRouter Documentation
-'og:title': CreateAudioTranscriptionsRequest Type | OpenRouter TypeScript SDK
+  https://kenh-ai.com/docs/sdks/typescript/api-reference/operations/createaudiotranscriptionsrequest
+'og:site_name': kenh-ai Documentation
+'og:title': CreateAudioTranscriptionsRequest Type | kenh-ai TypeScript SDK
 'og:description': >-
-  CreateAudioTranscriptionsRequest type reference for the OpenRouter TypeScript
+  CreateAudioTranscriptionsRequest type reference for the kenh-ai TypeScript
   SDK. Complete type definition and usage examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=CreateAudioTranscriptionsRequest%20-%20TypeScript%20SDK&description=CreateAudioTranscriptionsRequest%20type%20definition
+  https://kenh-ai.com/dynamic-og?title=CreateAudioTranscriptionsRequest%20-%20TypeScript%20SDK&description=CreateAudioTranscriptionsRequest%20type%20definition
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -30,7 +30,7 @@ Report issues on [GitHub](https://github.com/OpenRouterTeam/typescript-sdk/issue
 ## Example Usage
 
 ```typescript lines
-import { CreateAudioTranscriptionsRequest } from "@openrouter/sdk/models/operations";
+import { CreateAudioTranscriptionsRequest } from "@kenh-ai/sdk/models/operations";
 
 let value: CreateAudioTranscriptionsRequest = {
   sttRequest: {
@@ -48,6 +48,6 @@ let value: CreateAudioTranscriptionsRequest = {
 | Field                                                                                                                                             | Type                                                                                                                                              | Required                                                                                                                                          | Description                                                                                                                                       | Example                                                                                                                                           |
 | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `httpReferer`                                                                                                                                     | *string*                                                                                                                                          | :heavy_minus_sign:                                                                                                                                | The app identifier should be your app's URL and is used as the primary identifier for rankings.<br/>This is used to track API usage per application.<br/> |                                                                                                                                                   |
-| `appTitle`                                                                                                                                        | *string*                                                                                                                                          | :heavy_minus_sign:                                                                                                                                | The app display name allows you to customize how your app appears in OpenRouter's dashboard.<br/>                                                 |                                                                                                                                                   |
+| `appTitle`                                                                                                                                        | *string*                                                                                                                                          | :heavy_minus_sign:                                                                                                                                | The app display name allows you to customize how your app appears in kenh-ai's dashboard.<br/>                                                 |                                                                                                                                                   |
 | `appCategories`                                                                                                                                   | *string*                                                                                                                                          | :heavy_minus_sign:                                                                                                                                | Comma-separated list of app categories (e.g. "cli-agent,cloud-agent"). Used for marketplace rankings.<br/>                                        |                                                                                                                                                   |
 | `sttRequest`                                                                                                                                      | [models.STTRequest](/client-sdks/typescript/api-reference/models/sttrequest)                                                                                                   | :heavy_check_mark:                                                                                                                                | N/A                                                                                                                                               | `{"input_audio": {"data": "UklGRiQA...","format": "wav"}`,<br/>"language": "en",<br/>"model": "openai/whisper-large-v3"<br/>\}   |

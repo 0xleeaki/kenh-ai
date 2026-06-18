@@ -2,15 +2,15 @@
 title: VideoGeneration - TypeScript SDK
 sidebarTitle: VideoGeneration
 description: VideoGeneration method reference
-seoTitle: VideoGeneration | OpenRouter TypeScript SDK
-canonicalUrl: 'https://openrouter.ai/docs/client-sdks/typescript/api-reference/videogeneration'
-'og:site_name': OpenRouter Documentation
-'og:title': VideoGeneration | OpenRouter TypeScript SDK
+seoTitle: VideoGeneration | kenh-ai TypeScript SDK
+canonicalUrl: 'https://kenh-ai.com/docs/client-sdks/typescript/api-reference/videogeneration'
+'og:site_name': kenh-ai Documentation
+'og:title': VideoGeneration | kenh-ai TypeScript SDK
 'og:description': >-
-  VideoGeneration method documentation for the OpenRouter TypeScript SDK. Learn
+  VideoGeneration method documentation for the kenh-ai TypeScript SDK. Learn
   how to use this API endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=VideoGeneration%20-%20TypeScript%20SDK&description=VideoGeneration%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=VideoGeneration%20-%20TypeScript%20SDK&description=VideoGeneration%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -46,17 +46,17 @@ Submits a video generation request and returns a polling URL to check status
 
 {/* UsageSnippet language="typescript" operationID="createVideos" method="post" path="/videos" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.videoGeneration.generate({
+  const result = await kenhAi.videoGeneration.generate({
     videoGenerationRequest: {
       aspectRatio: "16:9",
       duration: 8,
@@ -77,20 +77,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { videoGenerationGenerate } from "@openrouter/sdk/funcs/videoGenerationGenerate.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { videoGenerationGenerate } from "@kenh-ai/sdk/funcs/videoGenerationGenerate.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await videoGenerationGenerate(openRouter, {
+  const res = await videoGenerationGenerate(kenhAi, {
     videoGenerationRequest: {
       aspectRatio: "16:9",
       duration: 8,
@@ -143,17 +143,17 @@ Returns job status and content URLs when completed
 
 {/* UsageSnippet language="typescript" operationID="getVideos" method="get" path="/videos/{jobId}" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.videoGeneration.getGeneration({
+  const result = await kenhAi.videoGeneration.getGeneration({
     jobId: "job-abc123",
   });
 
@@ -168,20 +168,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { videoGenerationGetGeneration } from "@openrouter/sdk/funcs/videoGenerationGetGeneration.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { videoGenerationGetGeneration } from "@kenh-ai/sdk/funcs/videoGenerationGetGeneration.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await videoGenerationGetGeneration(openRouter, {
+  const res = await videoGenerationGetGeneration(kenhAi, {
     jobId: "job-abc123",
   });
   if (res.ok) {
@@ -225,17 +225,17 @@ Streams the generated video content from the upstream provider
 
 {/* UsageSnippet language="typescript" operationID="listVideosContent" method="get" path="/videos/{jobId}/content" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.videoGeneration.getVideoContent({
+  const result = await kenhAi.videoGeneration.getVideoContent({
     jobId: "job-abc123",
   });
 
@@ -250,20 +250,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { videoGenerationGetVideoContent } from "@openrouter/sdk/funcs/videoGenerationGetVideoContent.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { videoGenerationGetVideoContent } from "@kenh-ai/sdk/funcs/videoGenerationGetVideoContent.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await videoGenerationGetVideoContent(openRouter, {
+  const res = await videoGenerationGetVideoContent(kenhAi, {
     jobId: "job-abc123",
   });
   if (res.ok) {
@@ -309,17 +309,17 @@ Returns a list of all available video generation models and their properties
 
 {/* UsageSnippet language="typescript" operationID="listVideosModels" method="get" path="/videos/models" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.videoGeneration.listVideosModels();
+  const result = await kenhAi.videoGeneration.listVideosModels();
 
   console.log(result);
 }
@@ -332,20 +332,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { videoGenerationListVideosModels } from "@openrouter/sdk/funcs/videoGenerationListVideosModels.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { videoGenerationListVideosModels } from "@kenh-ai/sdk/funcs/videoGenerationListVideosModels.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await videoGenerationListVideosModels(openRouter);
+  const res = await videoGenerationListVideosModels(kenhAi);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);

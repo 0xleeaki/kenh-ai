@@ -1,16 +1,16 @@
 ---
 title: Router Metadata
 description: Surface routing decisions on every response with a single opt-in header
-seoTitle: 'Router Metadata | OpenRouter'
-canonicalUrl: https://openrouter.ai/docs/features/router-metadata
-og:site_name: OpenRouter Documentation
+seoTitle: 'Router Metadata | kenh-ai'
+canonicalUrl: https://kenh-ai.com/docs/features/router-metadata
+og:site_name: kenh-ai Documentation
 og:title: 'Router Metadata - Inspect Routing Decisions on Every Response'
-og:description: 'Opt in to OpenRouter routing metadata to see which provider was selected, fallback attempts, and pipeline stages applied to your request.'
-og:image: https://openrouter.ai/dynamic-og?title=Router%20Metadata&description=Inspect%20Routing%20Decisions%20on%20Every%20Response
+og:description: 'Opt in to kenh-ai routing metadata to see which provider was selected, fallback attempts, and pipeline stages applied to your request.'
+og:image: https://kenh-ai.com/dynamic-og?title=Router%20Metadata&description=Inspect%20Routing%20Decisions%20on%20Every%20Response
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: circle-info
@@ -25,22 +25,22 @@ import { Template } from "../../components/Template";
 Router metadata is **experimental**. The `openrouter_metadata` response shape is unstable: fields and pipeline stage types may be **added, renamed, removed, or change semantics at any time**, without a deprecation cycle. Do not pin production tooling to specific field names or values yet.
 </Note>
 
-OpenRouter's router runs every request through a multi-stage pipeline: it picks a provider, may compress context, may run guardrails, may invoke server-side tools, and may retry against fallbacks. By default, none of that is visible on the response.
+kenh-ai's router runs every request through a multi-stage pipeline: it picks a provider, may compress context, may run guardrails, may invoke server-side tools, and may retry against fallbacks. By default, none of that is visible on the response.
 
 Router metadata is a **per-request opt-in** that adds an `openrouter_metadata` field to successful responses, capturing exactly what the router did. It's intended for debugging routing decisions, attributing latency or cost, and auditing pipeline behavior.
 
 ## Enabling Router Metadata
 
-Opt in by sending the `X-OpenRouter-Experimental-Metadata` request header with the value `enabled`:
+Opt in by sending the `X-kenh-ai-Experimental-Metadata` request header with the value `enabled`:
 
 <Template data={{ API_KEY_REF }}>
 <CodeGroup>
 
 ```bash title="cURL" lines
-curl https://openrouter.ai/api/v1/chat/completions \
+curl https://kenh-ai.com/api/v1/chat/completions \
   -H "Authorization: Bearer {{API_KEY_REF}}" \
   -H "Content-Type: application/json" \
-  -H "X-OpenRouter-Experimental-Metadata: enabled" \
+  -H "X-kenh-ai-Experimental-Metadata: enabled" \
   -d '{
     "model": "openai/gpt-4o-mini",
     "messages": [{ "role": "user", "content": "Hello" }]
@@ -48,12 +48,12 @@ curl https://openrouter.ai/api/v1/chat/completions \
 ```
 
 ```typescript title="TypeScript" lines
-const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+const response = await fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
     Authorization: `Bearer {{API_KEY_REF}}`,
     'Content-Type': 'application/json',
-    'X-OpenRouter-Experimental-Metadata': 'enabled',
+    'X-kenh-ai-Experimental-Metadata': 'enabled',
   },
   body: JSON.stringify({
     model: 'openai/gpt-4o-mini',
@@ -66,11 +66,11 @@ const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
 import requests
 
 response = requests.post(
-    'https://openrouter.ai/api/v1/chat/completions',
+    'https://kenh-ai.com/api/v1/chat/completions',
     headers={
         'Authorization': f'Bearer {{API_KEY_REF}}',
         'Content-Type': 'application/json',
-        'X-OpenRouter-Experimental-Metadata': 'enabled',
+        'X-kenh-ai-Experimental-Metadata': 'enabled',
     },
     json={
         'model': 'openai/gpt-4o-mini',
@@ -189,7 +189,7 @@ Cache hits never include `openrouter_metadata`. Both streaming and non-streaming
 
 ## Error Responses
 
-Opt-in error responses surface `openrouter_metadata` at the **top level** of the error envelope, mirroring the success-path placement (sibling of `error` rather than nested inside it). This applies to all four routes — Chat Completions, Messages, Responses, and legacy Completions — and to both streaming and non-streaming requests. The same opt-in rules apply: send `X-OpenRouter-Experimental-Metadata: enabled` and the snapshot is included on failure; omit it and it isn't.
+Opt-in error responses surface `openrouter_metadata` at the **top level** of the error envelope, mirroring the success-path placement (sibling of `error` rather than nested inside it). This applies to all four routes — Chat Completions, Messages, Responses, and legacy Completions — and to both streaming and non-streaming requests. The same opt-in rules apply: send `X-kenh-ai-Experimental-Metadata: enabled` and the snapshot is included on failure; omit it and it isn't.
 
 ### No Providers Available (404)
 
@@ -275,6 +275,6 @@ A few things to know:
 
 Router metadata is **experimental**. The `openrouter_metadata` response shape is unstable — fields and pipeline stage types may be added, renamed, removed, or change semantics at any time, without a deprecation cycle. Treat the payload as best-effort debugging telemetry, not as a stable contract.
 
-The `X-OpenRouter-Experimental-Metadata` opt-in header is the supported way to enable the feature, but the header name and accepted values may also change while the feature is experimental.
+The `X-kenh-ai-Experimental-Metadata` opt-in header is the supported way to enable the feature, but the header name and accepted values may also change while the feature is experimental.
 
 If you consume the field in code, decode it permissively (treat unknown fields and stage types as opaque) and be prepared to update on every release.

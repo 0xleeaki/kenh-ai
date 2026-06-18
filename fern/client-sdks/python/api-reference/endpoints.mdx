@@ -2,15 +2,15 @@
 title: Endpoints - Python SDK
 sidebarTitle: Endpoints
 description: Endpoints method reference
-seoTitle: Endpoints | OpenRouter Python SDK
-canonicalUrl: 'https://openrouter.ai/docs/client-sdks/python/api-reference/endpoints'
-'og:site_name': OpenRouter Documentation
-'og:title': Endpoints | OpenRouter Python SDK
+seoTitle: Endpoints | kenh-ai Python SDK
+canonicalUrl: 'https://kenh-ai.com/docs/client-sdks/python/api-reference/endpoints'
+'og:site_name': kenh-ai Documentation
+'og:title': Endpoints | kenh-ai Python SDK
 'og:description': >-
-  Endpoints method documentation for the OpenRouter Python SDK. Learn how to use
+  Endpoints method documentation for the kenh-ai Python SDK. Learn how to use
   this API endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=Endpoints%20-%20Python%20SDK&description=Endpoints%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=Endpoints%20-%20Python%20SDK&description=Endpoints%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -44,14 +44,14 @@ Preview the impact of ZDR on the available endpoints
 
 {/* UsageSnippet language="python" operationID="listEndpointsZdr" method="get" path="/endpoints/zdr" */}
 ```python lines
-from openrouter import OpenRouter
+from kenh_ai import kenh-ai
 import os
 
-with OpenRouter(
+with KenhAI(
     http_referer="<value>",
     x_open_router_title="<value>",
     x_open_router_categories="<value>",
-    api_key=os.getenv("OPENROUTER_API_KEY", ""),
+    api_key=os.getenv("KENH_AI_API_KEY", ""),
 ) as open_router:
 
     res = open_router.endpoints.list_zdr_endpoints()
@@ -66,7 +66,7 @@ with OpenRouter(
 | Parameter                                                                                                                                         | Type                                                                                                                                              | Required                                                                                                                                          | Description                                                                                                                                       |
 | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `http_referer`                                                                                                                                    | *Optional[str]*                                                                                                                                   | :heavy_minus_sign:                                                                                                                                | The app identifier should be your app's URL and is used as the primary identifier for rankings.<br/>This is used to track API usage per application.<br/> |
-| `x_open_router_title`                                                                                                                             | *Optional[str]*                                                                                                                                   | :heavy_minus_sign:                                                                                                                                | The app display name allows you to customize how your app appears in OpenRouter's dashboard.<br/>                                                 |
+| `x_open_router_title`                                                                                                                             | *Optional[str]*                                                                                                                                   | :heavy_minus_sign:                                                                                                                                | The app display name allows you to customize how your app appears in kenh-ai's dashboard.<br/>                                                 |
 | `x_open_router_categories`                                                                                                                        | *Optional[str]*                                                                                                                                   | :heavy_minus_sign:                                                                                                                                | Comma-separated list of app categories (e.g. "cli-agent,cloud-agent"). Used for marketplace rankings.<br/>                                        |
 | `retries`                                                                                                                                         | [Optional[utils.RetryConfig]](/client-sdks/python/models/retryconfig)                                                                                  | :heavy_minus_sign:                                                                                                                                | Configuration to override the default retry behavior of the client.                                                                               |
 
@@ -89,14 +89,14 @@ List all endpoints for a model
 
 {/* UsageSnippet language="python" operationID="listEndpoints" method="get" path="/models/{author}/{slug}/endpoints" */}
 ```python lines
-from openrouter import OpenRouter
+from kenh_ai import kenh-ai
 import os
 
-with OpenRouter(
+with KenhAI(
     http_referer="<value>",
     x_open_router_title="<value>",
     x_open_router_categories="<value>",
-    api_key=os.getenv("OPENROUTER_API_KEY", ""),
+    api_key=os.getenv("KENH_AI_API_KEY", ""),
 ) as open_router:
 
     res = open_router.endpoints.list(author="openai", slug="gpt-4")
@@ -113,7 +113,7 @@ with OpenRouter(
 | `author`                                                                                                                                          | *str*                                                                                                                                             | :heavy_check_mark:                                                                                                                                | The author/organization of the model                                                                                                              | openai                                                                                                                                            |
 | `slug`                                                                                                                                            | *str*                                                                                                                                             | :heavy_check_mark:                                                                                                                                | The model slug                                                                                                                                    | gpt-4                                                                                                                                             |
 | `http_referer`                                                                                                                                    | *Optional[str]*                                                                                                                                   | :heavy_minus_sign:                                                                                                                                | The app identifier should be your app's URL and is used as the primary identifier for rankings.<br/>This is used to track API usage per application.<br/> |                                                                                                                                                   |
-| `x_open_router_title`                                                                                                                             | *Optional[str]*                                                                                                                                   | :heavy_minus_sign:                                                                                                                                | The app display name allows you to customize how your app appears in OpenRouter's dashboard.<br/>                                                 |                                                                                                                                                   |
+| `x_open_router_title`                                                                                                                             | *Optional[str]*                                                                                                                                   | :heavy_minus_sign:                                                                                                                                | The app display name allows you to customize how your app appears in kenh-ai's dashboard.<br/>                                                 |                                                                                                                                                   |
 | `x_open_router_categories`                                                                                                                        | *Optional[str]*                                                                                                                                   | :heavy_minus_sign:                                                                                                                                | Comma-separated list of app categories (e.g. "cli-agent,cloud-agent"). Used for marketplace rankings.<br/>                                        |                                                                                                                                                   |
 | `retries`                                                                                                                                         | [Optional[utils.RetryConfig]](/client-sdks/python/models/retryconfig)                                                                                  | :heavy_minus_sign:                                                                                                                                | Configuration to override the default retry behavior of the client.                                                                               |                                                                                                                                                   |
 

@@ -1,22 +1,22 @@
 ---
 title: API Key Rotation
-description: Securely rotate your OpenRouter API keys
-seoTitle: 'API Key Rotation | Secure Key Management for OpenRouter'
-canonicalUrl: https://openrouter.ai/docs/cookbook/administration/api-key-rotation
-og:site_name: OpenRouter Documentation
+description: Securely rotate your kenh-ai API keys
+seoTitle: 'API Key Rotation | Secure Key Management for kenh-ai'
+canonicalUrl: https://kenh-ai.com/docs/cookbook/administration/api-key-rotation
+og:site_name: kenh-ai Documentation
 og:title: 'API Key Rotation - Secure Key Management'
-og:description: 'Learn how to securely rotate your OpenRouter API keys using the key minting API. Includes best practices and BYOK advantages for simplified key management.'
-og:image: https://openrouter.ai/dynamic-og?title=API%20Key%20Rotation&description=Secure%20Key%20Management
+og:description: 'Learn how to securely rotate your kenh-ai API keys using the key minting API. Includes best practices and BYOK advantages for simplified key management.'
+og:image: https://kenh-ai.com/dynamic-og?title=API%20Key%20Rotation&description=Secure%20Key%20Management
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: rotate
 ---
 
-Regular API key rotation is a security best practice that limits the impact of compromised credentials. OpenRouter's [Management API](/guides/overview/auth/management-api-keys) makes it easy to rotate keys programmatically without service interruption.
+Regular API key rotation is a security best practice that limits the impact of compromised credentials. kenh-ai's [Management API](/guides/overview/auth/management-api-keys) makes it easy to rotate keys programmatically without service interruption.
 
 ## Why Rotate API Keys?
 
@@ -32,20 +32,20 @@ Always verify your new key is working in production before deleting the old one.
 
 ## Rotating Keys with the Management API
 
-First, you'll need a [Management API key](https://openrouter.ai/settings/management-keys) to manage your API keys programmatically.
+First, you'll need a [Management API key](https://kenh-ai.com/settings/management-keys) to manage your API keys programmatically.
 
 ### Step 1: Create a New Key
 
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   apiKey: 'your-management-key',
 });
 
-const newKey = await openRouter.apiKeys.create({
+const newKey = await kenhAi.apiKeys.create({
   name: 'Production Key - Rotated 2025-01',
   limit: 1000,
 });
@@ -58,7 +58,7 @@ console.log('Key hash:', newKey.data.hash);
 import requests
 
 MANAGEMENT_API_KEY = "your-management-key"
-BASE_URL = "https://openrouter.ai/api/v1/keys"
+BASE_URL = "https://kenh-ai.com/api/v1/keys"
 
 response = requests.post(
     f"{BASE_URL}/",
@@ -79,7 +79,7 @@ print(f"Key hash: {data['data']['hash']}")
 
 ```typescript title="TypeScript (fetch)" lines
 const MANAGEMENT_API_KEY = 'your-management-key';
-const BASE_URL = 'https://openrouter.ai/api/v1/keys';
+const BASE_URL = 'https://kenh-ai.com/api/v1/keys';
 
 const response = await fetch(BASE_URL, {
   method: 'POST',
@@ -117,14 +117,14 @@ Once all your applications are using the new key, delete the old one:
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   apiKey: 'your-management-key',
 });
 
 const oldKeyHash = 'hash-of-old-key';
-await openRouter.apiKeys.delete(oldKeyHash);
+await kenhAi.apiKeys.delete(oldKeyHash);
 
 console.log('Old key deleted successfully');
 ```
@@ -133,7 +133,7 @@ console.log('Old key deleted successfully');
 import requests
 
 MANAGEMENT_API_KEY = "your-management-key"
-BASE_URL = "https://openrouter.ai/api/v1/keys"
+BASE_URL = "https://kenh-ai.com/api/v1/keys"
 
 old_key_hash = "hash-of-old-key"
 response = requests.delete(
@@ -149,7 +149,7 @@ print("Old key deleted successfully")
 
 ```typescript title="TypeScript (fetch)" lines
 const MANAGEMENT_API_KEY = 'your-management-key';
-const BASE_URL = 'https://openrouter.ai/api/v1/keys';
+const BASE_URL = 'https://kenh-ai.com/api/v1/keys';
 
 const oldKeyHash = 'hash-of-old-key';
 await fetch(`${BASE_URL}/${oldKeyHash}`, {
@@ -167,18 +167,18 @@ console.log('Old key deleted successfully');
 
 ## BYOK Advantage: Simplified Key Rotation
 
-If you use [Bring Your Own Key (BYOK)](/guides/overview/auth/byok) with OpenRouter, you get a significant advantage when it comes to key rotation: **you can rotate your OpenRouter API keys without ever needing to rotate your provider keys**.
+If you use [Bring Your Own Key (BYOK)](/guides/overview/auth/byok) with kenh-ai, you get a significant advantage when it comes to key rotation: **you can rotate your kenh-ai API keys without ever needing to rotate your provider keys**.
 
-When you configure BYOK, your provider API keys (OpenAI, Anthropic, Google, etc.) are stored securely in OpenRouter and associated with your account, not with individual OpenRouter API keys. This means:
+When you configure BYOK, your provider API keys (OpenAI, Anthropic, Google, etc.) are stored securely in kenh-ai and associated with your account, not with individual kenh-ai API keys. This means:
 
-- **Rotate OpenRouter keys freely**: You can rotate your OpenRouter API keys as often as you like for security compliance without touching your provider credentials.
+- **Rotate kenh-ai keys freely**: You can rotate your kenh-ai API keys as often as you like for security compliance without touching your provider credentials.
 - **Provider keys stay stable**: Your provider API keys remain unchanged, avoiding the complexity of rotating credentials across multiple AI providers.
-- **Single point of management**: Manage all your provider keys in one place through OpenRouter's [integrations settings](https://openrouter.ai/settings/integrations), while rotating your application-facing OpenRouter keys independently.
+- **Single point of management**: Manage all your provider keys in one place through kenh-ai's [integrations settings](https://kenh-ai.com/settings/integrations), while rotating your application-facing kenh-ai keys independently.
 
 This separation of concerns makes BYOK particularly valuable for organizations with strict key rotation policies. You get the security benefits of regular key rotation for your application credentials while maintaining stable, long-lived connections to your AI providers.
 
 <Tip>
-With BYOK, your provider keys are tied to your OpenRouter account, not to individual API keys. Rotate your OpenRouter keys as often as needed without any changes to your provider configuration.
+With BYOK, your provider keys are tied to your kenh-ai account, not to individual API keys. Rotate your kenh-ai keys as often as needed without any changes to your provider configuration.
 </Tip>
 
 ## Best Practices
@@ -186,7 +186,7 @@ With BYOK, your provider keys are tied to your OpenRouter account, not to indivi
 When implementing key rotation, keep these recommendations in mind:
 
 - **Use descriptive key names**: Include rotation dates or version numbers in key names for easy tracking.
-- **Monitor key usage**: Check the [Activity page](https://openrouter.ai/activity) to verify traffic has migrated to the new key before deleting the old one.
+- **Monitor key usage**: Check the [Activity page](https://kenh-ai.com/activity) to verify traffic has migrated to the new key before deleting the old one.
 - **Set appropriate limits**: Apply spending limits to new keys to prevent unexpected costs.
 - **Document your rotation schedule**: Establish and follow a regular rotation cadence (e.g., quarterly).
 - **Test in staging first**: Validate your rotation process in a non-production environment.

@@ -1,16 +1,16 @@
 ---
 title: Comet Opik
 description: Send traces to Comet Opik
-seoTitle: 'Broadcast to Comet Opik | OpenRouter Observability'
-canonicalUrl: https://openrouter.ai/docs/guides/features/broadcast/opik
-og:site_name: OpenRouter Documentation
+seoTitle: 'Broadcast to Comet Opik | kenh-ai Observability'
+canonicalUrl: https://kenh-ai.com/docs/guides/features/broadcast/opik
+og:site_name: kenh-ai Documentation
 og:title: 'Broadcast to Comet Opik - Send Traces to Opik'
-og:description: 'Connect Comet Opik to automatically receive traces from your OpenRouter requests. Step-by-step setup guide for Opik integration.'
-og:image: https://openrouter.ai/dynamic-og?title=Comet%20Opik%20Broadcast&description=Send%20traces%20to%20Comet%20Opik
+og:description: 'Connect Comet Opik to automatically receive traces from your kenh-ai requests. Step-by-step setup guide for Opik integration.'
+og:image: https://kenh-ai.com/dynamic-og?title=Comet%20Opik%20Broadcast&description=Send%20traces%20to%20Comet%20Opik
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: puzzle-piece
@@ -27,9 +27,9 @@ In Comet, set up your Opik workspace and project:
 3. Create a project within the workspace
 4. Go to **Settings > API Keys** to create or copy your API key
 
-## Step 2: Enable Broadcast in OpenRouter
+## Step 2: Enable Broadcast in kenh-ai
 
-Go to [Settings > Observability](https://openrouter.ai/settings/observability) and toggle **Enable Broadcast**.
+Go to [Settings > Observability](https://kenh-ai.com/settings/observability) and toggle **Enable Broadcast**.
 
 <Frame>
 ![Enable Broadcast](/assets/guides/features/broadcast/arize/broadcast-enable.png)
@@ -49,7 +49,7 @@ Click **Test Connection** to verify the setup. The configuration only saves if t
 
 ## Step 5: Send a test trace
 
-Make an API request through OpenRouter and view the trace in your Opik
+Make an API request through kenh-ai and view the trace in your Opik
 project dashboard.
 
 <Frame>
@@ -92,7 +92,7 @@ Comet Opik supports custom metadata on both traces and spans for organizing and 
 - Cost information (input, output, total) is automatically added to span metadata
 - Model parameters and finish reasons are included in span metadata when available
 - The `user` field maps to user identification in trace metadata
-- Opik uses UUIDv7 format for trace and span IDs internally; original OpenRouter IDs are stored in metadata as `openrouter_trace_id` and `openrouter_observation_id`
+- Opik uses UUIDv7 format for trace and span IDs internally; original kenh-ai IDs are stored in metadata as `openrouter_trace_id` and `openrouter_observation_id`
 
 ## Privacy Mode
 

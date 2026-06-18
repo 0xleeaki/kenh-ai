@@ -2,15 +2,15 @@
 title: Reasoning
 description: Advanced reasoning capabilities with the Responses API Beta
 seoTitle: 'Responses API Beta Reasoning | Advanced AI Reasoning Capabilities'
-canonicalUrl: https://openrouter.ai/docs/api/reference/responses/reasoning
-og:site_name: OpenRouter Documentation
+canonicalUrl: https://kenh-ai.com/docs/api/reference/responses/reasoning
+og:site_name: kenh-ai Documentation
 og:title: 'Responses API Beta Reasoning - Advanced AI Reasoning'
-og:description: "Access advanced reasoning capabilities with configurable effort levels and encrypted reasoning chains using OpenRouter's Responses API Beta."
-og:image: https://openrouter.ai/dynamic-og?title=Responses%20API%20Reasoning&description=Advanced%20AI%20reasoning%20capabilities
+og:description: "Access advanced reasoning capabilities with configurable effort levels and encrypted reasoning chains using kenh-ai's Responses API Beta."
+og:image: https://kenh-ai.com/dynamic-og?title=Responses%20API%20Reasoning&description=Advanced%20AI%20reasoning%20capabilities
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: lightbulb
@@ -31,10 +31,10 @@ Configure reasoning behavior using the `reasoning` parameter:
 <CodeGroup>
 
 ```typescript title="TypeScript" lines
-const response = await fetch('https://openrouter.ai/api/v1/responses', {
+const response = await fetch('https://kenh-ai.com/api/v1/responses', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+    'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -55,9 +55,9 @@ console.log(result);
 import requests
 
 response = requests.post(
-    'https://openrouter.ai/api/v1/responses',
+    'https://kenh-ai.com/api/v1/responses',
     headers={
-        'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+        'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
         'Content-Type': 'application/json',
     },
     json={
@@ -75,8 +75,8 @@ print(result)
 ```
 
 ```bash title="cURL" lines
-curl -X POST https://openrouter.ai/api/v1/responses \
-  -H "Authorization: Bearer YOUR_OPENROUTER_API_KEY" \
+curl -X POST https://kenh-ai.com/api/v1/responses \
+  -H "Authorization: Bearer YOUR_KENH_AI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "openai/o4-mini",
@@ -108,10 +108,10 @@ For complex mathematical or logical problems:
 <CodeGroup>
 
 ```typescript title="TypeScript" expandable lines
-const response = await fetch('https://openrouter.ai/api/v1/responses', {
+const response = await fetch('https://kenh-ai.com/api/v1/responses', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+    'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -143,9 +143,9 @@ console.log(result);
 import requests
 
 response = requests.post(
-    'https://openrouter.ai/api/v1/responses',
+    'https://kenh-ai.com/api/v1/responses',
     headers={
-        'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+        'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
         'Content-Type': 'application/json',
     },
     json={
@@ -182,10 +182,10 @@ Include reasoning in multi-turn conversations:
 <CodeGroup>
 
 ```typescript title="TypeScript" expandable lines
-const response = await fetch('https://openrouter.ai/api/v1/responses', {
+const response = await fetch('https://kenh-ai.com/api/v1/responses', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+    'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -240,9 +240,9 @@ console.log(result);
 import requests
 
 response = requests.post(
-    'https://openrouter.ai/api/v1/responses',
+    'https://kenh-ai.com/api/v1/responses',
     headers={
-        'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+        'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
         'Content-Type': 'application/json',
     },
     json={
@@ -302,10 +302,10 @@ Enable streaming to see reasoning develop in real-time:
 <CodeGroup>
 
 ```typescript title="TypeScript" expandable lines
-const response = await fetch('https://openrouter.ai/api/v1/responses', {
+const response = await fetch('https://kenh-ai.com/api/v1/responses', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+    'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -352,9 +352,9 @@ import requests
 import json
 
 response = requests.post(
-    'https://openrouter.ai/api/v1/responses',
+    'https://kenh-ai.com/api/v1/responses',
     headers={
-        'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+        'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
         'Content-Type': 'application/json',
     },
     json={

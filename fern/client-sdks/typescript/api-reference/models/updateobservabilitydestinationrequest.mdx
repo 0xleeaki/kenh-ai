@@ -2,16 +2,16 @@
 title: UpdateObservabilityDestinationRequest - TypeScript SDK
 sidebarTitle: UpdateObservabilityDestinationRequest
 description: UpdateObservabilityDestinationRequest type definition
-seoTitle: UpdateObservabilityDestinationRequest Type | OpenRouter TypeScript SDK
+seoTitle: UpdateObservabilityDestinationRequest Type | kenh-ai TypeScript SDK
 canonicalUrl: >-
-  https://openrouter.ai/docs/sdks/typescript/api-reference/models/updateobservabilitydestinationrequest
-'og:site_name': OpenRouter Documentation
-'og:title': UpdateObservabilityDestinationRequest Type | OpenRouter TypeScript SDK
+  https://kenh-ai.com/docs/sdks/typescript/api-reference/models/updateobservabilitydestinationrequest
+'og:site_name': kenh-ai Documentation
+'og:title': UpdateObservabilityDestinationRequest Type | kenh-ai TypeScript SDK
 'og:description': >-
-  UpdateObservabilityDestinationRequest type reference for the OpenRouter
+  UpdateObservabilityDestinationRequest type reference for the kenh-ai
   TypeScript SDK. Complete type definition and usage examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=UpdateObservabilityDestinationRequest%20-%20TypeScript%20SDK&description=UpdateObservabilityDestinationRequest%20type%20definition
+  https://kenh-ai.com/dynamic-og?title=UpdateObservabilityDestinationRequest%20-%20TypeScript%20SDK&description=UpdateObservabilityDestinationRequest%20type%20definition
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -30,7 +30,7 @@ Report issues on [GitHub](https://github.com/OpenRouterTeam/typescript-sdk/issue
 ## Example Usage
 
 ```typescript lines
-import { UpdateObservabilityDestinationRequest } from "@openrouter/sdk/models";
+import { UpdateObservabilityDestinationRequest } from "@kenh-ai/sdk/models";
 
 let value: UpdateObservabilityDestinationRequest = {};
 ```
@@ -39,7 +39,7 @@ let value: UpdateObservabilityDestinationRequest = {};
 
 | Field                                                                                                                                                                | Type                                                                                                                                                                 | Required                                                                                                                                                             | Description                                                                                                                                                          | Example                                                                                                                                                              |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `apiKeyHashes`                                                                                                                                                       | *string*[]                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                   | Optional allowlist of OpenRouter API key hashes. `null` clears the filter (all keys). Omitting leaves the current value. Must contain at least one hash if provided. | `<nil>`                                                                                                                                                                |
+| `apiKeyHashes`                                                                                                                                                       | *string*[]                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                   | Optional allowlist of kenh-ai API key hashes. `null` clears the filter (all keys). Omitting leaves the current value. Must contain at least one hash if provided. | `<nil>`                                                                                                                                                                |
 | `config`                                                                                                                                                             | `Record<string, *any*>`                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                   | Provider-specific configuration fields to update. Masked values are ignored; unset fields keep their current value.                                                  | `{"baseUrl": "https://us.cloud.langfuse.com","publicKey": "pk-l...EfGh","secretKey": "sk-l...AbCd"}`                                               |
 | `enabled`                                                                                                                                                            | *boolean*                                                                                                                                                            | :heavy_minus_sign:                                                                                                                                                   | Whether the destination is enabled.                                                                                                                                  | true                                                                                                                                                                 |
 | `filterRules`                                                                                                                                                        | [models.ObservabilityFilterRulesConfig](/client-sdks/typescript/api-reference/models/observabilityfilterrulesconfig)                                                                                 | :heavy_minus_sign:                                                                                                                                                   | N/A                                                                                                                                                                  | `<nil>`                                                                                                                                                                |

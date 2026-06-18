@@ -1,16 +1,16 @@
 ---
 title: Use Provider-Specific Video Options
 description: Inspect allowed passthrough parameters and send provider-specific video controls safely
-seoTitle: 'Use Provider-Specific Video Options | OpenRouter Cookbook'
-canonicalUrl: https://openrouter.ai/docs/cookbook/video-generation/provider-specific-video-options
-og:site_name: OpenRouter Documentation
-og:title: 'Use Provider-Specific Video Options - OpenRouter Cookbook'
-og:description: 'Use allowed_passthrough_parameters and provider.options to send model-specific video generation controls through OpenRouter.'
-og:image: https://openrouter.ai/dynamic-og?title=Use%20Provider-Specific%20Video%20Options&description=Pass%20provider%20video%20options%20through%20OpenRouter
+seoTitle: 'Use Provider-Specific Video Options | kenh-ai Cookbook'
+canonicalUrl: https://kenh-ai.com/docs/cookbook/video-generation/provider-specific-video-options
+og:site_name: kenh-ai Documentation
+og:title: 'Use Provider-Specific Video Options - kenh-ai Cookbook'
+og:description: 'Use allowed_passthrough_parameters and provider.options to send model-specific video generation controls through kenh-ai.'
+og:image: https://kenh-ai.com/dynamic-og?title=Use%20Provider-Specific%20Video%20Options&description=Pass%20provider%20video%20options%20through%20kenh-ai
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: sliders
@@ -19,7 +19,7 @@ icon: sliders
 import OpenRouterVideoSkill from "../../snippets/openrouter-video-skill.mdx";
 
 Use this guide when you need to add video model controls that are not part of
-OpenRouter's normalized video schema.
+kenh-ai's normalized video schema.
 
 By the end, your implementation should inspect a model's allowed passthrough
 parameters and send one through `provider.options`.
@@ -33,7 +33,7 @@ parameters and send one through `provider.options`.
 You need:
 
 - Node.js 20 or newer
-- An OpenRouter API key available as `OPENROUTER_API_KEY` only when you submit
+- An kenh-ai API key available as `KENH_AI_API_KEY` only when you submit
   the video job
 - A target video model for the provider-specific options you want to send
 
@@ -54,7 +54,7 @@ Provider-specific options can change by model and provider. Always check `allowe
 
 <Warning>
 Submitting `POST /api/v1/videos` starts a real video generation job and may
-spend OpenRouter credits.
+spend kenh-ai credits.
 </Warning>
 
 ## Step 1: Inspect allowed passthrough parameters
@@ -66,7 +66,7 @@ hard-coding unsupported request keys.
 Example metadata check:
 
 ```js lines
-const response = await fetch("https://openrouter.ai/api/v1/videos/models");
+const response = await fetch("https://kenh-ai.com/api/v1/videos/models");
 
 if (!response.ok) {
   throw new Error(await response.text());
@@ -99,7 +99,7 @@ Example output:
 
 For example, `google/veo-3.1-lite` may expose passthrough controls such as
 `negativePrompt`, `enhancePrompt`, `personGeneration`, or `conditioningScale`.
-OpenRouter lists supported parameter names; check the provider docs for valid
+kenh-ai lists supported parameter names; check the provider docs for valid
 values when a parameter has an enum.
 
 Before submitting a paid job, assert that every passthrough key you plan to send
@@ -139,13 +139,13 @@ provider are forwarded. For the Google Vertex video endpoint, use the
 Example request shape:
 
 ```js expandable lines
-const apiKey = process.env.OPENROUTER_API_KEY;
+const apiKey = process.env.KENH_AI_API_KEY;
 
 if (!apiKey) {
-  throw new Error("Set OPENROUTER_API_KEY before submitting a video job.");
+  throw new Error("Set KENH_AI_API_KEY before submitting a video job.");
 }
 
-const response = await fetch("https://openrouter.ai/api/v1/videos", {
+const response = await fetch("https://kenh-ai.com/api/v1/videos", {
   method: "POST",
   headers: {
     Authorization: `Bearer ${apiKey}`,
@@ -183,7 +183,7 @@ job later completed and downloaded with this final summary:
 {
   "id": "2hAwXrT31ZpCI8MsjBEe",
   "status": "completed",
-  "polling_url": "https://openrouter.ai/api/v1/videos/2hAwXrT31ZpCI8MsjBEe",
+  "polling_url": "https://kenh-ai.com/api/v1/videos/2hAwXrT31ZpCI8MsjBEe",
   "downloaded_path": "provider-options.mp4",
   "downloaded_bytes": 794331
 }

@@ -1,16 +1,16 @@
 ---
 title: Call Model (Typescript)
 description: A unified API for calling any LLM with automatic tool execution and multiple consumption patterns
-seoTitle: 'Call Model Overview (Typescript) | OpenRouter SDK'
-canonicalUrl: 'https://openrouter.ai/docs/agent-sdks/typescript/call-model/overview'
-og:site_name: OpenRouter Documentation
-og:title: 'Call Model Overview (Typescript) - OpenRouter SDK'
+seoTitle: 'Call Model Overview (Typescript) | kenh-ai SDK'
+canonicalUrl: 'https://kenh-ai.com/docs/agent-sdks/typescript/call-model/overview'
+og:site_name: kenh-ai Documentation
+og:title: 'Call Model Overview (Typescript) - kenh-ai SDK'
 og:description: 'Learn how to use callModel for text generation, streaming, and tool calling with automatic execution. Access 300+ LLMs through a single API.'
-og:image: https://openrouter.ai/dynamic-og?title=Call%20Model%20Overview%20(Typescript)&description=Unified%20LLM%20API%20with%20Tools
+og:image: https://kenh-ai.com/dynamic-og?title=Call%20Model%20Overview%20(Typescript)&description=Unified%20LLM%20API%20with%20Tools
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: book
@@ -18,7 +18,7 @@ icon: book
 
 ## Why callModel?
 
-- **Items-Based Model**: Built on OpenRouter's Responses API with structured
+- **Items-Based Model**: Built on kenh-ai's Responses API with structured
   items (messages, tool calls, reasoning) instead of raw message chunks
 - **Multiple Consumption Patterns**: Get text, stream responses, or access
   structured data - all from a single call
@@ -34,10 +34,10 @@ icon: book
 ## Quick Start
 
 ```typescript lines
-import { OpenRouter } from '@openrouter/agent';
+import { KenhAI } from '@kenh-ai/agent';
 
-const openrouter = new OpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY,
+const openrouter = new KenhAI({
+  apiKey: process.env.KENH_AI_API_KEY,
 });
 
 const result = openrouter.callModel({

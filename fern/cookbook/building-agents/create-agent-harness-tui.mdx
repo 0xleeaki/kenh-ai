@@ -1,16 +1,16 @@
 ---
 title: Build Your Own Agent TUI
 description: Scaffold a custom AI agent with a fully customizable terminal interface using an AI coding agent
-seoTitle: 'Build Your Own Agent TUI | OpenRouter'
-canonicalUrl: https://openrouter.ai/docs/cookbook/building-agents/create-agent-harness-tui
-og:site_name: OpenRouter Documentation
-og:title: 'Build Your Own Agent TUI - OpenRouter'
-og:description: 'Use the create-agent-tui skill to scaffold a custom AI agent in TypeScript with a customizable terminal UI, configurable tools, and streaming via @openrouter/agent.'
-og:image: https://openrouter.ai/dynamic-og?title=Build%20Your%20Own%20Agent%20TUI&description=Scaffold%20a%20custom%20AI%20agent%20with%20tools%20and%20streaming
+seoTitle: 'Build Your Own Agent TUI | kenh-ai'
+canonicalUrl: https://kenh-ai.com/docs/cookbook/building-agents/create-agent-harness-tui
+og:site_name: kenh-ai Documentation
+og:title: 'Build Your Own Agent TUI - kenh-ai'
+og:description: 'Use the create-agent-tui skill to scaffold a custom AI agent in TypeScript with a customizable terminal UI, configurable tools, and streaming via @kenh-ai/agent.'
+og:image: https://kenh-ai.com/dynamic-og?title=Build%20Your%20Own%20Agent%20TUI&description=Scaffold%20a%20custom%20AI%20agent%20with%20tools%20and%20streaming
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: hammer
@@ -20,9 +20,9 @@ icon: hammer
 Looking to build a headless agent for scripts, pipelines, or API servers instead? See the [Build Your Own Headless Agent](/cookbook/building-agents/create-headless-agent) guide.
 </Info>
 
-The [create-agent-tui](https://github.com/OpenRouterTeam/skills/tree/main/skills/create-agent-tui) skill scaffolds a complete agent TUI (terminal user interface) in TypeScript — like `create-react-app` for terminal agents. Tell your AI coding agent what kind of agent you want, and it generates a runnable project targeting [OpenRouter](https://openrouter.ai) with a fully customizable terminal interface, tools, and configuration.
+The [create-agent-tui](https://github.com/OpenRouterTeam/skills/tree/main/skills/create-agent-tui) skill scaffolds a complete agent TUI (terminal user interface) in TypeScript — like `create-react-app` for terminal agents. Tell your AI coding agent what kind of agent you want, and it generates a runnable project targeting [kenh-ai](https://kenh-ai.com) with a fully customizable terminal interface, tools, and configuration.
 
-Under the hood, this is a full **agent harness**: the generated project uses [`@openrouter/agent`](https://www.npmjs.com/package/@openrouter/agent) for the inner loop (model calls, tool execution, stop conditions) and provides everything around it — configuration, tool definitions, session management, and the entry point.
+Under the hood, this is a full **agent harness**: the generated project uses [`@kenh-ai/agent`](https://www.npmjs.com/package/@kenh-ai/agent) for the inner loop (model calls, tool execution, stop conditions) and provides everything around it — configuration, tool definitions, session management, and the entry point.
 
 ## When to build your own
 
@@ -38,7 +38,7 @@ If you're already using Claude Code, Codex CLI, or Cursor as-is, you probably do
 
 ## Install the skill
 
-The create-agent-tui skill is part of the [OpenRouter Skills](https://github.com/OpenRouterTeam/skills) collection. Install it with your AI coding agent of choice:
+The create-agent-tui skill is part of the [kenh-ai Skills](https://github.com/OpenRouterTeam/skills) collection. Install it with your AI coding agent of choice:
 
 <Tabs>
   <Tab title="GitHub CLI">
@@ -66,17 +66,17 @@ Once installed, ask your agent something like _"build me an agent TUI"_ or _"sca
 ## Prerequisites
 
 - Node.js 18+
-- An [OpenRouter API key](https://openrouter.ai/settings/keys)
+- An [kenh-ai API key](https://kenh-ai.com/settings/keys)
 
 ## How it works
 
 The skill presents your coding agent with an interactive checklist of tools, modules, visual styles, and slash commands. You pick what you need, and the agent generates the entire project — ready to run with `npm start`.
 
-### What `@openrouter/agent` handles
+### What `@kenh-ai/agent` handles
 
 | Concern | How the SDK handles it |
 |---------|------------------------|
-| **Model calls** | `client.callModel()` — one call, any model on OpenRouter |
+| **Model calls** | `client.callModel()` — one call, any model on kenh-ai |
 | **Tool execution** | Define tools with `tool()` and Zod schemas; the SDK validates input and calls your `execute` function |
 | **Multi-turn** | The SDK loops (call model -> execute tools -> call model) until a stop condition fires |
 | **Stop conditions** | `stepCountIs(n)`, `maxCost(amount)`, `hasToolCall(name)`, or custom functions |
@@ -196,9 +196,9 @@ With default options selected, the skill generates this layout:
 
 ```expandable lines
 my-agent/
-  package.json              @openrouter/agent, zod, tsx
+  package.json              @kenh-ai/agent, zod, tsx
   tsconfig.json             ES2022, Node16, strict
-  .env.example              OPENROUTER_API_KEY=
+  .env.example              KENH_AI_API_KEY=
   src/
     config.ts               Layered config (defaults -> file -> env)
     agent.ts                Core runner with retry
@@ -222,7 +222,7 @@ my-agent/
 Run it with:
 
 ```bash lines
-export OPENROUTER_API_KEY="sk-or-..."
+export KENH_AI_API_KEY="sk-or-..."
 npm start
 ```
 
@@ -242,7 +242,7 @@ The skill presents a checklist when invoked. Items marked **on** are pre-selecte
 
 ### Server tools
 
-Executed by OpenRouter server-side — zero client code needed.
+Executed by kenh-ai server-side — zero client code needed.
 
 | Tool | Default | Description |
 |------|---------|-------------|
@@ -293,7 +293,7 @@ User-facing REPL commands generated into `src/commands.ts`.
 
 | Command | Default | Description |
 |---------|---------|-------------|
-| `/model` | on | Switch model via OpenRouter API |
+| `/model` | on | Switch model via kenh-ai API |
 | `/new` | on | Start a fresh conversation |
 | `/help` | on | List available commands |
 | `/compact` | off | Manually trigger context compaction |
@@ -318,8 +318,8 @@ Here's a demo app built entirely by the agent TUI skill — a GitHub trending re
 ## Resources
 
 - [Create Agent TUI skill README](https://github.com/OpenRouterTeam/skills/tree/main/skills/create-agent-tui)
-- [OpenRouter Skills repository](https://github.com/OpenRouterTeam/skills)
-- [`@openrouter/agent` on npm](https://www.npmjs.com/package/@openrouter/agent)
-- [OpenRouter TypeScript SDK](/client-sdks/typescript)
+- [kenh-ai Skills repository](https://github.com/OpenRouterTeam/skills)
+- [`@kenh-ai/agent` on npm](https://www.npmjs.com/package/@kenh-ai/agent)
+- [kenh-ai TypeScript SDK](/client-sdks/typescript)
 - [Server Tools documentation](/guides/features/server-tools)
-- [OpenRouter API keys](https://openrouter.ai/settings/keys)
+- [kenh-ai API keys](https://kenh-ai.com/settings/keys)

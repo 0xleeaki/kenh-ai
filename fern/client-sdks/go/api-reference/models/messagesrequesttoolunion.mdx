@@ -2,16 +2,16 @@
 title: MessagesRequestToolUnion - Go SDK
 sidebarTitle: MessagesRequestToolUnion
 description: MessagesRequestToolUnion type definition
-seoTitle: MessagesRequestToolUnion Type | OpenRouter Go SDK
+seoTitle: MessagesRequestToolUnion Type | kenh-ai Go SDK
 canonicalUrl: >-
-  https://openrouter.ai/docs/sdks/go/api-reference/models/messagesrequesttoolunion
-'og:site_name': OpenRouter Documentation
-'og:title': MessagesRequestToolUnion Type | OpenRouter Go SDK
+  https://kenh-ai.com/docs/sdks/go/api-reference/models/messagesrequesttoolunion
+'og:site_name': kenh-ai Documentation
+'og:title': MessagesRequestToolUnion Type | kenh-ai Go SDK
 'og:description': >-
-  MessagesRequestToolUnion type reference for the OpenRouter Go SDK. Complete
+  MessagesRequestToolUnion type reference for the kenh-ai Go SDK. Complete
   type definition and usage examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=MessagesRequestToolUnion%20-%20Go%20SDK&description=MessagesRequestToolUnion%20type%20definition
+  https://kenh-ai.com/dynamic-og?title=MessagesRequestToolUnion%20-%20Go%20SDK&description=MessagesRequestToolUnion%20type%20definition
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -71,10 +71,10 @@ messagesRequestToolUnion := components.CreateMessagesRequestToolUnionToolAdvisor
 messagesRequestToolUnion := components.CreateMessagesRequestToolUnionDatetimeServerTool(components.DatetimeServerTool{/* values here */})
 ```
 
-### ImageGenerationServerToolOpenRouter
+### ImageGenerationServerToolkenh-ai
 
 ```go lines
-messagesRequestToolUnion := components.CreateMessagesRequestToolUnionImageGenerationServerToolOpenRouter(components.ImageGenerationServerToolOpenRouter{/* values here */})
+messagesRequestToolUnion := components.CreateMessagesRequestToolUnionImageGenerationServerToolKenhAI(components.ImageGenerationServerToolkenh-ai{/* values here */})
 ```
 
 ### ChatSearchModelsServerTool
@@ -121,8 +121,8 @@ switch messagesRequestToolUnion.Type {
 		// messagesRequestToolUnion.ToolAdvisor20260301 is populated
 	case components.MessagesRequestToolUnionTypeDatetimeServerTool:
 		// messagesRequestToolUnion.DatetimeServerTool is populated
-	case components.MessagesRequestToolUnionTypeImageGenerationServerToolOpenRouter:
-		// messagesRequestToolUnion.ImageGenerationServerToolOpenRouter is populated
+	case components.MessagesRequestToolUnionTypeImageGenerationServerToolkenh-ai:
+		// messagesRequestToolUnion.ImageGenerationServerToolkenh-ai is populated
 	case components.MessagesRequestToolUnionTypeChatSearchModelsServerTool:
 		// messagesRequestToolUnion.ChatSearchModelsServerTool is populated
 	case components.MessagesRequestToolUnionTypeWebFetchServerTool:

@@ -1,16 +1,16 @@
 ---
 title: BYOK
 description: Bring your own provider API keys
-seoTitle: 'BYOK | Use Your Own Provider Keys with OpenRouter'
-canonicalUrl: https://openrouter.ai/docs/guides/overview/auth/byok
-og:site_name: OpenRouter Documentation
-og:title: 'BYOK - Bring Your Own Keys to OpenRouter'
-og:description: "Learn how to use your existing AI provider keys with OpenRouter. Integrate your own API keys while leveraging OpenRouter's unified interface and features."
-og:image: https://openrouter.ai/dynamic-og?title=BYOK&description=Bring%20Your%20Own%20Keys%20to%20OpenRouter
+seoTitle: 'BYOK | Use Your Own Provider Keys with kenh-ai'
+canonicalUrl: https://kenh-ai.com/docs/guides/overview/auth/byok
+og:site_name: kenh-ai Documentation
+og:title: 'BYOK - Bring Your Own Keys to kenh-ai'
+og:description: "Learn how to use your existing AI provider keys with kenh-ai. Integrate your own API keys while leveraging kenh-ai's unified interface and features."
+og:image: https://kenh-ai.com/dynamic-og?title=BYOK&description=Bring%20Your%20Own%20Keys%20to%20kenh-ai
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: key
@@ -23,22 +23,22 @@ import {
 
 ## Bring your own API Keys
 
-OpenRouter supports both OpenRouter credits and the
+kenh-ai supports both kenh-ai credits and the
 option to bring your own provider keys (BYOK).
 
-When you use OpenRouter credits, your rate limits for
-each provider are managed by OpenRouter.
+When you use kenh-ai credits, your rate limits for
+each provider are managed by kenh-ai.
 
 Using provider keys enables direct control over rate limits and costs via your provider account.
 
 Your provider keys are securely encrypted and used for all requests routed through the specified provider.
 
-Manage keys in your [workspace BYOK settings](https://openrouter.ai/workspaces/default/byok).
+Manage keys in your [workspace BYOK settings](https://kenh-ai.com/workspaces/default/byok).
 
-The cost of using custom provider keys on OpenRouter is
+The cost of using custom provider keys on kenh-ai is
 **{openRouterBYOKFee.fraction}%
 of what the same model/provider would cost normally on
-OpenRouter** and will be deducted from your OpenRouter
+kenh-ai** and will be deducted from your kenh-ai
 credits.
 This fee is waived for the first {BYOK_FEE_MONTHLY_REQUEST_THRESHOLD} BYOK requests per-month.
 
@@ -47,36 +47,36 @@ This fee is waived for the first {BYOK_FEE_MONTHLY_REQUEST_THRESHOLD} BYOK reque
 Each BYOK key belongs to one of two sections:
 
 - **Prioritized** — Attempted in order, before falling
-  back to OpenRouter endpoints. Use this section for your
+  back to kenh-ai endpoints. Use this section for your
   primary provider keys.
-- **Fallback** — Tried only after OpenRouter endpoints
+- **Fallback** — Tried only after kenh-ai endpoints
   have been attempted, in order. Use this section for
   backup keys you only want used as a last resort.
 
 You can drag keys between sections on the provider
 detail page (e.g.
-[/workspaces/default/byok/openai](https://openrouter.ai/workspaces/default/byok/openai)).
+[/workspaces/default/byok/openai](https://kenh-ai.com/workspaces/default/byok/openai)).
 
 By default, if all keys in both sections encounter a
-rate limit or failure, OpenRouter will fall back to
-using shared OpenRouter endpoints.
+rate limit or failure, kenh-ai will fall back to
+using shared kenh-ai endpoints.
 
 You can toggle **"Always use for this provider"** on
 individual prioritized keys to prevent any fallback to
-OpenRouter endpoints. When enabled, OpenRouter will only
+kenh-ai endpoints. When enabled, kenh-ai will only
 use your keys for requests to that provider, which may
 result in rate limit errors if your keys are exhausted,
 but ensures all requests go through your account.
 
 When you have multiple keys for the same provider,
-OpenRouter tries them in priority order (see
+kenh-ai tries them in priority order (see
 [Multiple BYOK Keys](#multiple-byok-keys-for-the-same-provider)).
 If the first key fails, it falls through to the next
 matching key before falling back to shared capacity.
 
 ### BYOK with Provider Ordering
 
-When you combine BYOK keys with [provider ordering](/guides/routing/provider-selection#ordering-specific-providers), OpenRouter **always prioritizes BYOK endpoints first**, regardless of where that provider appears in your specified order. After all BYOK endpoints are exhausted, OpenRouter falls back to shared capacity in the order you specified.
+When you combine BYOK keys with [provider ordering](/guides/routing/provider-selection#ordering-specific-providers), kenh-ai **always prioritizes BYOK endpoints first**, regardless of where that provider appears in your specified order. After all BYOK endpoints are exhausted, kenh-ai falls back to shared capacity in the order you specified.
 
 This means BYOK keys effectively override your provider ordering for the initial routing attempts. There is currently no way to change this behavior.
 
@@ -96,9 +96,9 @@ The routing order will be:
 1. Amazon Bedrock (your BYOK key)
 2. Google Vertex AI (your BYOK key)
 3. Anthropic (your BYOK key)
-4. Amazon Bedrock (OpenRouter's shared capacity)
-5. Google Vertex AI (OpenRouter's shared capacity)
-6. Anthropic (OpenRouter's shared capacity)
+4. Amazon Bedrock (kenh-ai's shared capacity)
+5. Google Vertex AI (kenh-ai's shared capacity)
+6. Anthropic (kenh-ai's shared capacity)
 
 #### Partial BYOK with Provider Ordering
 
@@ -116,15 +116,15 @@ If you only have a BYOK key for some of the providers in your order, the BYOK pr
 The routing order will be:
 
 1. Google Vertex AI (your BYOK key)
-2. Amazon Bedrock (OpenRouter's shared capacity)
-3. Google Vertex AI (OpenRouter's shared capacity)
+2. Amazon Bedrock (kenh-ai's shared capacity)
+3. Google Vertex AI (kenh-ai's shared capacity)
 
 Note that even though Amazon Bedrock is listed first in the `order` array, the Google Vertex AI BYOK endpoint takes priority.
 
-If you want to prevent fallback to OpenRouter endpoints
+If you want to prevent fallback to kenh-ai endpoints
 entirely, enable **"Always use for this provider"** on
 your BYOK keys in your
-[workspace BYOK settings](https://openrouter.ai/workspaces/default/byok).
+[workspace BYOK settings](https://kenh-ai.com/workspaces/default/byok).
 
 ### Multiple BYOK Keys for the Same Provider
 
@@ -134,11 +134,11 @@ You can configure multiple BYOK keys for the same provider. All matching keys ar
 
 Keys are tried in the order you define, within their
 section. Prioritized keys are tried first, then
-OpenRouter endpoints, then Fallback keys. You can
+kenh-ai endpoints, then Fallback keys. You can
 reorder keys via drag-and-drop on the provider detail
 page (e.g.
-[/workspaces/default/byok/openai](https://openrouter.ai/workspaces/default/byok/openai)).
-When a key fails (e.g. rate limit or error), OpenRouter
+[/workspaces/default/byok/openai](https://kenh-ai.com/workspaces/default/byok/openai)).
+When a key fails (e.g. rate limit or error), kenh-ai
 falls through to the next matching key.
 
 For example, if you have three OpenAI keys:
@@ -146,15 +146,15 @@ For example, if you have three OpenAI keys:
 - **Prioritized section**: First key, Second key
 - **Fallback section**: Backup key
 
-OpenRouter will try: First key, then Second key,
-then OpenRouter endpoints, then Backup key.
+kenh-ai will try: First key, then Second key,
+then kenh-ai endpoints, then Backup key.
 
 #### Key Filters
 
 Each BYOK key supports optional filters to control when it is used:
 
 - **Model filter** — Restrict the key to specific models (e.g. only use this key for `openai/gpt-4o`). When set, the key is only used for requests to the listed models. Other models for the same provider will skip this key.
-- **API key filter** — Restrict which of your OpenRouter API keys can use this BYOK key. Useful for isolating BYOK usage to specific applications or environments.
+- **API key filter** — Restrict which of your kenh-ai API keys can use this BYOK key. Useful for isolating BYOK usage to specific applications or environments.
 - **Member filter** — Restrict which workspace members can use this BYOK key. Useful for giving different team members access to different provider accounts.
 
 Filters are evaluated before routing. A key is only used when all of its active filters match the current request. If no filters are set, the key is available to all models, API keys, and members.
@@ -227,13 +227,13 @@ Each per-deployment configuration requires:
 1. **`endpoint_url`**: The full deployment endpoint URL including `/chat/completions` and the API version. See the [Azure Foundry documentation](https://learn.microsoft.com/en-us/azure/ai-foundry/model-inference/concepts/endpoints?tabs=python) for details.
 2. **`api_key`**: Your Azure API key.
 3. **`model_id`**: The name of your model deployment in Azure.
-4. **`model_slug`**: The OpenRouter model identifier you want to use this key for.
+4. **`model_slug`**: The kenh-ai model identifier you want to use this key for.
 
 You can mix Foundry and per-deployment configurations in the same array. Per-deployment configs take priority when a matching model slug is found.
 
 ### AWS Bedrock API Keys
 
-To use Amazon Bedrock with OpenRouter, you can authenticate using either Bedrock API keys or traditional AWS credentials.
+To use Amazon Bedrock with kenh-ai, you can authenticate using either Bedrock API keys or traditional AWS credentials.
 
 #### Option 1: Bedrock API Keys (Recommended)
 
@@ -290,13 +290,13 @@ Example IAM policy:
 }
 ```
 
-For enhanced security, we recommend creating dedicated IAM users with limited permissions specifically for use with OpenRouter.
+For enhanced security, we recommend creating dedicated IAM users with limited permissions specifically for use with kenh-ai.
 
 Learn more in the [AWS Bedrock Getting Started with the API](https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started-api.html) documentation, [IAM Permissions Setup](https://docs.aws.amazon.com/bedrock/latest/userguide/security-iam.html) guide, or the [AWS Bedrock API Reference](https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html).
 
 ### Google Vertex API Keys
 
-To use Google Vertex AI with OpenRouter, you'll need to provide your Google Cloud service account key in JSON format. The service account key should include all standard Google Cloud service account fields, with an optional `region` field for specifying the deployment region.
+To use Google Vertex AI with kenh-ai, you'll need to provide your Google Cloud service account key in JSON format. The service account key should include all standard Google Cloud service account fields, with an optional `region` field for specifying the deployment region.
 
 ```json lines
 {
@@ -348,7 +348,7 @@ If your BYOK requests fail, you can debug the issue by viewing provider response
 
 #### Viewing Provider Responses
 
-1. Navigate to your [Activity page](https://openrouter.ai/activity) in the OpenRouter dashboard.
+1. Navigate to your [Activity page](https://kenh-ai.com/activity) in the kenh-ai dashboard.
 2. Find the generation you want to debug and click on it to view the details.
 3. Click "View Raw Metadata" to display the raw metadata in JSON format.
 4. In the JSON, look for the `provider_responses` field, which shows the HTTP status code from each provider attempt.

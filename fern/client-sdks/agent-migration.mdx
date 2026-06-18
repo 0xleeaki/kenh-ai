@@ -1,24 +1,24 @@
 ---
-title: 'Migrating to @openrouter/agent'
+title: 'Migrating to @kenh-ai/agent'
 description: >-
-  Move agent toolkit imports from @openrouter/sdk to the
-  standalone @openrouter/agent package
+  Move agent toolkit imports from @kenh-ai/sdk to the
+  standalone @kenh-ai/agent package
 seoTitle: >-
-  Migrate to @openrouter/agent | OpenRouter SDK
+  Migrate to @kenh-ai/agent | kenh-ai SDK
 canonicalUrl: >-
-  https://openrouter.ai/docs/sdks/agent-migration
-og:site_name: OpenRouter Documentation
+  https://kenh-ai.com/docs/sdks/agent-migration
+og:site_name: kenh-ai Documentation
 og:title: >-
-  Migrate to @openrouter/agent | OpenRouter SDK
+  Migrate to @kenh-ai/agent | kenh-ai SDK
 og:description: >-
   Step-by-step guide to migrating agent toolkit code from
-  @openrouter/sdk to the new @openrouter/agent package.
+  @kenh-ai/sdk to the new @kenh-ai/agent package.
 og:image: >-
-  https://openrouter.ai/dynamic-og?title=Agent%20Migration&description=Migrate%20to%20%40openrouter%2Fagent
+  https://kenh-ai.com/dynamic-og?title=Agent%20Migration&description=Migrate%20to%20%40openrouter%2Fagent
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: arrow-right-arrow-left
@@ -33,15 +33,15 @@ to let your agent handle the import updates for you:
 {/* banner:end */}
 
 The agent toolkit (`callModel`, `tool`, stop conditions, etc.)
-has moved from `@openrouter/sdk` to a standalone
-**`@openrouter/agent`** package. The agent package includes
-its own `OpenRouter` client class, so you no longer need
-`@openrouter/sdk` as a dependency for agent workflows.
+has moved from `@kenh-ai/sdk` to a standalone
+**`@kenh-ai/agent`** package. The agent package includes
+its own `kenh-ai` client class, so you no longer need
+`@kenh-ai/sdk` as a dependency for agent workflows.
 
 ## Who needs to migrate?
 
 You need to migrate if your code imports any of the following
-from `@openrouter/sdk`:
+from `@kenh-ai/sdk`:
 
 - `callModel` / `ModelResult`
 - `tool` / `Tool` / tool type guards
@@ -60,41 +60,41 @@ If you only use the REST API client for non-agent features
 <CodeGroup>
 
 ```bash npm lines
-npm install @openrouter/agent
+npm install @kenh-ai/agent
 ```
 
 ```bash pnpm lines
-pnpm add @openrouter/agent
+pnpm add @kenh-ai/agent
 ```
 
 ```bash yarn lines
-yarn add @openrouter/agent
+yarn add @kenh-ai/agent
 ```
 
 ```bash bun lines
-bun add @openrouter/agent
+bun add @kenh-ai/agent
 ```
 
 </CodeGroup>
 
 ## Step 2: Update imports
 
-Replace `@openrouter/sdk` subpath imports with
-the equivalent `@openrouter/agent` subpath.
+Replace `@kenh-ai/sdk` subpath imports with
+the equivalent `@kenh-ai/agent` subpath.
 
 ### Client class
 
-`@openrouter/agent` ships its own `OpenRouter` client, so
-you can drop the `@openrouter/sdk` dependency entirely if
+`@kenh-ai/agent` ships its own `kenh-ai` client, so
+you can drop the `@kenh-ai/sdk` dependency entirely if
 you only use agent features:
 
 ```diff lines
-- import OpenRouter from '@openrouter/sdk';
-- import { callModel } from '@openrouter/sdk/funcs/call-model';
-+ import { OpenRouter } from '@openrouter/agent';
+- import kenh-ai from '@kenh-ai/sdk';
+- import { callModel } from '@kenh-ai/sdk/funcs/call-model';
++ import { KenhAI } from '@kenh-ai/agent';
 
-  const client = new OpenRouter({
-    apiKey: process.env.OPENROUTER_API_KEY,
+  const client = new KenhAI({
+    apiKey: process.env.KENH_AI_API_KEY,
   });
 +
 + const result = client.callModel({
@@ -107,36 +107,36 @@ you only use agent features:
 You can also import the client from a direct subpath:
 
 ```typescript lines
-import { OpenRouter } from '@openrouter/agent/client';
+import { KenhAI } from '@kenh-ai/agent/client';
 ```
 
 ### Core imports
 
 ```diff lines
-- import { callModel } from '@openrouter/sdk/funcs/call-model';
-+ import { callModel } from '@openrouter/agent/call-model';
+- import { callModel } from '@kenh-ai/sdk/funcs/call-model';
++ import { callModel } from '@kenh-ai/agent/call-model';
 
-- import { ModelResult } from '@openrouter/sdk/lib/model-result';
-+ import { ModelResult } from '@openrouter/agent/model-result';
+- import { ModelResult } from '@kenh-ai/sdk/lib/model-result';
++ import { ModelResult } from '@kenh-ai/agent/model-result';
 
-- import { tool } from '@openrouter/sdk/lib/tool';
-+ import { tool } from '@openrouter/agent/tool';
+- import { tool } from '@kenh-ai/sdk/lib/tool';
++ import { tool } from '@kenh-ai/agent/tool';
 ```
 
 ### Tool types and guards
 
 ```diff lines
-- import type { Tool } from '@openrouter/sdk/lib/tool-types';
-+ import type { Tool } from '@openrouter/agent/tool-types';
+- import type { Tool } from '@kenh-ai/sdk/lib/tool-types';
++ import type { Tool } from '@kenh-ai/agent/tool-types';
 
 - import {
 -   hasExecuteFunction,
 -   isGeneratorTool,
-- } from '@openrouter/sdk/lib/tool-types';
+- } from '@kenh-ai/sdk/lib/tool-types';
 + import {
 +   hasExecuteFunction,
 +   isGeneratorTool,
-+ } from '@openrouter/agent/tool-types';
++ } from '@kenh-ai/agent/tool-types';
 ```
 
 ### Stop conditions
@@ -146,12 +146,12 @@ import { OpenRouter } from '@openrouter/agent/client';
 -   stepCountIs,
 -   hasToolCall,
 -   maxCost,
-- } from '@openrouter/sdk/lib/stop-conditions';
+- } from '@kenh-ai/sdk/lib/stop-conditions';
 + import {
 +   stepCountIs,
 +   hasToolCall,
 +   maxCost,
-+ } from '@openrouter/agent/stop-conditions';
++ } from '@kenh-ai/agent/stop-conditions';
 ```
 
 ### Async parameters
@@ -159,10 +159,10 @@ import { OpenRouter } from '@openrouter/agent/client';
 ```diff lines
 - import type {
 -   CallModelInput,
-- } from '@openrouter/sdk/lib/async-params';
+- } from '@kenh-ai/sdk/lib/async-params';
 + import type {
 +   CallModelInput,
-+ } from '@openrouter/agent/async-params';
++ } from '@kenh-ai/agent/async-params';
 ```
 
 ### Conversation state and message formats
@@ -176,13 +176,13 @@ available from the package barrel:
 -   updateState,
 -   fromClaudeMessages,
 -   fromChatMessages,
-- } from '@openrouter/sdk';
+- } from '@kenh-ai/sdk';
 + import {
 +   createInitialState,
 +   updateState,
 +   fromClaudeMessages,
 +   fromChatMessages,
-+ } from '@openrouter/agent';
++ } from '@kenh-ai/agent';
 ```
 
 ## Step 3: Verify your build
@@ -199,20 +199,20 @@ npm test
 
 | Old import path | New import path |
 |---|---|
-| `@openrouter/sdk` (client class) | `@openrouter/agent` or `@openrouter/agent/client` |
-| `@openrouter/sdk/funcs/call-model` | `@openrouter/agent/call-model` |
-| `@openrouter/sdk/lib/model-result` | `@openrouter/agent/model-result` |
-| `@openrouter/sdk/lib/tool` | `@openrouter/agent/tool` |
-| `@openrouter/sdk/lib/tool-types` | `@openrouter/agent/tool-types` |
-| `@openrouter/sdk/lib/stop-conditions` | `@openrouter/agent/stop-conditions` |
-| `@openrouter/sdk/lib/async-params` | `@openrouter/agent/async-params` |
-| `@openrouter/sdk` (barrel: state, messages) | `@openrouter/agent` |
+| `@kenh-ai/sdk` (client class) | `@kenh-ai/agent` or `@kenh-ai/agent/client` |
+| `@kenh-ai/sdk/funcs/call-model` | `@kenh-ai/agent/call-model` |
+| `@kenh-ai/sdk/lib/model-result` | `@kenh-ai/agent/model-result` |
+| `@kenh-ai/sdk/lib/tool` | `@kenh-ai/agent/tool` |
+| `@kenh-ai/sdk/lib/tool-types` | `@kenh-ai/agent/tool-types` |
+| `@kenh-ai/sdk/lib/stop-conditions` | `@kenh-ai/agent/stop-conditions` |
+| `@kenh-ai/sdk/lib/async-params` | `@kenh-ai/agent/async-params` |
+| `@kenh-ai/sdk` (barrel: state, messages) | `@kenh-ai/agent` |
 
 ## Automated migration
 
 The script below handles **subpath imports** automatically.
-Barrel imports (`from '@openrouter/sdk'`) and client class
-imports (`import OpenRouter from '@openrouter/sdk'`) must
+Barrel imports (`from '@kenh-ai/sdk'`) and client class
+imports (`import kenh-ai from '@kenh-ai/sdk'`) must
 be updated **manually** — a blanket replacement on the bare
 package name would also match subpath imports and break
 your code. See the [Client class](#client-class) and
@@ -222,62 +222,62 @@ sections above for the correct replacements.
 ```bash lines
 # Using sed (macOS)
 find src -name '*.ts' -o -name '*.tsx' | xargs sed -i '' \
-  -e "s|@openrouter/sdk/funcs/call-model|@openrouter/agent/call-model|g" \
-  -e "s|@openrouter/sdk/lib/model-result|@openrouter/agent/model-result|g" \
-  -e "s|@openrouter/sdk/lib/tool-types|@openrouter/agent/tool-types|g" \
-  -e "s|@openrouter/sdk/lib/tool|@openrouter/agent/tool|g" \
-  -e "s|@openrouter/sdk/lib/stop-conditions|@openrouter/agent/stop-conditions|g" \
-  -e "s|@openrouter/sdk/lib/async-params|@openrouter/agent/async-params|g"
+  -e "s|@kenh-ai/sdk/funcs/call-model|@kenh-ai/agent/call-model|g" \
+  -e "s|@kenh-ai/sdk/lib/model-result|@kenh-ai/agent/model-result|g" \
+  -e "s|@kenh-ai/sdk/lib/tool-types|@kenh-ai/agent/tool-types|g" \
+  -e "s|@kenh-ai/sdk/lib/tool|@kenh-ai/agent/tool|g" \
+  -e "s|@kenh-ai/sdk/lib/stop-conditions|@kenh-ai/agent/stop-conditions|g" \
+  -e "s|@kenh-ai/sdk/lib/async-params|@kenh-ai/agent/async-params|g"
 ```
 
 ```bash lines
 # Using sed (Linux)
 find src -name '*.ts' -o -name '*.tsx' | xargs sed -i \
-  -e "s|@openrouter/sdk/funcs/call-model|@openrouter/agent/call-model|g" \
-  -e "s|@openrouter/sdk/lib/model-result|@openrouter/agent/model-result|g" \
-  -e "s|@openrouter/sdk/lib/tool-types|@openrouter/agent/tool-types|g" \
-  -e "s|@openrouter/sdk/lib/tool|@openrouter/agent/tool|g" \
-  -e "s|@openrouter/sdk/lib/stop-conditions|@openrouter/agent/stop-conditions|g" \
-  -e "s|@openrouter/sdk/lib/async-params|@openrouter/agent/async-params|g"
+  -e "s|@kenh-ai/sdk/funcs/call-model|@kenh-ai/agent/call-model|g" \
+  -e "s|@kenh-ai/sdk/lib/model-result|@kenh-ai/agent/model-result|g" \
+  -e "s|@kenh-ai/sdk/lib/tool-types|@kenh-ai/agent/tool-types|g" \
+  -e "s|@kenh-ai/sdk/lib/tool|@kenh-ai/agent/tool|g" \
+  -e "s|@kenh-ai/sdk/lib/stop-conditions|@kenh-ai/agent/stop-conditions|g" \
+  -e "s|@kenh-ai/sdk/lib/async-params|@kenh-ai/agent/async-params|g"
 ```
 
 <Note>
 The `tool-types` replacement runs before `tool` to avoid
 partial matches. After running the script, search your
-codebase for any remaining `from '@openrouter/sdk'` (without
+codebase for any remaining `from '@kenh-ai/sdk'` (without
 a `/` subpath) to find barrel and client imports that need
 manual updates.
 </Note>
 
 ## FAQ
 
-### Do I still need `@openrouter/sdk`?
+### Do I still need `@kenh-ai/sdk`?
 
 Only if you use non-agent REST API features like
 `client.models.list()`, `client.credits.get()`, or
 `client.chat.send()`. If your code only uses `callModel`,
 tools, and the agent client, you can remove
-`@openrouter/sdk` entirely.
+`@kenh-ai/sdk` entirely.
 
 ### Can I use both packages together?
 
 Yes. They are designed to work side by side. Use
-`@openrouter/sdk` for REST API features and
-`@openrouter/agent` for the agent toolkit:
+`@kenh-ai/sdk` for REST API features and
+`@kenh-ai/agent` for the agent toolkit:
 
 ```typescript lines
-import { OpenRouter } from '@openrouter/sdk';
-import { callModel } from '@openrouter/agent/call-model';
-import { tool } from '@openrouter/agent/tool';
+import { KenhAI } from '@kenh-ai/sdk';
+import { callModel } from '@kenh-ai/agent/call-model';
+import { tool } from '@kenh-ai/agent/tool';
 ```
 
 ### Will the old imports keep working?
 
-The agent exports will be removed from `@openrouter/sdk`
+The agent exports will be removed from `@kenh-ai/sdk`
 in a future major version. Update your imports now to
 avoid a breaking change later.
 
 ### Do I need to change my API key or configuration?
 
-No. `@openrouter/agent` uses the same API key and
+No. `@kenh-ai/agent` uses the same API key and
 endpoints. No server-side changes are required.

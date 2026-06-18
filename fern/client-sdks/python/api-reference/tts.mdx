@@ -2,15 +2,15 @@
 title: Speech - Python SDK
 sidebarTitle: Speech
 description: Speech method reference
-seoTitle: Speech | OpenRouter Python SDK
-canonicalUrl: 'https://openrouter.ai/docs/client-sdks/python/api-reference/tts'
-'og:site_name': OpenRouter Documentation
-'og:title': Speech | OpenRouter Python SDK
+seoTitle: Speech | kenh-ai Python SDK
+canonicalUrl: 'https://kenh-ai.com/docs/client-sdks/python/api-reference/tts'
+'og:site_name': kenh-ai Documentation
+'og:title': Speech | kenh-ai Python SDK
 'og:description': >-
-  Speech method documentation for the OpenRouter Python SDK. Learn how to use
+  Speech method documentation for the kenh-ai Python SDK. Learn how to use
   this API endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=Speech%20-%20Python%20SDK&description=Speech%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=Speech%20-%20Python%20SDK&description=Speech%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -43,14 +43,14 @@ Synthesizes audio from the input text. Returns a raw audio bytestream in the req
 
 {/* UsageSnippet language="python" operationID="createAudioSpeech" method="post" path="/audio/speech" */}
 ```python lines
-from openrouter import OpenRouter
+from kenh_ai import kenh-ai
 import os
 
-with OpenRouter(
+with KenhAI(
     http_referer="<value>",
     x_open_router_title="<value>",
     x_open_router_categories="<value>",
-    api_key=os.getenv("OPENROUTER_API_KEY", ""),
+    api_key=os.getenv("KENH_AI_API_KEY", ""),
 ) as open_router:
 
     res = open_router.tts.create_speech(input="Hello world", model="elevenlabs/eleven-turbo-v2", voice="alloy", response_format="pcm", speed=1)
@@ -68,7 +68,7 @@ with OpenRouter(
 | `model`                                                                                                                                           | *str*                                                                                                                                             | :heavy_check_mark:                                                                                                                                | TTS model identifier                                                                                                                              | elevenlabs/eleven-turbo-v2                                                                                                                        |
 | `voice`                                                                                                                                           | *str*                                                                                                                                             | :heavy_check_mark:                                                                                                                                | Voice identifier (provider-specific).                                                                                                             | alloy                                                                                                                                             |
 | `http_referer`                                                                                                                                    | *Optional[str]*                                                                                                                                   | :heavy_minus_sign:                                                                                                                                | The app identifier should be your app's URL and is used as the primary identifier for rankings.<br/>This is used to track API usage per application.<br/> |                                                                                                                                                   |
-| `x_open_router_title`                                                                                                                             | *Optional[str]*                                                                                                                                   | :heavy_minus_sign:                                                                                                                                | The app display name allows you to customize how your app appears in OpenRouter's dashboard.<br/>                                                 |                                                                                                                                                   |
+| `x_open_router_title`                                                                                                                             | *Optional[str]*                                                                                                                                   | :heavy_minus_sign:                                                                                                                                | The app display name allows you to customize how your app appears in kenh-ai's dashboard.<br/>                                                 |                                                                                                                                                   |
 | `x_open_router_categories`                                                                                                                        | *Optional[str]*                                                                                                                                   | :heavy_minus_sign:                                                                                                                                | Comma-separated list of app categories (e.g. "cli-agent,cloud-agent"). Used for marketplace rankings.<br/>                                        |                                                                                                                                                   |
 | `provider`                                                                                                                                        | [Optional[components.SpeechRequestProvider]](/client-sdks/python/api-reference/components/speechrequestprovider)                                                           | :heavy_minus_sign:                                                                                                                                | Provider-specific passthrough configuration                                                                                                       |                                                                                                                                                   |
 | `response_format`                                                                                                                                 | [Optional[components.ResponseFormatEnum]](/client-sdks/python/api-reference/components/responseformatenum)                                                                 | :heavy_minus_sign:                                                                                                                                | Audio output format                                                                                                                               | pcm                                                                                                                                               |

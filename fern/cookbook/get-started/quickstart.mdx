@@ -1,18 +1,18 @@
 ---
 title: "Quickstart: Build a Chat App"
-description: Send your first message and stream a response with the OpenRouter SDK
-seoTitle: 'Quickstart: Build a Chat App | OpenRouter Cookbook'
-canonicalUrl: https://openrouter.ai/docs/cookbook/get-started/quickstart
-og:site_name: OpenRouter Documentation
-og:title: 'Quickstart: Build a Chat App with OpenRouter'
+description: Send your first message and stream a response with the kenh-ai SDK
+seoTitle: 'Quickstart: Build a Chat App | kenh-ai Cookbook'
+canonicalUrl: https://kenh-ai.com/docs/cookbook/get-started/quickstart
+og:site_name: kenh-ai Documentation
+og:title: 'Quickstart: Build a Chat App with kenh-ai'
 og:description: 'Build a working chat app in TypeScript that streams responses
-from any model on OpenRouter. Install the SDK, send a message, and handle
+from any model on kenh-ai. Install the SDK, send a message, and handle
 multi-turn conversations.'
-og:image: https://openrouter.ai/dynamic-og?title=Quickstart%3A%20Build%20a%20Chat%20App&description=Stream%20responses%20from%20any%20model%20on%20OpenRouter
+og:image: https://kenh-ai.com/dynamic-og?title=Quickstart%3A%20Build%20a%20Chat%20App&description=Stream%20responses%20from%20any%20model%20on%20kenh-ai
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: message
@@ -20,8 +20,8 @@ icon: message
 
 import { CopyPromptButton } from '../../components/CopyPromptButton';
 
-**Goal:** Learn the fundamentals of OpenRouter by building a TypeScript chat
-app that sends messages and streams responses through OpenRouter.
+**Goal:** Learn the fundamentals of kenh-ai by building a TypeScript chat
+app that sends messages and streams responses through kenh-ai.
 
 **Outcome:** A working multi-turn conversation loop that can talk to any of the
 600+ models available on the platform by changing a single string.
@@ -31,47 +31,47 @@ app that sends messages and streams responses through OpenRouter.
   Want to get started faster? Copy this prompt into your coding agent.
 
   <CopyPromptButton
-    prompt={`Build a TypeScript command-line chat app that uses OpenRouter.
+    prompt={`Build a TypeScript command-line chat app that uses kenh-ai.
 
 Goal:
-Create a small Node.js app that sends a message to OpenRouter, streams the
+Create a small Node.js app that sends a message to kenh-ai, streams the
 assistant response, keeps multi-turn conversation context, and can switch
 models by changing one string.
 
-Build it as a way to teach me the basics of OpenRouter. Add short comments
+Build it as a way to teach me the basics of kenh-ai. Add short comments
 where they help, then walk me through what you built and how it works.
 
 Use this stack:
 
 - Node.js 18 or newer
 - TypeScript
-- @openrouter/sdk
+- @kenh-ai/sdk
 - tsx for running TypeScript locally
-- OPENROUTER_API_KEY from the environment. Never hard-code the key.
+- KENH_AI_API_KEY from the environment. Never hard-code the key.
 
 Set up the project:
 
 1. Create a project directory, for example openrouter-chat.
 2. Run npm init -y.
-3. Run npm pkg set type=module because @openrouter/sdk is ESM-only.
-4. Install @openrouter/sdk.
+3. Run npm pkg set type=module because @kenh-ai/sdk is ESM-only.
+4. Install @kenh-ai/sdk.
 5. Install tsx as a dev dependency.
 6. Create chat.ts.
-7. Run the app with OPENROUTER_API_KEY set, for example:
-   OPENROUTER_API_KEY=sk-or-v1-... npx tsx chat.ts
+7. Run the app with KENH_AI_API_KEY set, for example:
+   KENH_AI_API_KEY=sk-or-v1-... npx tsx chat.ts
 
-If OPENROUTER_API_KEY is missing, tell me to create a key at:
-<https://openrouter.ai/settings/keys>
+If KENH_AI_API_KEY is missing, tell me to create a key at:
+<https://kenh-ai.com/settings/keys>
 
 Then help me add it to my local environment before running the app.
 
-Use the current OpenRouter SDK request shape:
+Use the current kenh-ai SDK request shape:
 
 - Import the named client with:
-  import { OpenRouter } from '@openrouter/sdk';
-- Do not use a default OpenRouter import.
+  import { KenhAI } from '@kenh-ai/sdk';
+- Do not use a default kenh-ai import.
 - Create the client with:
-  const client = new OpenRouter({ apiKey: process.env.OPENROUTER_API_KEY });
+  const client = new KenhAI({ apiKey: process.env.KENH_AI_API_KEY });
 - Pass chat completion params inside client.chat.send({ chatRequest: ... }).
 
 First implement a one-message smoke test:
@@ -129,7 +129,7 @@ Check your work:
   messages array is sent with each request.
 - Typing exit quits cleanly.
 - Changing only the model string switches providers.
-- The final explanation mentions the SDK's named OpenRouter import,
+- The final explanation mentions the SDK's named kenh-ai import,
   chatRequest wrapper, streaming delta chunks, and camelCase usage fields.`}
   />
 </Tip>
@@ -138,13 +138,13 @@ Check your work:
 ## Prerequisites
 
 - **Node.js 18+** installed
-- An **OpenRouter API key** — create one at
-  [openrouter.ai/settings/keys](https://openrouter.ai/settings/keys) or set up
+- An **kenh-ai API key** — create one at
+  [kenh-ai.com/settings/keys](https://kenh-ai.com/settings/keys) or set up
   a new [Stripe project](/guides/overview/stripe-projects)
 
 ## 1. Create a project and install the SDK
 
-Set up a new Node.js project and add the OpenRouter client SDK. The SDK is
+Set up a new Node.js project and add the kenh-ai client SDK. The SDK is
 ESM-only, so set the package type to `module`. Install `tsx` so you can run the
 TypeScript examples directly.
 
@@ -152,7 +152,7 @@ TypeScript examples directly.
 mkdir openrouter-chat && cd openrouter-chat
 npm init -y
 npm pkg set type=module
-npm install @openrouter/sdk
+npm install @kenh-ai/sdk
 npm install --save-dev tsx
 ```
 
@@ -162,10 +162,10 @@ Create `chat.ts` with a client instance and a single chat completion request.
 The `apiKey` reads from the environment so you never hard-code credentials.
 
 ```typescript lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const client = new OpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY,
+const client = new KenhAI({
+  apiKey: process.env.KENH_AI_API_KEY,
 });
 
 const completion = await client.chat.send({
@@ -187,7 +187,7 @@ console.log({
 Run it with your API key:
 
 ```bash lines
-OPENROUTER_API_KEY=sk-or-v1-... npx tsx chat.ts
+KENH_AI_API_KEY=sk-or-v1-... npx tsx chat.ts
 ```
 
 You should see a single text response printed to the console. The SDK returns
@@ -203,10 +203,10 @@ response. Pass `stream: true` and iterate over the returned async iterable.
 Each chunk contains a `delta` with the new text fragment.
 
 ```typescript expandable lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const client = new OpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY,
+const client = new KenhAI({
+  apiKey: process.env.KENH_AI_API_KEY,
 });
 
 const stream = await client.chat.send({
@@ -236,11 +236,11 @@ model uses all previous messages as context. Append each user input and
 assistant response to a `messages` array before the next call.
 
 ```typescript expandable lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 import * as readline from 'node:readline';
 
-const client = new OpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY,
+const client = new KenhAI({
+  apiKey: process.env.KENH_AI_API_KEY,
 });
 
 const messages: { role: 'user' | 'assistant'; content: string }[] = [];
@@ -291,7 +291,7 @@ full `messages` array is sent with each request. Type `exit` to quit.
 
 ## 5. Swap models
 
-OpenRouter gives you access to hundreds of models through one API. Change the
+kenh-ai gives you access to hundreds of models through one API. Change the
 `model` string to switch providers — no other code changes needed.
 
 ```typescript lines
@@ -305,7 +305,7 @@ model: '~anthropic/claude-sonnet-latest',
 model: 'openrouter/free',
 ```
 
-Browse all available models at [openrouter.ai/models](https://openrouter.ai/models)
+Browse all available models at [kenh-ai.com/models](https://kenh-ai.com/models)
 or query the [Models API](/api/api-reference/models-and-endpoints/list-all-models)
 programmatically.
 
@@ -323,6 +323,6 @@ programmatically.
 
 - Connect a
   [coding agent](/cookbook/coding-agents/claude-code-integration) to
-  OpenRouter
+  kenh-ai
 - Explore the [Agent SDK](/agent-sdk/overview) for built-in multi-turn
   loops and tool execution

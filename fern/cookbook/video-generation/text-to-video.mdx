@@ -1,16 +1,16 @@
 ---
 title: Generate and Download a Video from Text
 description: Submit a text-to-video job, poll for completion, and save the generated MP4
-seoTitle: 'Generate and Download a Video from Text | OpenRouter Cookbook'
-canonicalUrl: https://openrouter.ai/docs/cookbook/video-generation/text-to-video
-og:site_name: OpenRouter Documentation
-og:title: 'Generate and Download a Video from Text - OpenRouter Cookbook'
-og:description: 'Submit an OpenRouter text-to-video generation job, poll the job status, and download the finished video file.'
-og:image: https://openrouter.ai/dynamic-og?title=Generate%20and%20Download%20a%20Video%20from%20Text&description=Submit%2C%20poll%2C%20and%20save%20an%20OpenRouter%20video
+seoTitle: 'Generate and Download a Video from Text | kenh-ai Cookbook'
+canonicalUrl: https://kenh-ai.com/docs/cookbook/video-generation/text-to-video
+og:site_name: kenh-ai Documentation
+og:title: 'Generate and Download a Video from Text - kenh-ai Cookbook'
+og:description: 'Submit an kenh-ai text-to-video generation job, poll the job status, and download the finished video file.'
+og:image: https://kenh-ai.com/dynamic-og?title=Generate%20and%20Download%20a%20Video%20from%20Text&description=Submit%2C%20poll%2C%20and%20save%20an%20kenh-ai%20video
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: wand-magic-sparkles
@@ -18,7 +18,7 @@ icon: wand-magic-sparkles
 
 import OpenRouterVideoSkill from "../../snippets/openrouter-video-skill.mdx";
 
-Use this guide when you need to add text-to-video generation to an app with OpenRouter.
+Use this guide when you need to add text-to-video generation to an app with kenh-ai.
 
 By the end, your implementation should submit a video job, poll for completion,
 and download the generated MP4.
@@ -31,7 +31,7 @@ and download the generated MP4.
 
 You need:
 
-- An OpenRouter API key available as `OPENROUTER_API_KEY`
+- An kenh-ai API key available as `KENH_AI_API_KEY`
 - Node.js 20 or newer
 - A video model slug, such as `google/veo-3.1-lite`
 
@@ -55,7 +55,7 @@ used below returned this metadata during QA:
 ```bash lines
 node --input-type=module <<'EOF'
 const { data } = await fetch(
-  "https://openrouter.ai/api/v1/videos/models",
+  "https://kenh-ai.com/api/v1/videos/models",
 ).then((response) => response.json());
 const model = data.find((item) => item.id === "google/veo-3.1-lite");
 
@@ -85,7 +85,7 @@ Model metadata output:
 
 <Warning>
 Submitting `POST /api/v1/videos` starts a real video generation job and may
-spend OpenRouter credits.
+spend kenh-ai credits.
 </Warning>
 
 ## Step 1: Submit the video job
@@ -98,14 +98,14 @@ Adapt this submit shape in the server route, queue, or worker that owns video
 generation:
 
 ```ts expandable lines
-const apiKey = process.env.OPENROUTER_API_KEY;
+const apiKey = process.env.KENH_AI_API_KEY;
 
 if (!apiKey) {
-  throw new Error("Set OPENROUTER_API_KEY first.");
+  throw new Error("Set KENH_AI_API_KEY first.");
 }
 
 async function openrouter(path: string, init: RequestInit = {}) {
-  const response = await fetch(`https://openrouter.ai/api/v1${path}`, {
+  const response = await fetch(`https://kenh-ai.com/api/v1${path}`, {
     ...init,
     headers: {
       Authorization: `Bearer ${apiKey}`,
@@ -174,7 +174,7 @@ for (let attempt = 1; attempt <= 60; attempt += 1) {
     throw new Error("Video job did not include a polling_url.");
   }
 
-  const pollingUrl = new URL(status.polling_url, "https://openrouter.ai");
+  const pollingUrl = new URL(status.polling_url, "https://kenh-ai.com");
   const pollResponse = await fetch(pollingUrl, {
     headers: { Authorization: `Bearer ${apiKey}` },
   });
@@ -203,14 +203,14 @@ Status: completed
 When polling returns `completed`, download the first generated asset. The
 content endpoint is the most direct path; if you use a URL from
 `unsigned_urls`, include the bearer token when the URL points back to the
-OpenRouter API.
+kenh-ai API.
 
 In Node.js, import `writeFile` from `node:fs/promises` or replace the file write
 with the storage layer your app uses.
 
 ```ts lines
 const videoResponse = await fetch(
-  `https://openrouter.ai/api/v1/videos/${job.id}/content?index=0`,
+  `https://kenh-ai.com/api/v1/videos/${job.id}/content?index=0`,
   {
     headers: { Authorization: `Bearer ${apiKey}` },
   },
@@ -239,10 +239,10 @@ shape:
 const videoUrl = status.unsigned_urls?.[0];
 
 const downloadUrl =
-  videoUrl ?? `https://openrouter.ai/api/v1/videos/${job.id}/content?index=0`;
+  videoUrl ?? `https://kenh-ai.com/api/v1/videos/${job.id}/content?index=0`;
 
 const videoResponse = await fetch(downloadUrl, {
-  headers: downloadUrl.startsWith("https://openrouter.ai/api/")
+  headers: downloadUrl.startsWith("https://kenh-ai.com/api/")
     ? { Authorization: `Bearer ${apiKey}` }
     : undefined,
 });
@@ -266,14 +266,14 @@ adapt the sequence into a server route, queue, or worker:
 ```ts expandable lines
 import { writeFile } from "node:fs/promises";
 
-const apiKey = process.env.OPENROUTER_API_KEY;
+const apiKey = process.env.KENH_AI_API_KEY;
 
 if (!apiKey) {
-  throw new Error("Set OPENROUTER_API_KEY first.");
+  throw new Error("Set KENH_AI_API_KEY first.");
 }
 
 async function postJson(path: string, body: unknown) {
-  const response = await fetch(`https://openrouter.ai/api/v1${path}`, {
+  const response = await fetch(`https://kenh-ai.com/api/v1${path}`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${apiKey}`,
@@ -322,7 +322,7 @@ for (let attempt = 1; attempt <= 60; attempt += 1) {
     throw new Error("Video job did not include a polling_url.");
   }
 
-  const pollingUrl = new URL(status.polling_url, "https://openrouter.ai");
+  const pollingUrl = new URL(status.polling_url, "https://kenh-ai.com");
   const pollResponse = await fetch(pollingUrl, {
     headers: { Authorization: `Bearer ${apiKey}` },
   });
@@ -341,10 +341,10 @@ if (status.status !== "completed") {
 
 const videoUrl = status.unsigned_urls?.[0];
 const downloadUrl =
-  videoUrl ?? `https://openrouter.ai/api/v1/videos/${job.id}/content?index=0`;
+  videoUrl ?? `https://kenh-ai.com/api/v1/videos/${job.id}/content?index=0`;
 
 const videoResponse = await fetch(downloadUrl, {
-  headers: downloadUrl.startsWith("https://openrouter.ai/api/")
+  headers: downloadUrl.startsWith("https://kenh-ai.com/api/")
     ? { Authorization: `Bearer ${apiKey}` }
     : undefined,
 });

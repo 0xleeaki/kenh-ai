@@ -2,15 +2,15 @@
 title: Byok - Go SDK
 sidebarTitle: Byok
 description: Byok method reference
-seoTitle: Byok | OpenRouter Go SDK
-canonicalUrl: 'https://openrouter.ai/docs/client-sdks/go/api-reference/byok'
-'og:site_name': OpenRouter Documentation
-'og:title': Byok | OpenRouter Go SDK
+seoTitle: Byok | kenh-ai Go SDK
+canonicalUrl: 'https://kenh-ai.com/docs/client-sdks/go/api-reference/byok'
+'og:site_name': kenh-ai Documentation
+'og:title': Byok | kenh-ai Go SDK
 'og:description': >-
-  Byok method documentation for the OpenRouter Go SDK. Learn how to use this API
+  Byok method documentation for the kenh-ai Go SDK. Learn how to use this API
   endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=Byok%20-%20Go%20SDK&description=Byok%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=Byok%20-%20Go%20SDK&description=Byok%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -61,7 +61,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.Byok.List(ctx, optionalnullable.From[int64](nil), nil, nil, nil)
@@ -132,7 +132,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.Byok.Create(ctx, components.CreateBYOKKeyRequest{
@@ -192,7 +192,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.Byok.Delete(ctx, "11111111-2222-3333-4444-555555555555")
@@ -247,7 +247,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.Byok.Get(ctx, "11111111-2222-3333-4444-555555555555")
@@ -304,7 +304,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.Byok.Update(ctx, "11111111-2222-3333-4444-555555555555", components.UpdateBYOKKeyRequest{

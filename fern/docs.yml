@@ -3,14 +3,14 @@ instances:
   - url: fx-labs.docs.buildwithfern.com
     # custom-domain: docs.your-domain.com   # bỏ comment khi có domain riêng
 
-title: "OpenRouter | Documentation"
+title: "kenh-ai | Documentation"
 
 logo:
   light: assets/logo.svg
   dark: assets/logo-white.svg
   height: 28
 
-favicon: assets/favicon.ico
+favicon: assets/favicon.svg
 
 colors:
   accent-primary:
@@ -458,7 +458,7 @@ navigation:
             path: guides/community/frameworks-and-integrations-overview.mdx
             slug: guides/community/frameworks-and-integrations-overview
             icon: puzzle-piece
-          - page: Awesome OpenRouter
+          - page: Awesome kenh-ai
             path: guides/community/awesome-openrouter.mdx
             slug: guides/community/awesome-openrouter
             icon: star
@@ -909,7 +909,7 @@ navigation:
           path: client-sdks/dev-tools/devtools.mdx
           slug: client-sdks/dev-tools/devtools
           icon: microscope
-      - page: "Migrating to @openrouter/agent"
+      - page: "Migrating to @kenh-ai/agent"
         path: client-sdks/agent-migration.mdx
         slug: client-sdks/agent-migration
         icon: arrow-right-arrow-left
@@ -1074,7 +1074,7 @@ navigation:
           path: agent-sdk/dev-tools/devtools.mdx
           slug: agent-sdk/dev-tools/devtools
           icon: microscope
-      - page: "Migrating to @openrouter/agent"
+      - page: "Migrating to @kenh-ai/agent"
         path: agent-sdk/agent-migration.mdx
         slug: agent-sdk/agent-migration
         icon: arrow-right-arrow-left
@@ -1128,7 +1128,7 @@ navigation:
             path: cookbook/coding-agents/junie.mdx
             slug: cookbook/coding-agents/junie
             icon: terminal
-          - page: Using MCP Servers with OpenRouter
+          - page: Using MCP Servers with kenh-ai
             path: cookbook/coding-agents/mcp-servers.mdx
             slug: cookbook/coding-agents/mcp-servers
             icon: server

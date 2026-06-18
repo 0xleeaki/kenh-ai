@@ -1,25 +1,25 @@
 ---
 title: Agent SDK
 description: Build AI agents with multi-turn loops, tools, and conversation state
-seoTitle: 'Agent SDK | OpenRouter Documentation'
-canonicalUrl: https://openrouter.ai/docs/agent-sdk/overview
-og:site_name: OpenRouter Documentation
-og:title: 'Agent SDK | OpenRouter'
-og:description: 'Build AI agents on OpenRouter with callModel, tool definitions, stop conditions, and automatic conversation state management.'
-og:image: https://openrouter.ai/dynamic-og?pathname=agent-sdk&title=Agent%20SDK&description=Build%20AI%20agents%20with%20multi-turn%20loops%2C%20tools%2C%20and%20conversation%20state
+seoTitle: 'Agent SDK | kenh-ai Documentation'
+canonicalUrl: https://kenh-ai.com/docs/agent-sdk/overview
+og:site_name: kenh-ai Documentation
+og:title: 'Agent SDK | kenh-ai'
+og:description: 'Build AI agents on kenh-ai with callModel, tool definitions, stop conditions, and automatic conversation state management.'
+og:image: https://kenh-ai.com/dynamic-og?pathname=agent-sdk&title=Agent%20SDK&description=Build%20AI%20agents%20with%20multi-turn%20loops%2C%20tools%2C%20and%20conversation%20state
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 sidebarTitle: Overview
 icon: book
 ---
 
-The Agent SDK (`@openrouter/agent`) provides the primitives you need to build agentic applications on OpenRouter. Instead of manually wiring up conversation loops, tool dispatch, and state tracking, the Agent SDK handles all of that so you can focus on defining _what_ your agent does.
+The Agent SDK (`@kenh-ai/agent`) provides the primitives you need to build agentic applications on kenh-ai. Instead of manually wiring up conversation loops, tool dispatch, and state tracking, the Agent SDK handles all of that so you can focus on defining _what_ your agent does.
 
-The Agent SDK is built to work alongside the [Client SDKs](/client-sdks/overview). Installing `@openrouter/agent` automatically includes the Client SDKs as well, but each package can work independently.
+The Agent SDK is built to work alongside the [Client SDKs](/client-sdks/overview). Installing `@kenh-ai/agent` automatically includes the Client SDKs as well, but each package can work independently.
 
 ## When to use the Agent SDK
 
@@ -41,15 +41,15 @@ If you only need simple request/response calls to a model without agent loops, t
 <CodeGroup>
 
 ```bash title="npm" lines
-npm install @openrouter/agent
+npm install @kenh-ai/agent
 ```
 
 ```bash title="pnpm" lines
-pnpm add @openrouter/agent
+pnpm add @kenh-ai/agent
 ```
 
 ```bash title="yarn" lines
-yarn add @openrouter/agent
+yarn add @kenh-ai/agent
 ```
 
 </CodeGroup>
@@ -57,7 +57,7 @@ yarn add @openrouter/agent
 ## Quick example
 
 ```typescript expandable lines
-import { callModel, tool } from '@openrouter/agent';
+import { callModel, tool } from '@kenh-ai/agent';
 import { z } from 'zod';
 
 const weatherTool = tool({
@@ -103,7 +103,7 @@ See the [Call Model documentation](/agent-sdk/call-model) for the full API.
 Define tools with the `tool()` helper. Each tool has a name, description, Zod parameter schema, and an `execute` function. The SDK handles serialization, validation, and dispatch.
 
 ```typescript lines
-import { tool } from '@openrouter/agent';
+import { tool } from '@kenh-ai/agent';
 import { z } from 'zod';
 
 const searchTool = tool({
@@ -122,7 +122,7 @@ const searchTool = tool({
 Control when the agent loop terminates:
 
 ```typescript lines
-import { callModel, stepCountIs, maxCost } from '@openrouter/agent';
+import { callModel, stepCountIs, maxCost } from '@kenh-ai/agent';
 
 const result = await callModel({
   model: 'anthropic/claude-sonnet-4',
@@ -149,4 +149,4 @@ const result = await callModel({
 - [Stop Conditions](/agent-sdk/call-model/stop-conditions) — controlling agent loop termination
 - [Streaming](/agent-sdk/call-model/streaming) — real-time token output
 - [DevTools](/agent-sdk/dev-tools/devtools) — telemetry capture and visualization for development
-- [Migrating from @openrouter/sdk](/agent-sdk/agent-migration) — move agent imports to the standalone package
+- [Migrating from @kenh-ai/sdk](/agent-sdk/agent-migration) — move agent imports to the standalone package

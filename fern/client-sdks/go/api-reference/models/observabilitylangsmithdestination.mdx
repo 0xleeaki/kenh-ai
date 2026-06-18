@@ -2,16 +2,16 @@
 title: ObservabilityLangsmithDestination - Go SDK
 sidebarTitle: ObservabilityLangsmithDestination
 description: ObservabilityLangsmithDestination type definition
-seoTitle: ObservabilityLangsmithDestination Type | OpenRouter Go SDK
+seoTitle: ObservabilityLangsmithDestination Type | kenh-ai Go SDK
 canonicalUrl: >-
-  https://openrouter.ai/docs/sdks/go/api-reference/models/observabilitylangsmithdestination
-'og:site_name': OpenRouter Documentation
-'og:title': ObservabilityLangsmithDestination Type | OpenRouter Go SDK
+  https://kenh-ai.com/docs/sdks/go/api-reference/models/observabilitylangsmithdestination
+'og:site_name': kenh-ai Documentation
+'og:title': ObservabilityLangsmithDestination Type | kenh-ai Go SDK
 'og:description': >-
-  ObservabilityLangsmithDestination type reference for the OpenRouter Go SDK.
+  ObservabilityLangsmithDestination type reference for the kenh-ai Go SDK.
   Complete type definition and usage examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=ObservabilityLangsmithDestination%20-%20Go%20SDK&description=ObservabilityLangsmithDestination%20type%20definition
+  https://kenh-ai.com/dynamic-og?title=ObservabilityLangsmithDestination%20-%20Go%20SDK&description=ObservabilityLangsmithDestination%20type%20definition
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -31,7 +31,7 @@ Report issues on [GitHub](https://github.com/OpenRouterTeam/go-sdk/issues).
 
 | Field                                                                                                                                    | Type                                                                                                                                     | Required                                                                                                                                 | Description                                                                                                                              | Example                                                                                                                                  |
 | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `APIKeyHashes`                                                                                                                           | []`string`                                                                                                                               | :heavy_check_mark:                                                                                                                       | Optional allowlist of OpenRouter API key hashes (`api_keys.hash`) whose traffic is forwarded to this destination. `null` means all keys. | `<nil>`                                                                                                                                    |
+| `APIKeyHashes`                                                                                                                           | []`string`                                                                                                                               | :heavy_check_mark:                                                                                                                       | Optional allowlist of kenh-ai API key hashes (`api_keys.hash`) whose traffic is forwarded to this destination. `null` means all keys. | `<nil>`                                                                                                                                    |
 | `Config`                                                                                                                                 | [components.ObservabilityLangsmithDestinationConfig](/client-sdks/go/api-reference/models/observabilitylangsmithdestinationconfig)                 | :heavy_check_mark:                                                                                                                       | N/A                                                                                                                                      |                                                                                                                                          |
 | `CreatedAt`                                                                                                                              | `string`                                                                                                                                 | :heavy_check_mark:                                                                                                                       | ISO timestamp of when the destination was created.                                                                                       | 2025-08-24T10:30:00Z                                                                                                                     |
 | `Enabled`                                                                                                                                | `bool`                                                                                                                                   | :heavy_check_mark:                                                                                                                       | Whether this destination is currently enabled.                                                                                           | true                                                                                                                                     |

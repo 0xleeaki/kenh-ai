@@ -2,15 +2,15 @@
 title: Workspaces - TypeScript SDK
 sidebarTitle: Workspaces
 description: Workspaces method reference
-seoTitle: Workspaces | OpenRouter TypeScript SDK
-canonicalUrl: 'https://openrouter.ai/docs/agent-sdks/typescript/api-reference/workspaces'
-'og:site_name': OpenRouter Documentation
-'og:title': Workspaces | OpenRouter TypeScript SDK
+seoTitle: Workspaces | kenh-ai TypeScript SDK
+canonicalUrl: 'https://kenh-ai.com/docs/agent-sdks/typescript/api-reference/workspaces'
+'og:site_name': kenh-ai Documentation
+'og:title': Workspaces | kenh-ai TypeScript SDK
 'og:description': >-
-  Workspaces method documentation for the OpenRouter TypeScript SDK. Learn how
+  Workspaces method documentation for the kenh-ai TypeScript SDK. Learn how
   to use this API endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=Workspaces%20-%20TypeScript%20SDK&description=Workspaces%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=Workspaces%20-%20TypeScript%20SDK&description=Workspaces%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -49,17 +49,17 @@ List all workspaces for the authenticated user. [Management key](/guides/overvie
 
 {/* UsageSnippet language="typescript" operationID="listWorkspaces" method="get" path="/workspaces" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.workspaces.list();
+  const result = await kenhAi.workspaces.list();
 
   for await (const page of result) {
     console.log(page);
@@ -74,20 +74,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { workspacesList } from "@openrouter/sdk/funcs/workspacesList.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { workspacesList } from "@kenh-ai/sdk/funcs/workspacesList.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await workspacesList(openRouter);
+  const res = await workspacesList(kenhAi);
   if (res.ok) {
     const { value: result } = res;
     for await (const page of result) {
@@ -130,17 +130,17 @@ Create a new workspace for the authenticated user. [Management key](/guides/over
 
 {/* UsageSnippet language="typescript" operationID="createWorkspace" method="post" path="/workspaces" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.workspaces.create({
+  const result = await kenhAi.workspaces.create({
     createWorkspaceRequest: {
       defaultImageModel: "openai/dall-e-3",
       defaultProviderSort: "price",
@@ -162,20 +162,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { workspacesCreate } from "@openrouter/sdk/funcs/workspacesCreate.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { workspacesCreate } from "@kenh-ai/sdk/funcs/workspacesCreate.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await workspacesCreate(openRouter, {
+  const res = await workspacesCreate(kenhAi, {
     createWorkspaceRequest: {
       defaultImageModel: "openai/dall-e-3",
       defaultProviderSort: "price",
@@ -227,17 +227,17 @@ Delete an existing workspace. The default workspace cannot be deleted. Workspace
 
 {/* UsageSnippet language="typescript" operationID="deleteWorkspace" method="delete" path="/workspaces/{id}" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.workspaces.delete({
+  const result = await kenhAi.workspaces.delete({
     id: "production",
   });
 
@@ -252,20 +252,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { workspacesDelete } from "@openrouter/sdk/funcs/workspacesDelete.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { workspacesDelete } from "@kenh-ai/sdk/funcs/workspacesDelete.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await workspacesDelete(openRouter, {
+  const res = await workspacesDelete(kenhAi, {
     id: "production",
   });
   if (res.ok) {
@@ -311,17 +311,17 @@ Get a single workspace by ID or slug. [Management key](/guides/overview/auth/man
 
 {/* UsageSnippet language="typescript" operationID="getWorkspace" method="get" path="/workspaces/{id}" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.workspaces.get({
+  const result = await kenhAi.workspaces.get({
     id: "production",
   });
 
@@ -336,20 +336,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { workspacesGet } from "@openrouter/sdk/funcs/workspacesGet.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { workspacesGet } from "@kenh-ai/sdk/funcs/workspacesGet.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await workspacesGet(openRouter, {
+  const res = await workspacesGet(kenhAi, {
     id: "production",
   });
   if (res.ok) {
@@ -393,17 +393,17 @@ Update an existing workspace by ID or slug. [Management key](/guides/overview/au
 
 {/* UsageSnippet language="typescript" operationID="updateWorkspace" method="patch" path="/workspaces/{id}" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.workspaces.update({
+  const result = await kenhAi.workspaces.update({
     id: "production",
     updateWorkspaceRequest: {
       name: "Updated Workspace",
@@ -422,20 +422,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { workspacesUpdate } from "@openrouter/sdk/funcs/workspacesUpdate.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { workspacesUpdate } from "@kenh-ai/sdk/funcs/workspacesUpdate.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await workspacesUpdate(openRouter, {
+  const res = await workspacesUpdate(kenhAi, {
     id: "production",
     updateWorkspaceRequest: {
       name: "Updated Workspace",
@@ -485,17 +485,17 @@ Add multiple organization members to a workspace. Members are assigned the same 
 
 {/* UsageSnippet language="typescript" operationID="bulkAddWorkspaceMembers" method="post" path="/workspaces/{id}/members/add" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.workspaces.bulkAddMembers({
+  const result = await kenhAi.workspaces.bulkAddMembers({
     id: "production",
     bulkAddWorkspaceMembersRequest: {
       userIds: [
@@ -516,20 +516,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { workspacesBulkAddMembers } from "@openrouter/sdk/funcs/workspacesBulkAddMembers.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { workspacesBulkAddMembers } from "@kenh-ai/sdk/funcs/workspacesBulkAddMembers.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await workspacesBulkAddMembers(openRouter, {
+  const res = await workspacesBulkAddMembers(kenhAi, {
     id: "production",
     bulkAddWorkspaceMembersRequest: {
       userIds: [
@@ -581,17 +581,17 @@ Remove multiple members from a workspace. Members with active API keys in the wo
 
 {/* UsageSnippet language="typescript" operationID="bulkRemoveWorkspaceMembers" method="post" path="/workspaces/{id}/members/remove" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.workspaces.bulkRemoveMembers({
+  const result = await kenhAi.workspaces.bulkRemoveMembers({
     id: "production",
     bulkRemoveWorkspaceMembersRequest: {
       userIds: [
@@ -612,20 +612,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { workspacesBulkRemoveMembers } from "@openrouter/sdk/funcs/workspacesBulkRemoveMembers.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { workspacesBulkRemoveMembers } from "@kenh-ai/sdk/funcs/workspacesBulkRemoveMembers.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await workspacesBulkRemoveMembers(openRouter, {
+  const res = await workspacesBulkRemoveMembers(kenhAi, {
     id: "production",
     bulkRemoveWorkspaceMembersRequest: {
       userIds: [

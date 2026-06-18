@@ -2,15 +2,15 @@
 title: Presets - TypeScript SDK
 sidebarTitle: Presets
 description: Presets method reference
-seoTitle: Presets | OpenRouter TypeScript SDK
-canonicalUrl: 'https://openrouter.ai/docs/client-sdks/typescript/api-reference/presets'
-'og:site_name': OpenRouter Documentation
-'og:title': Presets | OpenRouter TypeScript SDK
+seoTitle: Presets | kenh-ai TypeScript SDK
+canonicalUrl: 'https://kenh-ai.com/docs/client-sdks/typescript/api-reference/presets'
+'og:site_name': kenh-ai Documentation
+'og:title': Presets | kenh-ai TypeScript SDK
 'og:description': >-
-  Presets method documentation for the OpenRouter TypeScript SDK. Learn how to
+  Presets method documentation for the kenh-ai TypeScript SDK. Learn how to
   use this API endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=Presets%20-%20TypeScript%20SDK&description=Presets%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=Presets%20-%20TypeScript%20SDK&description=Presets%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -45,17 +45,17 @@ Creates a preset (or a new version of an existing one) from an inference request
 
 {/* UsageSnippet language="typescript" operationID="createPresetsChatCompletions" method="post" path="/presets/{slug}/chat/completions" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.presets.createPresetsChatCompletions({
+  const result = await kenhAi.presets.createPresetsChatCompletions({
     slug: "my-preset",
     chatRequest: {
       messages: [
@@ -84,20 +84,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { presetsCreatePresetsChatCompletions } from "@openrouter/sdk/funcs/presetsCreatePresetsChatCompletions.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { presetsCreatePresetsChatCompletions } from "@kenh-ai/sdk/funcs/presetsCreatePresetsChatCompletions.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await presetsCreatePresetsChatCompletions(openRouter, {
+  const res = await presetsCreatePresetsChatCompletions(kenhAi, {
     slug: "my-preset",
     chatRequest: {
       messages: [
@@ -158,17 +158,17 @@ Creates a preset (or a new version of an existing one) from an inference request
 
 {/* UsageSnippet language="typescript" operationID="createPresetsMessages" method="post" path="/presets/{slug}/messages" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.presets.createPresetsMessages({
+  const result = await kenhAi.presets.createPresetsMessages({
     slug: "my-preset",
     messagesRequest: {
       maxTokens: 1024,
@@ -194,20 +194,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { presetsCreatePresetsMessages } from "@openrouter/sdk/funcs/presetsCreatePresetsMessages.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { presetsCreatePresetsMessages } from "@kenh-ai/sdk/funcs/presetsCreatePresetsMessages.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await presetsCreatePresetsMessages(openRouter, {
+  const res = await presetsCreatePresetsMessages(kenhAi, {
     slug: "my-preset",
     messagesRequest: {
       maxTokens: 1024,
@@ -265,17 +265,17 @@ Creates a preset (or a new version of an existing one) from an inference request
 
 {/* UsageSnippet language="typescript" operationID="createPresetsResponses" method="post" path="/presets/{slug}/responses" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.presets.createPresetsResponses({
+  const result = await kenhAi.presets.createPresetsResponses({
     slug: "my-preset",
     responsesRequest: {
       input: "Hello!",
@@ -295,20 +295,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { presetsCreatePresetsResponses } from "@openrouter/sdk/funcs/presetsCreatePresetsResponses.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { presetsCreatePresetsResponses } from "@kenh-ai/sdk/funcs/presetsCreatePresetsResponses.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await presetsCreatePresetsResponses(openRouter, {
+  const res = await presetsCreatePresetsResponses(kenhAi, {
     slug: "my-preset",
     responsesRequest: {
       input: "Hello!",

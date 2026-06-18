@@ -1,16 +1,16 @@
 ---
 title: Text-to-Speech
-description: How to generate speech audio from text with OpenRouter models
-seoTitle: 'OpenRouter Text-to-Speech (TTS) | Complete Documentation'
-canonicalUrl: https://openrouter.ai/docs/guides/overview/multimodal/tts
-og:site_name: OpenRouter Documentation
-og:title: 'OpenRouter Text-to-Speech - Complete Documentation'
-og:description: 'Generate speech audio from text using AI models through the OpenRouter API.'
-og:image: https://openrouter.ai/dynamic-og?title=OpenRouter%20Text-to-Speech&description=Generate%20speech%20audio%20from%20text%20using%20AI%20models%20through%20the%20OpenRouter%20API.
+description: How to generate speech audio from text with kenh-ai models
+seoTitle: 'kenh-ai Text-to-Speech (TTS) | Complete Documentation'
+canonicalUrl: https://kenh-ai.com/docs/guides/overview/multimodal/tts
+og:site_name: kenh-ai Documentation
+og:title: 'kenh-ai Text-to-Speech - Complete Documentation'
+og:description: 'Generate speech audio from text using AI models through the kenh-ai API.'
+og:image: https://kenh-ai.com/dynamic-og?title=kenh-ai%20Text-to-Speech&description=Generate%20speech%20audio%20from%20text%20using%20AI%20models%20through%20the%20kenh-ai%20API.
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: microphone
@@ -21,7 +21,7 @@ import {
   API_KEY_REF,
 } from '../../../snippets/exports/constants.mdx';
 
-OpenRouter supports text-to-speech (TTS) via a dedicated `/api/v1/audio/speech` endpoint that is compatible with the [OpenAI Audio Speech API](https://platform.openai.com/docs/api-reference/audio/createSpeech). Send text and receive a raw audio byte stream in your chosen format.
+kenh-ai supports text-to-speech (TTS) via a dedicated `/api/v1/audio/speech` endpoint that is compatible with the [OpenAI Audio Speech API](https://platform.openai.com/docs/api-reference/audio/createSpeech). Send text and receive a raw audio byte stream in your chosen format.
 
 ## Model Discovery
 
@@ -33,7 +33,7 @@ Use the `output_modalities` query parameter on the [Models API](/api/api-referen
 
 ```bash lines
 # List only TTS models
-curl "https://openrouter.ai/api/v1/docs/guides/overview/docs/guides/overview/models?output_modalities=speech"
+curl "https://kenh-ai.com/api/v1/docs/guides/overview/docs/guides/overview/models?output_modalities=speech"
 ```
 
 ### On the Models Page
@@ -53,14 +53,14 @@ Send a `POST` request to `/api/v1/audio/speech` with the text you want to synthe
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" expandable lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 import fs from 'fs';
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   apiKey: '{{API_KEY_REF}}',
 });
 
-const stream = await openRouter.tts.createSpeech({
+const stream = await kenhAi.tts.createSpeech({
   model: '{{MODEL}}',
   input: 'Hello! This is a text-to-speech test.',
   voice: 'alloy',
@@ -90,7 +90,7 @@ console.log('Audio saved to output.mp3');
 from openai import OpenAI
 
 client = OpenAI(
-  base_url="https://openrouter.ai/api/v1",
+  base_url="https://kenh-ai.com/api/v1",
   api_key="{{API_KEY_REF}}",
 )
 
@@ -107,7 +107,7 @@ with client.audio.speech.with_streaming_response.create(
 import requests
 
 response = requests.post(
-  url="https://openrouter.ai/api/v1/audio/speech",
+  url="https://kenh-ai.com/api/v1/audio/speech",
   headers={
     "Authorization": f"Bearer {API_KEY_REF}",
     "Content-Type": "application/json"
@@ -129,7 +129,7 @@ print(f"Audio saved. Generation ID: {generation_id}")
 ```
 
 ```typescript title="TypeScript (fetch)" expandable lines
-const response = await fetch('https://openrouter.ai/api/v1/audio/speech', {
+const response = await fetch('https://kenh-ai.com/api/v1/audio/speech', {
   method: 'POST',
   headers: {
     Authorization: `Bearer ${API_KEY_REF}`,
@@ -155,9 +155,9 @@ console.log(`Generation ID: ${generationId}`);
 ```
 
 ```bash title="cURL" lines
-curl https://openrouter.ai/api/v1/audio/speech \
+curl https://kenh-ai.com/api/v1/audio/speech \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $OPENROUTER_API_KEY" \
+  -H "Authorization: Bearer $KENH_AI_API_KEY" \
   --output output.mp3 \
   -d '{
     "model": "{{MODEL}}",
@@ -222,7 +222,7 @@ TTS models are priced **per character** of input text. Pricing varies by model a
 
 ## OpenAI SDK Compatibility
 
-The TTS endpoint is fully compatible with the OpenAI SDK. You can use the OpenAI client libraries by pointing them at OpenRouter's base URL:
+The TTS endpoint is fully compatible with the OpenAI SDK. You can use the OpenAI client libraries by pointing them at kenh-ai's base URL:
 
 <Template data={{
   API_KEY_REF,
@@ -233,7 +233,7 @@ The TTS endpoint is fully compatible with the OpenAI SDK. You can use the OpenAI
 from openai import OpenAI
 
 client = OpenAI(
-  base_url="https://openrouter.ai/api/v1",
+  base_url="https://kenh-ai.com/api/v1",
   api_key="{{API_KEY_REF}}",
 )
 
@@ -261,7 +261,7 @@ import OpenAI from 'openai';
 import fs from 'fs';
 
 const client = new OpenAI({
-  baseURL: 'https://openrouter.ai/api/v1',
+  baseURL: 'https://kenh-ai.com/api/v1',
   apiKey: '{{API_KEY_REF}}',
 });
 

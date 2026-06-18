@@ -1,16 +1,16 @@
 ---
 title: Weather Tool
 description: A complete weather tool demonstrating external API integration, proper validation, and error handling.
-seoTitle: 'Weather Tool Example | OpenRouter SDK'
-canonicalUrl: 'https://openrouter.ai/docs/agent-sdks/typescript/call-model/tool-examples/weather-tool'
-og:site_name: OpenRouter Documentation
-og:title: 'Weather Tool Example - OpenRouter SDK'
+seoTitle: 'Weather Tool Example | kenh-ai SDK'
+canonicalUrl: 'https://kenh-ai.com/docs/agent-sdks/typescript/call-model/tool-examples/weather-tool'
+og:site_name: kenh-ai Documentation
+og:title: 'Weather Tool Example - kenh-ai SDK'
 og:description: 'Build a weather tool with external API integration, Zod validation, error handling, and environment configuration.'
-og:image: https://openrouter.ai/dynamic-og?title=Weather%20Tool&description=API%20Integration%20Example
+og:image: https://kenh-ai.com/dynamic-og?title=Weather%20Tool&description=API%20Integration%20Example
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: cloud
@@ -19,24 +19,24 @@ icon: cloud
 ## Prerequisites
 
 ```bash lines
-pnpm add @openrouter/sdk zod
+pnpm add @kenh-ai/sdk zod
 ```
 
 You'll need a weather API key. This example uses [WeatherAPI](https://www.weatherapi.com/) (free tier available).
 
 ```bash lines
 export WEATHER_API_KEY=your_api_key_here
-export OPENROUTER_API_KEY=your_openrouter_key
+export KENH_AI_API_KEY=your_openrouter_key
 ```
 
 ## Basic Implementation
 
 ```typescript expandable lines
-import { OpenRouter, tool } from '@openrouter/agent';
+import { kenh-ai, tool } from '@kenh-ai/agent';
 import { z } from 'zod';
 
-const openrouter = new OpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY,
+const openrouter = new KenhAI({
+  apiKey: process.env.KENH_AI_API_KEY,
 });
 
 const weatherTool = tool({

@@ -1,16 +1,16 @@
 ---
 title: Fusion
 description: Multi-model deliberation as a server tool
-seoTitle: 'Fusion Server Tool | Multi-model AI Analysis with OpenRouter'
-canonicalUrl: https://openrouter.ai/docs/guides/features/server-tools/fusion
-og:site_name: OpenRouter Documentation
+seoTitle: 'Fusion Server Tool | Multi-model AI Analysis with kenh-ai'
+canonicalUrl: https://kenh-ai.com/docs/guides/features/server-tools/fusion
+og:site_name: kenh-ai Documentation
 og:title: 'Fusion Server Tool - Multi-model Analysis for Any Model'
 og:description: 'Let any model invoke an expert panel and judge to surface consensus, contradictions, coverage gaps, unique insights, and blind spots.'
-og:image: https://openrouter.ai/dynamic-og?title=Fusion%20Server%20Tool&description=Multi-model%20deliberation%20on%20demand
+og:image: https://kenh-ai.com/dynamic-og?title=Fusion%20Server%20Tool&description=Multi-model%20deliberation%20on%20demand
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: circle-nodes
@@ -41,7 +41,7 @@ This is the same pipeline behind the [`openrouter/fusion` model alias](/guides/r
 <CodeGroup>
 
 ```typescript title="TypeScript" expandable lines
-const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+const response = await fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
     Authorization: 'Bearer {{API_KEY_REF}}',
@@ -69,7 +69,7 @@ console.log(data.choices[0].message.content);
 import requests
 
 response = requests.post(
-  "https://openrouter.ai/api/v1/chat/completions",
+  "https://kenh-ai.com/api/v1/chat/completions",
   headers={
     "Authorization": f"Bearer {{API_KEY_REF}}",
     "Content-Type": "application/json",
@@ -209,4 +209,4 @@ Inner fusion calls carry an `x-openrouter-fusion-depth` header. Panel and judge 
 - [Fusion plugin](/guides/features/plugins/fusion)
 - [Web Search server tool](/guides/features/server-tools/web-search)
 - [Web Fetch server tool](/guides/features/server-tools/web-fetch)
-- [`/labs/fusion`](https://openrouter.ai/fusion/) — interactive playground
+- [`/labs/fusion`](https://kenh-ai.com/fusion/) — interactive playground

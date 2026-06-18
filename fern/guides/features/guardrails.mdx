@@ -1,23 +1,23 @@
 ---
 title: Guardrails
 description: Control spending and model access for your organization
-seoTitle: 'Guardrails | OpenRouter Organization Controls'
-canonicalUrl: https://openrouter.ai/docs/guides/features/guardrails
-og:site_name: OpenRouter Documentation
+seoTitle: 'Guardrails | kenh-ai Organization Controls'
+canonicalUrl: https://kenh-ai.com/docs/guides/features/guardrails
+og:site_name: kenh-ai Documentation
 og:title: 'Guardrails - Organization Spending and Access Controls'
-og:description: 'Set spending limits, restrict model access, and enforce data policies for your organization members and API keys with OpenRouter guardrails.'
-og:image: https://openrouter.ai/dynamic-og?title=Guardrails&description=Control%20spending%20and%20model%20access
+og:description: 'Set spending limits, restrict model access, and enforce data policies for your organization members and API keys with kenh-ai guardrails.'
+og:image: https://kenh-ai.com/dynamic-og?title=Guardrails&description=Control%20spending%20and%20model%20access
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: book-open
 sidebarTitle: Overview
 ---
 
-Guardrails let organizations control how their members and API keys can use OpenRouter. You can set spending limits, restrict which models and providers are available, and enforce data privacy policies.
+Guardrails let organizations control how their members and API keys can use kenh-ai. You can set spending limits, restrict which models and providers are available, and enforce data privacy policies.
 
 Any existing account wide settings will continue to apply. Guardrails help enforce tighter restrictions for individual API keys or users.
 
@@ -25,7 +25,7 @@ Any existing account wide settings will continue to apply. Guardrails help enfor
 
 To create and manage guardrails for your account or organization:
 
-1. Navigate to [Settings > Privacy](https://openrouter.ai/settings/privacy) in your OpenRouter dashboard
+1. Navigate to [Settings > Privacy](https://kenh-ai.com/settings/privacy) in your kenh-ai dashboard
 2. Scroll to the Guardrails section
 3. Click "New Guardrail" to create your first guardrail
 
@@ -137,7 +137,7 @@ on create and on update.
 
 ## When a Request Is Blocked
 
-When a guardrail's runtime checks block a request — for example a content filter or prompt-injection detector — OpenRouter returns an HTTP **403 Forbidden** response. Note that budget limits and allowlist restrictions also produce 403 responses, but only runtime content checks include `openrouter_metadata` stage details.
+When a guardrail's runtime checks block a request — for example a content filter or prompt-injection detector — kenh-ai returns an HTTP **403 Forbidden** response. Note that budget limits and allowlist restrictions also produce 403 responses, but only runtime content checks include `openrouter_metadata` stage details.
 
 ```json lines
 {
@@ -151,7 +151,7 @@ When a guardrail's runtime checks block a request — for example a content filt
 }
 ```
 
-If you opt in to [router metadata](/guides/features/router-metadata) via the `X-OpenRouter-Experimental-Metadata: enabled` header, the 403 response also includes the full `openrouter_metadata` object with routing context and a `pipeline` array showing every guardrail stage that ran:
+If you opt in to [router metadata](/guides/features/router-metadata) via the `X-kenh-ai-Experimental-Metadata: enabled` header, the 403 response also includes the full `openrouter_metadata` object with routing context and a `pipeline` array showing every guardrail stage that ran:
 
 ```json expandable lines
 {
@@ -198,7 +198,7 @@ See [Router Metadata — Error Responses](/guides/features/router-metadata#error
 
 ## API Access
 
-You can manage guardrails programmatically using the OpenRouter API. This allows you to create, update, delete, and assign guardrails to API keys and organization members directly from your code.
+You can manage guardrails programmatically using the kenh-ai API. This allows you to create, update, delete, and assign guardrails to API keys and organization members directly from your code.
 
 See the [Guardrails API reference](/api/api-reference/guardrails/list-guardrails) for available endpoints and usage examples.
 
@@ -209,7 +209,7 @@ Each workspace has a **default guardrail** that applies to all traffic in that w
 1. **List guardrails** for the workspace to find the default guardrail:
 
 ```bash lines
-curl https://openrouter.ai/api/v1/guardrails?workspace_id=YOUR_WORKSPACE_ID \
+curl https://kenh-ai.com/api/v1/guardrails?workspace_id=YOUR_WORKSPACE_ID \
   -H "Authorization: Bearer YOUR_MANAGEMENT_KEY"
 ```
 
@@ -218,7 +218,7 @@ curl https://openrouter.ai/api/v1/guardrails?workspace_id=YOUR_WORKSPACE_ID \
 3. **Update it** using the guardrail's `id`:
 
 ```bash lines
-curl -X PATCH https://openrouter.ai/api/v1/guardrails/GUARDRAIL_ID \
+curl -X PATCH https://kenh-ai.com/api/v1/guardrails/GUARDRAIL_ID \
   -H "Authorization: Bearer YOUR_MANAGEMENT_KEY" \
   -H "Content-Type: application/json" \
   -d '{

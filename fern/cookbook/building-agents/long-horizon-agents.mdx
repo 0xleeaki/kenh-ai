@@ -1,24 +1,24 @@
 ---
 title: Build a Long-Horizon Agent
 description: Run multi-hour agent loops with cost ceilings, resumable state, and voice input
-seoTitle: 'Build a Long-Horizon Agent | OpenRouter Cookbook'
-canonicalUrl: https://openrouter.ai/docs/cookbook/building-agents/long-horizon-agents
-og:site_name: OpenRouter Documentation
-og:title: 'Build a Long-Horizon Agent on OpenRouter'
+seoTitle: 'Build a Long-Horizon Agent | kenh-ai Cookbook'
+canonicalUrl: https://kenh-ai.com/docs/cookbook/building-agents/long-horizon-agents
+og:site_name: kenh-ai Documentation
+og:title: 'Build a Long-Horizon Agent on kenh-ai'
 og:description: 'Run agents for hours, not seconds. Cap cost and step count, persist state for resumability, stream progress, and drive the same loop from voice input.'
-og:image: https://openrouter.ai/dynamic-og?title=Long-Horizon%20Agents&description=Multi-hour%20agent%20loops%20with%20cost%20ceilings%2C%20resumable%20state%2C%20and%20voice%20input
+og:image: https://kenh-ai.com/dynamic-og?title=Long-Horizon%20Agents&description=Multi-hour%20agent%20loops%20with%20cost%20ceilings%2C%20resumable%20state%2C%20and%20voice%20input
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: clock
 ---
 
 <Tip>
-  This cookbook assumes you have an OpenRouter API key and are using the Agent
-  SDK (`@openrouter/agent`). If you are starting from scratch, read the
+  This cookbook assumes you have an kenh-ai API key and are using the Agent
+  SDK (`@kenh-ai/agent`). If you are starting from scratch, read the
   [Agent SDK overview](/agent-sdk/overview) and the
   [callModel reference](/agent-sdk/call-model/overview) first.
 </Tip>
@@ -36,7 +36,7 @@ up four primitives.
 - Streams progress events so dashboards and UIs stay live during the run.
 - Runs a self-ask loop — research, adversarial review, repeat — until the
   agent emits a `[DONE]` sentinel.
-- Optionally accepts voice input via OpenRouter's
+- Optionally accepts voice input via kenh-ai's
   [Speech-to-Text](/guides/overview/multimodal/stt) endpoint and replies
   with [Text-to-Speech](/guides/overview/multimodal/tts).
 
@@ -47,14 +47,14 @@ rather than scaffold a separate project.
 ## Prerequisites
 
 - Node.js 20+ or Bun
-- An [OpenRouter API key](https://openrouter.ai/settings/keys) in
-  `OPENROUTER_API_KEY`
-- A project with `@openrouter/agent` installed
+- An [kenh-ai API key](https://kenh-ai.com/settings/keys) in
+  `KENH_AI_API_KEY`
+- A project with `@kenh-ai/agent` installed
 - A place to persist state — a database, Redis, S3, or the local filesystem
 - Optional: a microphone or audio file for the voice section
 
 ```bash lines
-npm install @openrouter/agent @openrouter/sdk zod
+npm install @kenh-ai/agent @kenh-ai/sdk zod
 ```
 
 ## 1. Set hard ceilings on every run
@@ -64,11 +64,11 @@ loop ends as soon as the first one fires. The most useful for long runs are
 `maxCost`, `stepCountIs`, and `maxTokensUsed`.
 
 ```typescript expandable lines
-import { OpenRouter, tool, stepCountIs, maxCost } from '@openrouter/agent';
+import { kenh-ai, tool, stepCountIs, maxCost } from '@kenh-ai/agent';
 import { z } from 'zod';
 
-const openrouter = new OpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY,
+const openrouter = new KenhAI({
+  apiKey: process.env.KENH_AI_API_KEY,
 });
 
 const searchTool = tool({
@@ -109,7 +109,7 @@ A multi-hour run must survive restarts, deploys, and human approvals.
 already uses.
 
 ```typescript expandable lines
-import type { ConversationState, StateAccessor } from '@openrouter/agent';
+import type { ConversationState, StateAccessor } from '@kenh-ai/agent';
 import { readFile, rename, writeFile } from 'node:fs/promises';
 
 const fileStateAccessor = (path: string): StateAccessor => ({
@@ -217,10 +217,10 @@ sentinel. Each iteration appends a new user turn to the persisted
 over.
 
 ```typescript expandable lines
-import { OpenRouter, stepCountIs, maxCost } from '@openrouter/agent';
+import { kenh-ai, stepCountIs, maxCost } from '@kenh-ai/agent';
 
-const openrouter = new OpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY,
+const openrouter = new KenhAI({
+  apiKey: process.env.KENH_AI_API_KEY,
 });
 
 const SELF_ASK_MAX_ITERATIONS = 10;
@@ -267,18 +267,18 @@ inherits its own `stepCountIs` + `maxCost` budget.
 ## 5. Add voice input
 
 Drive the same agent loop from a voice memo, phone call, or push-to-talk app.
-OpenRouter exposes a dedicated
+kenh-ai exposes a dedicated
 [`/api/v1/audio/transcriptions`](/guides/overview/multimodal/stt)
 endpoint with a single STT model parameter. Hand the transcript to
 `callModel` exactly like a text prompt.
 
 ```typescript lines
-import { OpenRouter as SDK } from '@openrouter/sdk';
-import { OpenRouter, stepCountIs, maxCost } from '@openrouter/agent';
+import { kenh-ai as SDK } from '@kenh-ai/sdk';
+import { kenh-ai, stepCountIs, maxCost } from '@kenh-ai/agent';
 import { readFile } from 'node:fs/promises';
 
-const sdk = new SDK({ apiKey: process.env.OPENROUTER_API_KEY });
-const agent = new OpenRouter({ apiKey: process.env.OPENROUTER_API_KEY });
+const sdk = new SDK({ apiKey: process.env.KENH_AI_API_KEY });
+const agent = new KenhAI({ apiKey: process.env.KENH_AI_API_KEY });
 
 const audio = await readFile('./voice-memo.wav');
 const transcription = await sdk.stt.createTranscription({

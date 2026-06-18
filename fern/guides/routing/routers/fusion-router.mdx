@@ -1,20 +1,20 @@
 ---
 title: Fusion Router
 description: Multi-model deliberation as a model slug
-seoTitle: 'Fusion Router | Multi-model AI Deliberation with OpenRouter'
-canonicalUrl: https://openrouter.ai/docs/guides/routing/routers/fusion-router
-og:site_name: OpenRouter Documentation
+seoTitle: 'Fusion Router | Multi-model AI Deliberation with kenh-ai'
+canonicalUrl: https://kenh-ai.com/docs/guides/routing/routers/fusion-router
+og:site_name: kenh-ai Documentation
 og:title: 'Fusion Router - openrouter/fusion'
 og:description: "Use the openrouter/fusion model slug to access multi-model deliberation — a panel of models, a judge, and a final answer — in a single API call."
-og:image: https://openrouter.ai/dynamic-og?title=Fusion%20Router&description=Multi-model%20deliberation%20as%20a%20model%20slug
+og:image: https://kenh-ai.com/dynamic-og?title=Fusion%20Router&description=Multi-model%20deliberation%20as%20a%20model%20slug
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 icon: circle-nodes
 ---
 
-The [Fusion Router](https://openrouter.ai/openrouter/fusion) (`openrouter/fusion`) gives your model access to a multi-model deliberation tool. When invoked, a panel of models answers your prompt in parallel, then a judge model compares their responses and returns structured analysis — consensus, contradictions, coverage gaps, unique insights, and blind spots. Your model uses that analysis to write a better final answer.
+The [Fusion Router](https://kenh-ai.com/openrouter/fusion) (`openrouter/fusion`) gives your model access to a multi-model deliberation tool. When invoked, a panel of models answers your prompt in parallel, then a judge model compares their responses and returns structured analysis — consensus, contradictions, coverage gaps, unique insights, and blind spots. Your model uses that analysis to write a better final answer.
 
 ## Overview
 
@@ -75,13 +75,13 @@ In both cases, the model decides when to call `openrouter:fusion`. For prompts t
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const kenhAi = new KenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
-const completion = await openRouter.chat.send({
+const completion = await kenhAi.chat.send({
   model: 'openrouter/fusion',
   messages: [
     {
@@ -95,8 +95,8 @@ console.log(completion.choices[0].message.content);
 ```
 
 ```bash title="cURL" lines
-curl https://openrouter.ai/api/v1/chat/completions \
-  -H "Authorization: Bearer $OPENROUTER_API_KEY" \
+curl https://kenh-ai.com/api/v1/chat/completions \
+  -H "Authorization: Bearer $KENH_AI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "openrouter/fusion",
@@ -115,7 +115,7 @@ You can override the default panel and judge by declaring the tool explicitly wi
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" expandable lines
-const completion = await openRouter.chat.send({
+const completion = await kenhAi.chat.send({
   model: '~anthropic/claude-opus-latest',
   messages: [
     {
@@ -140,8 +140,8 @@ const completion = await openRouter.chat.send({
 ```
 
 ```bash title="cURL" lines
-curl https://openrouter.ai/api/v1/chat/completions \
-  -H "Authorization: Bearer $OPENROUTER_API_KEY" \
+curl https://kenh-ai.com/api/v1/chat/completions \
+  -H "Authorization: Bearer $KENH_AI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "~anthropic/claude-opus-latest",
@@ -178,7 +178,7 @@ By default, the model decides when to call `openrouter:fusion`. To guarantee it 
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" lines
-const completion = await openRouter.chat.send({
+const completion = await kenhAi.chat.send({
   model: 'openrouter/fusion',
   messages: [
     {
@@ -191,8 +191,8 @@ const completion = await openRouter.chat.send({
 ```
 
 ```bash title="cURL" lines
-curl https://openrouter.ai/api/v1/chat/completions \
-  -H "Authorization: Bearer $OPENROUTER_API_KEY" \
+curl https://kenh-ai.com/api/v1/chat/completions \
+  -H "Authorization: Bearer $KENH_AI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "openrouter/fusion",
@@ -252,4 +252,4 @@ Inner fusion calls carry an `x-openrouter-fusion-depth` header. Panel and judge 
 - [Fusion plugin](/guides/features/plugins/fusion)
 - [Auto Router](/guides/routing/routers/auto-router)
 - [Pareto Router](/guides/routing/routers/pareto-router)
-- [`/labs/fusion`](https://openrouter.ai/fusion/) — interactive playground
+- [`/labs/fusion`](https://kenh-ai.com/fusion/) — interactive playground

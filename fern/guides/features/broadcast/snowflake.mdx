@@ -1,26 +1,26 @@
 ---
 title: Snowflake
 description: Send traces to Snowflake
-seoTitle: 'Broadcast to Snowflake | OpenRouter Observability'
-canonicalUrl: https://openrouter.ai/docs/guides/features/broadcast/snowflake
-og:site_name: OpenRouter Documentation
+seoTitle: 'Broadcast to Snowflake | kenh-ai Observability'
+canonicalUrl: https://kenh-ai.com/docs/guides/features/broadcast/snowflake
+og:site_name: kenh-ai Documentation
 og:title: 'Broadcast to Snowflake - Send Traces to Your Data Warehouse'
-og:description: 'Connect Snowflake to automatically receive traces from your OpenRouter requests. Step-by-step setup guide for Snowflake integration.'
-og:image: https://openrouter.ai/dynamic-og?title=Snowflake%20Broadcast&description=Send%20traces%20to%20Snowflake
+og:description: 'Connect Snowflake to automatically receive traces from your kenh-ai requests. Step-by-step setup guide for Snowflake integration.'
+og:image: https://kenh-ai.com/dynamic-og?title=Snowflake%20Broadcast&description=Send%20traces%20to%20Snowflake
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: puzzle-piece
 ---
 
-[Snowflake](https://snowflake.com) is a cloud data warehouse platform. OpenRouter can stream traces directly to your Snowflake database for custom analytics, long-term storage, and business intelligence.
+[Snowflake](https://snowflake.com) is a cloud data warehouse platform. kenh-ai can stream traces directly to your Snowflake database for custom analytics, long-term storage, and business intelligence.
 
 ## Step 1: Create the traces table
 
-Before connecting OpenRouter, create the `OPENROUTER_TRACES` table in your Snowflake database. You can find the exact SQL in the OpenRouter dashboard when configuring the destination:
+Before connecting kenh-ai, create the `KENH_AI_TRACES` table in your Snowflake database. You can find the exact SQL in the kenh-ai dashboard when configuring the destination:
 
 <Frame>
 ![Snowflake Table Setup](/assets/guides/features/broadcast/snowflake/snowflake-table-setup.png)
@@ -34,9 +34,9 @@ Generate a [Programmatic Access Token](https://docs.snowflake.com/en/user-guide/
 ![Snowflake PAT](/assets/guides/features/broadcast/snowflake/snowflake-pat.png)
 </Frame>
 
-## Step 3: Enable Broadcast in OpenRouter
+## Step 3: Enable Broadcast in kenh-ai
 
-Go to [Settings > Observability](https://openrouter.ai/settings/observability) and toggle **Enable Broadcast**.
+Go to [Settings > Observability](https://kenh-ai.com/settings/observability) and toggle **Enable Broadcast**.
 
 <Frame>
 ![Enable Broadcast](/assets/guides/features/broadcast/arize/broadcast-enable.png)
@@ -50,7 +50,7 @@ Click the edit icon next to **Snowflake** and enter:
 - **Token**: Your Programmatic Access Token.
 - **Database**: Target database name (default: `SNOWFLAKE_LEARNING_DB`).
 - **Schema**: Target schema name (default: `PUBLIC`).
-- **Table**: Table name (default: `OPENROUTER_TRACES`).
+- **Table**: Table name (default: `KENH_AI_TRACES`).
 - **Warehouse**: Compute warehouse name (default: `COMPUTE_WH`).
 
 ## Step 5: Test and save
@@ -59,7 +59,7 @@ Click **Test Connection** to verify the setup. The configuration only saves if t
 
 ## Step 6: Send a test trace
 
-Make an API request through OpenRouter and query your Snowflake table to verify the trace was received.
+Make an API request through kenh-ai and query your Snowflake table to verify the trace was received.
 
 <Frame>
 ![Snowflake Test Trace](/assets/guides/features/broadcast/snowflake/snowflake-test-trace.png)
@@ -76,7 +76,7 @@ SELECT
   SUM(TOTAL_COST) as total_cost,
   SUM(TOTAL_TOKENS) as total_tokens,
   COUNT(*) as request_count
-FROM OPENROUTER_TRACES
+FROM KENH_AI_TRACES
 WHERE TIMESTAMP >= DATEADD(day, -30, CURRENT_TIMESTAMP())
   AND STATUS = 'ok'
   AND SPAN_TYPE = 'GENERATION'
@@ -94,7 +94,7 @@ SELECT
   SUM(TOTAL_TOKENS) as total_tokens,
   SUM(TOTAL_COST) as total_cost,
   AVG(DURATION_MS) as avg_duration_ms
-FROM OPENROUTER_TRACES
+FROM KENH_AI_TRACES
 WHERE TIMESTAMP >= DATEADD(day, -7, CURRENT_TIMESTAMP())
   AND SPAN_TYPE = 'GENERATION'
 GROUP BY USER_ID
@@ -113,7 +113,7 @@ SELECT
   METADATA as user_metadata,
   INPUT,
   OUTPUT
-FROM OPENROUTER_TRACES
+FROM KENH_AI_TRACES
 WHERE STATUS = 'error'
   AND TIMESTAMP >= DATEADD(hour, -1, CURRENT_TIMESTAMP())
 ORDER BY TIMESTAMP DESC;
@@ -129,7 +129,7 @@ SELECT
   PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY DURATION_MS) as p50_duration_ms,
   PERCENTILE_CONT(0.95) WITHIN GROUP (ORDER BY DURATION_MS) as p95_duration_ms,
   COUNT(*) as request_count
-FROM OPENROUTER_TRACES
+FROM KENH_AI_TRACES
 WHERE TIMESTAMP >= DATEADD(day, -7, CURRENT_TIMESTAMP())
   AND STATUS = 'ok'
   AND SPAN_TYPE = 'GENERATION'
@@ -147,7 +147,7 @@ SELECT
   SUM(TOTAL_COST) as total_cost,
   SUM(PROMPT_TOKENS) as prompt_tokens,
   SUM(COMPLETION_TOKENS) as completion_tokens
-FROM OPENROUTER_TRACES
+FROM KENH_AI_TRACES
 WHERE TIMESTAMP >= DATEADD(day, -30, CURRENT_TIMESTAMP())
   AND SPAN_TYPE = 'GENERATION'
 GROUP BY API_KEY_NAME
@@ -161,7 +161,7 @@ SELECT
   TRACE_ID,
   METADATA:custom_field::STRING as custom_value,
   ATTRIBUTES:"gen_ai.request.model"::STRING as requested_model
-FROM OPENROUTER_TRACES
+FROM KENH_AI_TRACES
 WHERE METADATA:custom_field IS NOT NULL;
 ```
 
@@ -172,7 +172,7 @@ SELECT
   TRACE_ID,
   INPUT:messages[0]:role::STRING as first_message_role,
   INPUT:messages[0]:content::STRING as first_message_content
-FROM OPENROUTER_TRACES
+FROM KENH_AI_TRACES
 WHERE SPAN_TYPE = 'GENERATION';
 ```
 
@@ -241,7 +241,7 @@ SELECT
   METADATA:model_version::STRING as model_version,
   TOTAL_COST,
   TOTAL_TOKENS
-FROM OPENROUTER_TRACES
+FROM KENH_AI_TRACES
 WHERE METADATA:department IS NOT NULL
   AND SPAN_TYPE = 'GENERATION'
 ORDER BY TIMESTAMP DESC;

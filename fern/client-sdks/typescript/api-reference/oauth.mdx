@@ -2,15 +2,15 @@
 title: OAuth - TypeScript SDK
 sidebarTitle: OAuth
 description: OAuth method reference
-seoTitle: OAuth | OpenRouter TypeScript SDK
-canonicalUrl: 'https://openrouter.ai/docs/client-sdks/typescript/api-reference/oauth'
-'og:site_name': OpenRouter Documentation
-'og:title': OAuth | OpenRouter TypeScript SDK
+seoTitle: OAuth | kenh-ai TypeScript SDK
+canonicalUrl: 'https://kenh-ai.com/docs/client-sdks/typescript/api-reference/oauth'
+'og:site_name': kenh-ai Documentation
+'og:title': OAuth | kenh-ai TypeScript SDK
 'og:description': >-
-  OAuth method documentation for the OpenRouter TypeScript SDK. Learn how to use
+  OAuth method documentation for the kenh-ai TypeScript SDK. Learn how to use
   this API endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=OAuth%20-%20TypeScript%20SDK&description=OAuth%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=OAuth%20-%20TypeScript%20SDK&description=OAuth%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -44,17 +44,17 @@ Exchange an authorization code from the PKCE flow for a user-controlled API key
 
 {/* UsageSnippet language="typescript" operationID="exchangeAuthCodeForAPIKey" method="post" path="/auth/keys" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.oAuth.exchangeAuthCodeForAPIKey({
+  const result = await kenhAi.oAuth.exchangeAuthCodeForAPIKey({
     requestBody: {
       code: "auth_code_abc123def456",
       codeChallengeMethod: "S256",
@@ -73,20 +73,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { oAuthExchangeAuthCodeForAPIKey } from "@openrouter/sdk/funcs/oAuthExchangeAuthCodeForAPIKey.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { oAuthExchangeAuthCodeForAPIKey } from "@kenh-ai/sdk/funcs/oAuthExchangeAuthCodeForAPIKey.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await oAuthExchangeAuthCodeForAPIKey(openRouter, {
+  const res = await oAuthExchangeAuthCodeForAPIKey(kenhAi, {
     requestBody: {
       code: "auth_code_abc123def456",
       codeChallengeMethod: "S256",
@@ -134,17 +134,17 @@ Create an authorization code for the PKCE flow to generate a user-controlled API
 
 {/* UsageSnippet language="typescript" operationID="createAuthKeysCode" method="post" path="/auth/keys/code" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.oAuth.createAuthCode({
+  const result = await kenhAi.oAuth.createAuthCode({
     requestBody: {
       callbackUrl: "https://myapp.com/auth/callback",
       codeChallenge: "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
@@ -164,20 +164,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { oAuthCreateAuthCode } from "@openrouter/sdk/funcs/oAuthCreateAuthCode.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { oAuthCreateAuthCode } from "@kenh-ai/sdk/funcs/oAuthCreateAuthCode.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await oAuthCreateAuthCode(openRouter, {
+  const res = await oAuthCreateAuthCode(kenhAi, {
     requestBody: {
       callbackUrl: "https://myapp.com/auth/callback",
       codeChallenge: "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",

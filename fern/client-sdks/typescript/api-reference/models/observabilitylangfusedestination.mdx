@@ -2,16 +2,16 @@
 title: ObservabilityLangfuseDestination - TypeScript SDK
 sidebarTitle: ObservabilityLangfuseDestination
 description: ObservabilityLangfuseDestination type definition
-seoTitle: ObservabilityLangfuseDestination Type | OpenRouter TypeScript SDK
+seoTitle: ObservabilityLangfuseDestination Type | kenh-ai TypeScript SDK
 canonicalUrl: >-
-  https://openrouter.ai/docs/sdks/typescript/api-reference/models/observabilitylangfusedestination
-'og:site_name': OpenRouter Documentation
-'og:title': ObservabilityLangfuseDestination Type | OpenRouter TypeScript SDK
+  https://kenh-ai.com/docs/sdks/typescript/api-reference/models/observabilitylangfusedestination
+'og:site_name': kenh-ai Documentation
+'og:title': ObservabilityLangfuseDestination Type | kenh-ai TypeScript SDK
 'og:description': >-
-  ObservabilityLangfuseDestination type reference for the OpenRouter TypeScript
+  ObservabilityLangfuseDestination type reference for the kenh-ai TypeScript
   SDK. Complete type definition and usage examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=ObservabilityLangfuseDestination%20-%20TypeScript%20SDK&description=ObservabilityLangfuseDestination%20type%20definition
+  https://kenh-ai.com/dynamic-og?title=ObservabilityLangfuseDestination%20-%20TypeScript%20SDK&description=ObservabilityLangfuseDestination%20type%20definition
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -30,7 +30,7 @@ Report issues on [GitHub](https://github.com/OpenRouterTeam/typescript-sdk/issue
 ## Example Usage
 
 ```typescript lines
-import { ObservabilityLangfuseDestination } from "@openrouter/sdk/models";
+import { ObservabilityLangfuseDestination } from "@kenh-ai/sdk/models";
 
 let value: ObservabilityLangfuseDestination = {
   apiKeyHashes: null,
@@ -55,7 +55,7 @@ let value: ObservabilityLangfuseDestination = {
 
 | Field                                                                                                                                    | Type                                                                                                                                     | Required                                                                                                                                 | Description                                                                                                                              | Example                                                                                                                                  |
 | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `apiKeyHashes`                                                                                                                           | *string*[]                                                                                                                               | :heavy_check_mark:                                                                                                                       | Optional allowlist of OpenRouter API key hashes (`api_keys.hash`) whose traffic is forwarded to this destination. `null` means all keys. | `<nil>`                                                                                                                                    |
+| `apiKeyHashes`                                                                                                                           | *string*[]                                                                                                                               | :heavy_check_mark:                                                                                                                       | Optional allowlist of kenh-ai API key hashes (`api_keys.hash`) whose traffic is forwarded to this destination. `null` means all keys. | `<nil>`                                                                                                                                    |
 | `config`                                                                                                                                 | [models.ObservabilityLangfuseDestinationConfig](/client-sdks/typescript/api-reference/models/observabilitylangfusedestinationconfig)                                     | :heavy_check_mark:                                                                                                                       | N/A                                                                                                                                      |                                                                                                                                          |
 | `createdAt`                                                                                                                              | *string*                                                                                                                                 | :heavy_check_mark:                                                                                                                       | ISO timestamp of when the destination was created.                                                                                       | 2025-08-24T10:30:00Z                                                                                                                     |
 | `enabled`                                                                                                                                | *boolean*                                                                                                                                | :heavy_check_mark:                                                                                                                       | Whether this destination is currently enabled.                                                                                           | true                                                                                                                                     |

@@ -1,15 +1,15 @@
 ---
 title: Python SDK
-description: Official OpenRouter Python SDK documentation
-seoTitle: OpenRouter Python SDK | Complete Documentation
-canonicalUrl: 'https://openrouter.ai/docs/client-sdks/python'
-'og:site_name': OpenRouter Documentation
-'og:title': OpenRouter Python SDK | Complete Documentation
+description: Official kenh-ai Python SDK documentation
+seoTitle: kenh-ai Python SDK | Complete Documentation
+canonicalUrl: 'https://kenh-ai.com/docs/client-sdks/python'
+'og:site_name': kenh-ai Documentation
+'og:title': kenh-ai Python SDK | Complete Documentation
 'og:description': >-
-  Complete guide to using the OpenRouter Python SDK. Learn how to integrate AI
+  Complete guide to using the kenh-ai Python SDK. Learn how to integrate AI
   models into your Python applications.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=Python%20SDK&description=Official%20OpenRouter%20Python%20SDK%20documentation
+  https://kenh-ai.com/dynamic-og?title=Python%20SDK&description=Official%20kenh-ai%20Python%20SDK%20documentation
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -27,18 +27,18 @@ Report issues on [GitHub](https://github.com/OpenRouterTeam/python-sdk/issues).
 </Warning>
 {/* banner:end */}
 
-The OpenRouter Python SDK is a type-safe toolkit for building AI applications with access to 300+ language models through a unified API.
+The kenh-ai Python SDK is a type-safe toolkit for building AI applications with access to 300+ language models through a unified API.
 
-## Why use the OpenRouter SDK?
+## Why use the kenh-ai SDK?
 
-Integrating AI models into applications involves handling different provider APIs, managing model-specific requirements, and avoiding common implementation mistakes. The OpenRouter SDK standardizes these integrations and protects you from footguns.
+Integrating AI models into applications involves handling different provider APIs, managing model-specific requirements, and avoiding common implementation mistakes. The kenh-ai SDK standardizes these integrations and protects you from footguns.
 
 ```python lines
-from openrouter import OpenRouter
+from kenh_ai import kenh-ai
 import os
 
-with OpenRouter(
-    api_key=os.getenv("OPENROUTER_API_KEY")
+with KenhAI(
+    api_key=os.getenv("KENH_AI_API_KEY")
 ) as client:
     response = client.chat.send(
         model="minimax/minimax-m2",
@@ -52,7 +52,7 @@ The SDK provides three core benefits:
 
 ### Auto-generated from API specifications
 
-The SDK is automatically generated from OpenRouter's OpenAPI specs and updated with every API change. New models, parameters, and features appear in your IDE autocomplete immediately. No manual updates. No version drift.
+The SDK is automatically generated from kenh-ai's OpenAPI specs and updated with every API change. New models, parameters, and features appear in your IDE autocomplete immediately. No manual updates. No version drift.
 
 ```python lines
 # When new models launch, they're available instantly
@@ -105,8 +105,8 @@ for event in stream:
 import asyncio
 
 async def main():
-    async with OpenRouter(
-        api_key=os.getenv("OPENROUTER_API_KEY")
+    async with KenhAI(
+        api_key=os.getenv("KENH_AI_API_KEY")
     ) as client:
         response = await client.chat.send_async(
             model="minimax/minimax-m2",
@@ -132,16 +132,16 @@ poetry add openrouter
 
 **Requirements:** Python 3.9 or higher
 
-Get your API key from [openrouter.ai/settings/keys](https://openrouter.ai/settings/keys).
+Get your API key from [kenh-ai.com/settings/keys](https://kenh-ai.com/settings/keys).
 
 ## Quick start
 
 ```python lines
-from openrouter import OpenRouter
+from kenh_ai import kenh-ai
 import os
 
-with OpenRouter(
-    api_key=os.getenv("OPENROUTER_API_KEY")
+with KenhAI(
+    api_key=os.getenv("KENH_AI_API_KEY")
 ) as client:
     response = client.chat.send(
         model="minimax/minimax-m2",

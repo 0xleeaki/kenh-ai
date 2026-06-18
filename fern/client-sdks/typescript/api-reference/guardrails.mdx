@@ -2,15 +2,15 @@
 title: Guardrails - TypeScript SDK
 sidebarTitle: Guardrails
 description: Guardrails method reference
-seoTitle: Guardrails | OpenRouter TypeScript SDK
-canonicalUrl: 'https://openrouter.ai/docs/client-sdks/typescript/api-reference/guardrails'
-'og:site_name': OpenRouter Documentation
-'og:title': Guardrails | OpenRouter TypeScript SDK
+seoTitle: Guardrails | kenh-ai TypeScript SDK
+canonicalUrl: 'https://kenh-ai.com/docs/client-sdks/typescript/api-reference/guardrails'
+'og:site_name': kenh-ai Documentation
+'og:title': Guardrails | kenh-ai TypeScript SDK
 'og:description': >-
-  Guardrails method documentation for the OpenRouter TypeScript SDK. Learn how
+  Guardrails method documentation for the kenh-ai TypeScript SDK. Learn how
   to use this API endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=Guardrails%20-%20TypeScript%20SDK&description=Guardrails%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=Guardrails%20-%20TypeScript%20SDK&description=Guardrails%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -55,17 +55,17 @@ List all guardrails for the authenticated user. [Management key](/guides/overvie
 
 {/* UsageSnippet language="typescript" operationID="listGuardrails" method="get" path="/guardrails" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.guardrails.list();
+  const result = await kenhAi.guardrails.list();
 
   for await (const page of result) {
     console.log(page);
@@ -80,20 +80,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { guardrailsList } from "@openrouter/sdk/funcs/guardrailsList.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { guardrailsList } from "@kenh-ai/sdk/funcs/guardrailsList.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await guardrailsList(openRouter);
+  const res = await guardrailsList(kenhAi);
   if (res.ok) {
     const { value: result } = res;
     for await (const page of result) {
@@ -136,17 +136,17 @@ Create a new guardrail for the authenticated user. [Management key](/guides/over
 
 {/* UsageSnippet language="typescript" operationID="createGuardrail" method="post" path="/guardrails" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.guardrails.create({
+  const result = await kenhAi.guardrails.create({
     createGuardrailRequest: {
       allowedModels: null,
       allowedProviders: [
@@ -178,20 +178,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { guardrailsCreate } from "@openrouter/sdk/funcs/guardrailsCreate.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { guardrailsCreate } from "@kenh-ai/sdk/funcs/guardrailsCreate.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await guardrailsCreate(openRouter, {
+  const res = await guardrailsCreate(kenhAi, {
     createGuardrailRequest: {
       allowedModels: null,
       allowedProviders: [
@@ -253,17 +253,17 @@ Delete an existing guardrail. [Management key](/guides/overview/auth/management-
 
 {/* UsageSnippet language="typescript" operationID="deleteGuardrail" method="delete" path="/guardrails/{id}" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.guardrails.delete({
+  const result = await kenhAi.guardrails.delete({
     id: "550e8400-e29b-41d4-a716-446655440000",
   });
 
@@ -278,20 +278,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { guardrailsDelete } from "@openrouter/sdk/funcs/guardrailsDelete.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { guardrailsDelete } from "@kenh-ai/sdk/funcs/guardrailsDelete.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await guardrailsDelete(openRouter, {
+  const res = await guardrailsDelete(kenhAi, {
     id: "550e8400-e29b-41d4-a716-446655440000",
   });
   if (res.ok) {
@@ -335,17 +335,17 @@ Get a single guardrail by ID. [Management key](/guides/overview/auth/management-
 
 {/* UsageSnippet language="typescript" operationID="getGuardrail" method="get" path="/guardrails/{id}" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.guardrails.get({
+  const result = await kenhAi.guardrails.get({
     id: "550e8400-e29b-41d4-a716-446655440000",
   });
 
@@ -360,20 +360,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { guardrailsGet } from "@openrouter/sdk/funcs/guardrailsGet.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { guardrailsGet } from "@kenh-ai/sdk/funcs/guardrailsGet.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await guardrailsGet(openRouter, {
+  const res = await guardrailsGet(kenhAi, {
     id: "550e8400-e29b-41d4-a716-446655440000",
   });
   if (res.ok) {
@@ -417,17 +417,17 @@ Update an existing guardrail. [Management key](/guides/overview/auth/management-
 
 {/* UsageSnippet language="typescript" operationID="updateGuardrail" method="patch" path="/guardrails/{id}" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.guardrails.update({
+  const result = await kenhAi.guardrails.update({
     id: "550e8400-e29b-41d4-a716-446655440000",
     updateGuardrailRequest: {
       description: "Updated description",
@@ -448,20 +448,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { guardrailsUpdate } from "@openrouter/sdk/funcs/guardrailsUpdate.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { guardrailsUpdate } from "@kenh-ai/sdk/funcs/guardrailsUpdate.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await guardrailsUpdate(openRouter, {
+  const res = await guardrailsUpdate(kenhAi, {
     id: "550e8400-e29b-41d4-a716-446655440000",
     updateGuardrailRequest: {
       description: "Updated description",
@@ -512,17 +512,17 @@ List all API key assignments for a specific guardrail. [Management key](/guides/
 
 {/* UsageSnippet language="typescript" operationID="listGuardrailKeyAssignments" method="get" path="/guardrails/{id}/assignments/keys" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.guardrails.listGuardrailKeyAssignments({
+  const result = await kenhAi.guardrails.listGuardrailKeyAssignments({
     id: "550e8400-e29b-41d4-a716-446655440000",
   });
 
@@ -539,20 +539,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { guardrailsListGuardrailKeyAssignments } from "@openrouter/sdk/funcs/guardrailsListGuardrailKeyAssignments.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { guardrailsListGuardrailKeyAssignments } from "@kenh-ai/sdk/funcs/guardrailsListGuardrailKeyAssignments.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await guardrailsListGuardrailKeyAssignments(openRouter, {
+  const res = await guardrailsListGuardrailKeyAssignments(kenhAi, {
     id: "550e8400-e29b-41d4-a716-446655440000",
   });
   if (res.ok) {
@@ -598,17 +598,17 @@ Assign multiple API keys to a specific guardrail. [Management key](/guides/overv
 
 {/* UsageSnippet language="typescript" operationID="bulkAssignKeysToGuardrail" method="post" path="/guardrails/{id}/assignments/keys" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.guardrails.bulkAssignKeys({
+  const result = await kenhAi.guardrails.bulkAssignKeys({
     id: "550e8400-e29b-41d4-a716-446655440000",
     bulkAssignKeysRequest: {
       keyHashes: [
@@ -628,20 +628,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { guardrailsBulkAssignKeys } from "@openrouter/sdk/funcs/guardrailsBulkAssignKeys.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { guardrailsBulkAssignKeys } from "@kenh-ai/sdk/funcs/guardrailsBulkAssignKeys.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await guardrailsBulkAssignKeys(openRouter, {
+  const res = await guardrailsBulkAssignKeys(kenhAi, {
     id: "550e8400-e29b-41d4-a716-446655440000",
     bulkAssignKeysRequest: {
       keyHashes: [
@@ -691,17 +691,17 @@ Unassign multiple API keys from a specific guardrail. [Management key](/guides/o
 
 {/* UsageSnippet language="typescript" operationID="bulkUnassignKeysFromGuardrail" method="post" path="/guardrails/{id}/assignments/keys/remove" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.guardrails.bulkUnassignKeys({
+  const result = await kenhAi.guardrails.bulkUnassignKeys({
     id: "550e8400-e29b-41d4-a716-446655440000",
     bulkUnassignKeysRequest: {
       keyHashes: [
@@ -721,20 +721,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { guardrailsBulkUnassignKeys } from "@openrouter/sdk/funcs/guardrailsBulkUnassignKeys.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { guardrailsBulkUnassignKeys } from "@kenh-ai/sdk/funcs/guardrailsBulkUnassignKeys.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await guardrailsBulkUnassignKeys(openRouter, {
+  const res = await guardrailsBulkUnassignKeys(kenhAi, {
     id: "550e8400-e29b-41d4-a716-446655440000",
     bulkUnassignKeysRequest: {
       keyHashes: [
@@ -784,17 +784,17 @@ List all organization member assignments for a specific guardrail. [Management k
 
 {/* UsageSnippet language="typescript" operationID="listGuardrailMemberAssignments" method="get" path="/guardrails/{id}/assignments/members" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.guardrails.listGuardrailMemberAssignments({
+  const result = await kenhAi.guardrails.listGuardrailMemberAssignments({
     id: "550e8400-e29b-41d4-a716-446655440000",
   });
 
@@ -811,20 +811,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { guardrailsListGuardrailMemberAssignments } from "@openrouter/sdk/funcs/guardrailsListGuardrailMemberAssignments.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { guardrailsListGuardrailMemberAssignments } from "@kenh-ai/sdk/funcs/guardrailsListGuardrailMemberAssignments.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await guardrailsListGuardrailMemberAssignments(openRouter, {
+  const res = await guardrailsListGuardrailMemberAssignments(kenhAi, {
     id: "550e8400-e29b-41d4-a716-446655440000",
   });
   if (res.ok) {
@@ -870,17 +870,17 @@ Assign multiple organization members to a specific guardrail. [Management key](/
 
 {/* UsageSnippet language="typescript" operationID="bulkAssignMembersToGuardrail" method="post" path="/guardrails/{id}/assignments/members" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.guardrails.bulkAssignMembers({
+  const result = await kenhAi.guardrails.bulkAssignMembers({
     id: "550e8400-e29b-41d4-a716-446655440000",
     bulkAssignMembersRequest: {
       memberUserIds: [
@@ -901,20 +901,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { guardrailsBulkAssignMembers } from "@openrouter/sdk/funcs/guardrailsBulkAssignMembers.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { guardrailsBulkAssignMembers } from "@kenh-ai/sdk/funcs/guardrailsBulkAssignMembers.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await guardrailsBulkAssignMembers(openRouter, {
+  const res = await guardrailsBulkAssignMembers(kenhAi, {
     id: "550e8400-e29b-41d4-a716-446655440000",
     bulkAssignMembersRequest: {
       memberUserIds: [
@@ -965,17 +965,17 @@ Unassign multiple organization members from a specific guardrail. [Management ke
 
 {/* UsageSnippet language="typescript" operationID="bulkUnassignMembersFromGuardrail" method="post" path="/guardrails/{id}/assignments/members/remove" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.guardrails.bulkUnassignMembers({
+  const result = await kenhAi.guardrails.bulkUnassignMembers({
     id: "550e8400-e29b-41d4-a716-446655440000",
     bulkUnassignMembersRequest: {
       memberUserIds: [
@@ -996,20 +996,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { guardrailsBulkUnassignMembers } from "@openrouter/sdk/funcs/guardrailsBulkUnassignMembers.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { guardrailsBulkUnassignMembers } from "@kenh-ai/sdk/funcs/guardrailsBulkUnassignMembers.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await guardrailsBulkUnassignMembers(openRouter, {
+  const res = await guardrailsBulkUnassignMembers(kenhAi, {
     id: "550e8400-e29b-41d4-a716-446655440000",
     bulkUnassignMembersRequest: {
       memberUserIds: [
@@ -1060,17 +1060,17 @@ List all API key guardrail assignments for the authenticated user. [Management k
 
 {/* UsageSnippet language="typescript" operationID="listKeyAssignments" method="get" path="/guardrails/assignments/keys" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.guardrails.listKeyAssignments();
+  const result = await kenhAi.guardrails.listKeyAssignments();
 
   for await (const page of result) {
     console.log(page);
@@ -1085,20 +1085,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { guardrailsListKeyAssignments } from "@openrouter/sdk/funcs/guardrailsListKeyAssignments.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { guardrailsListKeyAssignments } from "@kenh-ai/sdk/funcs/guardrailsListKeyAssignments.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await guardrailsListKeyAssignments(openRouter);
+  const res = await guardrailsListKeyAssignments(kenhAi);
   if (res.ok) {
     const { value: result } = res;
     for await (const page of result) {
@@ -1141,17 +1141,17 @@ List all organization member guardrail assignments for the authenticated user. [
 
 {/* UsageSnippet language="typescript" operationID="listMemberAssignments" method="get" path="/guardrails/assignments/members" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.guardrails.listMemberAssignments();
+  const result = await kenhAi.guardrails.listMemberAssignments();
 
   for await (const page of result) {
     console.log(page);
@@ -1166,20 +1166,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { guardrailsListMemberAssignments } from "@openrouter/sdk/funcs/guardrailsListMemberAssignments.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { guardrailsListMemberAssignments } from "@kenh-ai/sdk/funcs/guardrailsListMemberAssignments.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await guardrailsListMemberAssignments(openRouter);
+  const res = await guardrailsListMemberAssignments(kenhAi);
   if (res.ok) {
     const { value: result } = res;
     for await (const page of result) {

@@ -1,16 +1,16 @@
 ---
 title: TanStack AI
-description: Using OpenRouter with TanStack AI
-seoTitle: 'TanStack AI Integration | OpenRouter SDK Support'
-canonicalUrl: https://openrouter.ai/docs/guides/community/tanstack-ai
-og:site_name: OpenRouter Documentation
-og:title: 'TanStack AI Integration - OpenRouter SDK Support'
-og:description: 'Integrate OpenRouter using TanStack AI. Complete guide for TanStack AI integration with OpenRouter for React, Solid, and Preact applications.'
-og:image: https://openrouter.ai/dynamic-og?title=TanStack%20AI&description=TanStack%20AI%20Integration
+description: Using kenh-ai with TanStack AI
+seoTitle: 'TanStack AI Integration | kenh-ai SDK Support'
+canonicalUrl: https://kenh-ai.com/docs/guides/community/tanstack-ai
+og:site_name: kenh-ai Documentation
+og:title: 'TanStack AI Integration - kenh-ai SDK Support'
+og:description: 'Integrate kenh-ai using TanStack AI. Complete guide for TanStack AI integration with kenh-ai for React, Solid, and Preact applications.'
+og:image: https://kenh-ai.com/dynamic-og?title=TanStack%20AI&description=TanStack%20AI%20Integration
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: puzzle-piece
@@ -19,7 +19,7 @@ icon: puzzle-piece
 {/* <llms-ignore> */}
 ## TanStack AI
 
-You can use [TanStack AI](https://tanstack.com/ai) to integrate OpenRouter with your React, Solid, or Preact applications. The OpenRouter adapter provides access to 300+ AI models from various providers through a single unified API. To get started, install [@tanstack/ai-openrouter](https://www.npmjs.com/package/@tanstack/ai-openrouter):
+You can use [TanStack AI](https://tanstack.com/ai) to integrate kenh-ai with your React, Solid, or Preact applications. The kenh-ai adapter provides access to 300+ AI models from various providers through a single unified API. To get started, install [@tanstack/ai-openrouter](https://www.npmjs.com/package/@tanstack/ai-openrouter):
 
 ```bash lines
 npm install @tanstack/ai @tanstack/ai-openrouter
@@ -43,28 +43,28 @@ const stream = chat({
 
 ### Configuration
 
-You can configure the OpenRouter adapter with additional options:
+You can configure the kenh-ai adapter with additional options:
 
 <CodeGroup>
 
 ```typescript title="TypeScript" lines
-import { createOpenRouter, type OpenRouterConfig } from "@tanstack/ai-openrouter";
+import { createkenh-ai, type OpenRouterConfig } from "@tanstack/ai-openrouter";
 
 const config: OpenRouterConfig = {
-  apiKey: process.env.OPENROUTER_API_KEY!,
-  baseURL: "https://openrouter.ai/api/v1", // Optional
+  apiKey: process.env.KENH_AI_API_KEY!,
+  baseURL: "https://kenh-ai.com/api/v1", // Optional
   httpReferer: "https://your-app.com", // Optional, for rankings
   xTitle: "Your App Name", // Optional, for rankings
 };
 
-const adapter = createOpenRouter(config.apiKey, config);
+const adapter = createKenhAI(config.apiKey, config);
 ```
 
 </CodeGroup>
 
 ### Available Models
 
-OpenRouter provides access to 300+ models from various providers. Models use the format `provider/model-name`:
+kenh-ai provides access to 300+ models from various providers. Models use the format `provider/model-name`:
 
 ```typescript lines
 model: "openai/gpt-5.2"
@@ -74,7 +74,7 @@ model: "z-ai/glm-4.7"
 model: "minimax/minimax-m2.1"
 ```
 
-See the full list at [openrouter.ai/models](https://openrouter.ai/models).
+See the full list at [kenh-ai.com/models](https://kenh-ai.com/models).
 
 ### Server-Side Example
 
@@ -135,12 +135,12 @@ const stream = chat({
 Set your API key in environment variables:
 
 ```bash lines
-OPENROUTER_API_KEY=sk-or-...
+KENH_AI_API_KEY=sk-or-...
 ```
 
 ### Model Routing and Provider Preferences
 
-TanStack AI supports OpenRouter's powerful routing features through the `modelOptions` parameter. You can configure model fallbacks, provider sorting, and data policies.
+TanStack AI supports kenh-ai's powerful routing features through the `modelOptions` parameter. You can configure model fallbacks, provider sorting, and data policies.
 
 #### Model Fallbacks
 
@@ -294,6 +294,6 @@ For more advanced routing options like performance thresholds and partition-base
 For more information and detailed documentation, check out these resources:
 
 - [TanStack AI Documentation](https://tanstack.com/ai/latest/docs/getting-started/overview) - Learn the basics of TanStack AI
-- [OpenRouter Adapter Docs](https://tanstack.com/ai/latest/docs/adapters/openrouter) - Official TanStack AI OpenRouter adapter documentation
-- [OpenRouter Models](https://openrouter.ai/models) - Browse available models
+- [kenh-ai Adapter Docs](https://tanstack.com/ai/latest/docs/adapters/openrouter) - Official TanStack AI kenh-ai adapter documentation
+- [kenh-ai Models](https://kenh-ai.com/models) - Browse available models
 {/* </llms-ignore> */}

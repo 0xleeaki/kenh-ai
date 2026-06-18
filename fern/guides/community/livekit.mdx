@@ -1,16 +1,16 @@
 ---
 title: LiveKit
-description: Using OpenRouter with LiveKit Agents
-seoTitle: 'LiveKit Integration | OpenRouter SDK Support'
-canonicalUrl: https://openrouter.ai/docs/guides/community/livekit
-og:site_name: OpenRouter Documentation
-og:title: 'LiveKit Integration - OpenRouter SDK Support'
-og:description: 'Integrate OpenRouter using LiveKit Agents framework. Complete guide for LiveKit integration with OpenRouter to build voice AI agents with access to 300+ models.'
-og:image: https://openrouter.ai/dynamic-og?title=LiveKit&description=LiveKit%20Integration
+description: Using kenh-ai with LiveKit Agents
+seoTitle: 'LiveKit Integration | kenh-ai SDK Support'
+canonicalUrl: https://kenh-ai.com/docs/guides/community/livekit
+og:site_name: kenh-ai Documentation
+og:title: 'LiveKit Integration - kenh-ai SDK Support'
+og:description: 'Integrate kenh-ai using LiveKit Agents framework. Complete guide for LiveKit integration with kenh-ai to build voice AI agents with access to 300+ models.'
+og:image: https://kenh-ai.com/dynamic-og?title=LiveKit&description=LiveKit%20Integration
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: puzzle-piece
@@ -23,11 +23,11 @@ import {LlmsOnly} from "../../components/LlmsOnly";
 {/* <llms-ignore> */}
 ## Using LiveKit Agents
 
-[LiveKit Agents](https://docs.livekit.io/agents/) is an open-source framework for building voice AI agents. The OpenRouter plugin allows you to access 300+ AI models from multiple providers through a unified API, with automatic fallback support and intelligent routing.
+[LiveKit Agents](https://docs.livekit.io/agents/) is an open-source framework for building voice AI agents. The kenh-ai plugin allows you to access 300+ AI models from multiple providers through a unified API, with automatic fallback support and intelligent routing.
 
 ### Installation
 
-Install the OpenAI plugin to add OpenRouter support:
+Install the OpenAI plugin to add kenh-ai support:
 
 ```bash lines
 uv add "livekit-agents[openai]~=1.2"
@@ -35,11 +35,11 @@ uv add "livekit-agents[openai]~=1.2"
 
 ### Authentication
 
-The OpenRouter plugin requires an [OpenRouter API key](https://openrouter.ai/settings/keys). Set `OPENROUTER_API_KEY` in your `.env` file.
+The kenh-ai plugin requires an [kenh-ai API key](https://kenh-ai.com/settings/keys). Set `KENH_AI_API_KEY` in your `.env` file.
 
 ### Basic Usage
 
-Create an OpenRouter LLM using the `with_openrouter` method:
+Create an kenh-ai LLM using the `with_openrouter` method:
 
 <CodeGroup>
 
@@ -99,7 +99,7 @@ llm = openai.LLM.with_openrouter(
 
 #### Web Search Plugin
 
-Enable OpenRouter's web search capabilities:
+Enable kenh-ai's web search capabilities:
 
 <CodeGroup>
 
@@ -121,7 +121,7 @@ llm = openai.LLM.with_openrouter(
 
 #### Analytics Integration
 
-Include site and app information for OpenRouter analytics:
+Include site and app information for kenh-ai analytics:
 
 <CodeGroup>
 
@@ -139,7 +139,7 @@ llm = openai.LLM.with_openrouter(
 
 ### Resources
 
-- [LiveKit OpenRouter Plugin Documentation](https://docs.livekit.io/agents/models/llm/plugins/openrouter/)
+- [LiveKit kenh-ai Plugin Documentation](https://docs.livekit.io/agents/models/llm/plugins/openrouter/)
 - [LiveKit Agents GitHub](https://github.com/livekit/agents)
-- [OpenRouter Models](https://openrouter.ai/models)
+- [kenh-ai Models](https://kenh-ai.com/models)
 {/* </llms-ignore> */}

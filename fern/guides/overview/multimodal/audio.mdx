@@ -1,16 +1,16 @@
 ---
 title: Audio
-description: How to send and receive audio with OpenRouter models
-seoTitle: "OpenRouter Audio | Complete Documentation"
-canonicalUrl: https://openrouter.ai/docs/guides/overview/multimodal/audio
-og:site_name: OpenRouter Documentation
-og:title: "OpenRouter Audio - Complete Documentation"
-og:description: "Send audio files to and receive audio responses from speech-capable models through the OpenRouter API."
-og:image: https://openrouter.ai/dynamic-og?title=OpenRouter%20Audio&description=Send%20and%20receive%20audio%20with%20speech-capable%20models%20through%20the%20OpenRouter%20API.
+description: How to send and receive audio with kenh-ai models
+seoTitle: "kenh-ai Audio | Complete Documentation"
+canonicalUrl: https://kenh-ai.com/docs/guides/overview/multimodal/audio
+og:site_name: kenh-ai Documentation
+og:title: "kenh-ai Audio - Complete Documentation"
+og:description: "Send audio files to and receive audio responses from speech-capable models through the kenh-ai API."
+og:image: https://kenh-ai.com/dynamic-og?title=kenh-ai%20Audio&description=Send%20and%20receive%20audio%20with%20speech-capable%20models%20through%20the%20kenh-ai%20API.
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: "@OpenRouter"
+twitter:site: "@kenh-ai"
 noindex: false
 nofollow: false
 icon: volume-high
@@ -19,7 +19,7 @@ icon: volume-high
 import { API_KEY_REF } from "../../../snippets/exports/constants.mdx";
 import { Template } from "../../../components/Template";
 
-OpenRouter supports both sending audio files to compatible models and receiving audio responses via the API. This guide covers how to work with audio inputs and outputs.
+kenh-ai supports both sending audio files to compatible models and receiving audio responses via the API. This guide covers how to work with audio inputs and outputs.
 
 ## Audio Inputs
 
@@ -40,10 +40,10 @@ Here's how to send an audio file for processing:
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" expandable lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 import fs from "fs/promises";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   apiKey: '{{API_KEY_REF}}',
 });
 
@@ -56,7 +56,7 @@ async function encodeAudioToBase64(audioPath: string): Promise<string> {
 const audioPath = "path/to/your/audio.wav";
 const base64Audio = await encodeAudioToBase64(audioPath);
 
-const result = await openRouter.chat.send({
+const result = await kenhAi.chat.send({
   model: "{{MODEL}}",
   messages: [
     {
@@ -91,7 +91,7 @@ def encode_audio_to_base64(audio_path):
     with open(audio_path, "rb") as audio_file:
         return base64.b64encode(audio_file.read()).decode('utf-8')
 
-url = "https://openrouter.ai/api/v1/chat/completions"
+url = "https://kenh-ai.com/api/v1/chat/completions"
 headers = {
     "Authorization": f"Bearer {API_KEY_REF}",
     "Content-Type": "application/json"
@@ -141,7 +141,7 @@ async function encodeAudioToBase64(audioPath: string): Promise<string> {
 const audioPath = "path/to/your/audio.wav";
 const base64Audio = await encodeAudioToBase64(audioPath);
 
-const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+const response = await fetch("https://kenh-ai.com/api/v1/chat/completions", {
   method: "POST",
   headers: {
     Authorization: `Bearer ${API_KEY_REF}`,
@@ -195,7 +195,7 @@ Supported audio formats vary by provider. Common formats include:
 
 ## Audio Output
 
-OpenRouter supports receiving audio responses from models that have audio output capabilities. To request audio output, include the `modalities` and `audio` parameters in your request.
+kenh-ai supports receiving audio responses from models that have audio output capabilities. To request audio output, include the `modalities` and `audio` parameters in your request.
 
 You can search for models that support audio output by filtering to audio output modality on our [Models page](/guides/overview/models).
 
@@ -214,7 +214,7 @@ import requests
 import json
 import base64
 
-url = "https://openrouter.ai/api/v1/chat/completions"
+url = "https://kenh-ai.com/api/v1/chat/completions"
 headers = {
     "Authorization": f"Bearer {API_KEY_REF}",
     "Content-Type": "application/json"
@@ -270,7 +270,7 @@ with open("output.wav", "wb") as f:
 ```
 
 ```typescript title="TypeScript (fetch)" expandable lines
-const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+const response = await fetch("https://kenh-ai.com/api/v1/chat/completions", {
   method: "POST",
   headers: {
     Authorization: `Bearer ${API_KEY_REF}`,

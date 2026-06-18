@@ -2,16 +2,16 @@
 title: ResponsesRequestToolUnion - Go SDK
 sidebarTitle: ResponsesRequestToolUnion
 description: ResponsesRequestToolUnion type definition
-seoTitle: ResponsesRequestToolUnion Type | OpenRouter Go SDK
+seoTitle: ResponsesRequestToolUnion Type | kenh-ai Go SDK
 canonicalUrl: >-
-  https://openrouter.ai/docs/sdks/go/api-reference/models/responsesrequesttoolunion
-'og:site_name': OpenRouter Documentation
-'og:title': ResponsesRequestToolUnion Type | OpenRouter Go SDK
+  https://kenh-ai.com/docs/sdks/go/api-reference/models/responsesrequesttoolunion
+'og:site_name': kenh-ai Documentation
+'og:title': ResponsesRequestToolUnion Type | kenh-ai Go SDK
 'og:description': >-
-  ResponsesRequestToolUnion type reference for the OpenRouter Go SDK. Complete
+  ResponsesRequestToolUnion type reference for the kenh-ai Go SDK. Complete
   type definition and usage examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=ResponsesRequestToolUnion%20-%20Go%20SDK&description=ResponsesRequestToolUnion%20type%20definition
+  https://kenh-ai.com/dynamic-og?title=ResponsesRequestToolUnion%20-%20Go%20SDK&description=ResponsesRequestToolUnion%20type%20definition
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -119,16 +119,16 @@ responsesRequestToolUnion := components.CreateResponsesRequestToolUnionCustom(co
 responsesRequestToolUnion := components.CreateResponsesRequestToolUnionOpenrouterDatetime(components.DatetimeServerTool{/* values here */})
 ```
 
-### FusionServerToolOpenRouter
+### FusionServerToolkenh-ai
 
 ```go lines
-responsesRequestToolUnion := components.CreateResponsesRequestToolUnionOpenrouterFusion(components.FusionServerToolOpenRouter{/* values here */})
+responsesRequestToolUnion := components.CreateResponsesRequestToolUnionOpenrouterFusion(components.FusionServerToolkenh-ai{/* values here */})
 ```
 
-### ImageGenerationServerToolOpenRouter
+### ImageGenerationServerToolkenh-ai
 
 ```go lines
-responsesRequestToolUnion := components.CreateResponsesRequestToolUnionOpenrouterImageGeneration(components.ImageGenerationServerToolOpenRouter{/* values here */})
+responsesRequestToolUnion := components.CreateResponsesRequestToolUnionOpenrouterImageGeneration(components.ImageGenerationServerToolkenh-ai{/* values here */})
 ```
 
 ### ChatSearchModelsServerTool
@@ -143,16 +143,16 @@ responsesRequestToolUnion := components.CreateResponsesRequestToolUnionOpenroute
 responsesRequestToolUnion := components.CreateResponsesRequestToolUnionOpenrouterWebFetch(components.WebFetchServerTool{/* values here */})
 ```
 
-### WebSearchServerToolOpenRouter
+### WebSearchServerToolkenh-ai
 
 ```go lines
-responsesRequestToolUnion := components.CreateResponsesRequestToolUnionOpenrouterWebSearch(components.WebSearchServerToolOpenRouter{/* values here */})
+responsesRequestToolUnion := components.CreateResponsesRequestToolUnionOpenrouterWebSearch(components.WebSearchServerToolkenh-ai{/* values here */})
 ```
 
-### ApplyPatchServerToolOpenRouter
+### ApplyPatchServerToolkenh-ai
 
 ```go lines
-responsesRequestToolUnion := components.CreateResponsesRequestToolUnionOpenrouterApplyPatch(components.ApplyPatchServerToolOpenRouter{/* values here */})
+responsesRequestToolUnion := components.CreateResponsesRequestToolUnionOpenrouterApplyPatch(components.ApplyPatchServerToolkenh-ai{/* values here */})
 ```
 
 ## Union Discrimination
@@ -192,16 +192,16 @@ switch responsesRequestToolUnion.Type {
 	case components.ResponsesRequestToolUnionTypeOpenrouterDatetime:
 		// responsesRequestToolUnion.DatetimeServerTool is populated
 	case components.ResponsesRequestToolUnionTypeOpenrouterFusion:
-		// responsesRequestToolUnion.FusionServerToolOpenRouter is populated
+		// responsesRequestToolUnion.FusionServerToolkenh-ai is populated
 	case components.ResponsesRequestToolUnionTypeOpenrouterImageGeneration:
-		// responsesRequestToolUnion.ImageGenerationServerToolOpenRouter is populated
+		// responsesRequestToolUnion.ImageGenerationServerToolkenh-ai is populated
 	case components.ResponsesRequestToolUnionTypeOpenrouterExperimentalSearchModels:
 		// responsesRequestToolUnion.ChatSearchModelsServerTool is populated
 	case components.ResponsesRequestToolUnionTypeOpenrouterWebFetch:
 		// responsesRequestToolUnion.WebFetchServerTool is populated
 	case components.ResponsesRequestToolUnionTypeOpenrouterWebSearch:
-		// responsesRequestToolUnion.WebSearchServerToolOpenRouter is populated
+		// responsesRequestToolUnion.WebSearchServerToolkenh-ai is populated
 	case components.ResponsesRequestToolUnionTypeOpenrouterApplyPatch:
-		// responsesRequestToolUnion.ApplyPatchServerToolOpenRouter is populated
+		// responsesRequestToolUnion.ApplyPatchServerToolkenh-ai is populated
 }
 ```

@@ -2,15 +2,15 @@
 title: Endpoints - TypeScript SDK
 sidebarTitle: Endpoints
 description: Endpoints method reference
-seoTitle: Endpoints | OpenRouter TypeScript SDK
-canonicalUrl: 'https://openrouter.ai/docs/client-sdks/typescript/api-reference/endpoints'
-'og:site_name': OpenRouter Documentation
-'og:title': Endpoints | OpenRouter TypeScript SDK
+seoTitle: Endpoints | kenh-ai TypeScript SDK
+canonicalUrl: 'https://kenh-ai.com/docs/client-sdks/typescript/api-reference/endpoints'
+'og:site_name': kenh-ai Documentation
+'og:title': Endpoints | kenh-ai TypeScript SDK
 'og:description': >-
-  Endpoints method documentation for the OpenRouter TypeScript SDK. Learn how to
+  Endpoints method documentation for the kenh-ai TypeScript SDK. Learn how to
   use this API endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=Endpoints%20-%20TypeScript%20SDK&description=Endpoints%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=Endpoints%20-%20TypeScript%20SDK&description=Endpoints%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -44,17 +44,17 @@ Preview the impact of ZDR on the available endpoints
 
 {/* UsageSnippet language="typescript" operationID="listEndpointsZdr" method="get" path="/endpoints/zdr" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.endpoints.listZdrEndpoints();
+  const result = await kenhAi.endpoints.listZdrEndpoints();
 
   console.log(result);
 }
@@ -67,20 +67,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { endpointsListZdrEndpoints } from "@openrouter/sdk/funcs/endpointsListZdrEndpoints.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { endpointsListZdrEndpoints } from "@kenh-ai/sdk/funcs/endpointsListZdrEndpoints.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await endpointsListZdrEndpoints(openRouter);
+  const res = await endpointsListZdrEndpoints(kenhAi);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -120,17 +120,17 @@ List all endpoints for a model
 
 {/* UsageSnippet language="typescript" operationID="listEndpoints" method="get" path="/models/{author}/{slug}/endpoints" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.endpoints.list({
+  const result = await kenhAi.endpoints.list({
     author: "<value>",
     slug: "<value>",
   });
@@ -146,20 +146,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { endpointsList } from "@openrouter/sdk/funcs/endpointsList.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { endpointsList } from "@kenh-ai/sdk/funcs/endpointsList.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await endpointsList(openRouter, {
+  const res = await endpointsList(kenhAi, {
     author: "<value>",
     slug: "<value>",
   });

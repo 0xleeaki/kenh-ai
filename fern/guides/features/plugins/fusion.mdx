@@ -1,16 +1,16 @@
 ---
 title: Fusion
 description: Multi-model analysis with a judge model
-seoTitle: 'Fusion | Multi-model AI Analysis with OpenRouter'
-canonicalUrl: https://openrouter.ai/docs/guides/features/plugins/fusion
-og:site_name: OpenRouter Documentation
-og:title: 'Fusion - Multi-model Analysis on OpenRouter'
-og:description: "Get richer answers by running a panel of models in parallel and comparing their responses through a judge. Fusion makes this a one-line addition to any OpenRouter request."
-og:image: https://openrouter.ai/dynamic-og?title=Fusion&description=Multi-model%20Analysis%20with%20a%20Judge%20Model
+seoTitle: 'Fusion | Multi-model AI Analysis with kenh-ai'
+canonicalUrl: https://kenh-ai.com/docs/guides/features/plugins/fusion
+og:site_name: kenh-ai Documentation
+og:title: 'Fusion - Multi-model Analysis on kenh-ai'
+og:description: "Get richer answers by running a panel of models in parallel and comparing their responses through a judge. Fusion makes this a one-line addition to any kenh-ai request."
+og:image: https://kenh-ai.com/dynamic-og?title=Fusion&description=Multi-model%20Analysis%20with%20a%20Judge%20Model
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: circle-nodes
@@ -70,7 +70,7 @@ flowchart LR
 | `max_tool_calls` | `8` | Max tool-calling steps each panel model and the judge may take in their `openrouter:web_search` / `openrouter:web_fetch` loop before they must return text. Range 1–16. |
 | `enabled` | `true` | Set to `false` to bypass fusion for a single request. |
 
-When you send `model: "openrouter/fusion"` without a plugin config, the defaults match the **Quality** preset on the [Fusion lab](https://openrouter.ai/fusion/).
+When you send `model: "openrouter/fusion"` without a plugin config, the defaults match the **Quality** preset on the [Fusion lab](https://kenh-ai.com/fusion/).
 
 ## Two entry points, one pipeline
 
@@ -111,7 +111,7 @@ In both cases, the model decides when to call `openrouter:fusion`. For prompts t
 <CodeGroup>
 
 ```typescript title="TypeScript" expandable lines
-const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+const response = await fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
     Authorization: 'Bearer {{API_KEY_REF}}',
@@ -145,7 +145,7 @@ console.log(data.choices[0].message.content);
 import requests
 
 response = requests.post(
-  "https://openrouter.ai/api/v1/chat/completions",
+  "https://kenh-ai.com/api/v1/chat/completions",
   headers={
     "Authorization": f"Bearer {{API_KEY_REF}}",
     "Content-Type": "application/json",
@@ -185,4 +185,4 @@ Inner fusion calls carry an `x-openrouter-fusion-depth` header. Panel and judge 
 - [Fusion Router (`openrouter/fusion`)](/guides/routing/routers/fusion-router)
 - [Web Search server tool](/guides/features/server-tools/web-search)
 - [Web Fetch server tool](/guides/features/server-tools/web-fetch)
-- [`/labs/fusion`](https://openrouter.ai/fusion/) — interactive playground
+- [`/labs/fusion`](https://kenh-ai.com/fusion/) — interactive playground

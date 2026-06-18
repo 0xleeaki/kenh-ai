@@ -2,15 +2,15 @@
 title: Presets - Go SDK
 sidebarTitle: Presets
 description: Presets method reference
-seoTitle: Presets | OpenRouter Go SDK
-canonicalUrl: 'https://openrouter.ai/docs/client-sdks/go/api-reference/presets'
-'og:site_name': OpenRouter Documentation
-'og:title': Presets | OpenRouter Go SDK
+seoTitle: Presets | kenh-ai Go SDK
+canonicalUrl: 'https://kenh-ai.com/docs/client-sdks/go/api-reference/presets'
+'og:site_name': kenh-ai Documentation
+'og:title': Presets | kenh-ai Go SDK
 'og:description': >-
-  Presets method documentation for the OpenRouter Go SDK. Learn how to use this
+  Presets method documentation for the kenh-ai Go SDK. Learn how to use this
   API endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=Presets%20-%20Go%20SDK&description=Presets%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=Presets%20-%20Go%20SDK&description=Presets%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -60,7 +60,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.Presets.CreatePresetsChatCompletions(ctx, "my-preset", components.ChatRequest{
@@ -141,7 +141,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.Presets.CreatePresetsMessages(ctx, "my-preset", components.MessagesRequest{
@@ -216,7 +216,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.Presets.CreatePresetsResponses(ctx, "my-preset", components.ResponsesRequest{

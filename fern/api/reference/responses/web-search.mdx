@@ -2,15 +2,15 @@
 title: Web Search
 description: Real-time web search integration with the Responses API Beta
 seoTitle: 'Responses API Beta Web Search | Real-time Information Retrieval'
-canonicalUrl: https://openrouter.ai/docs/api/reference/responses/web-search
-og:site_name: OpenRouter Documentation
+canonicalUrl: https://kenh-ai.com/docs/api/reference/responses/web-search
+og:site_name: kenh-ai Documentation
 og:title: 'Responses API Beta Web Search - Real-time Information Retrieval'
-og:description: "Enable web search capabilities with real-time information retrieval and citation annotations using OpenRouter's Responses API Beta."
-og:image: https://openrouter.ai/dynamic-og?title=Responses%20API%20Web%20Search&description=Real-time%20information%20retrieval
+og:description: "Enable web search capabilities with real-time information retrieval and citation annotations using kenh-ai's Responses API Beta."
+og:image: https://kenh-ai.com/dynamic-og?title=Responses%20API%20Web%20Search&description=Real-time%20information%20retrieval
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: globe-pointer
@@ -37,15 +37,15 @@ Enable web search using the `plugins` parameter:
 <CodeGroup>
 
 ```typescript title="TypeScript" lines
-const response = await fetch('https://openrouter.ai/api/v1/responses', {
+const response = await fetch('https://kenh-ai.com/api/v1/responses', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+    'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
     model: 'openai/o4-mini',
-    input: 'What is OpenRouter?',
+    input: 'What is kenh-ai?',
     plugins: [{ id: 'web', max_results: 3 }],
     max_output_tokens: 9000,
   }),
@@ -59,14 +59,14 @@ console.log(result);
 import requests
 
 response = requests.post(
-    'https://openrouter.ai/api/v1/responses',
+    'https://kenh-ai.com/api/v1/responses',
     headers={
-        'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+        'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
         'Content-Type': 'application/json',
     },
     json={
         'model': 'openai/o4-mini',
-        'input': 'What is OpenRouter?',
+        'input': 'What is kenh-ai?',
         'plugins': [{'id': 'web', 'max_results': 3}],
         'max_output_tokens': 9000,
     }
@@ -77,12 +77,12 @@ print(result)
 ```
 
 ```bash title="cURL" lines
-curl -X POST https://openrouter.ai/api/v1/responses \
-  -H "Authorization: Bearer YOUR_OPENROUTER_API_KEY" \
+curl -X POST https://kenh-ai.com/api/v1/responses \
+  -H "Authorization: Bearer YOUR_KENH_AI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "openai/o4-mini",
-    "input": "What is OpenRouter?",
+    "input": "What is kenh-ai?",
     "plugins": [{"id": "web", "max_results": 3}],
     "max_output_tokens": 9000
   }'
@@ -147,10 +147,10 @@ Use structured messages for more complex queries:
 <CodeGroup>
 
 ```typescript title="TypeScript" expandable lines
-const response = await fetch('https://openrouter.ai/api/v1/responses', {
+const response = await fetch('https://kenh-ai.com/api/v1/responses', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+    'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -180,9 +180,9 @@ console.log(result);
 import requests
 
 response = requests.post(
-    'https://openrouter.ai/api/v1/responses',
+    'https://kenh-ai.com/api/v1/responses',
     headers={
-        'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+        'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
         'Content-Type': 'application/json',
     },
     json={
@@ -223,10 +223,10 @@ Some models have built-in web search capabilities using the `:online` variant:
 <CodeGroup>
 
 ```typescript title="TypeScript" lines
-const response = await fetch('https://openrouter.ai/api/v1/responses', {
+const response = await fetch('https://kenh-ai.com/api/v1/responses', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+    'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -244,9 +244,9 @@ console.log(result);
 import requests
 
 response = requests.post(
-    'https://openrouter.ai/api/v1/responses',
+    'https://kenh-ai.com/api/v1/responses',
     headers={
-        'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+        'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
         'Content-Type': 'application/json',
     },
     json={
@@ -281,17 +281,17 @@ Web search responses include citation annotations:
       "content": [
         {
           "type": "output_text",
-          "text": "OpenRouter is a unified API for accessing multiple Large Language Model providers through a single interface. It allows developers to access 100+ AI models from providers like OpenAI, Anthropic, Google, and others with intelligent routing and automatic failover.",
+          "text": "kenh-ai is a unified API for accessing multiple Large Language Model providers through a single interface. It allows developers to access 100+ AI models from providers like OpenAI, Anthropic, Google, and others with intelligent routing and automatic failover.",
           "annotations": [
             {
               "type": "url_citation",
-              "url": "https://openrouter.ai/docs",
+              "url": "https://kenh-ai.com/docs",
               "start_index": 0,
               "end_index": 85
             },
             {
               "type": "url_citation",
-              "url": "https://openrouter.ai/models",
+              "url": "https://kenh-ai.com/models",
               "start_index": 120,
               "end_index": 180
             }
@@ -331,10 +331,10 @@ Handle multi-part search queries:
 <CodeGroup>
 
 ```typescript title="TypeScript" expandable lines
-const response = await fetch('https://openrouter.ai/api/v1/responses', {
+const response = await fetch('https://kenh-ai.com/api/v1/responses', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+    'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -364,9 +364,9 @@ console.log(result);
 import requests
 
 response = requests.post(
-    'https://openrouter.ai/api/v1/responses',
+    'https://kenh-ai.com/api/v1/responses',
     headers={
-        'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+        'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
         'Content-Type': 'application/json',
     },
     json={
@@ -401,10 +401,10 @@ Include web search in multi-turn conversations:
 <CodeGroup>
 
 ```typescript title="TypeScript" expandable lines
-const response = await fetch('https://openrouter.ai/api/v1/responses', {
+const response = await fetch('https://kenh-ai.com/api/v1/responses', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+    'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -457,9 +457,9 @@ console.log(result);
 import requests
 
 response = requests.post(
-    'https://openrouter.ai/api/v1/responses',
+    'https://kenh-ai.com/api/v1/responses',
     headers={
-        'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+        'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
         'Content-Type': 'application/json',
     },
     json={
@@ -517,10 +517,10 @@ Monitor web search progress with streaming:
 <CodeGroup>
 
 ```typescript title="TypeScript" expandable lines
-const response = await fetch('https://openrouter.ai/api/v1/responses', {
+const response = await fetch('https://kenh-ai.com/api/v1/responses', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+    'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -584,9 +584,9 @@ import requests
 import json
 
 response = requests.post(
-    'https://openrouter.ai/api/v1/responses',
+    'https://kenh-ai.com/api/v1/responses',
     headers={
-        'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+        'Authorization': 'Bearer YOUR_KENH_AI_API_KEY',
         'Content-Type': 'application/json',
     },
     json={

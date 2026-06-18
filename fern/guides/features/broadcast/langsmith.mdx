@@ -1,16 +1,16 @@
 ---
 title: LangSmith
 description: Send traces to LangSmith
-seoTitle: 'Broadcast to LangSmith | OpenRouter Observability'
-canonicalUrl: https://openrouter.ai/docs/guides/features/broadcast/langsmith
-og:site_name: OpenRouter Documentation
+seoTitle: 'Broadcast to LangSmith | kenh-ai Observability'
+canonicalUrl: https://kenh-ai.com/docs/guides/features/broadcast/langsmith
+og:site_name: kenh-ai Documentation
 og:title: 'Broadcast to LangSmith - Send Traces to LangSmith'
-og:description: 'Connect LangSmith to automatically receive traces from your OpenRouter requests. Step-by-step setup guide for LangSmith integration.'
-og:image: https://openrouter.ai/dynamic-og?title=LangSmith%20Broadcast&description=Send%20traces%20to%20LangSmith
+og:description: 'Connect LangSmith to automatically receive traces from your kenh-ai requests. Step-by-step setup guide for LangSmith integration.'
+og:image: https://kenh-ai.com/dynamic-og?title=LangSmith%20Broadcast&description=Send%20traces%20to%20LangSmith
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: puzzle-piece
@@ -22,9 +22,9 @@ icon: puzzle-piece
 
 In LangSmith, go to **Settings > API Keys** to create a new API key. Then navigate to your project or create a new one to get the project name.
 
-## Step 2: Enable Broadcast in OpenRouter
+## Step 2: Enable Broadcast in kenh-ai
 
-Go to [Settings > Observability](https://openrouter.ai/settings/observability) and toggle **Enable Broadcast**.
+Go to [Settings > Observability](https://kenh-ai.com/settings/observability) and toggle **Enable Broadcast**.
 
 <Frame>
 ![Enable Broadcast](/assets/guides/features/broadcast/arize/broadcast-enable.png)
@@ -44,7 +44,7 @@ Click **Test Connection** to verify the setup. The configuration only saves if t
 
 ## Step 5: Send a test trace
 
-Make an API request through OpenRouter and view the trace in LangSmith. Your traces will appear in the specified project with full details including:
+Make an API request through kenh-ai and view the trace in LangSmith. Your traces will appear in the specified project with full details including:
 
 - Input and output messages
 - Token usage (prompt, completion, and total tokens)
@@ -54,7 +54,7 @@ Make an API request through OpenRouter and view the trace in LangSmith. Your tra
 
 ## What data is sent
 
-OpenRouter sends traces to LangSmith using the OpenTelemetry (OTEL) protocol with the following attributes:
+kenh-ai sends traces to LangSmith using the OpenTelemetry (OTEL) protocol with the following attributes:
 
 - **GenAI semantic conventions**: Model name, token counts, costs, and request parameters
 - **LangSmith-specific attributes**: Trace name, span kind, user ID, and custom metadata
@@ -103,7 +103,7 @@ Any array of strings passed in metadata can be used as tags. Tags in LangSmith a
 
 ### Run Types
 
-OpenRouter maps observation types to LangSmith run types:
+kenh-ai maps observation types to LangSmith run types:
 
 - **GENERATION** → `llm` run type
 - **SPAN** → `chain` run type

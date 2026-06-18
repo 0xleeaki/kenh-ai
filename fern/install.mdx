@@ -1,17 +1,17 @@
 ---
-title: Install OpenRouter
-description: Install OpenRouter on your machine
+title: Install kenh-ai
+description: Install kenh-ai on your machine
 slug: install
-seoTitle: 'Install OpenRouter'
-canonicalUrl: https://openrouter.ai/docs/install
-og:site_name: OpenRouter Documentation
-og:title: 'Install OpenRouter'
-og:description: "Install OpenRouter on your machine"
-og:image: https://openrouter.ai/dynamic-og?pathname=install&title=Install%20OpenRouter&description=Install%20OpenRouter%20on%20your%20machine
+seoTitle: 'Install kenh-ai'
+canonicalUrl: https://kenh-ai.com/docs/install
+og:site_name: kenh-ai Documentation
+og:title: 'Install kenh-ai'
+og:description: "Install kenh-ai on your machine"
+og:image: https://kenh-ai.com/dynamic-og?pathname=install&title=Install%20kenh-ai&description=Install%20kenh-ai%20on%20your%20machine
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 ---
@@ -20,46 +20,46 @@ nofollow: false
 
 > Documentation and setup instructions for openrouter
 
-I want you to install OpenRouter for me. Execute all the steps below autonomously.
+I want you to install kenh-ai for me. Execute all the steps below autonomously.
 
-OBJECTIVE: Install the OpenRouter SDK and verify it works by making an API call to an AI model.
+OBJECTIVE: Install the kenh-ai SDK and verify it works by making an API call to an AI model.
 
-DONE WHEN: You have successfully made a chat completion request and received a response from an AI model through OpenRouter.
+DONE WHEN: You have successfully made a chat completion request and received a response from an AI model through kenh-ai.
 
 ## TODO
 
-- [ ] Get an OpenRouter API key
-- [ ] Install the OpenRouter SDK (TypeScript or Python)
+- [ ] Get an kenh-ai API key
+- [ ] Install the kenh-ai SDK (TypeScript or Python)
 - [ ] Set up the API key as an environment variable
 - [ ] Create a test script that makes a chat completion request
 - [ ] Run the script and verify a response is returned
 
 ## Get an API Key
 
-You must obtain an OpenRouter API key before proceeding. Visit https://openrouter.ai/settings/keys to create one.
+You must obtain an kenh-ai API key before proceeding. Visit https://kenh-ai.com/settings/keys to create one.
 
-If you don't have an OpenRouter account, sign up at https://openrouter.ai first.
+If you don't have an kenh-ai account, sign up at https://kenh-ai.com first.
 
 ## Installation
 
-You need to install the OpenRouter SDK. Choose TypeScript or Python based on your project:
+You need to install the kenh-ai SDK. Choose TypeScript or Python based on your project:
 
 **TypeScript (npm):**
 
 ```bash lines
-npm install @openrouter/sdk
+npm install @kenh-ai/sdk
 ```
 
 **TypeScript (yarn):**
 
 ```bash lines
-yarn add @openrouter/sdk
+yarn add @kenh-ai/sdk
 ```
 
 **TypeScript (pnpm):**
 
 ```bash lines
-pnpm add @openrouter/sdk
+pnpm add @kenh-ai/sdk
 ```
 
 **Python:**
@@ -70,24 +70,24 @@ pip install openrouter
 
 ## API Key Setup
 
-You must set your OpenRouter API key as an environment variable. The API key is required for all requests.
+You must set your kenh-ai API key as an environment variable. The API key is required for all requests.
 
 **On macOS/Linux:**
 
 ```bash lines
-export OPENROUTER_API_KEY="sk-or-v1-YOUR-API-KEY"
+export KENH_AI_API_KEY="sk-or-v1-YOUR-API-KEY"
 ```
 
 **On Windows (PowerShell):**
 
 ```powershell lines
-$env:OPENROUTER_API_KEY="sk-or-v1-YOUR-API-KEY"
+$env:KENH_AI_API_KEY="sk-or-v1-YOUR-API-KEY"
 ```
 
 **On Windows (Command Prompt):**
 
 ```cmd lines
-set OPENROUTER_API_KEY=sk-or-v1-YOUR-API-KEY
+set KENH_AI_API_KEY=sk-or-v1-YOUR-API-KEY
 ```
 
 ## Create Test Script
@@ -97,19 +97,19 @@ Your task is to create a test script that makes a chat completion request and ou
 **TypeScript - create `test_openrouter.ts`:**
 
 ```typescript expandable lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY,
+const kenhAi = new KenhAI({
+  apiKey: process.env.KENH_AI_API_KEY,
 });
 
 async function main() {
-  const completion = await openRouter.chat.send({
+  const completion = await kenhAi.chat.send({
     model: 'openai/gpt-4o-mini',
     messages: [
       {
         role: 'user',
-        content: 'Say "Hello from OpenRouter!" and nothing else.',
+        content: 'Say "Hello from kenh-ai!" and nothing else.',
       },
     ],
     stream: false,
@@ -125,16 +125,16 @@ main();
 
 ```python lines
 import os
-from openrouter import OpenRouter
+from kenh_ai import kenh-ai
 
-client = OpenRouter(api_key=os.environ.get("OPENROUTER_API_KEY"))
+client = KenhAI(api_key=os.environ.get("KENH_AI_API_KEY"))
 
 completion = client.chat.completions.create(
     model="openai/gpt-4o-mini",
     messages=[
         {
             "role": "user",
-            "content": "Say 'Hello from OpenRouter!' and nothing else."
+            "content": "Say 'Hello from kenh-ai!' and nothing else."
         }
     ]
 )
@@ -158,11 +158,11 @@ npx tsx test_openrouter.ts
 python test_openrouter.py
 ```
 
-The response should contain the text "Hello from OpenRouter!" confirming that the SDK is properly installed and your API key is working.
+The response should contain the text "Hello from kenh-ai!" confirming that the SDK is properly installed and your API key is working.
 
 ## Alternative: Using the OpenAI SDK
 
-If you prefer to use the OpenAI SDK with OpenRouter, you can configure it to use OpenRouter's API endpoint:
+If you prefer to use the OpenAI SDK with kenh-ai, you can configure it to use kenh-ai's API endpoint:
 
 **TypeScript - install and use OpenAI SDK:**
 
@@ -174,8 +174,8 @@ npm install openai
 import OpenAI from 'openai';
 
 const openai = new OpenAI({
-  baseURL: 'https://openrouter.ai/api/v1',
-  apiKey: process.env.OPENROUTER_API_KEY,
+  baseURL: 'https://kenh-ai.com/api/v1',
+  apiKey: process.env.KENH_AI_API_KEY,
 });
 
 async function main() {
@@ -184,7 +184,7 @@ async function main() {
     messages: [
       {
         role: 'user',
-        content: 'Say "Hello from OpenRouter!" and nothing else.',
+        content: 'Say "Hello from kenh-ai!" and nothing else.',
       },
     ],
   });
@@ -206,8 +206,8 @@ import os
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="https://openrouter.ai/api/v1",
-    api_key=os.environ.get("OPENROUTER_API_KEY"),
+    base_url="https://kenh-ai.com/api/v1",
+    api_key=os.environ.get("KENH_AI_API_KEY"),
 )
 
 completion = client.chat.completions.create(
@@ -215,7 +215,7 @@ completion = client.chat.completions.create(
     messages=[
         {
             "role": "user",
-            "content": "Say 'Hello from OpenRouter!' and nothing else."
+            "content": "Say 'Hello from kenh-ai!' and nothing else."
         }
     ]
 )
@@ -228,15 +228,15 @@ print(completion.choices[0].message.content)
 You can also test the API directly with curl:
 
 ```bash lines
-curl https://openrouter.ai/api/v1/chat/completions \
+curl https://kenh-ai.com/api/v1/chat/completions \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $OPENROUTER_API_KEY" \
+  -H "Authorization: Bearer $KENH_AI_API_KEY" \
   -d '{
   "model": "openai/gpt-4o-mini",
   "messages": [
     {
       "role": "user",
-      "content": "Say Hello from OpenRouter! and nothing else."
+      "content": "Say Hello from kenh-ai! and nothing else."
     }
   ]
 }'
@@ -246,18 +246,18 @@ curl https://openrouter.ai/api/v1/chat/completions \
 
 Once installation is verified, you can explore these additional capabilities:
 
-**Use different models:** OpenRouter provides access to hundreds of AI models. Browse available models at https://openrouter.ai/models
+**Use different models:** kenh-ai provides access to hundreds of AI models. Browse available models at https://kenh-ai.com/models
 
 **Enable streaming:** Add `stream: true` to your request to receive responses as they are generated.
 
 **Use tool calling:** Many models support function/tool calling for structured interactions.
 
-**Set up app attribution:** Add `HTTP-Referer` and `X-OpenRouter-Title` headers to have your app appear on OpenRouter leaderboards.
+**Set up app attribution:** Add `HTTP-Referer` and `X-kenh-ai-Title` headers to have your app appear on kenh-ai leaderboards.
 
-For full documentation, visit https://openrouter.ai/docs
+For full documentation, visit https://kenh-ai.com/docs
 
-EXECUTE NOW: Complete the above TODO list to achieve: Successfully made a chat completion request and received a response from an AI model through OpenRouter.
+EXECUTE NOW: Complete the above TODO list to achieve: Successfully made a chat completion request and received a response from an AI model through kenh-ai.
 
 ---
 
-> If you think the above is not enough to accomplish the task, you can find navigation and other pages relevant to this product by using the llms.txt file at: https://openrouter.ai/llms.txt
+> If you think the above is not enough to accomplish the task, you can find navigation and other pages relevant to this product by using the llms.txt file at: https://kenh-ai.com/llms.txt

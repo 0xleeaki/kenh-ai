@@ -1,16 +1,16 @@
 ---
 title: Enterprise Quickstart
-description: Get your organization up and running with OpenRouter
-seoTitle: 'Enterprise Quickstart | OpenRouter for Organizations'
-canonicalUrl: https://openrouter.ai/docs/cookbook/get-started/enterprise-quickstart
-og:site_name: OpenRouter Documentation
-og:title: 'Enterprise Quickstart - OpenRouter for Organizations'
-og:description: 'A comprehensive guide for enterprise customers to get started with OpenRouter. Learn about organizations, API key management, security controls, and observability.'
-og:image: https://openrouter.ai/dynamic-og?title=Enterprise%20Quickstart&description=Get%20your%20organization%20up%20and%20running
+description: Get your organization up and running with kenh-ai
+seoTitle: 'Enterprise Quickstart | kenh-ai for Organizations'
+canonicalUrl: https://kenh-ai.com/docs/cookbook/get-started/enterprise-quickstart
+og:site_name: kenh-ai Documentation
+og:title: 'Enterprise Quickstart - kenh-ai for Organizations'
+og:description: 'A comprehensive guide for enterprise customers to get started with kenh-ai. Learn about organizations, API key management, security controls, and observability.'
+og:image: https://kenh-ai.com/dynamic-og?title=Enterprise%20Quickstart&description=Get%20your%20organization%20up%20and%20running
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: building
@@ -20,7 +20,7 @@ icon: building
 
 Organizations enable teams to collaborate with shared credits, centralized API key management, and unified usage tracking.
 
-To create an organization, navigate to [Settings > Preferences](https://openrouter.ai/settings/preferences) and click **Create Organization**. Once created, you can invite team members and switch between personal and organization contexts using the organization switcher.
+To create an organization, navigate to [Settings > Preferences](https://kenh-ai.com/settings/preferences) and click **Create Organization**. Once created, you can invite team members and switch between personal and organization contexts using the organization switcher.
 
 Key organization capabilities include shared credit pools for centralized billing, role-based access control (Admin and Member roles), and organization-wide activity tracking.
 
@@ -32,15 +32,15 @@ Enterprise deployments typically require programmatic API key management for aut
 
 ### Management API Keys
 
-Create a [Management API key](https://openrouter.ai/settings/management-keys) to manage API keys programmatically. This enables automated key creation for customer instances, programmatic key rotation for security compliance, and usage monitoring with automatic limit enforcement.
+Create a [Management API key](https://kenh-ai.com/settings/management-keys) to manage API keys programmatically. This enables automated key creation for customer instances, programmatic key rotation for security compliance, and usage monitoring with automatic limit enforcement.
 
 See [Management API Keys](/guides/overview/auth/management-api-keys) for the full API reference and code examples.
 
 ### API Key Rotation
 
-Regular key rotation limits the impact of compromised credentials. OpenRouter's Management API supports zero-downtime rotation: create a new key, update your applications, then delete the old key.
+Regular key rotation limits the impact of compromised credentials. kenh-ai's Management API supports zero-downtime rotation: create a new key, update your applications, then delete the old key.
 
-If you use [BYOK (Bring Your Own Key)](/guides/overview/auth/byok), you can rotate OpenRouter API keys without touching your provider credentials, simplifying key management.
+If you use [BYOK (Bring Your Own Key)](/guides/overview/auth/byok), you can rotate kenh-ai API keys without touching your provider credentials, simplifying key management.
 
 See [API Key Rotation](/cookbook/administration/api-key-rotation) for step-by-step instructions.
 
@@ -48,7 +48,7 @@ See [API Key Rotation](/cookbook/administration/api-key-rotation) for step-by-st
 
 ### Guardrails
 
-Guardrails let organizations control how members and API keys use OpenRouter. Configure spending limits with daily, weekly, or monthly resets, model and provider allowlists to restrict access, and Zero Data Retention enforcement for sensitive workloads.
+Guardrails let organizations control how members and API keys use kenh-ai. Configure spending limits with daily, weekly, or monthly resets, model and provider allowlists to restrict access, and Zero Data Retention enforcement for sensitive workloads.
 
 Guardrails can be assigned to organization members (baseline for all their keys) or directly to specific API keys for granular control. When multiple guardrails apply, stricter rules always win.
 
@@ -56,15 +56,15 @@ See [Guardrails](/guides/features/guardrails) for configuration details and the 
 
 ### Zero Data Retention (ZDR)
 
-Zero Data Retention ensures providers do not store your prompts or responses. ZDR can be enforced per model group (Anthropic, OpenAI, Google, and non-frontier) in your [privacy settings](https://openrouter.ai/settings/privacy), via [guardrails](/guides/features/guardrails), or per-request using the `zdr` parameter.
+Zero Data Retention ensures providers do not store your prompts or responses. ZDR can be enforced per model group (Anthropic, OpenAI, Google, and non-frontier) in your [privacy settings](https://kenh-ai.com/settings/privacy), via [guardrails](/guides/features/guardrails), or per-request using the `zdr` parameter.
 
-OpenRouter itself has a ZDR policy and does not retain your prompts unless you explicitly opt in to prompt logging.
+kenh-ai itself has a ZDR policy and does not retain your prompts unless you explicitly opt in to prompt logging.
 
 See [Zero Data Retention](/guides/features/zdr) for the full list of ZDR-compatible endpoints, per-model-group configuration, and request-level options.
 
 ### Data Privacy
 
-OpenRouter does not store your prompts or responses unless you opt in to prompt logging. Only metadata (token counts, latency, etc.) is stored for reporting and your activity feed.
+kenh-ai does not store your prompts or responses unless you opt in to prompt logging. Only metadata (token counts, latency, etc.) is stored for reporting and your activity feed.
 
 See [Data Collection](/guides/privacy/data-collection) and [Provider Logging](/guides/privacy/provider-logging) for complete privacy documentation.
 
@@ -72,9 +72,9 @@ See [Data Collection](/guides/privacy/data-collection) and [Provider Logging](/g
 
 ### Broadcast
 
-Broadcast automatically sends traces from your OpenRouter requests to external observability platforms without additional instrumentation. Supported destinations include Datadog, Langfuse, LangSmith, Braintrust, OpenTelemetry Collector, S3, and more.
+Broadcast automatically sends traces from your kenh-ai requests to external observability platforms without additional instrumentation. Supported destinations include Datadog, Langfuse, LangSmith, Braintrust, OpenTelemetry Collector, S3, and more.
 
-Configure broadcast at [Settings > Observability](https://openrouter.ai/settings/observability). You can filter traces by API key, set sampling rates, and configure up to 5 destinations of the same type for different environments.
+Configure broadcast at [Settings > Observability](https://kenh-ai.com/settings/observability). You can filter traces by API key, set sampling rates, and configure up to 5 destinations of the same type for different environments.
 
 See [Broadcast](/guides/features/broadcast) for setup instructions and destination-specific walkthroughs.
 
@@ -94,7 +94,7 @@ See [Usage Accounting](/cookbook/administration/usage-accounting) for response f
 
 ### Activity Export
 
-Export aggregated usage data as CSV or PDF from the [Activity page](https://openrouter.ai/activity). Filter by time period and group by Model, API Key, or Creator (organization member) for detailed reporting.
+Export aggregated usage data as CSV or PDF from the [Activity page](https://kenh-ai.com/activity). Filter by time period and group by Model, API Key, or Creator (organization member) for detailed reporting.
 
 See [Activity Export](/cookbook/administration/activity-export) for export instructions.
 
@@ -102,15 +102,15 @@ See [Activity Export](/cookbook/administration/activity-export) for export instr
 
 ### Provider Routing and Fallbacks
 
-OpenRouter monitors provider health in real-time and automatically routes around outages. Configure fallback chains by specifying multiple models, and customize provider selection based on cost, latency, or specific provider preferences.
+kenh-ai monitors provider health in real-time and automatically routes around outages. Configure fallback chains by specifying multiple models, and customize provider selection based on cost, latency, or specific provider preferences.
 
 See [Provider Selection](/guides/routing/provider-selection) and [Model Fallbacks](/guides/routing/model-fallbacks) for configuration options.
 
 ### Uptime Optimization
 
-OpenRouter tracks response times, error rates, and availability across all providers. This data powers intelligent routing decisions and provides transparency about service reliability.
+kenh-ai tracks response times, error rates, and availability across all providers. This data powers intelligent routing decisions and provides transparency about service reliability.
 
-See [Uptime Optimization](/guides/best-practices/uptime-optimization) for details on how OpenRouter maximizes availability.
+See [Uptime Optimization](/guides/best-practices/uptime-optimization) for details on how kenh-ai maximizes availability.
 
 ## Next Steps
 
@@ -122,4 +122,4 @@ Once your organization is configured, explore these additional resources:
 - [Prompt Caching](/guides/best-practices/prompt-caching) for cost optimization
 - [Latency and Performance](/guides/best-practices/latency-and-performance) for performance tuning
 
-For enterprise sales inquiries or custom requirements, contact our sales team at [openrouter.ai/enterprise](https://openrouter.ai/enterprise).
+For enterprise sales inquiries or custom requirements, contact our sales team at [kenh-ai.com/enterprise](https://kenh-ai.com/enterprise).

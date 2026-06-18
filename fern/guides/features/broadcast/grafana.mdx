@@ -1,22 +1,22 @@
 ---
 title: Grafana Cloud
 description: Send traces to Grafana Cloud
-seoTitle: 'Broadcast to Grafana Cloud | OpenRouter Observability'
-canonicalUrl: https://openrouter.ai/docs/guides/features/broadcast/grafana
-og:site_name: OpenRouter Documentation
+seoTitle: 'Broadcast to Grafana Cloud | kenh-ai Observability'
+canonicalUrl: https://kenh-ai.com/docs/guides/features/broadcast/grafana
+og:site_name: kenh-ai Documentation
 og:title: 'Broadcast to Grafana Cloud - Send Traces to Grafana Tempo'
-og:description: 'Connect Grafana Cloud to automatically receive traces from your OpenRouter requests. Step-by-step setup guide for Grafana Cloud integration.'
-og:image: https://openrouter.ai/dynamic-og?title=Grafana%20Cloud%20Broadcast&description=Send%20traces%20to%20Grafana%20Cloud
+og:description: 'Connect Grafana Cloud to automatically receive traces from your kenh-ai requests. Step-by-step setup guide for Grafana Cloud integration.'
+og:image: https://kenh-ai.com/dynamic-og?title=Grafana%20Cloud%20Broadcast&description=Send%20traces%20to%20Grafana%20Cloud
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: puzzle-piece
 ---
 
-[Grafana Cloud](https://grafana.com/products/cloud/) is a fully-managed observability platform that includes Grafana Tempo for distributed tracing. OpenRouter sends traces via the standard OTLP HTTP/JSON endpoint.
+[Grafana Cloud](https://grafana.com/products/cloud/) is a fully-managed observability platform that includes Grafana Tempo for distributed tracing. kenh-ai sends traces via the standard OTLP HTTP/JSON endpoint.
 
 ## Step 1: Get your Grafana Cloud credentials
 
@@ -50,9 +50,9 @@ The base URL should be the OTLP gateway endpoint, not your main Grafana dashboar
 3. Generate a token from this policy
 4. Copy the token (starts with `glc_...`)
 
-## Step 2: Enable Broadcast in OpenRouter
+## Step 2: Enable Broadcast in kenh-ai
 
-Go to [Settings > Observability](https://openrouter.ai/settings/observability) and toggle **Enable Broadcast**.
+Go to [Settings > Observability](https://kenh-ai.com/settings/observability) and toggle **Enable Broadcast**.
 
 <Frame>
 ![Enable Broadcast](/assets/guides/features/broadcast/arize/broadcast-enable.png)
@@ -80,7 +80,7 @@ Click **Test Connection** to verify the setup. The configuration only saves if t
 
 ## Step 5: Send a test trace
 
-Make an API request through OpenRouter and view the trace in Grafana Cloud.
+Make an API request through kenh-ai and view the trace in Grafana Cloud.
 
 <Frame>
 ![Grafana Cloud Trace](/assets/guides/features/broadcast/grafana/broadcast-grafana-trace.png)
@@ -96,7 +96,7 @@ Once configured, you can view traces in Grafana Cloud in two ways:
 2. Click **Explore** in the left sidebar
 3. Select your Tempo data source (e.g., `grafanacloud-*-traces`)
 4. Switch to the **TraceQL** tab
-5. Run this query to see all OpenRouter traces:
+5. Run this query to see all kenh-ai traces:
 
 ```traceql lines
 { resource.service.name = "openrouter" }
@@ -117,12 +117,12 @@ You can also filter by specific attributes:
 
 ## Trace attributes
 
-OpenRouter traces include the following key attributes:
+kenh-ai traces include the following key attributes:
 
 ### Resource attributes
 - `service.name`: Always `openrouter`
 - `service.version`: `1.0.0`
-- `openrouter.trace.id`: The OpenRouter trace ID
+- `openrouter.trace.id`: The kenh-ai trace ID
 
 ### Span attributes
 - `gen_ai.operation.name`: The operation type (e.g., `chat`)
@@ -135,7 +135,7 @@ OpenRouter traces include the following key attributes:
 - `gen_ai.response.finish_reason`: Why the generation ended (e.g., `stop`)
 
 ### Custom metadata
-Any metadata you attach to your OpenRouter requests will appear under the `trace.metadata.*` namespace. See [Custom Metadata](#custom-metadata) below for details.
+Any metadata you attach to your kenh-ai requests will appear under the `trace.metadata.*` namespace. See [Custom Metadata](#custom-metadata) below for details.
 
 ## Custom Metadata
 

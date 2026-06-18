@@ -2,15 +2,15 @@
 title: Generations - TypeScript SDK
 sidebarTitle: Generations
 description: Generations method reference
-seoTitle: Generations | OpenRouter TypeScript SDK
-canonicalUrl: 'https://openrouter.ai/docs/agent-sdks/typescript/api-reference/generations'
-'og:site_name': OpenRouter Documentation
-'og:title': Generations | OpenRouter TypeScript SDK
+seoTitle: Generations | kenh-ai TypeScript SDK
+canonicalUrl: 'https://kenh-ai.com/docs/agent-sdks/typescript/api-reference/generations'
+'og:site_name': kenh-ai Documentation
+'og:title': Generations | kenh-ai TypeScript SDK
 'og:description': >-
-  Generations method documentation for the OpenRouter TypeScript SDK. Learn how
+  Generations method documentation for the kenh-ai TypeScript SDK. Learn how
   to use this API endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=Generations%20-%20TypeScript%20SDK&description=Generations%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=Generations%20-%20TypeScript%20SDK&description=Generations%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -44,17 +44,17 @@ Get request & usage metadata for a generation
 
 {/* UsageSnippet language="typescript" operationID="getGeneration" method="get" path="/generation" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.generations.getGeneration({
+  const result = await kenhAi.generations.getGeneration({
     id: "<id>",
   });
 
@@ -69,20 +69,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { generationsGetGeneration } from "@openrouter/sdk/funcs/generationsGetGeneration.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { generationsGetGeneration } from "@kenh-ai/sdk/funcs/generationsGetGeneration.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await generationsGetGeneration(openRouter, {
+  const res = await generationsGetGeneration(kenhAi, {
     id: "<id>",
   });
   if (res.ok) {
@@ -131,17 +131,17 @@ Get stored prompt and completion content for a generation
 
 {/* UsageSnippet language="typescript" operationID="listGenerationContent" method="get" path="/generation/content" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.generations.listGenerationContent({
+  const result = await kenhAi.generations.listGenerationContent({
     id: "gen-1234567890",
   });
 
@@ -156,20 +156,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { generationsListGenerationContent } from "@openrouter/sdk/funcs/generationsListGenerationContent.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { generationsListGenerationContent } from "@kenh-ai/sdk/funcs/generationsListGenerationContent.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await generationsListGenerationContent(openRouter, {
+  const res = await generationsListGenerationContent(kenhAi, {
     id: "gen-1234567890",
   });
   if (res.ok) {

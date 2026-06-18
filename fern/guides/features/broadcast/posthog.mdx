@@ -1,16 +1,16 @@
 ---
 title: PostHog
 description: Send traces to PostHog
-seoTitle: 'Broadcast to PostHog | OpenRouter Observability'
-canonicalUrl: https://openrouter.ai/docs/guides/features/broadcast/posthog
-og:site_name: OpenRouter Documentation
+seoTitle: 'Broadcast to PostHog | kenh-ai Observability'
+canonicalUrl: https://kenh-ai.com/docs/guides/features/broadcast/posthog
+og:site_name: kenh-ai Documentation
 og:title: 'Broadcast to PostHog - Send Traces to PostHog'
-og:description: 'Connect PostHog to automatically receive traces from your OpenRouter requests. Step-by-step setup guide for PostHog integration.'
-og:image: https://openrouter.ai/dynamic-og?title=PostHog%20Broadcast&description=Send%20traces%20to%20PostHog
+og:description: 'Connect PostHog to automatically receive traces from your kenh-ai requests. Step-by-step setup guide for PostHog integration.'
+og:image: https://kenh-ai.com/dynamic-og?title=PostHog%20Broadcast&description=Send%20traces%20to%20PostHog
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: puzzle-piece
@@ -26,9 +26,9 @@ In PostHog, navigate to your project settings:
 2. Go to **Project Settings**
 3. Copy your Project API Key (starts with `phc_...`)
 
-## Step 2: Enable Broadcast in OpenRouter
+## Step 2: Enable Broadcast in kenh-ai
 
-Go to [Settings > Observability](https://openrouter.ai/settings/observability) and toggle **Enable Broadcast**.
+Go to [Settings > Observability](https://kenh-ai.com/settings/observability) and toggle **Enable Broadcast**.
 
 <Frame>
 ![Enable Broadcast](/assets/guides/features/broadcast/arize/broadcast-enable.png)
@@ -47,7 +47,7 @@ Click **Test Connection** to verify the setup. The configuration only saves if t
 
 ## Step 5: Send a test trace
 
-Make an API request through OpenRouter and view the LLM analytics in your
+Make an API request through kenh-ai and view the LLM analytics in your
 PostHog dashboard.
 
 <Frame>
@@ -60,7 +60,7 @@ PostHog receives LLM analytics events with custom metadata included as event pro
 
 ### Supported Metadata Keys
 
-OpenRouter maps the reserved `trace` fields below to PostHog's native `$ai_*` properties,
+kenh-ai maps the reserved `trace` fields below to PostHog's native `$ai_*` properties,
 which power PostHog's built-in LLM analytics dashboards.
 
 | Key | PostHog Property | Description |

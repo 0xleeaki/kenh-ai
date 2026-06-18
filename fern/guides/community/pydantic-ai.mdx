@@ -1,16 +1,16 @@
 ---
 title: PydanticAI
-description: Using OpenRouter with PydanticAI
-seoTitle: 'PydanticAI Integration | OpenRouter SDK Support'
-canonicalUrl: https://openrouter.ai/docs/guides/community/pydantic-ai
-og:site_name: OpenRouter Documentation
-og:title: 'PydanticAI Integration - OpenRouter SDK Support'
-og:description: 'Integrate OpenRouter using PydanticAI framework. Complete guide for PydanticAI integration with OpenRouter for Python applications.'
-og:image: https://openrouter.ai/dynamic-og?title=PydanticAI&description=PydanticAI%20Integration
+description: Using kenh-ai with PydanticAI
+seoTitle: 'PydanticAI Integration | kenh-ai SDK Support'
+canonicalUrl: https://kenh-ai.com/docs/guides/community/pydantic-ai
+og:site_name: kenh-ai Documentation
+og:title: 'PydanticAI Integration - kenh-ai SDK Support'
+og:description: 'Integrate kenh-ai using PydanticAI framework. Complete guide for PydanticAI integration with kenh-ai for Python applications.'
+og:image: https://kenh-ai.com/dynamic-og?title=PydanticAI&description=PydanticAI%20Integration
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: puzzle-piece
@@ -19,7 +19,7 @@ icon: puzzle-piece
 {/* <llms-ignore> */}
 ## Using PydanticAI
 
-[PydanticAI](https://github.com/pydantic/pydantic-ai) provides a high-level interface for working with various LLM providers, including OpenRouter.
+[PydanticAI](https://github.com/pydantic/pydantic-ai) provides a high-level interface for working with various LLM providers, including kenh-ai.
 
 ### Installation
 
@@ -29,15 +29,15 @@ pip install 'pydantic-ai-slim[openai]'
 
 ### Configuration
 
-You can use OpenRouter with PydanticAI through its OpenAI-compatible interface:
+You can use kenh-ai with PydanticAI through its OpenAI-compatible interface:
 
 ```python lines
 from pydantic_ai import Agent
 from pydantic_ai.models.openai import OpenAIModel
 
 model = OpenAIModel(
-    "anthropic/claude-sonnet-4.6",  # or any other OpenRouter model
-    base_url="https://openrouter.ai/api/v1",
+    "anthropic/claude-sonnet-4.6",  # or any other kenh-ai model
+    base_url="https://kenh-ai.com/api/v1",
     api_key="sk-or-...",
 )
 
@@ -46,5 +46,5 @@ result = await agent.run("What is the meaning of life?")
 print(result)
 ```
 
-For more details about using PydanticAI with OpenRouter, see the [PydanticAI documentation](https://ai.pydantic.dev/models/#api_key-argument).
+For more details about using PydanticAI with kenh-ai, see the [PydanticAI documentation](https://ai.pydantic.dev/models/#api_key-argument).
 {/* </llms-ignore> */}

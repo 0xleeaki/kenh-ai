@@ -2,26 +2,26 @@
 title: Working with Items
 description: >-
   Understanding the items-based streaming paradigm for callModel
-seoTitle: 'Working with Items | OpenRouter SDK'
-canonicalUrl: 'https://openrouter.ai/docs/agent-sdks/typescript/call-model/items'
-og:site_name: OpenRouter Documentation
-og:title: 'Working with Items - OpenRouter SDK'
+seoTitle: 'Working with Items | kenh-ai SDK'
+canonicalUrl: 'https://kenh-ai.com/docs/agent-sdks/typescript/call-model/items'
+og:site_name: kenh-ai Documentation
+og:title: 'Working with Items - kenh-ai SDK'
 og:description: >-
   Learn the items-based streaming paradigm for callModel. Replace items by ID
   instead of accumulating chunks for simpler React state management.
 og:image: >-
-  https://openrouter.ai/dynamic-og?title=Working%20with%20Items&description=Items-Based%20Streaming
+  https://kenh-ai.com/dynamic-og?title=Working%20with%20Items&description=Items-Based%20Streaming
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 ---
 
 ## The Items Paradigm
 
-`callModel` is built on OpenRouter's Responses API which uses an **items-based
+`callModel` is built on kenh-ai's Responses API which uses an **items-based
 model** rather than the messages-based model used by OpenAI Chat or Vercel AI
 SDK.
 
@@ -107,10 +107,10 @@ item ID and let React's reconciliation handle updates:
 
 ```tsx expandable lines
 import { useState } from 'react';
-import type { StreamableOutputItem } from '@openrouter/agent';
-import { OpenRouter } from '@openrouter/agent';
+import type { StreamableOutputItem } from '@kenh-ai/agent';
+import { KenhAI } from '@kenh-ai/agent';
 
-const client = new OpenRouter({ apiKey: process.env.OPENROUTER_API_KEY });
+const client = new KenhAI({ apiKey: process.env.KENH_AI_API_KEY });
 
 function Chat() {
   const [items, setItems] = useState<Map<string, StreamableOutputItem>>(

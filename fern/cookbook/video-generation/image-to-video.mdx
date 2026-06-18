@@ -1,16 +1,16 @@
 ---
 title: Turn an Image into a Video
-description: Use frame images to control the first or last frame of an OpenRouter video
-seoTitle: 'Turn an Image into a Video | OpenRouter Cookbook'
-canonicalUrl: https://openrouter.ai/docs/cookbook/video-generation/image-to-video
-og:site_name: OpenRouter Documentation
-og:title: 'Turn an Image into a Video - OpenRouter Cookbook'
-og:description: 'Submit an OpenRouter image-to-video job with frame_images, poll for completion, and download the finished clip.'
-og:image: https://openrouter.ai/dynamic-og?title=Turn%20an%20Image%20into%20a%20Video&description=Use%20frame%20images%20with%20OpenRouter%20video%20generation
+description: Use frame images to control the first or last frame of an kenh-ai video
+seoTitle: 'Turn an Image into a Video | kenh-ai Cookbook'
+canonicalUrl: https://kenh-ai.com/docs/cookbook/video-generation/image-to-video
+og:site_name: kenh-ai Documentation
+og:title: 'Turn an Image into a Video - kenh-ai Cookbook'
+og:description: 'Submit an kenh-ai image-to-video job with frame_images, poll for completion, and download the finished clip.'
+og:image: https://kenh-ai.com/dynamic-og?title=Turn%20an%20Image%20into%20a%20Video&description=Use%20frame%20images%20with%20kenh-ai%20video%20generation
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: image
@@ -32,7 +32,7 @@ By the end, your implementation should submit an image-to-video job with
 
 You need:
 
-- An OpenRouter API key available as `OPENROUTER_API_KEY`
+- An kenh-ai API key available as `KENH_AI_API_KEY`
 - Node.js 20 or newer
 - A public HTTPS image URL available as `FIRST_FRAME_URL`
 - A model that supports `frame_images`, confirmed with `GET /api/v1/videos/models`
@@ -52,10 +52,10 @@ Use the API reference pages as the source of truth for exact fields:
 
 <Warning>
 Submitting `POST /api/v1/videos` starts a real video generation job and may
-spend OpenRouter credits.
+spend kenh-ai credits.
 </Warning>
 
-`frame_images` is for exact frame control. If you provide both `frame_images` and `input_references`, OpenRouter treats the request as image-to-video.
+`frame_images` is for exact frame control. If you provide both `frame_images` and `input_references`, kenh-ai treats the request as image-to-video.
 
 Use a stable, directly downloadable image URL. Some providers cannot fetch image URLs that require cookies, redirects through HTML pages, bot checks, or unusual headers.
 
@@ -79,7 +79,7 @@ Fetch the model list and choose a model whose `supported_frame_images` includes
 the frame type you want:
 
 ```bash lines
-curl https://openrouter.ai/api/v1/videos/models
+curl https://kenh-ai.com/api/v1/videos/models
 ```
 
 Example model output excerpt:
@@ -105,18 +105,18 @@ belongs in whatever server route, queue, or worker owns video generation in your
 app.
 
 ```js expandable lines
-const apiKey = process.env.OPENROUTER_API_KEY;
+const apiKey = process.env.KENH_AI_API_KEY;
 const firstFrameUrl = process.env.FIRST_FRAME_URL;
 
 if (!apiKey) {
-  throw new Error("Set OPENROUTER_API_KEY first.");
+  throw new Error("Set KENH_AI_API_KEY first.");
 }
 
 if (!firstFrameUrl) {
   throw new Error("Set FIRST_FRAME_URL to a directly downloadable image URL.");
 }
 
-const response = await fetch("https://openrouter.ai/api/v1/videos", {
+const response = await fetch("https://kenh-ai.com/api/v1/videos", {
   method: "POST",
   headers: {
     Authorization: `Bearer ${apiKey}`,
@@ -244,7 +244,7 @@ async function waitForVideo(job) {
       throw new Error("Video job did not include a polling_url.");
     }
 
-    const pollingUrl = new URL(current.polling_url, "https://openrouter.ai");
+    const pollingUrl = new URL(current.polling_url, "https://kenh-ai.com");
     const response = await fetch(pollingUrl, {
       headers: {
         Authorization: `Bearer ${apiKey}`,
@@ -264,10 +264,10 @@ async function waitForVideo(job) {
 async function downloadVideo(job) {
   const videoUrl =
     job.unsigned_urls?.[0] ??
-    `https://openrouter.ai/api/v1/videos/${job.id}/content?index=0`;
+    `https://kenh-ai.com/api/v1/videos/${job.id}/content?index=0`;
 
   const response = await fetch(videoUrl, {
-    headers: videoUrl.startsWith("https://openrouter.ai/api/")
+    headers: videoUrl.startsWith("https://kenh-ai.com/api/")
       ? { Authorization: `Bearer ${apiKey}` }
       : undefined,
   });

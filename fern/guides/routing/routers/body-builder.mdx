@@ -2,23 +2,23 @@
 title: Body Builder
 description: Generate multiple parallel API requests from natural language
 seoTitle: 'Body Builder | Multi-Model Request Generation'
-canonicalUrl: https://openrouter.ai/docs/guides/routing/routers/body-builder
-og:site_name: OpenRouter Documentation
+canonicalUrl: https://kenh-ai.com/docs/guides/routing/routers/body-builder
+og:site_name: kenh-ai Documentation
 og:title: 'Body Builder - Generate Parallel API Requests'
-og:description: "Use natural language to generate multiple OpenRouter API requests for parallel model execution."
-og:image: https://openrouter.ai/dynamic-og?title=Body%20Builder&description=Multi-model%20request%20generation
+og:description: "Use natural language to generate multiple kenh-ai API requests for parallel model execution."
+og:image: https://kenh-ai.com/dynamic-og?title=Body%20Builder&description=Multi-model%20request%20generation
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 icon: hammer
 ---
 
-The [Body Builder](https://openrouter.ai/openrouter/bodybuilder) (`openrouter/bodybuilder`) transforms natural language prompts into structured OpenRouter API requests, enabling you to easily run the same task across multiple models in parallel.
+The [Body Builder](https://kenh-ai.com/openrouter/bodybuilder) (`openrouter/bodybuilder`) transforms natural language prompts into structured kenh-ai API requests, enabling you to easily run the same task across multiple models in parallel.
 
 ## Overview
 
-Body Builder uses AI to understand your intent and generate valid OpenRouter API request bodies. Simply describe what you want to accomplish and which models you want to use, and Body Builder returns ready-to-execute JSON requests.
+Body Builder uses AI to understand your intent and generate valid kenh-ai API request bodies. Simply describe what you want to accomplish and which models you want to use, and Body Builder returns ready-to-execute JSON requests.
 
 <Info>
 Body Builder is **free to use**. There is no charge for generating the request bodies.
@@ -29,13 +29,13 @@ Body Builder is **free to use**. There is no charge for generating the request b
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const kenhAi = new KenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
-const completion = await openRouter.chat.send({
+const completion = await kenhAi.chat.send({
   model: 'openrouter/bodybuilder',
   messages: [
     {
@@ -51,10 +51,10 @@ console.log(generatedRequests);
 ```
 
 ```typescript title="TypeScript (fetch)" lines
-const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+const response = await fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+    'Authorization': 'Bearer <KENH_AI_API_KEY>',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -78,9 +78,9 @@ import requests
 import json
 
 response = requests.post(
-  url="https://openrouter.ai/api/v1/chat/completions",
+  url="https://kenh-ai.com/api/v1/chat/completions",
   headers={
-    "Authorization": "Bearer <OPENROUTER_API_KEY>",
+    "Authorization": "Bearer <KENH_AI_API_KEY>",
     "Content-Type": "application/json",
   },
   data=json.dumps({
@@ -103,7 +103,7 @@ print(json.dumps(generated_requests, indent=2))
 
 ## Response Format
 
-Body Builder returns a JSON object containing an array of OpenRouter-compatible request bodies:
+Body Builder returns a JSON object containing an array of kenh-ai-compatible request bodies:
 
 ```json lines
 {
@@ -132,7 +132,7 @@ After generating the request bodies, execute them in parallel:
 
 ```typescript title="TypeScript" lines
 // Generate the requests
-const builderResponse = await openRouter.chat.send({
+const builderResponse = await kenhAi.chat.send({
   model: 'openrouter/bodybuilder',
   messages: [{ role: 'user', content: 'Explain gravity using Gemini and Claude' }],
 });
@@ -141,7 +141,7 @@ const { requests } = JSON.parse(builderResponse.choices[0].message.content);
 
 // Execute all requests in parallel
 const results = await Promise.all(
-  requests.map((req) => openRouter.chat.send(req))
+  requests.map((req) => kenhAi.chat.send(req))
 );
 
 // Process results
@@ -158,9 +158,9 @@ import json
 
 async def execute_request(session, request):
     async with session.post(
-        "https://openrouter.ai/api/v1/chat/completions",
+        "https://kenh-ai.com/api/v1/chat/completions",
         headers={
-            "Authorization": "Bearer <OPENROUTER_API_KEY>",
+            "Authorization": "Bearer <KENH_AI_API_KEY>",
             "Content-Type": "application/json"
         },
         data=json.dumps(request)
@@ -226,14 +226,14 @@ Discover which models excel at specific tasks:
 
 ## Model Selection
 
-Body Builder has access to all available OpenRouter models and will:
+Body Builder has access to all available kenh-ai models and will:
 
 - Use the latest model versions by default
 - Select appropriate models based on your description
 - Understand model aliases and common names
 
 <Warning>
-Model slugs change as new versions are released. The examples below are current as of December 4, 2025. Check the [models page](https://openrouter.ai/models) for the latest available models.
+Model slugs change as new versions are released. The examples below are current as of December 4, 2025. Check the [models page](https://kenh-ai.com/models) for the latest available models.
 </Warning>
 
 Example model references that work:

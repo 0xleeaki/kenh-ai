@@ -1,16 +1,16 @@
 ---
 title: PDF Inputs
-description: How to send PDFs to OpenRouter models
-seoTitle: 'OpenRouter PDF Inputs | Complete Documentation'
-canonicalUrl: https://openrouter.ai/docs/guides/overview/multimodal/pdfs
-og:site_name: OpenRouter Documentation
-og:title: 'OpenRouter PDF Inputs - Complete Documentation'
-og:description: 'Send PDF documents to any model on OpenRouter.'
-og:image: https://openrouter.ai/dynamic-og?title=OpenRouter%20PDF%20Inputs&description=Send%20PDF%20documents%20to%20any%20model%20on%20OpenRouter.
+description: How to send PDFs to kenh-ai models
+seoTitle: 'kenh-ai PDF Inputs | Complete Documentation'
+canonicalUrl: https://kenh-ai.com/docs/guides/overview/multimodal/pdfs
+og:site_name: kenh-ai Documentation
+og:title: 'kenh-ai PDF Inputs - Complete Documentation'
+og:description: 'Send PDF documents to any model on kenh-ai.'
+og:image: https://kenh-ai.com/dynamic-og?title=kenh-ai%20PDF%20Inputs&description=Send%20PDF%20documents%20to%20any%20model%20on%20kenh-ai.
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: file-pdf
@@ -25,7 +25,7 @@ import {
   PDFParserEngine,
 } from '../../../snippets/exports/constants.mdx';
 
-OpenRouter supports PDF processing through the `/api/v1/chat/completions` API. PDFs can be sent as **direct URLs** or **base64-encoded data URLs** in the messages array, via the file content type. This feature works on **any** model on OpenRouter.
+kenh-ai supports PDF processing through the `/api/v1/chat/completions` API. PDFs can be sent as **direct URLs** or **base64-encoded data URLs** in the messages array, via the file content type. This feature works on **any** model on kenh-ai.
 
 **URL support**: Send publicly accessible PDFs directly without downloading or encoding
 **Base64 support**: Required for local files or private documents that aren't publicly accessible
@@ -34,7 +34,7 @@ PDFs also work in the chat room for interactive testing.
 
 <Info>
   When a model supports file input natively, the PDF is passed directly to the
-  model. When the model does not support file input natively, OpenRouter will
+  model. When the model does not support file input natively, kenh-ai will
   parse the file and pass the parsed results to the requested model.
 </Info>
 
@@ -42,7 +42,7 @@ PDFs also work in the chat room for interactive testing.
 
 ## Plugin Configuration
 
-To configure PDF processing, use the `plugins` parameter in your request. OpenRouter provides several PDF processing engines with different capabilities and pricing:
+To configure PDF processing, use the `plugins` parameter in your request. kenh-ai provides several PDF processing engines with different capabilities and pricing:
 
 ```typescript lines
 {
@@ -59,7 +59,7 @@ To configure PDF processing, use the `plugins` parameter in your request. OpenRo
 
 ## Pricing
 
-OpenRouter provides several PDF processing engines:
+kenh-ai provides several PDF processing engines:
 
 1. <code>"{PDFParserEngine.MistralOCR}"</code>: Best for scanned documents or
    PDFs with images (${MISTRAL_OCR_COST} per 1,000 pages).
@@ -74,16 +74,16 @@ OpenRouter provides several PDF processing engines:
 </Info>
 
 <Warning>
-  OCR costs apply to all requests, including BYOK. OpenRouter uses its own Mistral
+  OCR costs apply to all requests, including BYOK. kenh-ai uses its own Mistral
   key for OCR (not your BYOK key), so the per-page fee is always billed to your
-  OpenRouter account.
+  kenh-ai account.
 </Warning>
 
-If you don't explicitly specify an engine, OpenRouter will default first to the model's native file processing capabilities, and if that's not available, we will use the <code>"{DEFAULT_PDF_ENGINE}"</code> engine.
+If you don't explicitly specify an engine, kenh-ai will default first to the model's native file processing capabilities, and if that's not available, we will use the <code>"{DEFAULT_PDF_ENGINE}"</code> engine.
 
 ## OCR Image Limits
 
-When the <code>"{PDFParserEngine.MistralOCR}"</code> engine extracts images from a PDF, OpenRouter requests at most **8 images per PDF** from Mistral via the OCR API's `image_limit` parameter, and forwards no more than 8 images per request to the downstream model. Surplus images are dropped while all extracted text is preserved in full.
+When the <code>"{PDFParserEngine.MistralOCR}"</code> engine extracts images from a PDF, kenh-ai requests at most **8 images per PDF** from Mistral via the OCR API's `image_limit` parameter, and forwards no more than 8 images per request to the downstream model. Surplus images are dropped while all extracted text is preserved in full.
 
 This cap exists because per-prompt image limits vary significantly across providers — some reject requests with more than 8 images outright, and even providers with higher caps often fail with context-length errors when a long PDF emits one image per page. Capping at 8 keeps requests within the limits of every supported provider.
 
@@ -101,13 +101,13 @@ For publicly accessible PDFs, you can send the URL directly without needing to d
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" expandable lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   apiKey: '{{API_KEY_REF}}',
 });
 
-const result = await openRouter.chat.send({
+const result = await kenhAi.chat.send({
   model: '{{MODEL}}',
   messages: [
     {
@@ -146,7 +146,7 @@ console.log(result);
 import requests
 import json
 
-url = "https://openrouter.ai/api/v1/chat/completions"
+url = "https://kenh-ai.com/api/v1/chat/completions"
 headers = {
     "Authorization": f"Bearer {API_KEY_REF}",
     "Content-Type": "application/json"
@@ -192,7 +192,7 @@ print(response.json())
 ```
 
 ```typescript title="TypeScript (fetch)" expandable lines
-const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+const response = await fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
     Authorization: `Bearer ${API_KEY_REF}`,
@@ -238,7 +238,7 @@ console.log(data);
 </Template>
 
 <Info>
-  PDF URLs work with all processing engines. For Mistral OCR, the URL is passed directly to the service. For other engines, OpenRouter fetches the PDF and processes it internally.
+  PDF URLs work with all processing engines. For Mistral OCR, the URL is passed directly to the service. For other engines, kenh-ai fetches the PDF and processes it internally.
 </Info>
 
 ## Using Base64 Encoded PDFs
@@ -263,7 +263,7 @@ def encode_pdf_to_base64(pdf_path):
     with open(pdf_path, "rb") as pdf_file:
         return base64.b64encode(pdf_file.read()).decode('utf-8')
 
-url = "https://openrouter.ai/api/v1/chat/completions"
+url = "https://kenh-ai.com/api/v1/chat/completions"
 headers = {
     "Authorization": f"Bearer {API_KEY_REF}",
     "Content-Type": "application/json"
@@ -325,7 +325,7 @@ async function encodePDFToBase64(pdfPath: string): Promise<string> {
 const pdfPath = 'path/to/your/document.pdf';
 const base64PDF = await encodePDFToBase64(pdfPath);
 
-const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+const response = await fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
     Authorization: `Bearer ${API_KEY_REF}`,
@@ -394,7 +394,7 @@ def encode_pdf_to_base64(pdf_path):
     with open(pdf_path, "rb") as pdf_file:
         return base64.b64encode(pdf_file.read()).decode('utf-8')
 
-url = "https://openrouter.ai/api/v1/chat/completions"
+url = "https://kenh-ai.com/api/v1/chat/completions"
 headers = {
     "Authorization": f"Bearer {API_KEY_REF}",
     "Content-Type": "application/json"
@@ -494,7 +494,7 @@ async function processDocument() {
   const base64PDF = await encodePDFToBase64(pdfPath);
 
   const initialResponse = await fetch(
-    'https://openrouter.ai/api/v1/chat/completions',
+    'https://kenh-ai.com/api/v1/chat/completions',
     {
       method: 'POST',
       headers: {
@@ -538,7 +538,7 @@ async function processDocument() {
   // Follow-up request using the annotations (without sending the PDF again)
   if (fileAnnotations) {
     const followUpResponse = await fetch(
-      'https://openrouter.ai/api/v1/chat/completions',
+      'https://kenh-ai.com/api/v1/chat/completions',
       {
         method: 'POST',
         headers: {
@@ -591,7 +591,7 @@ processDocument();
 
 <Info>
   When you include the file annotations from a previous response in your
-  subsequent requests, OpenRouter will use this pre-parsed information instead
+  subsequent requests, kenh-ai will use this pre-parsed information instead
   of re-parsing the PDF, which saves processing time and costs. This is
   especially beneficial for large documents or when using the `mistral-ocr`
   engine which incurs additional costs.
@@ -599,7 +599,7 @@ processDocument();
 
 ## File Annotations Schema
 
-When OpenRouter parses a PDF, the response includes file annotations in the assistant message. Here is the TypeScript type for the annotation schema:
+When kenh-ai parses a PDF, the response includes file annotations in the assistant message. Here is the TypeScript type for the annotation schema:
 
 ```typescript lines
 type FileAnnotation = {
@@ -660,7 +660,7 @@ The API will return a response in the following format:
 
 ## Error Responses with Parsed Annotations
 
-If OpenRouter successfully parses your PDF but every inference provider then fails to generate a completion, the error response still includes the parsed annotations under `error.metadata.file_annotations`. The shape matches the success-path `FileAnnotation` documented above, so you can hand the same array straight back to OpenRouter on a retry to skip re-parsing.
+If kenh-ai successfully parses your PDF but every inference provider then fails to generate a completion, the error response still includes the parsed annotations under `error.metadata.file_annotations`. The shape matches the success-path `FileAnnotation` documented above, so you can hand the same array straight back to kenh-ai on a retry to skip re-parsing.
 
 This applies to the <code>"{PDFParserEngine.MistralOCR}"</code> and <code>"{PDFParserEngine.CloudflareAI}"</code> engines, which parse the PDF before sending it to a model. The <code>"{PDFParserEngine.Native}"</code> engine doesn't produce annotations because the file is forwarded directly to the model.
 

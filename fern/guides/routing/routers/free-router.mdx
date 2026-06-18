@@ -2,19 +2,19 @@
 title: Free Models Router
 description: Get free AI inference by routing to available free models
 seoTitle: 'Free Models Router | Zero-Cost AI Inference'
-canonicalUrl: https://openrouter.ai/docs/guides/routing/routers/free-router
-og:site_name: OpenRouter Documentation
+canonicalUrl: https://kenh-ai.com/docs/guides/routing/routers/free-router
+og:site_name: kenh-ai Documentation
 og:title: 'Free Models Router - Zero-Cost AI Inference'
-og:description: "Route requests to free AI models automatically using OpenRouter's Free Models Router."
-og:image: https://openrouter.ai/dynamic-og?title=Free%20Models%20Router&description=Zero-cost%20AI%20inference
+og:description: "Route requests to free AI models automatically using kenh-ai's Free Models Router."
+og:image: https://kenh-ai.com/dynamic-og?title=Free%20Models%20Router&description=Zero-cost%20AI%20inference
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 icon: gift
 ---
 
-The [Free Models Router](https://openrouter.ai/openrouter/free) (`openrouter/free`) automatically selects a free model at random from the available free models on OpenRouter. The router intelligently filters for models that support the features your request needs, such as image understanding, tool calling, and structured outputs.
+The [Free Models Router](https://kenh-ai.com/openrouter/free) (`openrouter/free`) automatically selects a free model at random from the available free models on kenh-ai. The router intelligently filters for models that support the features your request needs, such as image understanding, tool calling, and structured outputs.
 
 ## Overview
 
@@ -29,13 +29,13 @@ Set your model to `openrouter/free`:
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
-  apiKey: '<OPENROUTER_API_KEY>',
+const kenhAi = new KenhAI({
+  apiKey: '<KENH_AI_API_KEY>',
 });
 
-const completion = await openRouter.chat.send({
+const completion = await kenhAi.chat.send({
   model: 'openrouter/free',
   messages: [
     {
@@ -51,10 +51,10 @@ console.log('Model used:', completion.model);
 ```
 
 ```typescript title="TypeScript (fetch)" expandable lines
-const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+const response = await fetch('https://kenh-ai.com/api/v1/chat/completions', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer <OPENROUTER_API_KEY>',
+    'Authorization': 'Bearer <KENH_AI_API_KEY>',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
@@ -79,9 +79,9 @@ import requests
 import json
 
 response = requests.post(
-  url="https://openrouter.ai/api/v1/chat/completions",
+  url="https://kenh-ai.com/api/v1/chat/completions",
   headers={
-    "Authorization": "Bearer <OPENROUTER_API_KEY>",
+    "Authorization": "Bearer <KENH_AI_API_KEY>",
     "Content-Type": "application/json",
   },
   data=json.dumps({
@@ -102,8 +102,8 @@ print('Model used:', data['model'])
 ```
 
 ```bash title="cURL" lines
-curl https://openrouter.ai/api/v1/chat/completions \
-  -H "Authorization: Bearer $OPENROUTER_API_KEY" \
+curl https://kenh-ai.com/api/v1/chat/completions \
+  -H "Authorization: Bearer $KENH_AI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "openrouter/free",
@@ -147,10 +147,10 @@ The response includes the `model` field showing which free model was actually us
 
 ## Available Free Models
 
-The Free Models Router selects from all currently available free models on OpenRouter. Some popular options include:
+The Free Models Router selects from all currently available free models on kenh-ai. Some popular options include:
 
 <Warning>
-Free model availability changes frequently. Check the [models page](https://openrouter.ai/models?pricing=free) for the current list of free models.
+Free model availability changes frequently. Check the [models page](https://kenh-ai.com/models?pricing=free) for the current list of free models.
 </Warning>
 
 - **DeepSeek R1 (free)** - DeepSeek's reasoning model
@@ -189,7 +189,7 @@ If you prefer to use a specific free model rather than random selection, you can
    }
    ```
 
-2. **Browse free models**: Visit the [models page](https://openrouter.ai/models?pricing=free) to see all available free models and select one directly.
+2. **Browse free models**: Visit the [models page](https://kenh-ai.com/models?pricing=free) to see all available free models and select one directly.
 
 ## Related
 

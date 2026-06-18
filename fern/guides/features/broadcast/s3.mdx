@@ -1,22 +1,22 @@
 ---
 title: S3 / S3-Compatible
 description: Send traces to Amazon S3 or S3-compatible storage
-seoTitle: 'Broadcast to S3 | OpenRouter Observability'
-canonicalUrl: https://openrouter.ai/docs/guides/features/broadcast/s3
-og:site_name: OpenRouter Documentation
+seoTitle: 'Broadcast to S3 | kenh-ai Observability'
+canonicalUrl: https://kenh-ai.com/docs/guides/features/broadcast/s3
+og:site_name: kenh-ai Documentation
 og:title: 'Broadcast to S3 - Send Traces to S3 Storage'
-og:description: 'Connect Amazon S3 or S3-compatible storage to automatically receive traces from your OpenRouter requests. Step-by-step setup guide for S3 integration.'
-og:image: https://openrouter.ai/dynamic-og?title=S3%20Broadcast&description=Send%20traces%20to%20S3%20storage
+og:description: 'Connect Amazon S3 or S3-compatible storage to automatically receive traces from your kenh-ai requests. Step-by-step setup guide for S3 integration.'
+og:image: https://kenh-ai.com/dynamic-og?title=S3%20Broadcast&description=Send%20traces%20to%20S3%20storage
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: puzzle-piece
 ---
 
-[Amazon S3](https://aws.amazon.com/s3/) is a scalable object storage service. OpenRouter can send traces to any S3-compatible storage, including AWS S3, Cloudflare R2, MinIO, and other compatible services.
+[Amazon S3](https://aws.amazon.com/s3/) is a scalable object storage service. kenh-ai can send traces to any S3-compatible storage, including AWS S3, Cloudflare R2, MinIO, and other compatible services.
 
 ## Step 1: Create an S3 bucket and credentials
 
@@ -33,9 +33,9 @@ For Cloudflare R2:
 2. Go to **R2 > Manage R2 API Tokens** and create a new token with write permissions
 3. Copy the Access Key ID, Secret Access Key, and your account's S3 endpoint
 
-## Step 2: Enable Broadcast in OpenRouter
+## Step 2: Enable Broadcast in kenh-ai
 
-Go to [Settings > Observability](https://openrouter.ai/settings/observability) and toggle **Enable Broadcast**.
+Go to [Settings > Observability](https://kenh-ai.com/settings/observability) and toggle **Enable Broadcast**.
 
 <Frame>
 ![Enable Broadcast](/assets/guides/features/broadcast/arize/broadcast-enable.png)
@@ -59,7 +59,7 @@ Click **Test Connection** to verify the setup. The configuration only saves if t
 
 ## Step 5: Send a test trace
 
-Make an API request through OpenRouter and check your S3 bucket for the trace file. Each trace is saved as a separate JSON file with the format `{traceId}-{timestamp}.json`.
+Make an API request through kenh-ai and check your S3 bucket for the trace file. Each trace is saved as a separate JSON file with the format `{traceId}-{timestamp}.json`.
 
 ## Path template examples
 

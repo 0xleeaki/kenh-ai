@@ -2,15 +2,15 @@
 title: Models - TypeScript SDK
 sidebarTitle: Models
 description: Models method reference
-seoTitle: Models | OpenRouter TypeScript SDK
-canonicalUrl: 'https://openrouter.ai/docs/client-sdks/typescript/api-reference/models'
-'og:site_name': OpenRouter Documentation
-'og:title': Models | OpenRouter TypeScript SDK
+seoTitle: Models | kenh-ai TypeScript SDK
+canonicalUrl: 'https://kenh-ai.com/docs/client-sdks/typescript/api-reference/models'
+'og:site_name': kenh-ai Documentation
+'og:title': Models | kenh-ai TypeScript SDK
 'og:description': >-
-  Models method documentation for the OpenRouter TypeScript SDK. Learn how to
+  Models method documentation for the kenh-ai TypeScript SDK. Learn how to
   use this API endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=Models%20-%20TypeScript%20SDK&description=Models%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=Models%20-%20TypeScript%20SDK&description=Models%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -44,17 +44,17 @@ List all models and their properties
 
 {/* UsageSnippet language="typescript" operationID="getModels" method="get" path="/models" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.models.list();
+  const result = await kenhAi.models.list();
 
   console.log(result);
 }
@@ -67,20 +67,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { modelsList } from "@openrouter/sdk/funcs/modelsList.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { modelsList } from "@kenh-ai/sdk/funcs/modelsList.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await modelsList(openRouter);
+  const res = await modelsList(kenhAi);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -121,17 +121,17 @@ Get total count of available models
 
 {/* UsageSnippet language="typescript" operationID="listModelsCount" method="get" path="/models/count" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.models.count();
+  const result = await kenhAi.models.count();
 
   console.log(result);
 }
@@ -144,20 +144,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { modelsCount } from "@openrouter/sdk/funcs/modelsCount.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { modelsCount } from "@kenh-ai/sdk/funcs/modelsCount.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await modelsCount(openRouter);
+  const res = await modelsCount(kenhAi);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -192,23 +192,23 @@ run();
 
 ## listForUser
 
-List models filtered by user provider preferences, [privacy settings](https://openrouter.ai/docs/guides/privacy/provider-logging), and [guardrails](https://openrouter.ai/docs/guides/features/guardrails). If requesting through `eu.openrouter.ai/api/v1/...` the results will be filtered to models that satisfy [EU in-region routing](https://openrouter.ai/docs/guides/privacy/provider-logging#enterprise-eu-in-region-routing).
+List models filtered by user provider preferences, [privacy settings](https://kenh-ai.com/docs/guides/privacy/provider-logging), and [guardrails](https://kenh-ai.com/docs/guides/features/guardrails). If requesting through `eu.kenh-ai.com/api/v1/...` the results will be filtered to models that satisfy [EU in-region routing](https://kenh-ai.com/docs/guides/privacy/provider-logging#enterprise-eu-in-region-routing).
 
 ### Example Usage
 
 {/* UsageSnippet language="typescript" operationID="listModelsUser" method="get" path="/models/user" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
 });
 
 async function run() {
-  const result = await openRouter.models.listForUser({
-    bearer: process.env["OPENROUTER_BEARER"] ?? "",
+  const result = await kenhAi.models.listForUser({
+    bearer: process.env["KENH_AI_BEARER"] ?? "",
   });
 
   console.log(result);
@@ -222,20 +222,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { modelsListForUser } from "@openrouter/sdk/funcs/modelsListForUser.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { modelsListForUser } from "@kenh-ai/sdk/funcs/modelsListForUser.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
 });
 
 async function run() {
-  const res = await modelsListForUser(openRouter, {
-    bearer: process.env["OPENROUTER_BEARER"] ?? "",
+  const res = await modelsListForUser(kenhAi, {
+    bearer: process.env["KENH_AI_BEARER"] ?? "",
   });
   if (res.ok) {
     const { value: result } = res;

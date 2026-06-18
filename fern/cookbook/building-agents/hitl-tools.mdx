@@ -1,23 +1,23 @@
 ---
 title: Add Human-in-the-Loop Controls to an Agent SDK Agent
 description: Add HITL to an existing Agent SDK agent so it can pause high-stakes tool calls for human input
-seoTitle: 'Add Human-in-the-Loop Controls to an Agent SDK Agent | OpenRouter Cookbook'
-canonicalUrl: https://openrouter.ai/docs/cookbook/building-agents/hitl-tools
-og:site_name: OpenRouter Documentation
+seoTitle: 'Add Human-in-the-Loop Controls to an Agent SDK Agent | kenh-ai Cookbook'
+canonicalUrl: https://kenh-ai.com/docs/cookbook/building-agents/hitl-tools
+og:site_name: kenh-ai Documentation
 og:title: 'Add Human-in-the-Loop Controls to an Agent SDK Agent'
-og:description: 'Add HITL controls to an existing OpenRouter Agent SDK agent so routine tool calls resolve automatically and high-stakes decisions pause for human review.'
-og:image: https://openrouter.ai/dynamic-og?title=Human-in-the-Loop%20Controls&description=Auto-resolve%20or%20pause%20for%20human%20review
+og:description: 'Add HITL controls to an existing kenh-ai Agent SDK agent so routine tool calls resolve automatically and high-stakes decisions pause for human review.'
+og:image: https://kenh-ai.com/dynamic-og?title=Human-in-the-Loop%20Controls&description=Auto-resolve%20or%20pause%20for%20human%20review
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: user-check
 ---
 
 <Tip>
-  This recipe assumes you already have an agent built with the OpenRouter Agent
+  This recipe assumes you already have an agent built with the kenh-ai Agent
   SDK and `callModel`. If you are starting from scratch, first read the
   [callModel overview](/agent-sdk/call-model/overview) to learn
   about the Agent SDK.
@@ -55,8 +55,8 @@ reference for details on approval flows and conditional approval predicates.
 
 ## Prerequisites
 
-- An existing TypeScript agent that uses `@openrouter/agent` and `callModel`
-- An **OpenRouter API key** configured in that agent's environment
+- An existing TypeScript agent that uses `@kenh-ai/agent` and `callModel`
+- An **kenh-ai API key** configured in that agent's environment
 - A `StateAccessor` or a place to persist conversation state
 - A UI, CLI, queue, or API surface where a human can review pending calls
 
@@ -75,8 +75,8 @@ the loop — the conversation status moves to `'awaiting_hitl'` and the call
 surfaces to the caller.
 
 ```typescript expandable lines
-import { OpenRouter, tool } from '@openrouter/agent';
-import type { ConversationState, StateAccessor } from '@openrouter/agent';
+import { kenh-ai, tool } from '@kenh-ai/agent';
+import type { ConversationState, StateAccessor } from '@kenh-ai/agent';
 import { z } from 'zod';
 
 const paymentInputSchema = z.object({
@@ -165,9 +165,9 @@ production, back the `StateAccessor` with your database, Redis, or whatever
 storage your agent already uses.
 
 ```typescript lines
-// Keep using your existing OpenRouter client if your agent already has one.
-const openrouter = new OpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY,
+// Keep using your existing kenh-ai client if your agent already has one.
+const openrouter = new KenhAI({
+  apiKey: process.env.KENH_AI_API_KEY,
 });
 
 // Use your existing tools array and StateAccessor if you already have them.

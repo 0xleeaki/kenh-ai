@@ -1,16 +1,16 @@
 ---
 title: Embeddings
 description: Generate vector embeddings from text and images
-seoTitle: 'Embeddings API | Convert Text and Images to Vector Representations with OpenRouter'
-canonicalUrl: https://openrouter.ai/docs/api/reference/embeddings
-og:site_name: OpenRouter Documentation
+seoTitle: 'Embeddings API | Convert Text and Images to Vector Representations with kenh-ai'
+canonicalUrl: https://kenh-ai.com/docs/api/reference/embeddings
+og:site_name: kenh-ai Documentation
 og:title: 'Embeddings API - Generate Vector Embeddings from Text and Images'
-og:description: "Generate vector embeddings from text and images using OpenRouter's unified embeddings API. Access multiple embedding models from different providers with a single interface."
-og:image: https://openrouter.ai/dynamic-og?title=Embeddings%20API&description=Generate%20Vector%20Embeddings%20from%20Text%20and%20Images
+og:description: "Generate vector embeddings from text and images using kenh-ai's unified embeddings API. Access multiple embedding models from different providers with a single interface."
+og:image: https://kenh-ai.com/dynamic-og?title=Embeddings%20API&description=Generate%20Vector%20Embeddings%20from%20Text%20and%20Images
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: draw-square
@@ -19,7 +19,7 @@ icon: draw-square
 import { API_KEY_REF } from '../../snippets/exports/constants.mdx';
 import { Template } from "../../components/Template";
 
-Embeddings are numerical representations of text that capture semantic meaning. They convert text into vectors (arrays of numbers) that can be used for various machine learning tasks. OpenRouter provides a unified API to access embedding models from multiple providers.
+Embeddings are numerical representations of text that capture semantic meaning. They convert text into vectors (arrays of numbers) that can be used for various machine learning tasks. kenh-ai provides a unified API to access embedding models from multiple providers.
 
 ## What are Embeddings?
 
@@ -56,13 +56,13 @@ To generate embeddings, send a POST request to `/embeddings` with your text inpu
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   apiKey: '{{API_KEY_REF}}',
 });
 
-const response = await openRouter.embeddings.generate({
+const response = await kenhAi.embeddings.generate({
   model: '{{MODEL}}',
   input: 'The quick brown fox jumps over the lazy dog',
 });
@@ -74,7 +74,7 @@ console.log(response.data[0].embedding);
 import requests
 
 response = requests.post(
-  "https://openrouter.ai/api/v1/embeddings",
+  "https://kenh-ai.com/api/v1/embeddings",
   headers={
     "Authorization": f"Bearer {{API_KEY_REF}}",
     "Content-Type": "application/json",
@@ -91,7 +91,7 @@ print(f"Embedding dimension: {len(embedding)}")
 ```
 
 ```typescript title="TypeScript (fetch)" lines
-const response = await fetch('https://openrouter.ai/api/v1/embeddings', {
+const response = await fetch('https://kenh-ai.com/api/v1/embeddings', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer {{API_KEY_REF}}',
@@ -109,9 +109,9 @@ console.log(`Embedding dimension: ${embedding.length}`);
 ```
 
 ```shell title="Shell" lines
-curl https://openrouter.ai/api/v1/embeddings \
+curl https://kenh-ai.com/api/v1/embeddings \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $OPENROUTER_API_KEY" \
+  -H "Authorization: Bearer $KENH_AI_API_KEY" \
   -d '{
     "model": "{{MODEL}}",
     "input": "The quick brown fox jumps over the lazy dog"
@@ -132,13 +132,13 @@ You can generate embeddings for multiple texts in a single request by passing an
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   apiKey: '{{API_KEY_REF}}',
 });
 
-const response = await openRouter.embeddings.generate({
+const response = await kenhAi.embeddings.generate({
   model: '{{MODEL}}',
   input: [
     'Machine learning is a subset of artificial intelligence',
@@ -157,7 +157,7 @@ response.data.forEach((item, index) => {
 import requests
 
 response = requests.post(
-  "https://openrouter.ai/api/v1/embeddings",
+  "https://kenh-ai.com/api/v1/embeddings",
   headers={
     "Authorization": f"Bearer {{API_KEY_REF}}",
     "Content-Type": "application/json",
@@ -178,7 +178,7 @@ for i, item in enumerate(data["data"]):
 ```
 
 ```typescript title="TypeScript (fetch)" lines
-const response = await fetch('https://openrouter.ai/api/v1/embeddings', {
+const response = await fetch('https://kenh-ai.com/api/v1/embeddings', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer {{API_KEY_REF}}',
@@ -201,9 +201,9 @@ data.data.forEach((item, index) => {
 ```
 
 ```shell title="Shell" lines
-curl https://openrouter.ai/api/v1/embeddings \
+curl https://kenh-ai.com/api/v1/embeddings \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $OPENROUTER_API_KEY" \
+  -H "Authorization: Bearer $KENH_AI_API_KEY" \
   -d '{
     "model": "{{MODEL}}",
     "input": [
@@ -233,7 +233,7 @@ To send an image, wrap your input in the multimodal format with a `content` arra
 import requests
 
 response = requests.post(
-  "https://openrouter.ai/api/v1/embeddings",
+  "https://kenh-ai.com/api/v1/embeddings",
   headers={
     "Authorization": f"Bearer {{API_KEY_REF}}",
     "Content-Type": "application/json",
@@ -257,7 +257,7 @@ print(f"Embedding dimension: {len(embedding)}")
 ```
 
 ```typescript title="TypeScript (fetch)" expandable lines
-const response = await fetch('https://openrouter.ai/api/v1/embeddings', {
+const response = await fetch('https://kenh-ai.com/api/v1/embeddings', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer {{API_KEY_REF}}',
@@ -282,9 +282,9 @@ console.log(`Embedding dimension: ${embedding.length}`);
 ```
 
 ```shell title="Shell" lines
-curl https://openrouter.ai/api/v1/embeddings \
+curl https://kenh-ai.com/api/v1/embeddings \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $OPENROUTER_API_KEY" \
+  -H "Authorization: Bearer $KENH_AI_API_KEY" \
   -d '{
     "model": "{{MODEL}}",
     "input": [
@@ -313,7 +313,7 @@ You can also combine text and images in a single input to generate a joint embed
 import requests
 
 response = requests.post(
-  "https://openrouter.ai/api/v1/embeddings",
+  "https://kenh-ai.com/api/v1/embeddings",
   headers={
     "Authorization": f"Bearer {{API_KEY_REF}}",
     "Content-Type": "application/json",
@@ -338,7 +338,7 @@ print(f"Embedding dimension: {len(embedding)}")
 ```
 
 ```typescript title="TypeScript (fetch)" expandable lines
-const response = await fetch('https://openrouter.ai/api/v1/embeddings', {
+const response = await fetch('https://kenh-ai.com/api/v1/embeddings', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer {{API_KEY_REF}}',
@@ -364,9 +364,9 @@ console.log(`Embedding dimension: ${embedding.length}`);
 ```
 
 ```shell title="Shell" lines
-curl https://openrouter.ai/api/v1/embeddings \
+curl https://kenh-ai.com/api/v1/embeddings \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $OPENROUTER_API_KEY" \
+  -H "Authorization: Bearer $KENH_AI_API_KEY" \
   -d '{
     "model": "{{MODEL}}",
     "input": [
@@ -390,9 +390,9 @@ For detailed information about request parameters, response format, and all avai
 
 ## Available Models
 
-OpenRouter provides access to various embedding models from different providers. You can view all available embedding models at:
+kenh-ai provides access to various embedding models from different providers. You can view all available embedding models at:
 
-[https://openrouter.ai/models?fmt=cards&output_modalities=embeddings](https://openrouter.ai/models?fmt=cards&output_modalities=embeddings)
+[https://kenh-ai.com/models?fmt=cards&output_modalities=embeddings](https://kenh-ai.com/models?fmt=cards&output_modalities=embeddings)
 
 To list all available embedding models programmatically:
 
@@ -402,13 +402,13 @@ To list all available embedding models programmatically:
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   apiKey: '{{API_KEY_REF}}',
 });
 
-const models = await openRouter.embeddings.listModels();
+const models = await kenhAi.embeddings.listModels();
 console.log(models.data);
 ```
 
@@ -416,7 +416,7 @@ console.log(models.data);
 import requests
 
 response = requests.get(
-  "https://openrouter.ai/api/v1/embeddings/models",
+  "https://kenh-ai.com/api/v1/embeddings/models",
   headers={
     "Authorization": f"Bearer {{API_KEY_REF}}",
   }
@@ -428,7 +428,7 @@ for model in models["data"]:
 ```
 
 ```typescript title="TypeScript (fetch)" lines
-const response = await fetch('https://openrouter.ai/api/v1/embeddings/models', {
+const response = await fetch('https://kenh-ai.com/api/v1/embeddings/models', {
   headers: {
     'Authorization': 'Bearer {{API_KEY_REF}}',
   },
@@ -439,8 +439,8 @@ console.log(models.data);
 ```
 
 ```shell title="Shell" lines
-curl https://openrouter.ai/api/v1/embeddings/models \
-  -H "Authorization: Bearer $OPENROUTER_API_KEY"
+curl https://kenh-ai.com/api/v1/embeddings/models \
+  -H "Authorization: Bearer $KENH_AI_API_KEY"
 ```
 
 </CodeGroup>
@@ -457,9 +457,9 @@ Here's a complete example of building a semantic search system using embeddings:
 <CodeGroup>
 
 ```typescript title="TypeScript SDK" expandable lines
-import { OpenRouter } from '@openrouter/sdk';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   apiKey: '{{API_KEY_REF}}',
 });
 
@@ -482,7 +482,7 @@ function cosineSimilarity(a: number[], b: number[]): number {
 
 async function semanticSearch(query: string, documents: string[]) {
   // Generate embeddings for all documents and the query
-  const response = await openRouter.embeddings.generate({
+  const response = await kenhAi.embeddings.generate({
     model: '{{MODEL}}',
     input: [query, ...documents],
   });
@@ -517,7 +517,7 @@ results.forEach((result, i) => {
 import requests
 import numpy as np
 
-OPENROUTER_API_KEY = "{{API_KEY_REF}}"
+KENH_AI_API_KEY = "{{API_KEY_REF}}"
 
 # Sample documents
 documents = [
@@ -539,9 +539,9 @@ def semantic_search(query, documents):
   """Perform semantic search using embeddings"""
   # Generate embeddings for query and all documents
   response = requests.post(
-    "https://openrouter.ai/api/v1/embeddings",
+    "https://kenh-ai.com/api/v1/embeddings",
     headers={
-      "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+      "Authorization": f"Bearer {KENH_AI_API_KEY}",
       "Content-Type": "application/json",
     },
     json={
@@ -631,7 +631,7 @@ Common errors you may encounter:
 
 **401 Unauthorized**: Invalid or missing API key. Verify your API key is correct and included in the Authorization header.
 
-**402 Payment Required**: Insufficient credits. Add credits to your OpenRouter account.
+**402 Payment Required**: Insufficient credits. Add credits to your kenh-ai account.
 
 **404 Not Found**: The specified model doesn't exist or isn't available for embeddings. Check the model name and verify it's an embedding model.
 
@@ -648,7 +648,7 @@ Common errors you may encounter:
 
 ## Related Resources
 
-- [Models Page](https://openrouter.ai/models?fmt=cards&output_modalities=embeddings) - Browse all available embedding models
+- [Models Page](https://kenh-ai.com/models?fmt=cards&output_modalities=embeddings) - Browse all available embedding models
 - [Provider Routing](/guides/routing/provider-selection) - Control which providers serve your requests
 - [Authentication](/api/reference/authentication) - Learn about API key authentication
 - [Errors](/api/reference/errors-and-debugging) - Detailed error codes and handling

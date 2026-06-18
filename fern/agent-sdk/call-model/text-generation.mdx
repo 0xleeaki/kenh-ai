@@ -1,16 +1,16 @@
 ---
 title: Text Generation
 description: Generate text with callModel using various input formats and model configurations. Supports multiple consumption patterns including text, streaming, and structured output.
-seoTitle: 'Text Generation | OpenRouter SDK'
-canonicalUrl: 'https://openrouter.ai/docs/agent-sdks/typescript/call-model/text-generation'
-og:site_name: OpenRouter Documentation
-og:title: 'Text Generation - OpenRouter SDK'
+seoTitle: 'Text Generation | kenh-ai SDK'
+canonicalUrl: 'https://kenh-ai.com/docs/agent-sdks/typescript/call-model/text-generation'
+og:site_name: kenh-ai Documentation
+og:title: 'Text Generation - kenh-ai SDK'
 og:description: 'Learn how to generate text with callModel. Covers input formats, model selection, system instructions, and response handling.'
-og:image: https://openrouter.ai/dynamic-og?title=Text%20Generation&description=Generate%20Text%20with%20callModel
+og:image: https://kenh-ai.com/dynamic-og?title=Text%20Generation&description=Generate%20Text%20with%20callModel
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: pen-to-square
@@ -21,10 +21,10 @@ icon: pen-to-square
 The simplest way to generate text:
 
 ```typescript lines
-import { OpenRouter } from '@openrouter/agent';
+import { KenhAI } from '@kenh-ai/agent';
 
-const openrouter = new OpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY,
+const openrouter = new KenhAI({
+  apiKey: process.env.KENH_AI_API_KEY,
 });
 
 const result = openrouter.callModel({
@@ -105,7 +105,7 @@ const result = openrouter.callModel({
 
 ### Single Model
 
-Specify a model by its OpenRouter ID:
+Specify a model by its kenh-ai ID:
 
 ```typescript lines
 const result = openrouter.callModel({

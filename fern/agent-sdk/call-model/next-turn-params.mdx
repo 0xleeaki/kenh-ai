@@ -1,16 +1,16 @@
 ---
 title: Next Turn Params
 description: Build encapsulated, context-aware tools with `nextTurnParams`. Create skills systems, plugins, and adaptive multi-turn agents.
-seoTitle: 'Next Turn Params | OpenRouter SDK'
-canonicalUrl: 'https://openrouter.ai/docs/agent-sdks/typescript/call-model/next-turn-params'
-og:site_name: OpenRouter Documentation
-og:title: 'Next Turn Params - OpenRouter SDK'
+seoTitle: 'Next Turn Params | kenh-ai SDK'
+canonicalUrl: 'https://kenh-ai.com/docs/agent-sdks/typescript/call-model/next-turn-params'
+og:site_name: kenh-ai Documentation
+og:title: 'Next Turn Params - kenh-ai SDK'
 og:description: 'Build encapsulated, context-aware tools with nextTurnParams. Create skills systems, plugins, and adaptive multi-turn agents.'
-og:image: https://openrouter.ai/dynamic-og?title=Next%20Turn%20Params&description=Tool-Driven%20Context%20Injection
+og:image: https://kenh-ai.com/dynamic-og?title=Next%20Turn%20Params&description=Tool-Driven%20Context%20Injection
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: toolbox
@@ -30,7 +30,7 @@ With `nextTurnParams`, tools can modify any `callModel` parameter for the next t
 ## Basic Example
 
 ```typescript expandable lines
-import { tool } from '@openrouter/agent';
+import { tool } from '@kenh-ai/agent';
 import { z } from 'zod';
 
 const expertModeTool = tool({
@@ -66,7 +66,7 @@ EXPERT MODE ENABLED for ${params.domain}:
 This example shows how to recreate Claude Code's skills system as a single encapsulated tool:
 
 ```typescript expandable lines
-import { tool } from '@openrouter/agent';
+import { tool } from '@kenh-ai/agent';
 import { readFileSync } from 'fs';
 import { z } from 'zod';
 

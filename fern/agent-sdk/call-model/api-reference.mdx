@@ -1,16 +1,16 @@
 ---
 title: API Reference
 description: Complete reference for the callModel API, ModelResult class, tool types, and helper functions.
-seoTitle: 'API Reference | OpenRouter SDK'
-canonicalUrl: 'https://openrouter.ai/docs/agent-sdks/typescript/call-model/api-reference'
-og:site_name: OpenRouter Documentation
-og:title: 'API Reference - OpenRouter SDK'
-og:description: 'Complete API reference for callModel, ModelResult, tool types, and helper functions in the OpenRouter SDK.'
-og:image: https://openrouter.ai/dynamic-og?title=API%20Reference&description=Complete%20Type%20Reference
+seoTitle: 'API Reference | kenh-ai SDK'
+canonicalUrl: 'https://kenh-ai.com/docs/agent-sdks/typescript/call-model/api-reference'
+og:site_name: kenh-ai Documentation
+og:title: 'API Reference - kenh-ai SDK'
+og:description: 'Complete API reference for callModel, ModelResult, tool types, and helper functions in the kenh-ai SDK.'
+og:image: https://kenh-ai.com/dynamic-og?title=API%20Reference&description=Complete%20Type%20Reference
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: code
@@ -589,7 +589,7 @@ type TypedToolCall<T extends Tool> = {
 
 ```typescript expandable lines
 // Agent client
-export { OpenRouter } from '@openrouter/agent';
+export { KenhAI } from '@kenh-ai/agent';
 
 // Tool helpers
 export {
@@ -598,19 +598,19 @@ export {
   isManualTool,
   isHITLTool,
   isAutoResolvableTool,
-} from '@openrouter/agent';
+} from '@kenh-ai/agent';
 
 // Format helpers
-export { fromChatMessages, toChatMessage, fromClaudeMessages, toClaudeMessage } from '@openrouter/agent';
+export { fromChatMessages, toChatMessage, fromClaudeMessages, toClaudeMessage } from '@kenh-ai/agent';
 
 // Stop condition helpers
-export { stepCountIs, hasToolCall, maxTokensUsed, maxCost, finishReasonIs } from '@openrouter/agent';
+export { stepCountIs, hasToolCall, maxTokensUsed, maxCost, finishReasonIs } from '@kenh-ai/agent';
 
 // Context helpers
 export {
   buildToolExecuteContext,
   ToolContextStore,
-} from '@openrouter/agent';
+} from '@kenh-ai/agent';
 
 // Types
 export type {
@@ -632,5 +632,5 @@ export type {
   InferToolInput,
   InferToolOutput,
   InferToolEvent,
-} from '@openrouter/agent';
+} from '@kenh-ai/agent';
 ```

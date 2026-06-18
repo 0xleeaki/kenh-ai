@@ -2,15 +2,15 @@
 title: Observability - TypeScript SDK
 sidebarTitle: Observability
 description: Observability method reference
-seoTitle: Observability | OpenRouter TypeScript SDK
-canonicalUrl: 'https://openrouter.ai/docs/agent-sdks/typescript/api-reference/observability'
-'og:site_name': OpenRouter Documentation
-'og:title': Observability | OpenRouter TypeScript SDK
+seoTitle: Observability | kenh-ai TypeScript SDK
+canonicalUrl: 'https://kenh-ai.com/docs/agent-sdks/typescript/api-reference/observability'
+'og:site_name': kenh-ai Documentation
+'og:title': Observability | kenh-ai TypeScript SDK
 'og:description': >-
-  Observability method documentation for the OpenRouter TypeScript SDK. Learn
+  Observability method documentation for the kenh-ai TypeScript SDK. Learn
   how to use this API endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=Observability%20-%20TypeScript%20SDK&description=Observability%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=Observability%20-%20TypeScript%20SDK&description=Observability%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -46,17 +46,17 @@ List the observability destinations configured for the authenticated entity's de
 
 {/* UsageSnippet language="typescript" operationID="listObservabilityDestinations" method="get" path="/observability/destinations" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.observability.list();
+  const result = await kenhAi.observability.list();
 
   for await (const page of result) {
     console.log(page);
@@ -71,20 +71,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { observabilityList } from "@openrouter/sdk/funcs/observabilityList.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { observabilityList } from "@kenh-ai/sdk/funcs/observabilityList.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await observabilityList(openRouter);
+  const res = await observabilityList(kenhAi);
   if (res.ok) {
     const { value: result } = res;
     for await (const page of result) {
@@ -127,17 +127,17 @@ Create a new observability destination. A maximum of 5 destinations per type is 
 
 {/* UsageSnippet language="typescript" operationID="createObservabilityDestination" method="post" path="/observability/destinations" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.observability.create({
+  const result = await kenhAi.observability.create({
     createObservabilityDestinationRequest: {
       config: {
         "baseUrl": "https://us.cloud.langfuse.com",
@@ -160,20 +160,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { observabilityCreate } from "@openrouter/sdk/funcs/observabilityCreate.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { observabilityCreate } from "@kenh-ai/sdk/funcs/observabilityCreate.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await observabilityCreate(openRouter, {
+  const res = await observabilityCreate(kenhAi, {
     createObservabilityDestinationRequest: {
       config: {
         "baseUrl": "https://us.cloud.langfuse.com",
@@ -227,17 +227,17 @@ Delete an existing observability destination. This performs a soft delete. [Mana
 
 {/* UsageSnippet language="typescript" operationID="deleteObservabilityDestination" method="delete" path="/observability/destinations/{id}" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.observability.delete({
+  const result = await kenhAi.observability.delete({
     id: "99999999-aaaa-bbbb-cccc-dddddddddddd",
   });
 
@@ -252,20 +252,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { observabilityDelete } from "@openrouter/sdk/funcs/observabilityDelete.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { observabilityDelete } from "@kenh-ai/sdk/funcs/observabilityDelete.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await observabilityDelete(openRouter, {
+  const res = await observabilityDelete(kenhAi, {
     id: "99999999-aaaa-bbbb-cccc-dddddddddddd",
   });
   if (res.ok) {
@@ -309,17 +309,17 @@ Fetch a single observability destination by its UUID. [Management key](/guides/o
 
 {/* UsageSnippet language="typescript" operationID="getObservabilityDestination" method="get" path="/observability/destinations/{id}" */}
 ```typescript lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.observability.get({
+  const result = await kenhAi.observability.get({
     id: "99999999-aaaa-bbbb-cccc-dddddddddddd",
   });
 
@@ -334,20 +334,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { observabilityGet } from "@openrouter/sdk/funcs/observabilityGet.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { observabilityGet } from "@kenh-ai/sdk/funcs/observabilityGet.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await observabilityGet(openRouter, {
+  const res = await observabilityGet(kenhAi, {
     id: "99999999-aaaa-bbbb-cccc-dddddddddddd",
   });
   if (res.ok) {
@@ -391,17 +391,17 @@ Update an existing observability destination. Only the fields provided in the re
 
 {/* UsageSnippet language="typescript" operationID="updateObservabilityDestination" method="patch" path="/observability/destinations/{id}" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.observability.update({
+  const result = await kenhAi.observability.update({
     id: "99999999-aaaa-bbbb-cccc-dddddddddddd",
     updateObservabilityDestinationRequest: {
       enabled: false,
@@ -420,20 +420,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { observabilityUpdate } from "@openrouter/sdk/funcs/observabilityUpdate.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { observabilityUpdate } from "@kenh-ai/sdk/funcs/observabilityUpdate.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await observabilityUpdate(openRouter, {
+  const res = await observabilityUpdate(kenhAi, {
     id: "99999999-aaaa-bbbb-cccc-dddddddddddd",
     updateObservabilityDestinationRequest: {
       enabled: false,

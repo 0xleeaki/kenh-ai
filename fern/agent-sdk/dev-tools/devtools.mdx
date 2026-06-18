@@ -1,18 +1,18 @@
 ---
 title: DevTools
 description: SDK Development Tools for telemetry capture and visualization
-seoTitle: DevTools | OpenRouter SDK
-canonicalUrl: 'https://openrouter.ai/docs/client-sdks/devtools'
-og:site_name: OpenRouter Documentation
-og:title: DevTools | OpenRouter SDK
+seoTitle: DevTools | kenh-ai SDK
+canonicalUrl: 'https://kenh-ai.com/docs/client-sdks/devtools'
+og:site_name: kenh-ai Documentation
+og:title: DevTools | kenh-ai SDK
 og:description: >-
-  Comprehensive development tools for the OpenRouter SDK. Capture telemetry, visualize requests, and debug your AI applications with ease.
+  Comprehensive development tools for the kenh-ai SDK. Capture telemetry, visualize requests, and debug your AI applications with ease.
 og:image: >-
-  https://openrouter.ai/dynamic-og?title=DevTools&description=SDK%20Development%20Tools%20for%20telemetry%20capture%20and%20visualization
+  https://kenh-ai.com/dynamic-og?title=DevTools&description=SDK%20Development%20Tools%20for%20telemetry%20capture%20and%20visualization
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: microscope
@@ -25,11 +25,11 @@ The DevTools SDK and CLI are currently in pre-release status. DevTools is design
 </Warning>
 {/* banner:end */}
 
-The OpenRouter DevTools provide a comprehensive solution for SDK telemetry capture and visualization during development. Monitor your AI application's requests, responses, token usage, and errors in real-time with a beautiful web interface.
+The kenh-ai DevTools provide a comprehensive solution for SDK telemetry capture and visualization during development. Monitor your AI application's requests, responses, token usage, and errors in real-time with a beautiful web interface.
 
 ## Why use DevTools?
 
-Building with AI SDKs requires visibility into what's happening under the hood. The OpenRouter DevTools give you complete insight into your SDK operations without adding complexity or impacting performance.
+Building with AI SDKs requires visibility into what's happening under the hood. The kenh-ai DevTools give you complete insight into your SDK operations without adding complexity or impacting performance.
 
 **Two main components:**
 
@@ -69,7 +69,7 @@ Developer-friendly hooks that automatically capture:
 Install the DevTools package as a development dependency:
 
 ```bash lines
-npm install @openrouter/devtools --save-dev
+npm install @kenh-ai/devtools --save-dev
 ```
 
 **Important:** DevTools is designed for development only. It will throw an error if `NODE_ENV === 'production'` to prevent accidental production deployment.
@@ -81,11 +81,11 @@ Integrate DevTools hooks into your SDK client to start capturing telemetry:
 ### Basic Usage
 
 ```typescript lines
-import { createOpenRouterDevtools } from '@openrouter/devtools';
-import { OpenRouter } from '@openrouter/sdk';
+import { createOpenRouterDevtools } from '@kenh-ai/devtools';
+import { KenhAI } from '@kenh-ai/sdk';
 
-const sdk = new OpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY,
+const sdk = new KenhAI({
+  apiKey: process.env.KENH_AI_API_KEY,
   hooks: createOpenRouterDevtools()
 });
 
@@ -101,8 +101,8 @@ const response = await sdk.chat.send({
 ### Custom Configuration
 
 ```typescript lines
-const sdk = new OpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY,
+const sdk = new KenhAI({
+  apiKey: process.env.KENH_AI_API_KEY,
   hooks: createOpenRouterDevtools({
     storagePath: '.custom-path/generations.json',  // Default: '.devtools/openrouter-generations.json'
     serverUrl: 'http://localhost:5000/api/notify', // Default: 'http://localhost:4983/api/notify'
@@ -170,7 +170,7 @@ When calling `createOpenRouterDevtools()`, you can customize:
 
 ### DevTools Server Configuration
 
-The DevTools viewer runs on port 4983 by default. This can be configured in your OpenRouter CLI configuration at `~/.openrouter/claude-code-proxy.json`:
+The DevTools viewer runs on port 4983 by default. This can be configured in your kenh-ai CLI configuration at `~/.openrouter/claude-code-proxy.json`:
 
 ```json lines
 {
@@ -218,8 +218,8 @@ DevTools will throw an error if initialized when `NODE_ENV === 'production'`:
 
 ```typescript lines
 // This will throw an error in production
-const sdk = new OpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY,
+const sdk = new KenhAI({
+  apiKey: process.env.KENH_AI_API_KEY,
   hooks: createOpenRouterDevtools() // ERROR in production!
 });
 ```
@@ -292,13 +292,13 @@ If the viewer doesn't show new requests:
 **Issue:** DevTools package not found
 
 ```bash lines
-Cannot find module '@openrouter/devtools'
+Cannot find module '@kenh-ai/devtools'
 ```
 
 **Solution:** Install the package:
 
 ```bash lines
-npm install @openrouter/devtools --save-dev
+npm install @kenh-ai/devtools --save-dev
 ```
 
 ---
@@ -316,8 +316,8 @@ const hooks = process.env.NODE_ENV === 'development'
   ? createOpenRouterDevtools()
   : undefined;
 
-const sdk = new OpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY,
+const sdk = new KenhAI({
+  apiKey: process.env.KENH_AI_API_KEY,
   hooks
 });
 ```

@@ -2,16 +2,16 @@
 title: CreateEmbeddingsRequest - TypeScript SDK
 sidebarTitle: CreateEmbeddingsRequest
 description: CreateEmbeddingsRequest type definition
-seoTitle: CreateEmbeddingsRequest Type | OpenRouter TypeScript SDK
+seoTitle: CreateEmbeddingsRequest Type | kenh-ai TypeScript SDK
 canonicalUrl: >-
-  https://openrouter.ai/docs/sdks/typescript/api-reference/operations/createembeddingsrequest
-'og:site_name': OpenRouter Documentation
-'og:title': CreateEmbeddingsRequest Type | OpenRouter TypeScript SDK
+  https://kenh-ai.com/docs/sdks/typescript/api-reference/operations/createembeddingsrequest
+'og:site_name': kenh-ai Documentation
+'og:title': CreateEmbeddingsRequest Type | kenh-ai TypeScript SDK
 'og:description': >-
-  CreateEmbeddingsRequest type reference for the OpenRouter TypeScript SDK.
+  CreateEmbeddingsRequest type reference for the kenh-ai TypeScript SDK.
   Complete type definition and usage examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=CreateEmbeddingsRequest%20-%20TypeScript%20SDK&description=CreateEmbeddingsRequest%20type%20definition
+  https://kenh-ai.com/dynamic-og?title=CreateEmbeddingsRequest%20-%20TypeScript%20SDK&description=CreateEmbeddingsRequest%20type%20definition
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -30,7 +30,7 @@ Report issues on [GitHub](https://github.com/OpenRouterTeam/typescript-sdk/issue
 ## Example Usage
 
 ```typescript lines
-import { CreateEmbeddingsRequest } from "@openrouter/sdk/models/operations";
+import { CreateEmbeddingsRequest } from "@kenh-ai/sdk/models/operations";
 
 let value: CreateEmbeddingsRequest = {
   requestBody: {
@@ -45,6 +45,6 @@ let value: CreateEmbeddingsRequest = {
 | Field                                                                                                                                             | Type                                                                                                                                              | Required                                                                                                                                          | Description                                                                                                                                       | Example                                                                                                                                           |
 | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `httpReferer`                                                                                                                                     | *string*                                                                                                                                          | :heavy_minus_sign:                                                                                                                                | The app identifier should be your app's URL and is used as the primary identifier for rankings.<br/>This is used to track API usage per application.<br/> |                                                                                                                                                   |
-| `appTitle`                                                                                                                                        | *string*                                                                                                                                          | :heavy_minus_sign:                                                                                                                                | The app display name allows you to customize how your app appears in OpenRouter's dashboard.<br/>                                                 |                                                                                                                                                   |
+| `appTitle`                                                                                                                                        | *string*                                                                                                                                          | :heavy_minus_sign:                                                                                                                                | The app display name allows you to customize how your app appears in kenh-ai's dashboard.<br/>                                                 |                                                                                                                                                   |
 | `appCategories`                                                                                                                                   | *string*                                                                                                                                          | :heavy_minus_sign:                                                                                                                                | Comma-separated list of app categories (e.g. "cli-agent,cloud-agent"). Used for marketplace rankings.<br/>                                        |                                                                                                                                                   |
 | `requestBody`                                                                                                                                     | [operations.CreateEmbeddingsRequestBody](/agent-sdk/typescript/api-reference/operations/createembeddingsrequestbody)                                                  | :heavy_check_mark:                                                                                                                                | N/A                                                                                                                                               | `{"dimensions": 1536,"input": "The quick brown fox jumps over the lazy dog","model": "openai/text-embedding-3-small"}`          |

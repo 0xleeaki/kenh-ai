@@ -2,15 +2,15 @@
 title: VideoGeneration - Go SDK
 sidebarTitle: VideoGeneration
 description: VideoGeneration method reference
-seoTitle: VideoGeneration | OpenRouter Go SDK
-canonicalUrl: 'https://openrouter.ai/docs/client-sdks/go/api-reference/videogeneration'
-'og:site_name': OpenRouter Documentation
-'og:title': VideoGeneration | OpenRouter Go SDK
+seoTitle: VideoGeneration | kenh-ai Go SDK
+canonicalUrl: 'https://kenh-ai.com/docs/client-sdks/go/api-reference/videogeneration'
+'og:site_name': kenh-ai Documentation
+'og:title': VideoGeneration | kenh-ai Go SDK
 'og:description': >-
-  VideoGeneration method documentation for the OpenRouter Go SDK. Learn how to
+  VideoGeneration method documentation for the kenh-ai Go SDK. Learn how to
   use this API endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=VideoGeneration%20-%20Go%20SDK&description=VideoGeneration%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=VideoGeneration%20-%20Go%20SDK&description=VideoGeneration%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -60,7 +60,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.VideoGeneration.Generate(ctx, components.VideoGenerationRequest{
@@ -124,7 +124,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.VideoGeneration.GetGeneration(ctx, "job-abc123")
@@ -180,7 +180,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.VideoGeneration.GetVideoContent(ctx, "job-abc123", optionalnullable.From(openrouter.Pointer[int64](0)))
@@ -238,7 +238,7 @@ func main() {
     ctx := context.Background()
 
     s := openrouter.New(
-        openrouter.WithSecurity(os.Getenv("OPENROUTER_API_KEY")),
+        openrouter.WithSecurity(os.Getenv("KENH_AI_API_KEY")),
     )
 
     res, err := s.VideoGeneration.ListVideosModels(ctx)

@@ -2,15 +2,15 @@
 title: Organization - Python SDK
 sidebarTitle: Organization
 description: Organization method reference
-seoTitle: Organization | OpenRouter Python SDK
-canonicalUrl: 'https://openrouter.ai/docs/client-sdks/python/api-reference/organization'
-'og:site_name': OpenRouter Documentation
-'og:title': Organization | OpenRouter Python SDK
+seoTitle: Organization | kenh-ai Python SDK
+canonicalUrl: 'https://kenh-ai.com/docs/client-sdks/python/api-reference/organization'
+'og:site_name': kenh-ai Documentation
+'og:title': Organization | kenh-ai Python SDK
 'og:description': >-
-  Organization method documentation for the OpenRouter Python SDK. Learn how to
+  Organization method documentation for the kenh-ai Python SDK. Learn how to
   use this API endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=Organization%20-%20Python%20SDK&description=Organization%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=Organization%20-%20Python%20SDK&description=Organization%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -43,14 +43,14 @@ List all members of the organization associated with the authenticated managemen
 
 {/* UsageSnippet language="python" operationID="listOrganizationMembers" method="get" path="/organization/members" */}
 ```python lines
-from openrouter import OpenRouter
+from kenh_ai import kenh-ai
 import os
 
-with OpenRouter(
+with KenhAI(
     http_referer="<value>",
     x_open_router_title="<value>",
     x_open_router_categories="<value>",
-    api_key=os.getenv("OPENROUTER_API_KEY", ""),
+    api_key=os.getenv("KENH_AI_API_KEY", ""),
 ) as open_router:
 
     res = open_router.organization.list_members()
@@ -67,7 +67,7 @@ with OpenRouter(
 | Parameter                                                                                                                                         | Type                                                                                                                                              | Required                                                                                                                                          | Description                                                                                                                                       | Example                                                                                                                                           |
 | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `http_referer`                                                                                                                                    | *Optional[str]*                                                                                                                                   | :heavy_minus_sign:                                                                                                                                | The app identifier should be your app's URL and is used as the primary identifier for rankings.<br/>This is used to track API usage per application.<br/> |                                                                                                                                                   |
-| `x_open_router_title`                                                                                                                             | *Optional[str]*                                                                                                                                   | :heavy_minus_sign:                                                                                                                                | The app display name allows you to customize how your app appears in OpenRouter's dashboard.<br/>                                                 |                                                                                                                                                   |
+| `x_open_router_title`                                                                                                                             | *Optional[str]*                                                                                                                                   | :heavy_minus_sign:                                                                                                                                | The app display name allows you to customize how your app appears in kenh-ai's dashboard.<br/>                                                 |                                                                                                                                                   |
 | `x_open_router_categories`                                                                                                                        | *Optional[str]*                                                                                                                                   | :heavy_minus_sign:                                                                                                                                | Comma-separated list of app categories (e.g. "cli-agent,cloud-agent"). Used for marketplace rankings.<br/>                                        |                                                                                                                                                   |
 | `offset`                                                                                                                                          | *Optional[int]*                                                                                                                                   | :heavy_minus_sign:                                                                                                                                | Number of records to skip for pagination                                                                                                          | 0                                                                                                                                                 |
 | `limit`                                                                                                                                           | *Optional[int]*                                                                                                                                   | :heavy_minus_sign:                                                                                                                                | Maximum number of records to return (max 100)                                                                                                     | 50                                                                                                                                                |

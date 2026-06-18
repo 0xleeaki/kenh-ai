@@ -57,7 +57,7 @@ components:
           example: 5
           type: integer
         usage:
-          description: Total cost in USD (OpenRouter credits spent)
+          description: Total cost in USD (kenh-ai credits spent)
           example: 0.015
           format: double
           type: number
@@ -2204,7 +2204,7 @@ components:
     ApplyPatchEngineEnum:
       description: >-
         Which apply_patch engine to use. "auto" (default) uses native passthrough when the endpoint advertises native
-        apply_patch support, otherwise falls back to OpenRouter's HITL validator. "native" forces native passthrough —
+        apply_patch support, otherwise falls back to kenh-ai's HITL validator. "native" forces native passthrough —
         when the endpoint does not support native, the request falls back to HITL. "openrouter" always runs the HITL
         validator. Native passthrough streams the diff incrementally via `apply_patch_call_operation_diff.delta` events;
         HITL buffers the diff for atomic delivery as a single delta.
@@ -2226,9 +2226,9 @@ components:
       required:
         - type
       type: object
-    ApplyPatchServerTool_OpenRouter:
+    ApplyPatchServerTool_kenh-ai:
       description: >-
-        OpenRouter built-in server tool: validates V4A diff patches for file operations (create, update, delete).
+        kenh-ai built-in server tool: validates V4A diff patches for file operations (create, update, delete).
         Restricted to the Responses API.
       example:
         type: openrouter:apply_patch
@@ -2729,7 +2729,7 @@ components:
         - content: What is the weather today?
           role: user
     BaseMessagesResult:
-      description: Base Anthropic Messages API response before OpenRouter extensions
+      description: Base Anthropic Messages API response before kenh-ai extensions
       example:
         container: null
         content:
@@ -3547,7 +3547,7 @@ components:
       properties:
         allowed_api_key_hashes:
           description: >-
-            Optional allowlist of OpenRouter API key hashes (`api_keys.hash`) that may use this credential. `null` means
+            Optional allowlist of kenh-ai API key hashes (`api_keys.hash`) that may use this credential. `null` means
             no restriction.
           example:
             - f01d52606dc8f0a8303a7b5cc3fa07109c2e346cec7c0a16b40de462992ce943
@@ -4159,12 +4159,12 @@ components:
             - function
           type: object
         - $ref: '#/components/schemas/DatetimeServerTool'
-        - $ref: '#/components/schemas/ImageGenerationServerTool_OpenRouter'
+        - $ref: '#/components/schemas/ImageGenerationServerTool_kenh-ai'
         - $ref: '#/components/schemas/ChatSearchModelsServerTool'
         - $ref: '#/components/schemas/WebFetchServerTool'
         - $ref: '#/components/schemas/OpenRouterWebSearchServerTool'
         - $ref: '#/components/schemas/ChatWebSearchShorthand'
-      description: Tool definition for function calling (regular function or OpenRouter built-in server tool)
+      description: Tool definition for function calling (regular function or kenh-ai built-in server tool)
       example:
         function:
           description: Get the current weather for a location
@@ -4253,7 +4253,7 @@ components:
       items:
         allOf:
           - $ref: '#/components/schemas/ModelName'
-          - description: Available OpenRouter chat completion models
+          - description: Available kenh-ai chat completion models
       type: array
     ChatNamedToolChoice:
       description: Named tool choice for specific function
@@ -4480,7 +4480,7 @@ components:
         session_id:
           description: >-
             A unique identifier for grouping related requests (e.g., a conversation or agent workflow). When provided,
-            OpenRouter uses it as the sticky routing key, routing all requests in the session to the same provider to
+            kenh-ai uses it as the sticky routing key, routing all requests in the session to the same provider to
             maximize prompt cache hits. Also used for observability grouping. If provided in both the request body and
             the x-session-id header, the body value takes precedence. Maximum of 256 characters.
           maxLength: 256
@@ -4606,7 +4606,7 @@ components:
         - system_fingerprint
       type: object
     ChatSearchModelsServerTool:
-      description: 'OpenRouter built-in server tool: searches and filters AI models available on OpenRouter'
+      description: 'kenh-ai built-in server tool: searches and filters AI models available on kenh-ai'
       example:
         parameters:
           max_results: 5
@@ -4623,13 +4623,13 @@ components:
       type: object
     ChatServerToolChoice:
       description: >-
-        OpenRouter extension: force a specific server tool by naming it directly in `tool_choice.type` instead of
+        kenh-ai extension: force a specific server tool by naming it directly in `tool_choice.type` instead of
         wrapping it in `{ type: "function", function: { name } }`.
       example:
         type: openrouter:web_search
       properties:
         type:
-          description: OpenRouter server-tool type to force (e.g. `openrouter:web_search`, `web_search`, `web_search_preview`).
+          description: kenh-ai server-tool type to force (e.g. `openrouter:web_search`, `web_search`, `web_search_preview`).
           example: openrouter:web_search
           type: string
       required:
@@ -6012,7 +6012,7 @@ components:
       properties:
         api_key_hashes:
           description: >-
-            Optional allowlist of OpenRouter API key hashes whose traffic is forwarded. `null` or omitted means all
+            Optional allowlist of kenh-ai API key hashes whose traffic is forwarded. `null` or omitted means all
             keys. Must contain at least one hash if provided.
           example: null
           items:
@@ -6378,7 +6378,7 @@ components:
         output: patch applied successfully
         type: custom_tool_call_output
     DatetimeServerTool:
-      description: 'OpenRouter built-in server tool: returns the current date and time'
+      description: 'kenh-ai built-in server tool: returns the current date and time'
       example:
         parameters:
           timezone: America/New_York
@@ -7105,9 +7105,9 @@ components:
       required:
         - id
       type: object
-    FusionServerTool_OpenRouter:
+    FusionServerTool_kenh-ai:
       description: >-
-        OpenRouter built-in server tool: fans out the user prompt to a panel of analysis models, then asks a judge model
+        kenh-ai built-in server tool: fans out the user prompt to a panel of analysis models, then asks a judge model
         to summarize their collective output as structured JSON the outer model can synthesize from.
       example:
         parameters:
@@ -7281,7 +7281,7 @@ components:
           external_user: user-123
           finish_reason: stop
           generation_time: 1200
-          http_referer: https://openrouter.ai/
+          http_referer: https://kenh-ai.com/
           id: gen-3bhGkxlo4XFrqiabUM7NDtwDzWwG
           is_byok: false
           latency: 1250
@@ -7297,7 +7297,7 @@ components:
           num_media_completion: 0
           num_media_prompt: 1
           num_search_results: 5
-          origin: https://openrouter.ai/
+          origin: https://kenh-ai.com/
           provider_name: Infermatic
           provider_responses: null
           request_id: req-1727282430-aBcDeFgHiJkLmNoPqRsT
@@ -7450,7 +7450,7 @@ components:
               type: integer
             origin:
               description: Origin URL of the request
-              example: https://openrouter.ai/
+              example: https://kenh-ai.com/
               type: string
             preset_id:
               description: ID of the preset used for this generation, null if no preset was used
@@ -7914,7 +7914,7 @@ components:
             type: array
       description: >-
         Provider-specific image configuration options. Keys and values vary by model/provider. See
-        https://openrouter.ai/docs/guides/overview/multimodal/image-generation for more details.
+        https://kenh-ai.com/docs/guides/overview/multimodal/image-generation for more details.
       example:
         aspect_ratio: '16:9'
         quality: high
@@ -8032,8 +8032,8 @@ components:
       required:
         - type
       type: object
-    ImageGenerationServerTool_OpenRouter:
-      description: 'OpenRouter built-in server tool: generates images from text prompts using an image generation model'
+    ImageGenerationServerTool_kenh-ai:
+      description: 'kenh-ai built-in server tool: generates images from text prompts using an image generation model'
       example:
         parameters:
           model: openai/gpt-5-image
@@ -9584,7 +9584,7 @@ components:
         - error
       type: object
     MessagesMessageParam:
-      description: Anthropic message with OpenRouter extensions
+      description: Anthropic message with kenh-ai extensions
       example:
         content: Hello, how are you?
         role: user
@@ -9984,7 +9984,7 @@ components:
         session_id:
           description: >-
             A unique identifier for grouping related requests (e.g., a conversation or agent workflow). When provided,
-            OpenRouter uses it as the sticky routing key, routing all requests in the session to the same provider to
+            kenh-ai uses it as the sticky routing key, routing all requests in the session to the same provider to
             maximize prompt cache hits. Also used for observability grouping. If provided in both the request body and
             the x-session-id header, the body value takes precedence. Maximum of 256 characters.
           maxLength: 256
@@ -10243,7 +10243,7 @@ components:
                   - model
                 type: object
               - $ref: '#/components/schemas/DatetimeServerTool'
-              - $ref: '#/components/schemas/ImageGenerationServerTool_OpenRouter'
+              - $ref: '#/components/schemas/ImageGenerationServerTool_kenh-ai'
               - $ref: '#/components/schemas/ChatSearchModelsServerTool'
               - $ref: '#/components/schemas/WebFetchServerTool'
               - $ref: '#/components/schemas/OpenRouterWebSearchServerTool'
@@ -10331,7 +10331,7 @@ components:
                 server_tool_use: null
                 service_tier: default
           type: object
-      description: Non-streaming response from the Anthropic Messages API with OpenRouter extensions
+      description: Non-streaming response from the Anthropic Messages API with kenh-ai extensions
       example:
         container: null
         content:
@@ -10621,7 +10621,7 @@ components:
       example: enabled
       type: string
     Model:
-      description: Information about an AI model available on OpenRouter
+      description: Information about an AI model available on kenh-ai
       example:
         architecture:
           input_modalities:
@@ -11030,7 +11030,7 @@ components:
       properties:
         api_key_hashes:
           description: >-
-            Optional allowlist of OpenRouter API key hashes (`api_keys.hash`) whose traffic is forwarded to this
+            Optional allowlist of kenh-ai API key hashes (`api_keys.hash`) whose traffic is forwarded to this
             destination. `null` means all keys.
           example: null
           items:
@@ -11137,7 +11137,7 @@ components:
       properties:
         api_key_hashes:
           description: >-
-            Optional allowlist of OpenRouter API key hashes (`api_keys.hash`) whose traffic is forwarded to this
+            Optional allowlist of kenh-ai API key hashes (`api_keys.hash`) whose traffic is forwarded to this
             destination. `null` means all keys.
           example: null
           items:
@@ -11227,7 +11227,7 @@ components:
           database: analytics
           host: https://clickhouse.example.com:8123
           password: '********'
-          table: OPENROUTER_TRACES
+          table: KENH_AI_TRACES
           username: default
         created_at: '2025-08-24T10:30:00Z'
         enabled: true
@@ -11242,7 +11242,7 @@ components:
       properties:
         api_key_hashes:
           description: >-
-            Optional allowlist of OpenRouter API key hashes (`api_keys.hash`) whose traffic is forwarded to this
+            Optional allowlist of kenh-ai API key hashes (`api_keys.hash`) whose traffic is forwarded to this
             destination. `null` means all keys.
           example: null
           items:
@@ -11266,7 +11266,7 @@ components:
               minLength: 1
               type: string
             table:
-              default: OPENROUTER_TRACES
+              default: KENH_AI_TRACES
               type: string
             username:
               description: If you have not set a specific username in ClickHouse, simply type in 'default' below.
@@ -11354,7 +11354,7 @@ components:
       properties:
         api_key_hashes:
           description: >-
-            Optional allowlist of OpenRouter API key hashes (`api_keys.hash`) whose traffic is forwarded to this
+            Optional allowlist of kenh-ai API key hashes (`api_keys.hash`) whose traffic is forwarded to this
             destination. `null` means all keys.
           example: null
           items:
@@ -11584,7 +11584,7 @@ components:
       properties:
         api_key_hashes:
           description: >-
-            Optional allowlist of OpenRouter API key hashes (`api_keys.hash`) whose traffic is forwarded to this
+            Optional allowlist of kenh-ai API key hashes (`api_keys.hash`) whose traffic is forwarded to this
             destination. `null` means all keys.
           example: null
           items:
@@ -11687,7 +11687,7 @@ components:
       properties:
         api_key_hashes:
           description: >-
-            Optional allowlist of OpenRouter API key hashes (`api_keys.hash`) whose traffic is forwarded to this
+            Optional allowlist of kenh-ai API key hashes (`api_keys.hash`) whose traffic is forwarded to this
             destination. `null` means all keys.
           example: null
           items:
@@ -11790,7 +11790,7 @@ components:
       properties:
         api_key_hashes:
           description: >-
-            Optional allowlist of OpenRouter API key hashes (`api_keys.hash`) whose traffic is forwarded to this
+            Optional allowlist of kenh-ai API key hashes (`api_keys.hash`) whose traffic is forwarded to this
             destination. `null` means all keys.
           example: null
           items:
@@ -11896,7 +11896,7 @@ components:
       properties:
         api_key_hashes:
           description: >-
-            Optional allowlist of OpenRouter API key hashes (`api_keys.hash`) whose traffic is forwarded to this
+            Optional allowlist of kenh-ai API key hashes (`api_keys.hash`) whose traffic is forwarded to this
             destination. `null` means all keys.
           example: null
           items:
@@ -11998,7 +11998,7 @@ components:
       properties:
         api_key_hashes:
           description: >-
-            Optional allowlist of OpenRouter API key hashes (`api_keys.hash`) whose traffic is forwarded to this
+            Optional allowlist of kenh-ai API key hashes (`api_keys.hash`) whose traffic is forwarded to this
             destination. `null` means all keys.
           example: null
           items:
@@ -12100,7 +12100,7 @@ components:
       properties:
         api_key_hashes:
           description: >-
-            Optional allowlist of OpenRouter API key hashes (`api_keys.hash`) whose traffic is forwarded to this
+            Optional allowlist of kenh-ai API key hashes (`api_keys.hash`) whose traffic is forwarded to this
             destination. `null` means all keys.
           example: null
           items:
@@ -12196,7 +12196,7 @@ components:
       properties:
         api_key_hashes:
           description: >-
-            Optional allowlist of OpenRouter API key hashes (`api_keys.hash`) whose traffic is forwarded to this
+            Optional allowlist of kenh-ai API key hashes (`api_keys.hash`) whose traffic is forwarded to this
             destination. `null` means all keys.
           example: null
           items:
@@ -12294,7 +12294,7 @@ components:
       properties:
         api_key_hashes:
           description: >-
-            Optional allowlist of OpenRouter API key hashes (`api_keys.hash`) whose traffic is forwarded to this
+            Optional allowlist of kenh-ai API key hashes (`api_keys.hash`) whose traffic is forwarded to this
             destination. `null` means all keys.
           example: null
           items:
@@ -12394,7 +12394,7 @@ components:
       properties:
         api_key_hashes:
           description: >-
-            Optional allowlist of OpenRouter API key hashes (`api_keys.hash`) whose traffic is forwarded to this
+            Optional allowlist of kenh-ai API key hashes (`api_keys.hash`) whose traffic is forwarded to this
             destination. `null` means all keys.
           example: null
           items:
@@ -12515,7 +12515,7 @@ components:
       properties:
         api_key_hashes:
           description: >-
-            Optional allowlist of OpenRouter API key hashes (`api_keys.hash`) whose traffic is forwarded to this
+            Optional allowlist of kenh-ai API key hashes (`api_keys.hash`) whose traffic is forwarded to this
             destination. `null` means all keys.
           example: null
           items:
@@ -12614,7 +12614,7 @@ components:
       properties:
         api_key_hashes:
           description: >-
-            Optional allowlist of OpenRouter API key hashes (`api_keys.hash`) whose traffic is forwarded to this
+            Optional allowlist of kenh-ai API key hashes (`api_keys.hash`) whose traffic is forwarded to this
             destination. `null` means all keys.
           example: null
           items:
@@ -12638,7 +12638,7 @@ components:
               default: PUBLIC
               type: string
             table:
-              default: OPENROUTER_TRACES
+              default: KENH_AI_TRACES
               type: string
             token:
               minLength: 1
@@ -12727,7 +12727,7 @@ components:
       properties:
         api_key_hashes:
           description: >-
-            Optional allowlist of OpenRouter API key hashes (`api_keys.hash`) whose traffic is forwarded to this
+            Optional allowlist of kenh-ai API key hashes (`api_keys.hash`) whose traffic is forwarded to this
             destination. `null` means all keys.
           example: null
           items:
@@ -12832,7 +12832,7 @@ components:
       properties:
         api_key_hashes:
           description: >-
-            Optional allowlist of OpenRouter API key hashes (`api_keys.hash`) whose traffic is forwarded to this
+            Optional allowlist of kenh-ai API key hashes (`api_keys.hash`) whose traffic is forwarded to this
             destination. `null` means all keys.
           example: null
           items:
@@ -13595,7 +13595,7 @@ components:
         - endpoints
       type: object
     OpenRouterWebSearchServerTool:
-      description: 'OpenRouter built-in server tool: searches the web for current information'
+      description: 'kenh-ai built-in server tool: searches the web for current information'
       example:
         parameters:
           max_results: 5
@@ -15084,7 +15084,7 @@ components:
       example:
         error:
           code: 402
-          message: Insufficient credits. Add more using https://openrouter.ai/credits
+          message: Insufficient credits. Add more using https://kenh-ai.com/credits
       properties:
         error:
           $ref: '#/components/schemas/PaymentRequiredResponseErrorData'
@@ -15103,7 +15103,7 @@ components:
       description: Error data for PaymentRequiredResponse
       example:
         code: 402
-        message: Insufficient credits. Add more using https://openrouter.ai/credits
+        message: Insufficient credits. Add more using https://kenh-ai.com/credits
       properties:
         code:
           type: integer
@@ -17381,7 +17381,7 @@ components:
         session_id:
           description: >-
             A unique identifier for grouping related requests (e.g., a conversation or agent workflow). When provided,
-            OpenRouter uses it as the sticky routing key, routing all requests in the session to the same provider to
+            kenh-ai uses it as the sticky routing key, routing all requests in the session to the same provider to
             maximize prompt cache hits. Also used for observability grouping. If provided in both the request body and
             the x-session-id header, the body value takes precedence. Maximum of 256 characters.
           maxLength: 256
@@ -17442,12 +17442,12 @@ components:
               - $ref: '#/components/schemas/ApplyPatchServerTool'
               - $ref: '#/components/schemas/CustomTool'
               - $ref: '#/components/schemas/DatetimeServerTool'
-              - $ref: '#/components/schemas/FusionServerTool_OpenRouter'
-              - $ref: '#/components/schemas/ImageGenerationServerTool_OpenRouter'
+              - $ref: '#/components/schemas/FusionServerTool_kenh-ai'
+              - $ref: '#/components/schemas/ImageGenerationServerTool_kenh-ai'
               - $ref: '#/components/schemas/ChatSearchModelsServerTool'
               - $ref: '#/components/schemas/WebFetchServerTool'
-              - $ref: '#/components/schemas/WebSearchServerTool_OpenRouter'
-              - $ref: '#/components/schemas/ApplyPatchServerTool_OpenRouter'
+              - $ref: '#/components/schemas/WebSearchServerTool_kenh-ai'
+              - $ref: '#/components/schemas/ApplyPatchServerTool_kenh-ai'
           type: array
         top_k:
           type: integer
@@ -18762,7 +18762,7 @@ components:
       properties:
         api_key_hashes:
           description: >-
-            Optional allowlist of OpenRouter API key hashes. `null` clears the filter (all keys). Omitting leaves the
+            Optional allowlist of kenh-ai API key hashes. `null` clears the filter (all keys). Omitting leaves the
             current value. Must contain at least one hash if provided.
           example: null
           items:
@@ -18925,9 +18925,9 @@ components:
       example:
         end_index: 42
         start_index: 0
-        title: OpenRouter Documentation
+        title: kenh-ai Documentation
         type: url_citation
-        url: https://openrouter.ai/docs
+        url: https://kenh-ai.com/docs
       properties:
         end_index:
           type: integer
@@ -19380,7 +19380,7 @@ components:
         - id
       type: object
     WebFetchServerTool:
-      description: 'OpenRouter built-in server tool: fetches full content from a URL (web page or PDF)'
+      description: 'kenh-ai built-in server tool: fetches full content from a URL (web page or PDF)'
       example:
         parameters:
           max_uses: 10
@@ -19628,8 +19628,8 @@ components:
       required:
         - type
       type: object
-    WebSearchServerTool_OpenRouter:
-      description: 'OpenRouter built-in server tool: searches the web for current information'
+    WebSearchServerTool_kenh-ai:
+      description: 'kenh-ai built-in server tool: searches the web for current information'
       example:
         parameters:
           max_results: 5
@@ -19916,18 +19916,18 @@ components:
       scheme: bearer
       type: http
 externalDocs:
-  description: OpenRouter Documentation
-  url: https://openrouter.ai/docs
+  description: kenh-ai Documentation
+  url: https://kenh-ai.com/docs
 info:
   contact:
-    email: support@openrouter.ai
-    name: OpenRouter Support
-    url: https://openrouter.ai/docs
-  description: OpenAI-compatible API with additional OpenRouter features
+    email: support@kenh-ai.com
+    name: kenh-ai Support
+    url: https://kenh-ai.com/docs
+  description: OpenAI-compatible API with additional kenh-ai features
   license:
     name: MIT
     url: https://opensource.org/licenses/MIT
-  title: OpenRouter API
+  title: kenh-ai API
   version: 1.0.0
 openapi: 3.1.0
 paths:
@@ -20091,7 +20091,7 @@ paths:
               example:
                 error:
                   code: 402
-                  message: Insufficient credits. Add more using https://openrouter.ai/credits
+                  message: Insufficient credits. Add more using https://kenh-ai.com/credits
               schema:
                 $ref: '#/components/schemas/PaymentRequiredResponse'
           description: Payment Required - Insufficient credits or quota to complete request
@@ -20227,7 +20227,7 @@ paths:
               example:
                 error:
                   code: 402
-                  message: Insufficient credits. Add more using https://openrouter.ai/credits
+                  message: Insufficient credits. Add more using https://kenh-ai.com/credits
               schema:
                 $ref: '#/components/schemas/PaymentRequiredResponse'
           description: Payment Required - Insufficient credits or quota to complete request
@@ -20357,7 +20357,7 @@ paths:
                   user_id: user_2yOPcMpKoQhcd4bVgSMlELRaIah
                 properties:
                   key:
-                    description: The API key to use for OpenRouter requests
+                    description: The API key to use for kenh-ai requests
                     example: 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
                     type: string
                   user_id:
@@ -21065,7 +21065,7 @@ paths:
         - description: Opt-in to surface routing metadata on the response under `openrouter_metadata`. Defaults to `disabled`.
           example: enabled
           in: header
-          name: X-OpenRouter-Experimental-Metadata
+          name: X-kenh-ai-Experimental-Metadata
           required: false
           schema:
             $ref: '#/components/schemas/MetadataLevel'
@@ -21148,7 +21148,7 @@ paths:
               example:
                 error:
                   code: 402
-                  message: Insufficient credits. Add more using https://openrouter.ai/credits
+                  message: Insufficient credits. Add more using https://kenh-ai.com/credits
               schema:
                 $ref: '#/components/schemas/PaymentRequiredResponse'
           description: Payment Required - Insufficient credits or quota to complete request
@@ -21201,7 +21201,7 @@ paths:
                 $ref: '#/components/schemas/ForbiddenResponse'
           description: >-
             Forbidden - Authentication successful but insufficient permissions, or a guardrail blocked the request. When
-            guardrails block and the `X-OpenRouter-Experimental-Metadata: enabled` header is present, the response
+            guardrails block and the `X-kenh-ai-Experimental-Metadata: enabled` header is present, the response
             includes `openrouter_metadata` with full routing context and a `pipeline` array containing guardrail stage
             details.
         '404':
@@ -21420,20 +21420,20 @@ paths:
   /datasets/rankings-daily:
     get:
       description: |-
-        Returns the top 50 public models per day by total token usage on OpenRouter, plus a
+        Returns the top 50 public models per day by total token usage on kenh-ai, plus a
         single aggregated `other` row per day that sums every model outside that top 50.
         Token totals are `prompt_tokens + completion_tokens`, matching the public rankings
-        chart on openrouter.ai/rankings.
+        chart on kenh-ai.com/rankings.
 
         Each row is a distinct `(date, model_permaslug)` pair. The `other` row uses the
         reserved permaslug `other` and is always returned last within its date, so callers
         can compute `top-50 traffic / total daily traffic` without a second request.
 
-        Authenticate with any valid OpenRouter API key (same key used for inference).
+        Authenticate with any valid kenh-ai API key (same key used for inference).
         Rate-limited to 30 requests/minute per key and 500 requests/day per account.
 
-        When republishing or quoting this dataset, OpenRouter must be cited as:
-        "Source: OpenRouter (openrouter.ai/rankings), as of {as_of}."
+        When republishing or quoting this dataset, kenh-ai must be cited as:
+        "Source: KenhAI (kenh-ai.com/rankings), as of {as_of}."
 
         Token counts come from each upstream provider's own tokenizer (Anthropic counts
         are as reported by Anthropic, OpenAI counts are as reported by OpenAI, etc.), so
@@ -21801,7 +21801,7 @@ paths:
               example:
                 error:
                   code: 402
-                  message: Insufficient credits. Add more using https://openrouter.ai/credits
+                  message: Insufficient credits. Add more using https://kenh-ai.com/credits
               schema:
                 $ref: '#/components/schemas/PaymentRequiredResponse'
           description: Payment Required - Insufficient credits or quota to complete request
@@ -22075,7 +22075,7 @@ paths:
                   external_user: user-123
                   finish_reason: stop
                   generation_time: 1200
-                  http_referer: https://openrouter.ai/
+                  http_referer: https://kenh-ai.com/
                   id: gen-3bhGkxlo4XFrqiabUM7NDtwDzWwG
                   is_byok: false
                   latency: 1250
@@ -22091,7 +22091,7 @@ paths:
                   num_media_completion: 0
                   num_media_prompt: 1
                   num_search_results: 5
-                  origin: https://openrouter.ai/
+                  origin: https://kenh-ai.com/
                   provider_name: Infermatic
                   provider_responses: null
                   request_id: req-1727282430-aBcDeFgHiJkLmNoPqRsT
@@ -22124,7 +22124,7 @@ paths:
               example:
                 error:
                   code: 402
-                  message: Insufficient credits. Add more using https://openrouter.ai/credits
+                  message: Insufficient credits. Add more using https://kenh-ai.com/credits
               schema:
                 $ref: '#/components/schemas/PaymentRequiredResponse'
           description: Payment Required - Insufficient credits or quota to complete request
@@ -23569,22 +23569,22 @@ paths:
                           - note
                         type: object
                       usage:
-                        description: Total OpenRouter credit usage (in USD) for the API key
+                        description: Total kenh-ai credit usage (in USD) for the API key
                         example: 25.5
                         format: double
                         type: number
                       usage_daily:
-                        description: OpenRouter credit usage (in USD) for the current UTC day
+                        description: kenh-ai credit usage (in USD) for the current UTC day
                         example: 25.5
                         format: double
                         type: number
                       usage_monthly:
-                        description: OpenRouter credit usage (in USD) for the current UTC month
+                        description: kenh-ai credit usage (in USD) for the current UTC month
                         example: 25.5
                         format: double
                         type: number
                       usage_weekly:
-                        description: OpenRouter credit usage (in USD) for the current UTC week (Monday-Sunday)
+                        description: kenh-ai credit usage (in USD) for the current UTC week (Monday-Sunday)
                         example: 25.5
                         format: double
                         type: number
@@ -23829,22 +23829,22 @@ paths:
                           nullable: true
                           type: string
                         usage:
-                          description: Total OpenRouter credit usage (in USD) for the API key
+                          description: Total kenh-ai credit usage (in USD) for the API key
                           example: 25.5
                           format: double
                           type: number
                         usage_daily:
-                          description: OpenRouter credit usage (in USD) for the current UTC day
+                          description: kenh-ai credit usage (in USD) for the current UTC day
                           example: 25.5
                           format: double
                           type: number
                         usage_monthly:
-                          description: OpenRouter credit usage (in USD) for the current UTC month
+                          description: kenh-ai credit usage (in USD) for the current UTC month
                           example: 25.5
                           format: double
                           type: number
                         usage_weekly:
-                          description: OpenRouter credit usage (in USD) for the current UTC week (Monday-Sunday)
+                          description: kenh-ai credit usage (in USD) for the current UTC week (Monday-Sunday)
                           example: 25.5
                           format: double
                           type: number
@@ -24146,22 +24146,22 @@ paths:
                         nullable: true
                         type: string
                       usage:
-                        description: Total OpenRouter credit usage (in USD) for the API key
+                        description: Total kenh-ai credit usage (in USD) for the API key
                         example: 25.5
                         format: double
                         type: number
                       usage_daily:
-                        description: OpenRouter credit usage (in USD) for the current UTC day
+                        description: kenh-ai credit usage (in USD) for the current UTC day
                         example: 25.5
                         format: double
                         type: number
                       usage_monthly:
-                        description: OpenRouter credit usage (in USD) for the current UTC month
+                        description: kenh-ai credit usage (in USD) for the current UTC month
                         example: 25.5
                         format: double
                         type: number
                       usage_weekly:
-                        description: OpenRouter credit usage (in USD) for the current UTC week (Monday-Sunday)
+                        description: kenh-ai credit usage (in USD) for the current UTC week (Monday-Sunday)
                         example: 25.5
                         format: double
                         type: number
@@ -24499,22 +24499,22 @@ paths:
                         nullable: true
                         type: string
                       usage:
-                        description: Total OpenRouter credit usage (in USD) for the API key
+                        description: Total kenh-ai credit usage (in USD) for the API key
                         example: 25.5
                         format: double
                         type: number
                       usage_daily:
-                        description: OpenRouter credit usage (in USD) for the current UTC day
+                        description: kenh-ai credit usage (in USD) for the current UTC day
                         example: 25.5
                         format: double
                         type: number
                       usage_monthly:
-                        description: OpenRouter credit usage (in USD) for the current UTC month
+                        description: kenh-ai credit usage (in USD) for the current UTC month
                         example: 25.5
                         format: double
                         type: number
                       usage_weekly:
-                        description: OpenRouter credit usage (in USD) for the current UTC week (Monday-Sunday)
+                        description: kenh-ai credit usage (in USD) for the current UTC week (Monday-Sunday)
                         example: 25.5
                         format: double
                         type: number
@@ -24810,22 +24810,22 @@ paths:
                         nullable: true
                         type: string
                       usage:
-                        description: Total OpenRouter credit usage (in USD) for the API key
+                        description: Total kenh-ai credit usage (in USD) for the API key
                         example: 25.5
                         format: double
                         type: number
                       usage_daily:
-                        description: OpenRouter credit usage (in USD) for the current UTC day
+                        description: kenh-ai credit usage (in USD) for the current UTC day
                         example: 25.5
                         format: double
                         type: number
                       usage_monthly:
-                        description: OpenRouter credit usage (in USD) for the current UTC month
+                        description: kenh-ai credit usage (in USD) for the current UTC month
                         example: 25.5
                         format: double
                         type: number
                       usage_weekly:
-                        description: OpenRouter credit usage (in USD) for the current UTC week (Monday-Sunday)
+                        description: kenh-ai credit usage (in USD) for the current UTC week (Monday-Sunday)
                         example: 25.5
                         format: double
                         type: number
@@ -24923,7 +24923,7 @@ paths:
         - description: Opt-in to surface routing metadata on the response under `openrouter_metadata`. Defaults to `disabled`.
           example: enabled
           in: header
-          name: X-OpenRouter-Experimental-Metadata
+          name: X-kenh-ai-Experimental-Metadata
           required: false
           schema:
             $ref: '#/components/schemas/MetadataLevel'
@@ -25041,7 +25041,7 @@ paths:
                 $ref: '#/components/schemas/ForbiddenResponse'
           description: >-
             Forbidden - Authentication successful but insufficient permissions, or a guardrail blocked the request. When
-            guardrails block and the `X-OpenRouter-Experimental-Metadata: enabled` header is present, the response
+            guardrails block and the `X-kenh-ai-Experimental-Metadata: enabled` header is present, the response
             includes `openrouter_metadata` with full routing context and a `pipeline` array containing guardrail stage
             details.
         '404':
@@ -25210,7 +25210,7 @@ paths:
                 $ref: '#/components/schemas/ModelsListResponse'
             application/rss+xml:
               example: >-
-                <?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>OpenRouter
+                <?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>kenh-ai
                 Models</title></channel></rss>
               schema:
                 type: string
@@ -25412,10 +25412,10 @@ paths:
     get:
       description: >-
         List models filtered by user provider preferences, [privacy
-        settings](https://openrouter.ai/docs/guides/privacy/provider-logging), and
-        [guardrails](https://openrouter.ai/docs/guides/features/guardrails). If requesting through
-        `eu.openrouter.ai/api/v1/...` the results will be filtered to models that satisfy [EU in-region
-        routing](https://openrouter.ai/docs/guides/privacy/provider-logging#enterprise-eu-in-region-routing).
+        settings](https://kenh-ai.com/docs/guides/privacy/provider-logging), and
+        [guardrails](https://kenh-ai.com/docs/guides/features/guardrails). If requesting through
+        `eu.kenh-ai.com/api/v1/...` the results will be filtered to models that satisfy [EU in-region
+        routing](https://kenh-ai.com/docs/guides/privacy/provider-logging#enterprise-eu-in-region-routing).
       operationId: listModelsUser
       responses:
         '200':
@@ -27210,7 +27210,7 @@ paths:
               example:
                 error:
                   code: 402
-                  message: Insufficient credits. Add more using https://openrouter.ai/credits
+                  message: Insufficient credits. Add more using https://kenh-ai.com/credits
               schema:
                 $ref: '#/components/schemas/PaymentRequiredResponse'
           description: Payment Required - Insufficient credits or quota to complete request
@@ -27296,7 +27296,7 @@ paths:
         - description: Opt-in to surface routing metadata on the response under `openrouter_metadata`. Defaults to `disabled`.
           example: enabled
           in: header
-          name: X-OpenRouter-Experimental-Metadata
+          name: X-kenh-ai-Experimental-Metadata
           required: false
           schema:
             $ref: '#/components/schemas/MetadataLevel'
@@ -27366,7 +27366,7 @@ paths:
               example:
                 error:
                   code: 402
-                  message: Insufficient credits. Add more using https://openrouter.ai/credits
+                  message: Insufficient credits. Add more using https://kenh-ai.com/credits
               schema:
                 $ref: '#/components/schemas/PaymentRequiredResponse'
           description: Payment Required - Insufficient credits or quota to complete request
@@ -27419,7 +27419,7 @@ paths:
                 $ref: '#/components/schemas/ForbiddenResponse'
           description: >-
             Forbidden - Authentication successful but insufficient permissions, or a guardrail blocked the request. When
-            guardrails block and the `X-OpenRouter-Experimental-Metadata: enabled` header is present, the response
+            guardrails block and the `X-kenh-ai-Experimental-Metadata: enabled` header is present, the response
             includes `openrouter_metadata` with full routing context and a `pipeline` array containing guardrail stage
             details.
         '404':
@@ -27581,7 +27581,7 @@ paths:
               example:
                 error:
                   code: 402
-                  message: Insufficient credits. Add more using https://openrouter.ai/credits
+                  message: Insufficient credits. Add more using https://kenh-ai.com/credits
               schema:
                 $ref: '#/components/schemas/PaymentRequiredResponse'
           description: Payment Required - Insufficient credits or quota to complete request
@@ -28435,7 +28435,7 @@ security:
   - apiKey: []
 servers:
   - description: Production server
-    url: https://openrouter.ai/api/v1
+    url: https://kenh-ai.com/api/v1
     x-speakeasy-server-id: production
 tags:
   - description: API key management endpoints

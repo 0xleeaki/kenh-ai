@@ -2,15 +2,15 @@
 title: Apply Patch
 description: Let models propose file changes via V4A diffs
 seoTitle: 'Apply Patch Server Tool | File Editing for Coding Agents'
-canonicalUrl: https://openrouter.ai/docs/guides/features/server-tools/apply-patch
-og:site_name: OpenRouter Documentation
+canonicalUrl: https://kenh-ai.com/docs/guides/features/server-tools/apply-patch
+og:site_name: kenh-ai Documentation
 og:title: 'Apply Patch Server Tool - File Editing for Coding Agents'
-og:description: 'Enable any model on OpenRouter to propose file edits using V4A diff patches. The model generates the patch, OpenRouter validates it, and your application applies it.'
-og:image: https://openrouter.ai/dynamic-og?pathname=features/server-tools/apply-patch&title=Apply%20Patch%20Server%20Tool&description=File%20editing%20for%20coding%20agents
+og:description: 'Enable any model on kenh-ai to propose file edits using V4A diff patches. The model generates the patch, kenh-ai validates it, and your application applies it.'
+og:image: https://kenh-ai.com/dynamic-og?pathname=features/server-tools/apply-patch&title=Apply%20Patch%20Server%20Tool&description=File%20editing%20for%20coding%20agents
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: file-code
@@ -40,17 +40,17 @@ The apply patch server tool is only available through the [Responses API](/api/r
 Only OpenAI models stream apply patch results incrementally via `response.apply_patch_call_operation_diff.delta` events. All other models return the complete patch as a single tool output.
 </Note>
 
-The `openrouter:apply_patch` server tool enables models to propose file changes using [V4A diff](https://github.com/openai/codex/blob/main/codex-rs/core/src/patch/v4a.md) patches. This is the building block for coding agents — the model generates a patch describing file creates, updates, or deletes, OpenRouter validates the diff syntax, and your application applies it.
+The `openrouter:apply_patch` server tool enables models to propose file changes using [V4A diff](https://github.com/openai/codex/blob/main/codex-rs/core/src/patch/v4a.md) patches. This is the building block for coding agents — the model generates a patch describing file creates, updates, or deletes, kenh-ai validates the diff syntax, and your application applies it.
 
 ## How It Works
 
 1. You include `{ "type": "openrouter:apply_patch" }` in your `tools` array when calling the Responses API.
 2. Based on the conversation, the model decides a file needs to be created, updated, or deleted, and generates a V4A diff patch.
-3. OpenRouter validates the patch syntax (correct line prefixes, valid markers, non-empty paths).
+3. kenh-ai validates the patch syntax (correct line prefixes, valid markers, non-empty paths).
 4. If validation passes, the tool call is returned to your application as an `apply_patch_call` output item — your application applies the patch to the filesystem and echoes the result back as `apply_patch_call_output` on the next turn.
 5. If validation fails, the error is returned to the model so it can self-correct.
 
-This is a **human-in-the-loop** tool: OpenRouter validates the diff but never applies it. Your application is responsible for executing the file operation.
+This is a **human-in-the-loop** tool: kenh-ai validates the diff but never applies it. Your application is responsible for executing the file operation.
 
 ## Quick Start
 
@@ -61,7 +61,7 @@ This is a **human-in-the-loop** tool: OpenRouter validates the diff but never ap
 <CodeGroup>
 
 ```typescript title="TypeScript" lines
-const response = await fetch('https://openrouter.ai/api/v1/responses', {
+const response = await fetch('https://kenh-ai.com/api/v1/responses', {
   method: 'POST',
   headers: {
     Authorization: 'Bearer {{API_KEY_REF}}',
@@ -86,7 +86,7 @@ console.log(data.output);
 import requests
 
 response = requests.post(
-  "https://openrouter.ai/api/v1/responses",
+  "https://kenh-ai.com/api/v1/responses",
   headers={
     "Authorization": f"Bearer {{API_KEY_REF}}",
     "Content-Type": "application/json",
@@ -107,7 +107,7 @@ print(data["output"])
 ```
 
 ```bash title="cURL" lines
-curl https://openrouter.ai/api/v1/responses \
+curl https://kenh-ai.com/api/v1/responses \
   -H "Authorization: Bearer {{API_KEY_REF}}" \
   -H "Content-Type: application/json" \
   -d '{
@@ -218,7 +218,7 @@ The apply patch tool accepts an optional `engine` parameter:
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
-| `engine` | string | `auto` | `auto` — uses native passthrough when the endpoint supports incremental diff streaming, otherwise falls back to OpenRouter's HITL validator. `native` — forces native passthrough (falls back to HITL if unsupported). `openrouter` — always uses the HITL validator, even on endpoints with native support. |
+| `engine` | string | `auto` | `auto` — uses native passthrough when the endpoint supports incremental diff streaming, otherwise falls back to kenh-ai's HITL validator. `native` — forces native passthrough (falls back to HITL if unsupported). `openrouter` — always uses the HITL validator, even on endpoints with native support. |
 
 ### Engine behavior
 

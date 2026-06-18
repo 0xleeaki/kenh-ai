@@ -1,16 +1,16 @@
 ---
 title: Tools
 description: Create type-safe tools with Zod schemas and automatic execution. Supports regular tools, generator tools with progress, manual tools, human-in-the-loop tools, and automatic multi-turn execution.
-seoTitle: 'Tools | OpenRouter SDK'
-canonicalUrl: 'https://openrouter.ai/docs/agent-sdks/typescript/call-model/tools'
-og:site_name: OpenRouter Documentation
-og:title: 'Tools - OpenRouter SDK'
+seoTitle: 'Tools | kenh-ai SDK'
+canonicalUrl: 'https://kenh-ai.com/docs/agent-sdks/typescript/call-model/tools'
+og:site_name: kenh-ai Documentation
+og:title: 'Tools - kenh-ai SDK'
 og:description: 'Create strongly-typed tools for LLMs with Zod schemas. Learn about regular tools, generator tools with progress, manual tools, human-in-the-loop tools, and automatic multi-turn execution.'
-og:image: https://openrouter.ai/dynamic-og?title=Tools&description=Type-safe%20Tool%20Creation
+og:image: https://kenh-ai.com/dynamic-og?title=Tools&description=Type-safe%20Tool%20Creation
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: toolbox
@@ -21,7 +21,7 @@ icon: toolbox
 The `tool()` function creates type-safe tools with Zod schema validation:
 
 ```typescript expandable lines
-import { OpenRouter, tool } from '@openrouter/agent';
+import { kenh-ai, tool } from '@kenh-ai/agent';
 import { z } from 'zod';
 
 const weatherTool = tool({
@@ -242,7 +242,7 @@ const eventSchema = z.object({
 The SDK provides utilities to extract types from tools:
 
 ```typescript lines
-import type { InferToolInput, InferToolOutput, InferToolEvent } from '@openrouter/agent';
+import type { InferToolInput, InferToolOutput, InferToolEvent } from '@kenh-ai/agent';
 
 // Get the input type
 type WeatherInput = InferToolInput<typeof weatherTool>;
@@ -262,7 +262,7 @@ type SearchEvent = InferToolEvent<typeof searchTool>;
 ### Single Tool
 
 ```typescript lines
-const openrouter = new OpenRouter({ apiKey: process.env.OPENROUTER_API_KEY });
+const openrouter = new KenhAI({ apiKey: process.env.KENH_AI_API_KEY });
 
 const result = openrouter.callModel({
   model: 'openai/gpt-5-nano',
@@ -531,7 +531,7 @@ callModel automatically executes tools and handles multi-turn conversations. Whe
 When you provide tools with execute functions:
 
 ```typescript expandable lines
-import { OpenRouter, tool } from '@openrouter/agent';
+import { kenh-ai, tool } from '@kenh-ai/agent';
 import { z } from 'zod';
 
 const weatherTool = tool({

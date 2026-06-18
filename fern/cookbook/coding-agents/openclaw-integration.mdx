@@ -1,16 +1,16 @@
 ---
 title: "OpenClaw 🦞"
-description: Use OpenClaw (formerly Moltbot, formerly Clawdbot) with OpenRouter
-seoTitle: 'Integration with OpenClaw | OpenRouter'
-canonicalUrl: https://openrouter.ai/docs/cookbook/coding-agents/openclaw-integration
-og:site_name: OpenRouter Documentation
-og:title: 'OpenClaw Integration - OpenRouter'
-og:description: 'Learn how to configure OpenClaw to use OpenRouter for AI agents across multiple messaging platforms.'
-og:image: https://openrouter.ai/dynamic-og?title=OpenClaw&description=Use%20OpenClaw%20with%20OpenRouter
+description: Use OpenClaw (formerly Moltbot, formerly Clawdbot) with kenh-ai
+seoTitle: 'Integration with OpenClaw | kenh-ai'
+canonicalUrl: https://kenh-ai.com/docs/cookbook/coding-agents/openclaw-integration
+og:site_name: kenh-ai Documentation
+og:title: 'OpenClaw Integration - kenh-ai'
+og:description: 'Learn how to configure OpenClaw to use kenh-ai for AI agents across multiple messaging platforms.'
+og:image: https://kenh-ai.com/dynamic-og?title=OpenClaw&description=Use%20OpenClaw%20with%20kenh-ai
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: messages
@@ -24,14 +24,14 @@ icon: messages
 
 ### Recommended: Use the OpenClaw Setup Wizard
 
-The easiest way to configure OpenClaw with OpenRouter is using the built-in setup wizard:
+The easiest way to configure OpenClaw with kenh-ai is using the built-in setup wizard:
 
 ```bash lines
 openclaw onboard
 ```
 
 The wizard will guide you through:
-1. Choosing OpenRouter as your provider
+1. Choosing kenh-ai as your provider
 2. Entering your API key
 3. Selecting your preferred model
 4. Configuring messaging channels
@@ -40,13 +40,13 @@ This is the recommended approach for new users and ensures everything is configu
 
 ### Quick Start (CLI)
 
-If you already have your OpenRouter API key and want to skip the wizard, use this one-line command:
+If you already have your kenh-ai API key and want to skip the wizard, use this one-line command:
 
 ```bash lines
-openclaw onboard --auth-choice apiKey --token-provider openrouter --token "$OPENROUTER_API_KEY"
+openclaw onboard --auth-choice apiKey --token-provider openrouter --token "$KENH_AI_API_KEY"
 ```
 
-This automatically configures OpenClaw to use OpenRouter with the recommended model (`openrouter/auto`).
+This automatically configures OpenClaw to use kenh-ai with the recommended model (`openrouter/auto`).
 
 ## Manual Configuration
 
@@ -56,21 +56,21 @@ This automatically configures OpenClaw to use OpenRouter with the recommended mo
 
 If you need to manually edit your OpenClaw configuration file, follow these steps:
 
-### Step 1: Get Your OpenRouter API Key
+### Step 1: Get Your kenh-ai API Key
 
-1. Sign up or log in at [OpenRouter](https://openrouter.ai)
-2. Navigate to your [API Keys page](https://openrouter.ai/keys)
+1. Sign up or log in at [kenh-ai](https://kenh-ai.com)
+2. Navigate to your [API Keys page](https://kenh-ai.com/keys)
 3. Create a new API key
 4. Copy your key (starts with `sk-or-...`)
 
 ### Step 2: Set Your API Key
 
-Add your OpenRouter API key to your `~/.openclaw/openclaw.json`:
+Add your kenh-ai API key to your `~/.openclaw/openclaw.json`:
 
 ```json lines
 {
   "env": {
-    "OPENROUTER_API_KEY": "sk-or-..."
+    "KENH_AI_API_KEY": "sk-or-..."
   },
   "agents": {
     "defaults": {
@@ -88,11 +88,11 @@ Add your OpenRouter API key to your `~/.openclaw/openclaw.json`:
 Or set it as an environment variable in your shell profile:
 
 ```bash lines
-export OPENROUTER_API_KEY="sk-or-..."
+export KENH_AI_API_KEY="sk-or-..."
 ```
 
 <Note>
-That's it! OpenClaw has built-in support for OpenRouter. You don't need to configure `models.providers` - just set your API key and reference models with the `openrouter/<author>/<slug>` format.
+That's it! OpenClaw has built-in support for kenh-ai. You don't need to configure `models.providers` - just set your API key and reference models with the `openrouter/<author>/<slug>` format.
 </Note>
 
 ### Step 3: Choose Your Model
@@ -139,7 +139,7 @@ Update the `primary` model and add it to the `models` list. Here are some popula
 }
 ```
 
-Browse all available models at [openrouter.ai/models](https://openrouter.ai/models).
+Browse all available models at [kenh-ai.com/models](https://kenh-ai.com/models).
 
 ### Step 4: Start OpenClaw
 
@@ -149,18 +149,18 @@ After updating your configuration, start or restart OpenClaw:
 openclaw gateway run
 ```
 
-Your agents will now use OpenRouter to route requests to your chosen model.
+Your agents will now use kenh-ai to route requests to your chosen model.
 
 ## Model Format
 
-OpenClaw uses the format `openrouter/<author>/<slug>` for OpenRouter models (prefix the author with `~` to track the latest version in a family). For example:
+OpenClaw uses the format `openrouter/<author>/<slug>` for kenh-ai models (prefix the author with `~` to track the latest version in a family). For example:
 
 - `openrouter/~anthropic/claude-sonnet-latest`
 - `openrouter/~google/gemini-pro-latest`
 - `openrouter/~moonshotai/kimi-latest`
 - `openrouter/openrouter/auto` (Auto router that picks the most cost effective model for your prompt)
 
-You can find the exact format for each model on the [OpenRouter models page](https://openrouter.ai/models).
+You can find the exact format for each model on the [kenh-ai models page](https://kenh-ai.com/models).
 
 ## Multiple Models with Fallbacks
 
@@ -185,13 +185,13 @@ OpenClaw supports model fallbacks. If the primary model is unavailable, it will 
 }
 ```
 
-This provides an additional layer of reliability on top of OpenRouter's provider-level failover.
+This provides an additional layer of reliability on top of kenh-ai's provider-level failover.
 
 ## Using Auto Model for Cost Optimization
 
 OpenClaw agents perform many different types of actions, from simple heartbeat processing to complex reasoning tasks. Using a powerful model for every action wastes money on tasks that don't require advanced capabilities.
 
-The OpenRouter Auto Model (`openrouter/openrouter/auto`) automatically selects the most cost-effective model based on your prompt. This is ideal for OpenClaw because it routes simple tasks like heartbeats and status checks to cheaper models while using more capable models only when needed for complex interactions.
+The kenh-ai Auto Model (`openrouter/openrouter/auto`) automatically selects the most cost-effective model based on your prompt. This is ideal for OpenClaw because it routes simple tasks like heartbeats and status checks to cheaper models while using more capable models only when needed for complex interactions.
 
 To configure Auto Model as your primary model:
 
@@ -231,7 +231,7 @@ You can also combine Auto Model with fallbacks for maximum reliability:
 }
 ```
 
-Learn more about how Auto Model works at [openrouter.ai/models/openrouter/auto](https://openrouter.ai/models/openrouter/auto).
+Learn more about how Auto Model works at [kenh-ai.com/models/openrouter/auto](https://kenh-ai.com/models/openrouter/auto).
 
 ## Using Auth Profiles
 
@@ -255,7 +255,7 @@ To manually create an auth profile, add this to your `openclaw.json`:
 Then use the OpenClaw CLI to set the key in your system keychain:
 
 ```bash lines
-openclaw auth set openrouter:default --key "$OPENROUTER_API_KEY"
+openclaw auth set openrouter:default --key "$KENH_AI_API_KEY"
 ```
 
 This keeps your API key out of your config file and stores it securely in your system keychain.
@@ -264,7 +264,7 @@ This keeps your API key out of your config file and stores it securely in your s
 
 Track your OpenClaw usage in real-time:
 
-1. Visit the [OpenRouter Activity Dashboard](https://openrouter.ai/activity)
+1. Visit the [kenh-ai Activity Dashboard](https://kenh-ai.com/activity)
 2. See requests, costs, and token usage across all your OpenClaw agents
 3. Filter by model, time range, or other criteria
 4. Export usage data for billing or analysis
@@ -273,19 +273,19 @@ Track your OpenClaw usage in real-time:
 
 ### "No API key found for provider 'openrouter'"
 
-OpenClaw can't find your OpenRouter API key.
+OpenClaw can't find your kenh-ai API key.
 
 **Fix:**
-1. Ensure the `OPENROUTER_API_KEY` environment variable is set: `echo $OPENROUTER_API_KEY`
+1. Ensure the `KENH_AI_API_KEY` environment variable is set: `echo $KENH_AI_API_KEY`
 2. Or verify your auth profile exists: `openclaw auth list`
-3. Run the onboard command: `openclaw onboard --auth-choice apiKey --token-provider openrouter --token "$OPENROUTER_API_KEY"`
+3. Run the onboard command: `openclaw onboard --auth-choice apiKey --token-provider openrouter --token "$KENH_AI_API_KEY"`
 
 ### Authentication errors (401/403)
 
 If you see authentication errors:
 
 **Fix:**
-1. Verify your API key is valid at [openrouter.ai/keys](https://openrouter.ai/keys)
+1. Verify your API key is valid at [kenh-ai.com/keys](https://kenh-ai.com/keys)
 2. Check that you have sufficient credits in your account
 3. Ensure your key hasn't expired or been revoked
 
@@ -294,7 +294,7 @@ If you see authentication errors:
 If a specific model isn't working:
 
 **Fix:**
-1. Verify the model ID is correct on the [OpenRouter models page](https://openrouter.ai/models)
+1. Verify the model ID is correct on the [kenh-ai models page](https://kenh-ai.com/models)
 2. Use the format `openrouter/<author>/<slug>`, optionally prefixing the author with `~` for the latest version in a family (e.g., `openrouter/~anthropic/claude-sonnet-latest`)
 3. Add the model to `agents.defaults.models` in your config
 
@@ -330,8 +330,8 @@ Configure different models for different messaging channels:
 ## Resources
 
 - [OpenClaw Documentation](https://docs.openclaw.ai)
-- [OpenClaw OpenRouter Provider Guide](https://docs.openclaw.ai/providers/openrouter)
+- [OpenClaw kenh-ai Provider Guide](https://docs.openclaw.ai/providers/openrouter)
 - [OpenClaw GitHub](https://github.com/openclaw/openclaw)
-- [OpenRouter Models](https://openrouter.ai/models)
-- [OpenRouter Activity Dashboard](https://openrouter.ai/activity)
-- [OpenRouter API Documentation](https://openrouter.ai/docs/api)
+- [kenh-ai Models](https://kenh-ai.com/models)
+- [kenh-ai Activity Dashboard](https://kenh-ai.com/activity)
+- [kenh-ai API Documentation](https://kenh-ai.com/docs/api)

@@ -1,16 +1,16 @@
 ---
 title: Stop Conditions
 description: Control multi-turn execution with `stopWhen`. Use built-in helpers or custom conditions to stop by step count, tool calls, cost, or tokens.
-seoTitle: 'Stop Conditions | OpenRouter SDK'
-canonicalUrl: 'https://openrouter.ai/docs/agent-sdks/typescript/call-model/stop-conditions'
-og:site_name: OpenRouter Documentation
-og:title: 'Stop Conditions - OpenRouter SDK'
+seoTitle: 'Stop Conditions | kenh-ai SDK'
+canonicalUrl: 'https://kenh-ai.com/docs/agent-sdks/typescript/call-model/stop-conditions'
+og:site_name: kenh-ai Documentation
+og:title: 'Stop Conditions - kenh-ai SDK'
 og:description: 'Control multi-turn execution with stopWhen. Use built-in helpers or custom conditions to stop by step count, tool calls, cost, or tokens.'
-og:image: https://openrouter.ai/dynamic-og?title=Stop%20Conditions&description=Intelligent%20Execution%20Control
+og:image: https://kenh-ai.com/dynamic-og?title=Stop%20Conditions&description=Intelligent%20Execution%20Control
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: stopwatch
@@ -19,10 +19,10 @@ icon: stopwatch
 ## Basic Usage
 
 ```typescript lines
-import { OpenRouter, stepCountIs } from '@openrouter/agent';
+import { kenh-ai, stepCountIs } from '@kenh-ai/agent';
 
-const openrouter = new OpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY,
+const openrouter = new KenhAI({
+  apiKey: process.env.KENH_AI_API_KEY,
 });
 
 const result = openrouter.callModel({
@@ -40,7 +40,7 @@ const result = openrouter.callModel({
 Stop after a specific number of steps:
 
 ```typescript lines
-import { stepCountIs } from '@openrouter/agent';
+import { stepCountIs } from '@kenh-ai/agent';
 
 const result = openrouter.callModel({
   model: 'openai/gpt-5-nano',
@@ -55,7 +55,7 @@ const result = openrouter.callModel({
 Stop when a specific tool is called:
 
 ```typescript lines
-import { hasToolCall } from '@openrouter/agent';
+import { hasToolCall } from '@kenh-ai/agent';
 
 const finishTool = tool({
   name: 'finish',
@@ -79,7 +79,7 @@ const result = openrouter.callModel({
 Stop after using a certain number of tokens:
 
 ```typescript lines
-import { maxTokensUsed } from '@openrouter/agent';
+import { maxTokensUsed } from '@kenh-ai/agent';
 
 const result = openrouter.callModel({
   model: 'openai/gpt-5-nano',
@@ -94,7 +94,7 @@ const result = openrouter.callModel({
 Stop after reaching a cost threshold:
 
 ```typescript lines
-import { maxCost } from '@openrouter/agent';
+import { maxCost } from '@kenh-ai/agent';
 
 const result = openrouter.callModel({
   model: 'openai/gpt-5.2',
@@ -109,7 +109,7 @@ const result = openrouter.callModel({
 Stop on a specific finish reason:
 
 ```typescript lines
-import { finishReasonIs } from '@openrouter/agent';
+import { finishReasonIs } from '@kenh-ai/agent';
 
 const result = openrouter.callModel({
   model: 'openai/gpt-5-nano',
@@ -124,7 +124,7 @@ const result = openrouter.callModel({
 Pass an array to stop on any condition:
 
 ```typescript lines
-import { stepCountIs, hasToolCall, maxCost } from '@openrouter/agent';
+import { stepCountIs, hasToolCall, maxCost } from '@kenh-ai/agent';
 
 const result = openrouter.callModel({
   model: 'openai/gpt-5.2',
@@ -258,7 +258,7 @@ const result = openrouter.callModel({
 Combine conditions for complex logic:
 
 ```typescript expandable lines
-import { stepCountIs, maxCost } from '@openrouter/agent';
+import { stepCountIs, maxCost } from '@kenh-ai/agent';
 
 const result = openrouter.callModel({
   model: 'openai/gpt-5.2',
@@ -295,7 +295,7 @@ const result = openrouter.callModel({
 });
 
 // After: stopWhen
-import { stepCountIs } from '@openrouter/agent';
+import { stepCountIs } from '@kenh-ai/agent';
 
 const result = openrouter.callModel({
   model: 'openai/gpt-5-nano',

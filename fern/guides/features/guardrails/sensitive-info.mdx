@@ -1,16 +1,16 @@
 ---
 title: Sensitive Info Guardrail
 description: Automatically detect and handle sensitive information in API requests
-seoTitle: 'Sensitive Info Guardrail | OpenRouter Data Protection'
-canonicalUrl: https://openrouter.ai/docs/guides/features/guardrails/sensitive-info
-og:site_name: OpenRouter Documentation
+seoTitle: 'Sensitive Info Guardrail | kenh-ai Data Protection'
+canonicalUrl: https://kenh-ai.com/docs/guides/features/guardrails/sensitive-info
+og:site_name: kenh-ai Documentation
 og:title: 'Sensitive Info Guardrail - Automatic PII Detection and Redaction'
-og:description: 'Protect sensitive data in your AI requests with OpenRouter Sensitive Info Guardrails. Automatically detect and redact or block PII like emails, phone numbers, names, addresses, and more.'
-og:image: https://openrouter.ai/dynamic-og?title=Sensitive%20Info%20Guardrail&description=Automatically%20detect%20and%20handle%20sensitive%20information
+og:description: 'Protect sensitive data in your AI requests with kenh-ai Sensitive Info Guardrails. Automatically detect and redact or block PII like emails, phone numbers, names, addresses, and more.'
+og:image: https://kenh-ai.com/dynamic-og?title=Sensitive%20Info%20Guardrail&description=Automatically%20detect%20and%20handle%20sensitive%20information
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: eye-slash
@@ -37,7 +37,7 @@ Sensitive info detection runs on the **input** (prompt) side of requests. It sca
 
 ## Detection Methods
 
-OpenRouter uses two complementary detection methods:
+kenh-ai uses two complementary detection methods:
 
 ### Regex-Based Detection
 
@@ -52,7 +52,7 @@ Regex-based presets include:
 
 ### NLP-Based Detection
 
-Some types of sensitive information — like person names and physical addresses — cannot be reliably detected with simple patterns. For these, OpenRouter uses NLP-powered entity recognition (via [Presidio](https://microsoft.github.io/presidio/)), which analyzes text contextually.
+Some types of sensitive information — like person names and physical addresses — cannot be reliably detected with simple patterns. For these, kenh-ai uses NLP-powered entity recognition (via [Presidio](https://microsoft.github.io/presidio/)), which analyzes text contextually.
 
 NLP-based presets include:
 - Person names
@@ -120,7 +120,7 @@ Invalid or unsafe patterns are rejected at creation time with a descriptive erro
 
 ### Via the Dashboard
 
-1. Navigate to your workspace's **Privacy & Guardrails** page, or go to [Settings > Privacy](https://openrouter.ai/settings/privacy).
+1. Navigate to your workspace's **Privacy & Guardrails** page, or go to [Settings > Privacy](https://kenh-ai.com/settings/privacy).
 2. Create a new guardrail or edit an existing one.
 3. Expand the **Sensitive Info** section.
 4. Enable the desired built-in presets and/or add custom patterns.

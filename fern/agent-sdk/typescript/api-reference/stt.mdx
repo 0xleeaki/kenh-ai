@@ -2,15 +2,15 @@
 title: Transcriptions - TypeScript SDK
 sidebarTitle: Transcriptions
 description: Transcriptions method reference
-seoTitle: Transcriptions | OpenRouter TypeScript SDK
-canonicalUrl: 'https://openrouter.ai/docs/agent-sdks/typescript/api-reference/stt'
-'og:site_name': OpenRouter Documentation
-'og:title': Transcriptions | OpenRouter TypeScript SDK
+seoTitle: Transcriptions | kenh-ai TypeScript SDK
+canonicalUrl: 'https://kenh-ai.com/docs/agent-sdks/typescript/api-reference/stt'
+'og:site_name': kenh-ai Documentation
+'og:title': Transcriptions | kenh-ai TypeScript SDK
 'og:description': >-
-  Transcriptions method documentation for the OpenRouter TypeScript SDK. Learn
+  Transcriptions method documentation for the kenh-ai TypeScript SDK. Learn
   how to use this API endpoint with code examples.
 'og:image': >-
-  https://openrouter.ai/dynamic-og?title=Transcriptions%20-%20TypeScript%20SDK&description=Transcriptions%20method%20reference
+  https://kenh-ai.com/dynamic-og?title=Transcriptions%20-%20TypeScript%20SDK&description=Transcriptions%20method%20reference
 'og:image:width': 1200
 'og:image:height': 630
 'twitter:card': summary_large_image
@@ -42,17 +42,17 @@ Transcribes audio into text. Accepts base64-encoded audio input and returns the 
 
 {/* UsageSnippet language="typescript" operationID="createAudioTranscriptions" method="post" path="/audio/transcriptions" */}
 ```typescript expandable lines
-import { OpenRouter } from "@openrouter/sdk";
+import { KenhAI } from "@kenh-ai/sdk";
 
-const openRouter = new OpenRouter({
+const kenhAi = new KenhAI({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await openRouter.stt.createTranscription({
+  const result = await kenhAi.stt.createTranscription({
     sttRequest: {
       inputAudio: {
         data: "UklGRiQA...",
@@ -74,20 +74,20 @@ run();
 The standalone function version of this method:
 
 ```typescript expandable lines
-import { OpenRouterCore } from "@openrouter/sdk/core.js";
-import { sttCreateTranscription } from "@openrouter/sdk/funcs/sttCreateTranscription.js";
+import { OpenRouterCore } from "@kenh-ai/sdk/core.js";
+import { sttCreateTranscription } from "@kenh-ai/sdk/funcs/sttCreateTranscription.js";
 
 // Use `OpenRouterCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const openRouter = new OpenRouterCore({
+const kenhAi = new OpenRouterCore({
   httpReferer: "<value>",
   appTitle: "<value>",
   appCategories: "<value>",
-  apiKey: process.env["OPENROUTER_API_KEY"] ?? "",
+  apiKey: process.env["KENH_AI_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await sttCreateTranscription(openRouter, {
+  const res = await sttCreateTranscription(kenhAi, {
     sttRequest: {
       inputAudio: {
         data: "UklGRiQA...",

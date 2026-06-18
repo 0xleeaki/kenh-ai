@@ -1,22 +1,22 @@
 ---
 title: OpenTelemetry Collector
 description: Send traces to any OpenTelemetry-compatible backend
-seoTitle: 'Broadcast to OpenTelemetry Collector | OpenRouter Observability'
-canonicalUrl: https://openrouter.ai/docs/guides/features/broadcast/otel-collector
-og:site_name: OpenRouter Documentation
+seoTitle: 'Broadcast to OpenTelemetry Collector | kenh-ai Observability'
+canonicalUrl: https://kenh-ai.com/docs/guides/features/broadcast/otel-collector
+og:site_name: kenh-ai Documentation
 og:title: 'Broadcast to OpenTelemetry Collector - Send Traces to OTLP Backends'
-og:description: 'Connect any OpenTelemetry-compatible backend to automatically receive traces from your OpenRouter requests. Step-by-step setup guide for OTLP integration.'
-og:image: https://openrouter.ai/dynamic-og?title=OpenTelemetry%20Collector%20Broadcast&description=Send%20traces%20to%20OTLP%20backends
+og:description: 'Connect any OpenTelemetry-compatible backend to automatically receive traces from your kenh-ai requests. Step-by-step setup guide for OTLP integration.'
+og:image: https://kenh-ai.com/dynamic-og?title=OpenTelemetry%20Collector%20Broadcast&description=Send%20traces%20to%20OTLP%20backends
 og:image:width: 1200
 og:image:height: 630
 twitter:card: summary_large_image
-twitter:site: '@OpenRouter'
+twitter:site: '@kenh-ai'
 noindex: false
 nofollow: false
 icon: puzzle-piece
 ---
 
-[OpenTelemetry](https://opentelemetry.io/) is an open-source observability framework for collecting, processing, and exporting telemetry data. OpenRouter can send traces to any backend that supports the OpenTelemetry Protocol (OTLP), including Axiom, Jaeger, Grafana Tempo, and self-hosted collectors.
+[OpenTelemetry](https://opentelemetry.io/) is an open-source observability framework for collecting, processing, and exporting telemetry data. kenh-ai can send traces to any backend that supports the OpenTelemetry Protocol (OTLP), including Axiom, Jaeger, Grafana Tempo, and self-hosted collectors.
 
 ## Step 1: Get your OTLP endpoint and credentials
 
@@ -33,9 +33,9 @@ For self-hosted collectors:
 2. Configure the receiver to listen on a publicly accessible endpoint
 3. Note the endpoint URL (typically ending in `/v1/traces`)
 
-## Step 2: Enable Broadcast in OpenRouter
+## Step 2: Enable Broadcast in kenh-ai
 
-Go to [Settings > Observability](https://openrouter.ai/settings/observability) and toggle **Enable Broadcast**.
+Go to [Settings > Observability](https://kenh-ai.com/settings/observability) and toggle **Enable Broadcast**.
 
 <Frame>
 ![Enable Broadcast](/assets/guides/features/broadcast/arize/broadcast-enable.png)
@@ -70,7 +70,7 @@ Click **Test Connection** to verify the setup. The configuration only saves if t
 
 ## Step 5: Send a test trace
 
-Make an API request through OpenRouter and view the trace in your OpenTelemetry backend.
+Make an API request through kenh-ai and view the trace in your OpenTelemetry backend.
 
 ## Compatible backends
 
@@ -84,7 +84,7 @@ The OpenTelemetry Collector destination works with any backend that supports OTL
 - **Self-hosted OpenTelemetry Collector** - Route traces to multiple backends
 
 <Tip>
-OpenRouter sends traces using the OTLP/HTTP protocol with JSON encoding. Ensure your collector or backend is configured to accept OTLP over HTTP on the `/v1/traces` path.
+kenh-ai sends traces using the OTLP/HTTP protocol with JSON encoding. Ensure your collector or backend is configured to accept OTLP over HTTP on the `/v1/traces` path.
 </Tip>
 
 ## Custom Metadata
@@ -130,7 +130,7 @@ Standard GenAI semantic conventions (`gen_ai.*`) are used for model, token usage
 - The `user` field maps to `user.id` in span attributes
 - The `session_id` field maps to `session.id` in span attributes
 - Your downstream backend determines how these attributes are indexed, queried, and displayed
-- Using `parent_span_id` lets you link OpenRouter traces to your application's existing distributed traces
+- Using `parent_span_id` lets you link kenh-ai traces to your application's existing distributed traces
 
 ## Privacy Mode
 

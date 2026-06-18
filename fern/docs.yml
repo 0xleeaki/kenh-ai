@@ -129,7 +129,7 @@ navigation:
           - page: Stripe Projects
             path: guides/overview/stripe-projects.mdx
             slug: guides/overview/stripe-projects
-            icon: "fa-regular fa-stripe"
+            icon: "fa-brands fa-stripe"
           - page: Frequently Asked Questions
             path: faq.mdx
             slug: faq

@@ -39,7 +39,7 @@ navbar-links:
   - type: minimal
     text: Rankings
     href: "https://kenh-ai.com/rankings"
-  - type: filled
+  - type: minimal
     text: Docs
     href: /docs/api-reference/overview
 

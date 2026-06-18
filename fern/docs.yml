@@ -23,6 +23,9 @@ layout:
 experimental:
   mdx-components:
     - ./components
+    - ./snippets
+    - ./snippets/exports
+    - ./snippets/changelog
 
 tabs:
   docs:
@@ -60,12 +63,15 @@ navigation:
           - page: Quickstart
             path: quickstart.mdx
             slug: quickstart
+            icon: rocket
           - page: Principles
             path: guides/overview/principles.mdx
             slug: guides/overview/principles
+            icon: book
           - page: Models
             path: guides/overview/models.mdx
             slug: guides/overview/models
+            icon: cube
           - section: Multimodal
             icon: layer-group
             skip-slug: true
@@ -73,30 +79,39 @@ navigation:
             - page: Multimodal Capabilities
               path: guides/overview/multimodal/overview.mdx
               slug: guides/overview/multimodal/overview
+              icon: compass
             - page: Image Inputs
               path: guides/overview/multimodal/image-understanding.mdx
               slug: guides/overview/multimodal/image-understanding
+              icon: image
             - page: Image Generation
               path: guides/overview/multimodal/image-generation.mdx
               slug: guides/overview/multimodal/image-generation
+              icon: wand-magic-sparkles
             - page: PDF Inputs
               path: guides/overview/multimodal/pdfs.mdx
               slug: guides/overview/multimodal/pdfs
+              icon: file-pdf
             - page: Audio
               path: guides/overview/multimodal/audio.mdx
               slug: guides/overview/multimodal/audio
+              icon: volume-high
             - page: Video Inputs
               path: guides/overview/multimodal/videos.mdx
               slug: guides/overview/multimodal/videos
+              icon: video
             - page: Video Generation
               path: guides/overview/multimodal/video-generation.mdx
               slug: guides/overview/multimodal/video-generation
+              icon: film
             - page: Text-to-Speech
               path: guides/overview/multimodal/tts.mdx
               slug: guides/overview/multimodal/tts
+              icon: microphone
             - page: Speech-to-Text
               path: guides/overview/multimodal/stt.mdx
               slug: guides/overview/multimodal/stt
+              icon: headset
           - section: Authentication
             icon: shield-check
             skip-slug: true
@@ -104,21 +119,27 @@ navigation:
             - page: OAuth PKCE
               path: guides/overview/auth/oauth.mdx
               slug: guides/overview/auth/oauth
+              icon: shield-check
             - page: Management API Keys
               path: guides/overview/auth/management-api-keys.mdx
               slug: guides/overview/auth/management-api-keys
+              icon: key
             - page: BYOK
               path: guides/overview/auth/byok.mdx
               slug: guides/overview/auth/byok
+              icon: key
           - page: Stripe Projects
             path: guides/overview/stripe-projects.mdx
             slug: guides/overview/stripe-projects
+            icon: stripe
           - page: Frequently Asked Questions
             path: faq.mdx
             slug: faq
+            icon: question
           - page: Report Feedback
             path: guides/overview/report-feedback.mdx
             slug: guides/overview/report-feedback
+            icon: bug
       - section: "Models & Routing"
         icon: route
         skip-slug: true
@@ -126,15 +147,19 @@ navigation:
           - page: Model Fallbacks
             path: guides/routing/model-fallbacks.mdx
             slug: guides/routing/model-fallbacks
+            icon: arrows-rotate
           - page: Provider Routing
             path: guides/routing/provider-selection.mdx
             slug: guides/routing/provider-selection
+            icon: network-wired
           - page: Auto Exacto
             path: guides/routing/auto-exacto.mdx
             slug: guides/routing/auto-exacto
+            icon: crosshairs
           - page: Private Models
             path: guides/routing/private-models.mdx
             slug: guides/routing/private-models
+            icon: lock
           - section: Model Variants
             icon: gem
             skip-slug: true
@@ -142,21 +167,27 @@ navigation:
             - page: Free Variant
               path: guides/routing/model-variants/free.mdx
               slug: guides/routing/model-variants/free
+              icon: circle-dollar
             - page: Extended Variant
               path: guides/routing/model-variants/extended.mdx
               slug: guides/routing/model-variants/extended
+              icon: arrows-left-right
             - page: Exacto Variant
               path: guides/routing/model-variants/exacto.mdx
               slug: guides/routing/model-variants/exacto
+              icon: gem
             - page: Thinking Variant
               path: guides/routing/model-variants/thinking.mdx
               slug: guides/routing/model-variants/thinking
+              icon: brain
             - page: Online Variant
               path: guides/routing/model-variants/online.mdx
               slug: guides/routing/model-variants/online
+              icon: globe-pointer
             - page: Nitro Variant
               path: guides/routing/model-variants/nitro.mdx
               slug: guides/routing/model-variants/nitro
+              icon: bolt
           - section: Routers
             icon: robot
             skip-slug: true
@@ -164,21 +195,27 @@ navigation:
             - page: Auto Router
               path: guides/routing/routers/auto-router.mdx
               slug: guides/routing/routers/auto-router
+              icon: wand-magic-sparkles
             - page: Body Builder
               path: guides/routing/routers/body-builder.mdx
               slug: guides/routing/routers/body-builder
+              icon: hammer
             - page: Free Models Router
               path: guides/routing/routers/free-router.mdx
               slug: guides/routing/routers/free-router
+              icon: gift
             - page: Latest Model Resolution
               path: guides/routing/routers/latest-resolution.mdx
               slug: guides/routing/routers/latest-resolution
+              icon: clock-rotate-left
             - page: Pareto Router
               path: guides/routing/routers/pareto-router.mdx
               slug: guides/routing/routers/pareto-router
+              icon: chart-line
             - page: Fusion Router
               path: guides/routing/routers/fusion-router.mdx
               slug: guides/routing/routers/fusion-router
+              icon: circle-nodes
       - section: Features
         icon: stars
         skip-slug: true
@@ -186,15 +223,19 @@ navigation:
           - page: Workspaces
             path: guides/features/workspaces.mdx
             slug: guides/features/workspaces
+            icon: grid-2
           - page: Presets
             path: guides/features/presets.mdx
             slug: guides/features/presets
+            icon: sliders
           - page: Response Caching
             path: guides/features/response-caching.mdx
             slug: guides/features/response-caching
+            icon: box-archive
           - page: "Tool & Function Calling"
             path: guides/features/tool-calling.mdx
             slug: guides/features/tool-calling
+            icon: toolbox
           - section: Server Tools
             icon: server
             skip-slug: true
@@ -202,24 +243,31 @@ navigation:
             - page: Server Tools
               path: guides/features/server-tools.mdx
               slug: guides/features/server-tools
+              icon: compass
             - page: Web Search
               path: guides/features/server-tools/web-search.mdx
               slug: guides/features/server-tools/web-search
+              icon: globe
             - page: Web Fetch
               path: guides/features/server-tools/web-fetch.mdx
               slug: guides/features/server-tools/web-fetch
+              icon: link
             - page: Datetime
               path: guides/features/server-tools/datetime.mdx
               slug: guides/features/server-tools/datetime
+              icon: clock
             - page: Image Generation
               path: guides/features/server-tools/image-generation.mdx
               slug: guides/features/server-tools/image-generation
+              icon: image
             - page: Apply Patch
               path: guides/features/server-tools/apply-patch.mdx
               slug: guides/features/server-tools/apply-patch
+              icon: file-code
             - page: Fusion
               path: guides/features/server-tools/fusion.mdx
               slug: guides/features/server-tools/fusion
+              icon: circle-nodes
           - section: Plugins
             icon: plug
             skip-slug: true
@@ -227,30 +275,39 @@ navigation:
             - page: Plugins
               path: guides/features/plugins.mdx
               slug: guides/features/plugins
+              icon: compass
             - page: Web Search
               path: guides/features/plugins/web-search.mdx
               slug: guides/features/plugins/web-search
+              icon: globe
             - page: Response Healing
               path: guides/features/plugins/response-healing.mdx
               slug: guides/features/plugins/response-healing
+              icon: bandage
             - page: Fusion
               path: guides/features/plugins/fusion.mdx
               slug: guides/features/plugins/fusion
+              icon: circle-nodes
           - page: Structured Outputs
             path: guides/features/structured-outputs.mdx
             slug: guides/features/structured-outputs
+            icon: code
           - page: Message Transforms
             path: guides/features/message-transforms.mdx
             slug: guides/features/message-transforms
+            icon: arrows-rotate
           - page: Zero Completion Insurance
             path: guides/features/zero-completion-insurance.mdx
             slug: guides/features/zero-completion-insurance
+            icon: shield
           - page: Zero Data Retention
             path: guides/features/zdr.mdx
             slug: guides/features/zdr
+            icon: shield-halved
           - page: App Attribution
             path: app-attribution.mdx
             slug: app-attribution
+            icon: chart-line
           - section: Guardrails
             icon: shield-check
             skip-slug: true
@@ -258,24 +315,31 @@ navigation:
             - page: Guardrails
               path: guides/features/guardrails.mdx
               slug: guides/features/guardrails
+              icon: book-open
             - page: Prompt Injection Detection
               path: guides/features/guardrails/prompt-injection.mdx
               slug: guides/features/guardrails/prompt-injection
+              icon: syringe
             - page: Sensitive Info Guardrail
               path: guides/features/guardrails/sensitive-info.mdx
               slug: guides/features/guardrails/sensitive-info
+              icon: eye-slash
           - page: Service Tiers
             path: guides/features/service-tiers.mdx
             slug: guides/features/service-tiers
+            icon: layer-group
           - page: Sovereign AI
             path: guides/features/sovereign-ai.mdx
             slug: guides/features/sovereign-ai
+            icon: globe
           - page: Router Metadata
             path: guides/features/router-metadata.mdx
             slug: guides/features/router-metadata
+            icon: circle-info
           - page: "Input & Output Logging"
             path: guides/features/input-output-logging.mdx
             slug: guides/features/input-output-logging
+            icon: file-lines
           - section: Broadcast
             icon: broadcast-tower
             skip-slug: true
@@ -283,57 +347,75 @@ navigation:
             - page: Broadcast
               path: guides/features/broadcast.mdx
               slug: guides/features/broadcast
+              icon: compass
             - page: Arize AI
               path: guides/features/broadcast/arize.mdx
               slug: guides/features/broadcast/arize
+              icon: puzzle-piece
             - page: Braintrust
               path: guides/features/broadcast/braintrust.mdx
               slug: guides/features/broadcast/braintrust
+              icon: puzzle-piece
             - page: ClickHouse
               path: guides/features/broadcast/clickhouse.mdx
               slug: guides/features/broadcast/clickhouse
+              icon: puzzle-piece
             - page: Comet Opik
               path: guides/features/broadcast/opik.mdx
               slug: guides/features/broadcast/opik
+              icon: puzzle-piece
             - page: Datadog
               path: guides/features/broadcast/datadog.mdx
               slug: guides/features/broadcast/datadog
+              icon: puzzle-piece
             - page: Grafana Cloud
               path: guides/features/broadcast/grafana.mdx
               slug: guides/features/broadcast/grafana
+              icon: puzzle-piece
             - page: Langfuse
               path: guides/features/broadcast/langfuse.mdx
               slug: guides/features/broadcast/langfuse
+              icon: puzzle-piece
             - page: LangSmith
               path: guides/features/broadcast/langsmith.mdx
               slug: guides/features/broadcast/langsmith
+              icon: puzzle-piece
             - page: New Relic
               path: guides/features/broadcast/newrelic.mdx
               slug: guides/features/broadcast/newrelic
+              icon: puzzle-piece
             - page: OpenTelemetry Collector
               path: guides/features/broadcast/otel-collector.mdx
               slug: guides/features/broadcast/otel-collector
+              icon: puzzle-piece
             - page: PostHog
               path: guides/features/broadcast/posthog.mdx
               slug: guides/features/broadcast/posthog
+              icon: puzzle-piece
             - page: Ramp
               path: guides/features/broadcast/ramp.mdx
               slug: guides/features/broadcast/ramp
+              icon: puzzle-piece
             - page: S3 / S3-Compatible
               path: guides/features/broadcast/s3.mdx
               slug: guides/features/broadcast/s3
+              icon: puzzle-piece
             - page: Sentry
               path: guides/features/broadcast/sentry.mdx
               slug: guides/features/broadcast/sentry
+              icon: puzzle-piece
             - page: Snowflake
               path: guides/features/broadcast/snowflake.mdx
               slug: guides/features/broadcast/snowflake
+              icon: puzzle-piece
             - page: "W&B Weave"
               path: guides/features/broadcast/weave.mdx
               slug: guides/features/broadcast/weave
+              icon: puzzle-piece
             - page: Webhook
               path: guides/features/broadcast/webhook.mdx
               slug: guides/features/broadcast/webhook
+              icon: puzzle-piece
       - section: Privacy
         icon: shield
         skip-slug: true
@@ -341,9 +423,11 @@ navigation:
           - page: Data Collection
             path: guides/privacy/data-collection.mdx
             slug: guides/privacy/data-collection
+            icon: database
           - page: Provider Logging
             path: guides/privacy/provider-logging.mdx
             slug: guides/privacy/provider-logging
+            icon: file-lines
       - section: Best Practices
         icon: lightbulb
         skip-slug: true
@@ -351,15 +435,19 @@ navigation:
           - page: Latency and Performance
             path: guides/best-practices/latency-and-performance.mdx
             slug: guides/best-practices/latency-and-performance
+            icon: gauge-high
           - page: Prompt Caching
             path: guides/best-practices/prompt-caching.mdx
             slug: guides/best-practices/prompt-caching
+            icon: database
           - page: Uptime Optimization
             path: guides/best-practices/uptime-optimization.mdx
             slug: guides/best-practices/uptime-optimization
+            icon: chart-line
           - page: Reasoning Tokens
             path: guides/best-practices/reasoning-tokens.mdx
             slug: guides/best-practices/reasoning-tokens
+            icon: lightbulb
       - section: Community
         icon: users
         skip-slug: true
@@ -367,57 +455,75 @@ navigation:
           - page: Provider Integration
             path: guides/community/for-providers.mdx
             slug: guides/community/for-providers
+            icon: cloud
           - page: Frameworks and Integrations Overview
             path: guides/community/frameworks-and-integrations-overview.mdx
             slug: guides/community/frameworks-and-integrations-overview
+            icon: puzzle-piece
           - page: Awesome OpenRouter
             path: guides/community/awesome-openrouter.mdx
             slug: guides/community/awesome-openrouter
+            icon: star
           - page: Effect AI SDK
             path: guides/community/effect-ai-sdk.mdx
             slug: guides/community/effect-ai-sdk
+            icon: puzzle-piece
           - page: Arize
             path: guides/community/arize.mdx
             slug: guides/community/arize
+            icon: puzzle-piece
           - page: LangChain
             path: guides/community/langchain.mdx
             slug: guides/community/langchain
+            icon: puzzle-piece
           - page: LiveKit
             path: guides/community/livekit.mdx
             slug: guides/community/livekit
+            icon: puzzle-piece
           - page: Langfuse
             path: guides/community/langfuse.mdx
             slug: guides/community/langfuse
+            icon: puzzle-piece
           - page: Mastra
             path: guides/community/mastra.mdx
             slug: guides/community/mastra
+            icon: puzzle-piece
           - page: OpenAI SDK
             path: guides/community/openai-sdk.mdx
             slug: guides/community/openai-sdk
+            icon: puzzle-piece
           - page: Anthropic Agent SDK
             path: guides/community/anthropic-agent-sdk.mdx
             slug: guides/community/anthropic-agent-sdk
+            icon: puzzle-piece
           - page: PydanticAI
             path: guides/community/pydantic-ai.mdx
             slug: guides/community/pydantic-ai
+            icon: puzzle-piece
           - page: Replit
             path: guides/community/replit.mdx
             slug: guides/community/replit
+            icon: puzzle-piece
           - page: TanStack AI
             path: guides/community/tanstack-ai.mdx
             slug: guides/community/tanstack-ai
+            icon: puzzle-piece
           - page: Vercel AI SDK
             path: guides/community/vercel-ai-sdk.mdx
             slug: guides/community/vercel-ai-sdk
+            icon: puzzle-piece
           - page: Xcode
             path: guides/community/xcode.mdx
             slug: guides/community/xcode
+            icon: puzzle-piece
           - page: Zapier
             path: guides/community/zapier.mdx
             slug: guides/community/zapier
+            icon: puzzle-piece
           - page: Infisical
             path: guides/community/infisical.mdx
             slug: guides/community/infisical
+            icon: puzzle-piece
   - tab: api-reference
     layout:
       - section: API Guides
@@ -427,24 +533,31 @@ navigation:
           - page: API Reference
             path: api/reference/overview.mdx
             slug: api/reference/overview
+            icon: book-open
           - page: Streaming
             path: api/reference/streaming.mdx
             slug: api/reference/streaming
+            icon: bars-staggered
           - page: Embeddings
             path: api/reference/embeddings.mdx
             slug: api/reference/embeddings
+            icon: draw-square
           - page: Limits
             path: api/reference/limits.mdx
             slug: api/reference/limits
+            icon: gauge-high
           - page: Authentication
             path: api/reference/authentication.mdx
             slug: api/reference/authentication
+            icon: lock
           - page: Parameters
             path: api/reference/parameters.mdx
             slug: api/reference/parameters
+            icon: gear
           - page: Errors and Debugging
             path: api/reference/errors-and-debugging.mdx
             slug: api/reference/errors-and-debugging
+            icon: triangle-exclamation
           - section: Responses API
             icon: flask
             skip-slug: true
@@ -452,30 +565,38 @@ navigation:
             - page: Responses API Beta
               path: api/reference/responses/overview.mdx
               slug: api/reference/responses/overview
+              icon: compass
             - page: Basic Usage
               path: api/reference/responses/basic-usage.mdx
               slug: api/reference/responses/basic-usage
+              icon: play
             - page: Reasoning
               path: api/reference/responses/reasoning.mdx
               slug: api/reference/responses/reasoning
+              icon: lightbulb
             - page: Tool Calling
               path: api/reference/responses/tool-calling.mdx
               slug: api/reference/responses/tool-calling
+              icon: toolbox
             - page: Web Search
               path: api/reference/responses/web-search.mdx
               slug: api/reference/responses/web-search
+              icon: globe-pointer
             - page: Error Handling
               path: api/reference/responses/error-handling.mdx
               slug: api/reference/responses/error-handling
+              icon: triangle-exclamation
       - api: API Reference
   - tab: client-sdks
     layout:
       - page: Client SDKs
         path: client-sdks/overview.mdx
         slug: client-sdks/overview
+        icon: book
       - page: Usage for Agents
         path: client-sdks/usage-for-agents.mdx
         slug: client-sdks/usage-for-agents
+        icon: robot
       - section: TypeScript SDK
         icon: code
         skip-slug: true
@@ -483,6 +604,7 @@ navigation:
         - page: TypeScript SDK
           path: client-sdks/typescript/overview.mdx
           slug: client-sdks/typescript/overview
+          icon: book
         - section: API Reference
           icon: code
           skip-slug: true
@@ -490,33 +612,43 @@ navigation:
           - page: Analytics - TypeScript SDK
             path: client-sdks/typescript/api-reference/analytics.mdx
             slug: client-sdks/typescript/api-reference/analytics
+            icon: chart-simple
           - page: APIKeys - TypeScript SDK
             path: client-sdks/typescript/api-reference/apikeys.mdx
             slug: client-sdks/typescript/api-reference/apikeys
+            icon: key
           - page: Byok - TypeScript SDK
             path: client-sdks/typescript/api-reference/byok.mdx
             slug: client-sdks/typescript/api-reference/byok
+            icon: file
           - page: Chat - TypeScript SDK
             path: client-sdks/typescript/api-reference/chat.mdx
             slug: client-sdks/typescript/api-reference/chat
+            icon: comments
           - page: Credits - TypeScript SDK
             path: client-sdks/typescript/api-reference/credits.mdx
             slug: client-sdks/typescript/api-reference/credits
+            icon: coins
           - page: Datasets - TypeScript SDK
             path: client-sdks/typescript/api-reference/datasets.mdx
             slug: client-sdks/typescript/api-reference/datasets
+            icon: file
           - page: Embeddings - TypeScript SDK
             path: client-sdks/typescript/api-reference/embeddings.mdx
             slug: client-sdks/typescript/api-reference/embeddings
+            icon: file
           - page: Endpoints - TypeScript SDK
             path: client-sdks/typescript/api-reference/endpoints.mdx
             slug: client-sdks/typescript/api-reference/endpoints
+            icon: network-wired
           - page: Generations - TypeScript SDK
             path: client-sdks/typescript/api-reference/generations.mdx
             slug: client-sdks/typescript/api-reference/generations
+            icon: diagram-project
           - page: Guardrails - TypeScript SDK
             path: client-sdks/typescript/api-reference/guardrails.mdx
             slug: client-sdks/typescript/api-reference/guardrails
+            icon: file
           - section: Models
             icon: cube
             skip-slug: true
@@ -527,36 +659,47 @@ navigation:
           - page: OAuth - TypeScript SDK
             path: client-sdks/typescript/api-reference/oauth.mdx
             slug: client-sdks/typescript/api-reference/oauth
+            icon: shield-check
           - page: Observability - TypeScript SDK
             path: client-sdks/typescript/api-reference/observability.mdx
             slug: client-sdks/typescript/api-reference/observability
+            icon: file
           - page: Organization - TypeScript SDK
             path: client-sdks/typescript/api-reference/organization.mdx
             slug: client-sdks/typescript/api-reference/organization
+            icon: file
           - page: Presets - TypeScript SDK
             path: client-sdks/typescript/api-reference/presets.mdx
             slug: client-sdks/typescript/api-reference/presets
+            icon: file
           - page: Providers - TypeScript SDK
             path: client-sdks/typescript/api-reference/providers.mdx
             slug: client-sdks/typescript/api-reference/providers
+            icon: cloud
           - page: Rerank - TypeScript SDK
             path: client-sdks/typescript/api-reference/rerank.mdx
             slug: client-sdks/typescript/api-reference/rerank
+            icon: file
           - page: Beta.Responses - TypeScript SDK
             path: client-sdks/typescript/api-reference/responses.mdx
             slug: client-sdks/typescript/api-reference/responses
+            icon: reply
           - page: Transcriptions - TypeScript SDK
             path: client-sdks/typescript/api-reference/stt.mdx
             slug: client-sdks/typescript/api-reference/stt
+            icon: file
           - page: Speech - TypeScript SDK
             path: client-sdks/typescript/api-reference/tts.mdx
             slug: client-sdks/typescript/api-reference/tts
+            icon: file
           - page: VideoGeneration - TypeScript SDK
             path: client-sdks/typescript/api-reference/videogeneration.mdx
             slug: client-sdks/typescript/api-reference/videogeneration
+            icon: file
           - page: Workspaces - TypeScript SDK
             path: client-sdks/typescript/api-reference/workspaces.mdx
             slug: client-sdks/typescript/api-reference/workspaces
+            icon: file
       - section: Python SDK
         icon: code
         skip-slug: true
@@ -564,6 +707,7 @@ navigation:
         - page: Python SDK
           path: client-sdks/python/overview.mdx
           slug: client-sdks/python/overview
+          icon: book
         - section: API Reference
           icon: code
           skip-slug: true
@@ -571,33 +715,43 @@ navigation:
           - page: Analytics - Python SDK
             path: client-sdks/python/api-reference/analytics.mdx
             slug: client-sdks/python/api-reference/analytics
+            icon: chart-simple
           - page: APIKeys - Python SDK
             path: client-sdks/python/api-reference/apikeys.mdx
             slug: client-sdks/python/api-reference/apikeys
+            icon: key
           - page: Byok - Python SDK
             path: client-sdks/python/api-reference/byok.mdx
             slug: client-sdks/python/api-reference/byok
+            icon: file
           - page: Chat - Python SDK
             path: client-sdks/python/api-reference/chat.mdx
             slug: client-sdks/python/api-reference/chat
+            icon: comments
           - page: Credits - Python SDK
             path: client-sdks/python/api-reference/credits.mdx
             slug: client-sdks/python/api-reference/credits
+            icon: coins
           - page: Datasets - Python SDK
             path: client-sdks/python/api-reference/datasets.mdx
             slug: client-sdks/python/api-reference/datasets
+            icon: file
           - page: Embeddings - Python SDK
             path: client-sdks/python/api-reference/embeddings.mdx
             slug: client-sdks/python/api-reference/embeddings
+            icon: file
           - page: Endpoints - Python SDK
             path: client-sdks/python/api-reference/endpoints.mdx
             slug: client-sdks/python/api-reference/endpoints
+            icon: network-wired
           - page: Generations - Python SDK
             path: client-sdks/python/api-reference/generations.mdx
             slug: client-sdks/python/api-reference/generations
+            icon: diagram-project
           - page: Guardrails - Python SDK
             path: client-sdks/python/api-reference/guardrails.mdx
             slug: client-sdks/python/api-reference/guardrails
+            icon: file
           - section: Models
             icon: cube
             skip-slug: true
@@ -608,36 +762,47 @@ navigation:
           - page: OAuth - Python SDK
             path: client-sdks/python/api-reference/oauth.mdx
             slug: client-sdks/python/api-reference/oauth
+            icon: shield-check
           - page: Observability - Python SDK
             path: client-sdks/python/api-reference/observability.mdx
             slug: client-sdks/python/api-reference/observability
+            icon: file
           - page: Organization - Python SDK
             path: client-sdks/python/api-reference/organization.mdx
             slug: client-sdks/python/api-reference/organization
+            icon: file
           - page: Presets - Python SDK
             path: client-sdks/python/api-reference/presets.mdx
             slug: client-sdks/python/api-reference/presets
+            icon: file
           - page: Providers - Python SDK
             path: client-sdks/python/api-reference/providers.mdx
             slug: client-sdks/python/api-reference/providers
+            icon: cloud
           - page: Rerank - Python SDK
             path: client-sdks/python/api-reference/rerank.mdx
             slug: client-sdks/python/api-reference/rerank
+            icon: file
           - page: Beta.Responses - Python SDK
             path: client-sdks/python/api-reference/responses.mdx
             slug: client-sdks/python/api-reference/responses
+            icon: reply
           - page: Transcriptions - Python SDK
             path: client-sdks/python/api-reference/stt.mdx
             slug: client-sdks/python/api-reference/stt
+            icon: file
           - page: Speech - Python SDK
             path: client-sdks/python/api-reference/tts.mdx
             slug: client-sdks/python/api-reference/tts
+            icon: file
           - page: VideoGeneration - Python SDK
             path: client-sdks/python/api-reference/videogeneration.mdx
             slug: client-sdks/python/api-reference/videogeneration
+            icon: file
           - page: Workspaces - Python SDK
             path: client-sdks/python/api-reference/workspaces.mdx
             slug: client-sdks/python/api-reference/workspaces
+            icon: file
       - section: Go SDK
         icon: code
         skip-slug: true
@@ -649,33 +814,43 @@ navigation:
           - page: Analytics - Go SDK
             path: client-sdks/go/api-reference/analytics.mdx
             slug: client-sdks/go/api-reference/analytics
+            icon: chart-simple
           - page: APIKeys - Go SDK
             path: client-sdks/go/api-reference/apikeys.mdx
             slug: client-sdks/go/api-reference/apikeys
+            icon: key
           - page: Byok - Go SDK
             path: client-sdks/go/api-reference/byok.mdx
             slug: client-sdks/go/api-reference/byok
+            icon: file
           - page: Chat - Go SDK
             path: client-sdks/go/api-reference/chat.mdx
             slug: client-sdks/go/api-reference/chat
+            icon: comments
           - page: Credits - Go SDK
             path: client-sdks/go/api-reference/credits.mdx
             slug: client-sdks/go/api-reference/credits
+            icon: coins
           - page: Datasets - Go SDK
             path: client-sdks/go/api-reference/datasets.mdx
             slug: client-sdks/go/api-reference/datasets
+            icon: file
           - page: Embeddings - Go SDK
             path: client-sdks/go/api-reference/embeddings.mdx
             slug: client-sdks/go/api-reference/embeddings
+            icon: file
           - page: Endpoints - Go SDK
             path: client-sdks/go/api-reference/endpoints.mdx
             slug: client-sdks/go/api-reference/endpoints
+            icon: network-wired
           - page: Generations - Go SDK
             path: client-sdks/go/api-reference/generations.mdx
             slug: client-sdks/go/api-reference/generations
+            icon: diagram-project
           - page: Guardrails - Go SDK
             path: client-sdks/go/api-reference/guardrails.mdx
             slug: client-sdks/go/api-reference/guardrails
+            icon: file
           - section: Models
             icon: cube
             skip-slug: true
@@ -683,39 +858,51 @@ navigation:
             - page: Models - Go SDK
               path: client-sdks/go/api-reference/models.mdx
               slug: client-sdks/go/api-reference/models
+              icon: cube
           - page: OAuth - Go SDK
             path: client-sdks/go/api-reference/oauth.mdx
             slug: client-sdks/go/api-reference/oauth
+            icon: shield-check
           - page: Observability - Go SDK
             path: client-sdks/go/api-reference/observability.mdx
             slug: client-sdks/go/api-reference/observability
+            icon: file
           - page: Organization - Go SDK
             path: client-sdks/go/api-reference/organization.mdx
             slug: client-sdks/go/api-reference/organization
+            icon: file
           - page: Presets - Go SDK
             path: client-sdks/go/api-reference/presets.mdx
             slug: client-sdks/go/api-reference/presets
+            icon: file
           - page: Providers - Go SDK
             path: client-sdks/go/api-reference/providers.mdx
             slug: client-sdks/go/api-reference/providers
+            icon: cloud
           - page: Rerank - Go SDK
             path: client-sdks/go/api-reference/rerank.mdx
             slug: client-sdks/go/api-reference/rerank
+            icon: file
           - page: Beta.Responses - Go SDK
             path: client-sdks/go/api-reference/responses.mdx
             slug: client-sdks/go/api-reference/responses
+            icon: reply
           - page: Transcriptions - Go SDK
             path: client-sdks/go/api-reference/stt.mdx
             slug: client-sdks/go/api-reference/stt
+            icon: file
           - page: Speech - Go SDK
             path: client-sdks/go/api-reference/tts.mdx
             slug: client-sdks/go/api-reference/tts
+            icon: file
           - page: VideoGeneration - Go SDK
             path: client-sdks/go/api-reference/videogeneration.mdx
             slug: client-sdks/go/api-reference/videogeneration
+            icon: file
           - page: Workspaces - Go SDK
             path: client-sdks/go/api-reference/workspaces.mdx
             slug: client-sdks/go/api-reference/workspaces
+            icon: file
       - section: DevTools
         icon: stars
         skip-slug: true
@@ -723,17 +910,21 @@ navigation:
         - page: DevTools
           path: client-sdks/dev-tools/devtools.mdx
           slug: client-sdks/dev-tools/devtools
+          icon: microscope
       - page: "Migrating to @openrouter/agent"
         path: client-sdks/agent-migration.mdx
         slug: client-sdks/agent-migration
+        icon: arrow-right-arrow-left
   - tab: agent-sdk
     layout:
       - page: Agent SDK
         path: agent-sdk/overview.mdx
         slug: agent-sdk/overview
+        icon: book
       - page: Usage for Agents
         path: agent-sdk/usage-for-agents.mdx
         slug: agent-sdk/usage-for-agents
+        icon: robot
       - section: TypeScript SDK
         icon: code
         skip-slug: true
@@ -741,6 +932,7 @@ navigation:
         - page: TypeScript SDK
           path: agent-sdk/typescript/overview.mdx
           slug: agent-sdk/typescript/overview
+          icon: book
         - section: API Reference
           icon: code
           skip-slug: true
@@ -748,27 +940,35 @@ navigation:
           - page: Analytics - TypeScript SDK
             path: agent-sdk/typescript/api-reference/analytics.mdx
             slug: agent-sdk/typescript/api-reference/analytics
+            icon: chart-simple
           - page: APIKeys - TypeScript SDK
             path: agent-sdk/typescript/api-reference/apikeys.mdx
             slug: agent-sdk/typescript/api-reference/apikeys
+            icon: key
           - page: Chat - TypeScript SDK
             path: agent-sdk/typescript/api-reference/chat.mdx
             slug: agent-sdk/typescript/api-reference/chat
+            icon: comments
           - page: Credits - TypeScript SDK
             path: agent-sdk/typescript/api-reference/credits.mdx
             slug: agent-sdk/typescript/api-reference/credits
+            icon: coins
           - page: Embeddings - TypeScript SDK
             path: agent-sdk/typescript/api-reference/embeddings.mdx
             slug: agent-sdk/typescript/api-reference/embeddings
+            icon: file
           - page: Endpoints - TypeScript SDK
             path: agent-sdk/typescript/api-reference/endpoints.mdx
             slug: agent-sdk/typescript/api-reference/endpoints
+            icon: network-wired
           - page: Generations - TypeScript SDK
             path: agent-sdk/typescript/api-reference/generations.mdx
             slug: agent-sdk/typescript/api-reference/generations
+            icon: diagram-project
           - page: Guardrails - TypeScript SDK
             path: agent-sdk/typescript/api-reference/guardrails.mdx
             slug: agent-sdk/typescript/api-reference/guardrails
+            icon: file
           - section: Models
             icon: cube
             skip-slug: true
@@ -776,30 +976,39 @@ navigation:
             - page: Models - TypeScript SDK
               path: agent-sdk/typescript/api-reference/models.mdx
               slug: agent-sdk/typescript/api-reference/models
+              icon: cube
           - page: OAuth - TypeScript SDK
             path: agent-sdk/typescript/api-reference/oauth.mdx
             slug: agent-sdk/typescript/api-reference/oauth
+            icon: shield-check
           - page: Organization - TypeScript SDK
             path: agent-sdk/typescript/api-reference/organization.mdx
             slug: agent-sdk/typescript/api-reference/organization
+            icon: file
           - page: Providers - TypeScript SDK
             path: agent-sdk/typescript/api-reference/providers.mdx
             slug: agent-sdk/typescript/api-reference/providers
+            icon: cloud
           - page: Rerank - TypeScript SDK
             path: agent-sdk/typescript/api-reference/rerank.mdx
             slug: agent-sdk/typescript/api-reference/rerank
+            icon: file
           - page: Beta.Responses - TypeScript SDK
             path: agent-sdk/typescript/api-reference/responses.mdx
             slug: agent-sdk/typescript/api-reference/responses
+            icon: reply
           - page: Speech - TypeScript SDK
             path: agent-sdk/typescript/api-reference/tts.mdx
             slug: agent-sdk/typescript/api-reference/tts
+            icon: file
           - page: VideoGeneration - TypeScript SDK
             path: agent-sdk/typescript/api-reference/videogeneration.mdx
             slug: agent-sdk/typescript/api-reference/videogeneration
+            icon: file
           - page: Workspaces - TypeScript SDK
             path: agent-sdk/typescript/api-reference/workspaces.mdx
             slug: agent-sdk/typescript/api-reference/workspaces
+            icon: file
       - section: Call Model
         icon: comment-nodes
         skip-slug: true
@@ -807,36 +1016,46 @@ navigation:
         - page: Call Model (Typescript)
           path: agent-sdk/call-model/overview.mdx
           slug: agent-sdk/call-model/overview
+          icon: book
         - page: Working with Items
           path: agent-sdk/call-model/items.mdx
           slug: agent-sdk/call-model/items
         - page: API Reference
           path: agent-sdk/call-model/api-reference.mdx
           slug: agent-sdk/call-model/api-reference
+          icon: code
         - page: Dynamic Parameters
           path: agent-sdk/call-model/dynamic-parameters.mdx
           slug: agent-sdk/call-model/dynamic-parameters
+          icon: gear
         - page: Next Turn Params
           path: agent-sdk/call-model/next-turn-params.mdx
           slug: agent-sdk/call-model/next-turn-params
+          icon: toolbox
         - page: Stop Conditions
           path: agent-sdk/call-model/stop-conditions.mdx
           slug: agent-sdk/call-model/stop-conditions
+          icon: stopwatch
         - page: Streaming
           path: agent-sdk/call-model/streaming.mdx
           slug: agent-sdk/call-model/streaming
+          icon: bars-staggered
         - page: Text Generation
           path: agent-sdk/call-model/text-generation.mdx
           slug: agent-sdk/call-model/text-generation
+          icon: pen-to-square
         - page: Message Formats
           path: agent-sdk/call-model/message-formats.mdx
           slug: agent-sdk/call-model/message-formats
+          icon: messages
         - page: Tools
           path: agent-sdk/call-model/tools.mdx
           slug: agent-sdk/call-model/tools
+          icon: toolbox
         - page: "Tool Approval & State Persistence"
           path: agent-sdk/call-model/tool-approval-state.mdx
           slug: agent-sdk/call-model/tool-approval-state
+          icon: shield-check
         - section: Examples
           icon: code
           skip-slug: true
@@ -844,9 +1063,11 @@ navigation:
           - page: Weather Tool
             path: agent-sdk/call-model/examples/weather-tool.mdx
             slug: agent-sdk/call-model/examples/weather-tool
+            icon: cloud
           - page: Skills Loader
             path: agent-sdk/call-model/examples/skills-loader.mdx
             slug: agent-sdk/call-model/examples/skills-loader
+            icon: robot
       - section: DevTools
         icon: stars
         skip-slug: true
@@ -854,9 +1075,11 @@ navigation:
         - page: DevTools
           path: agent-sdk/dev-tools/devtools.mdx
           slug: agent-sdk/dev-tools/devtools
+          icon: microscope
       - page: "Migrating to @openrouter/agent"
         path: agent-sdk/agent-migration.mdx
         slug: agent-sdk/agent-migration
+        icon: arrow-right-arrow-left
   - tab: cookbook
     layout:
       - section: Get Started
@@ -866,12 +1089,15 @@ navigation:
           - page: "Quickstart: Build a Chat App"
             path: cookbook/get-started/quickstart.mdx
             slug: cookbook/get-started/quickstart
+            icon: message
           - page: Enterprise Quickstart
             path: cookbook/get-started/enterprise-quickstart.mdx
             slug: cookbook/get-started/enterprise-quickstart
+            icon: building
           - page: Free Models Router
             path: cookbook/get-started/free-models-router-playground.mdx
             slug: cookbook/get-started/free-models-router-playground
+            icon: gift
       - section: Working with Coding Agents
         icon: robot
         skip-slug: true
@@ -879,33 +1105,43 @@ navigation:
           - page: Automatic Code Review
             path: cookbook/coding-agents/automatic-code-review.mdx
             slug: cookbook/coding-agents/automatic-code-review
+            icon: magnifying-glass-chart
           - page: Claude Code
             path: cookbook/coding-agents/claude-code-integration.mdx
             slug: cookbook/coding-agents/claude-code-integration
+            icon: terminal
           - page: Claude Desktop
             path: cookbook/coding-agents/claude-desktop-integration.mdx
             slug: cookbook/coding-agents/claude-desktop-integration
+            icon: desktop
           - page: Codex CLI
             path: cookbook/coding-agents/codex-cli.mdx
             slug: cookbook/coding-agents/codex-cli
+            icon: code
           - page: Cursor
             path: cookbook/coding-agents/cursor-integration.mdx
             slug: cookbook/coding-agents/cursor-integration
+            icon: desktop
           - page: Hermes Agent
             path: cookbook/coding-agents/hermes-integration.mdx
             slug: cookbook/coding-agents/hermes-integration
+            icon: bolt
           - page: Junie CLI
             path: cookbook/coding-agents/junie.mdx
             slug: cookbook/coding-agents/junie
+            icon: terminal
           - page: Using MCP Servers with OpenRouter
             path: cookbook/coding-agents/mcp-servers.mdx
             slug: cookbook/coding-agents/mcp-servers
+            icon: server
           - page: OpenClaw 🦞
             path: cookbook/coding-agents/openclaw-integration.mdx
             slug: cookbook/coding-agents/openclaw-integration
+            icon: messages
           - page: OpenCode
             path: cookbook/coding-agents/opencode-integration.mdx
             slug: cookbook/coding-agents/opencode-integration
+            icon: terminal
       - section: Building Agents
         icon: hammer
         skip-slug: true
@@ -913,15 +1149,19 @@ navigation:
           - page: Add Human-in-the-Loop Controls to an Agent SDK Agent
             path: cookbook/building-agents/hitl-tools.mdx
             slug: cookbook/building-agents/hitl-tools
+            icon: user-check
           - page: Build a Long-Horizon Agent
             path: cookbook/building-agents/long-horizon-agents.mdx
             slug: cookbook/building-agents/long-horizon-agents
+            icon: clock
           - page: Build Your Own Agent TUI
             path: cookbook/building-agents/create-agent-harness-tui.mdx
             slug: cookbook/building-agents/create-agent-harness-tui
+            icon: hammer
           - page: Build Your Own Headless Agent
             path: cookbook/building-agents/create-headless-agent.mdx
             slug: cookbook/building-agents/create-headless-agent
+            icon: robot
       - section: Video Generation
         icon: film
         skip-slug: true
@@ -929,21 +1169,27 @@ navigation:
           - page: Choose a Video Generation Model
             path: cookbook/video-generation/choose-video-model.mdx
             slug: cookbook/video-generation/choose-video-model
+            icon: filter
           - page: Generate and Download a Video from Text
             path: cookbook/video-generation/text-to-video.mdx
             slug: cookbook/video-generation/text-to-video
+            icon: wand-magic-sparkles
           - page: Get Video Results with Webhooks
             path: cookbook/video-generation/video-generation-webhooks.mdx
             slug: cookbook/video-generation/video-generation-webhooks
+            icon: link
           - page: Guide a Video with Reference Images
             path: cookbook/video-generation/reference-to-video.mdx
             slug: cookbook/video-generation/reference-to-video
+            icon: images
           - page: Turn an Image into a Video
             path: cookbook/video-generation/image-to-video.mdx
             slug: cookbook/video-generation/image-to-video
+            icon: image
           - page: Use Provider-Specific Video Options
             path: cookbook/video-generation/provider-specific-video-options.mdx
             slug: cookbook/video-generation/provider-specific-video-options
+            icon: sliders
       - section: "Evaluate & Optimize"
         icon: flask
         skip-slug: true
@@ -951,6 +1197,7 @@ navigation:
           - page: Distillation
             path: cookbook/evaluate-and-optimize/distillation.mdx
             slug: cookbook/evaluate-and-optimize/distillation
+            icon: filter
           - section: Model Migrations
             icon: arrow-right-arrow-left
             skip-slug: true
@@ -958,18 +1205,23 @@ navigation:
             - page: Claude 4.7 Migration Guide
               path: cookbook/evaluate-and-optimize/model-migrations/claude-4-7.mdx
               slug: cookbook/evaluate-and-optimize/model-migrations/claude-4-7
+              icon: robot
             - page: Claude 4.6 Migration Guide
               path: cookbook/evaluate-and-optimize/model-migrations/claude-4-6.mdx
               slug: cookbook/evaluate-and-optimize/model-migrations/claude-4-6
+              icon: robot
             - page: GPT-5.4 Migration Guide
               path: cookbook/evaluate-and-optimize/model-migrations/gpt-5-4.mdx
               slug: cookbook/evaluate-and-optimize/model-migrations/gpt-5-4
+              icon: microchip
           - page: "RAG with Embeddings & Rerank"
             path: cookbook/evaluate-and-optimize/rag.mdx
             slug: cookbook/evaluate-and-optimize/rag
+            icon: magnifying-glass-chart
           - page: Red Teaming
             path: cookbook/evaluate-and-optimize/red-teaming.mdx
             slug: cookbook/evaluate-and-optimize/red-teaming
+            icon: flask-vial
       - section: Administration
         icon: chart-line
         skip-slug: true
@@ -977,21 +1229,27 @@ navigation:
           - page: Activity Export
             path: cookbook/administration/activity-export.mdx
             slug: cookbook/administration/activity-export
+            icon: file-export
           - page: API Key Rotation
             path: cookbook/administration/api-key-rotation.mdx
             slug: cookbook/administration/api-key-rotation
+            icon: rotate
           - page: Crypto API
             path: cookbook/administration/crypto-api.mdx
             slug: cookbook/administration/crypto-api
+            icon: bitcoin
           - page: Organization Management
             path: cookbook/administration/organization-management.mdx
             slug: cookbook/administration/organization-management
+            icon: building-user
           - page: Usage Accounting
             path: cookbook/administration/usage-accounting.mdx
             slug: cookbook/administration/usage-accounting
+            icon: calculator
           - page: User Tracking
             path: cookbook/administration/user-tracking.mdx
             slug: cookbook/administration/user-tracking
+            icon: users
   - tab: changelog
     layout:
       - section: Changelog

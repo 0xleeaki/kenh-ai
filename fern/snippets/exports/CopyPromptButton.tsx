@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 export const CopyPromptButton = ({ prompt, buttonLabel = "Copy prompt" }) => {
   const [isCopied, setIsCopied] = useState(false);
 

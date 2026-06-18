@@ -1,3 +1,4 @@
+import React from "react";
 export const Template = ({ children, data }) => {
   const replace = (s) => s.replace(/\{\{(\w+)\}\}/g, (_, k) => (k in data ? data[k] : `{{${k}}}`));
 
